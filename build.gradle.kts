@@ -1,4 +1,3 @@
-import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -6,9 +5,6 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.kotlinter)
     alias(libs.plugins.publish)
-    alias(libs.plugins.binaryCompatibilityValidator)
-    alias(libs.plugins.kover)
-    alias(libs.plugins.detekt)
 }
 
 group = "me.devnatan"
@@ -37,6 +33,11 @@ repositories {
 kotlin {
     explicitApi()
 
+    @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
+    abiValidation {
+        enabled.set(true)
+    }
+
     jvm {
         tasks.named<Test>("jvmTest") {
             useJUnitPlatform()
@@ -50,11 +51,6 @@ kotlin {
                 exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
             }
         }
-        tasks.withType<KotlinCompile>().configureEach {
-            kotlinOptions {
-                freeCompilerArgs += listOf("-Xjvm-default=all")
-            }
-        }
     }
 
     linuxX64()
@@ -63,7 +59,6 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-common"))
                 implementation(libs.ktx.coroutines.core)
                 implementation(libs.ktx.datetime)
                 implementation(libs.bundles.ktor)
@@ -121,24 +116,9 @@ tasks {
         dependsOn("installKotlinterPrePushHook")
     }
 
-    withType<Detekt>().configureEach {
-        jvmTarget = "11"
-
-        reports {
-            xml.required.set(true)
-        }
-    }
-
     // https://youtrack.jetbrains.com/issue/KT-46466/Kotlin-MPP-publishing-Gradle-7-disables-optimizations-because-of-task-dependencies
     val signingTasks = withType<Sign>()
     withType<AbstractPublishToMaven>().configureEach {
         dependsOn(signingTasks)
     }
-}
-
-detekt {
-    buildUponDefaultConfig = true
-    allRules = false
-    config.setFrom(files("$projectDir/config/detekt.yml"))
-    baseline = file("$projectDir/config/baseline.xml")
 }

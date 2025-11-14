@@ -1,19 +1,16 @@
 [versions]
-kotlin = "1.9.22"
+kotlin = "2.2.21"
 ktx-coroutines = "1.10.2"
-ktx-serialization = "1.7.1"
+ktx-serialization = "1.9.0"
 ktor = "2.3.12"
 junixsocket = "2.6.1"
-ktx-datetime = "0.6.2"
+ktx-datetime = "0.7.1"
 junit = "5.12.2"
 slf4j = "2.0.13"
 apache-compress = "1.26.2"
-kotlinx-io = "0.4.0"
+kotlinx-io = "0.8.0"
 plugin-kotlinter = "4.4.1"
 plugin-publish = "0.31.0"
-plugin-binaryCompatibilityValidator = "0.18.1"
-plugin-kover = "0.8.3"
-plugin-detekt = "1.23.6"
 
 [libraries.ktx-coroutines-core]
 module = "org.jetbrains.kotlinx:kotlinx-coroutines-core"
@@ -108,6 +105,3 @@ kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref 
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 kotlinter = { id = "org.jmailen.kotlinter", version.ref = "plugin-kotlinter" }
 publish = { id = "com.vanniktech.maven.publish", version.ref = "plugin-publish" }
-binaryCompatibilityValidator = { id = "org.jetbrains.kotlinx.binary-compatibility-validator", version.ref = "plugin-binaryCompatibilityValidator" }
-kover = { id = "org.jetbrains.kotlinx.kover", version.ref = "plugin-kover" }
-detekt = { id = "io.gitlab.arturbosch.detekt", version.ref = "plugin-detekt" }
