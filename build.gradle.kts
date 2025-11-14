@@ -1,4 +1,3 @@
-import io.gitlab.arturbosch.detekt.Detekt
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
@@ -6,8 +5,6 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.kotlinter)
     alias(libs.plugins.publish)
-    alias(libs.plugins.kover)
-    alias(libs.plugins.detekt)
 }
 
 group = "me.devnatan"
@@ -129,22 +126,9 @@ tasks {
         dependsOn("installKotlinterPrePushHook")
     }
 
-    withType<Detekt>().configureEach {
-        reports {
-            xml.required.set(true)
-        }
-    }
-
     // https://youtrack.jetbrains.com/issue/KT-46466/Kotlin-MPP-publishing-Gradle-7-disables-optimizations-because-of-task-dependencies
     val signingTasks = withType<Sign>()
     withType<AbstractPublishToMaven>().configureEach {
         dependsOn(signingTasks)
     }
-}
-
-detekt {
-    buildUponDefaultConfig = true
-    allRules = false
-    config.setFrom(files("$projectDir/config/detekt.yml"))
-    baseline = file("$projectDir/config/baseline.xml")
 }
