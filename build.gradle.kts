@@ -35,7 +35,6 @@ kotlin {
 
     @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
     abiValidation {
-        // Use the set() function to ensure compatibility with older Gradle versions
         enabled.set(true)
     }
 
@@ -52,16 +51,7 @@ kotlin {
                 exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
             }
         }
-        // tasks.withType<KotlinCompile>().configureEach {
-        //     kotlinOptions {
-        //         freeCompilerArgs += listOf("-Xjvm-default=all")
-        //     }
-        // }
     }
-
-    // compilerOptions {
-    //     freeCompilerArgs += listOf("-Xjvm-default=all")
-    // }
 
     linuxX64()
     macosX64()
