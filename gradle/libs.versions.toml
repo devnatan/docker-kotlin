@@ -12,8 +12,8 @@ kotlinx-io = "0.8.0"
 plugin-kotlinter = "4.4.1"
 plugin-publish = "0.31.0"
 plugin-binaryCompatibilityValidator = "0.18.1"
-plugin-kover = "0.8.3"
 plugin-detekt = "1.23.6"
+plugin-kover = "0.9.3"
 
 [libraries.ktx-coroutines-core]
 module = "org.jetbrains.kotlinx:kotlinx-coroutines-core"
