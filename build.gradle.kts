@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.kotlinter)
     alias(libs.plugins.publish)
-    alias(libs.plugins.binaryCompatibilityValidator)
     alias(libs.plugins.kover)
     alias(libs.plugins.detekt)
 }
@@ -37,6 +36,12 @@ repositories {
 kotlin {
     explicitApi()
 
+    @OptIn(org.jetbrains.kotlin.gradle.dsl.abi.ExperimentalAbiValidation::class)
+    abiValidation {
+        // Use the set() function to ensure compatibility with older Gradle versions
+        enabled.set(true)
+    }
+
     jvm {
         tasks.named<Test>("jvmTest") {
             useJUnitPlatform()
@@ -50,12 +55,16 @@ kotlin {
                 exceptionFormat = org.gradle.api.tasks.testing.logging.TestExceptionFormat.FULL
             }
         }
-        tasks.withType<KotlinCompile>().configureEach {
-            kotlinOptions {
-                freeCompilerArgs += listOf("-Xjvm-default=all")
-            }
-        }
+        // tasks.withType<KotlinCompile>().configureEach {
+        //     kotlinOptions {
+        //         freeCompilerArgs += listOf("-Xjvm-default=all")
+        //     }
+        // }
     }
+
+    // compilerOptions {
+    //     freeCompilerArgs += listOf("-Xjvm-default=all")
+    // }
 
     linuxX64()
     macosX64()
@@ -63,7 +72,6 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-common"))
                 implementation(libs.ktx.coroutines.core)
                 implementation(libs.ktx.datetime)
                 implementation(libs.bundles.ktor)
@@ -122,8 +130,6 @@ tasks {
     }
 
     withType<Detekt>().configureEach {
-        jvmTarget = "11"
-
         reports {
             xml.required.set(true)
         }
