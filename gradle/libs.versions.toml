@@ -10,7 +10,7 @@ slf4j = "2.0.13"
 apache-compress = "1.26.2"
 kotlinx-io = "0.8.0"
 plugin-kotlinter = "4.4.1"
-plugin-publish = "0.31.0"
+plugin-publish = "0.35.0"
 
 [libraries.ktx-coroutines-core]
 module = "org.jetbrains.kotlinx:kotlinx-coroutines-core"
