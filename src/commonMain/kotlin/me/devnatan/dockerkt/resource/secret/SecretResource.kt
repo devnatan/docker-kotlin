@@ -111,7 +111,7 @@ public suspend inline fun SecretResource.update(
     id: String,
     version: Long,
     options: SecretSpec.() -> Unit,
-) = update(id, version, SecretSpec().apply(options))
+): Unit = update(id, version, SecretSpec().apply(options))
 
 /**
  * Sets the secret list filters to the given label pair.
