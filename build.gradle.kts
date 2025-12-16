@@ -110,3 +110,13 @@ kotlin {
 tasks.check {
     dependsOn("installKotlinterPrePushHook")
 }
+
+publishing {
+    repositories {
+        maven {
+            name = "githubPackages"
+            url = uri("https://maven.pkg.github.com/devnatan/docker-kotlin")
+            credentials(PasswordCredentials::class)
+        }
+    }
+}
