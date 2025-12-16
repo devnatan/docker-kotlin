@@ -111,6 +111,10 @@ tasks.check {
     dependsOn("installKotlinterPrePushHook")
 }
 
+mavenPublishing {
+    signing.isRequired = false
+}
+
 publishing {
     repositories {
         maven {
