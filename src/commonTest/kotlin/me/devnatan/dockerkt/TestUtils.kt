@@ -31,35 +31,46 @@ suspend fun <R> DockerClient.withContainer(
     image: String,
     options: ContainerCreateOptions.() -> Unit = {},
     block: suspend (String) -> R,
-) = withImage(image) { imageTag ->
-    try {
-        val id =
-            containers.create {
-                this.image = imageTag
-                apply(options)
-            }
-        block(id)
-        containers.remove(id) {
-            force = true
-            removeAnonymousVolumes = true
+): Unit =
+    withImage(image) { imageTag ->
+        val containerId: String
+        try {
+            containerId =
+                containers.create {
+                    this.image = imageTag
+                    apply(options)
+                }
+        } catch (e: Throwable) {
+            fail("Failed to create container", e)
         }
-    } catch (e: Throwable) {
-        fail("Failed to create container", e)
+
+        try {
+            block(containerId)
+        } finally {
+            containers.remove(containerId) {
+                force = true
+                removeAnonymousVolumes = true
+            }
+        }
     }
-}
 
 suspend fun <R> DockerClient.withVolume(
     config: VolumeCreateOptions.() -> Unit = {},
     block: suspend (Volume) -> R,
 ) {
+    val volume: Volume =
+        try {
+            volumes.create(config)
+        } catch (e: Throwable) {
+            fail("Failed to create volume", e)
+        }
+
     try {
-        val volume = volumes.create(config)
         block(volume)
+    } finally {
         volumes.remove(volume.name) {
             force = true
         }
-    } catch (e: Throwable) {
-        fail("Failed to create volume", e)
     }
 }
 
