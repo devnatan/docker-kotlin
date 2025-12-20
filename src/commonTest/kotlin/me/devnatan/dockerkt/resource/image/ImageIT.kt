@@ -9,11 +9,11 @@ import kotlin.test.assertTrue
 import kotlin.test.fail
 
 class ImageIT : ResourceIT() {
-
     @Test
-    fun `list images`() = runTest {
-        testClient.images.list()
-    }
+    fun `list images`() =
+        runTest {
+            testClient.images.list()
+        }
 
     @Test
     fun `image pull`() =
