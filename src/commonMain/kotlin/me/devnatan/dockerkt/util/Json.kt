@@ -1,15 +1,14 @@
 package me.devnatan.dockerkt.util
 
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 
-private val json: Json =
+public val DockerKotlinJson: Json =
     Json {
         ignoreUnknownKeys = true
-        isLenient = true
         allowStructuredMapKeys = true
+        explicitNulls = false
     }
 
-public fun toJsonEncodedString(value: Any): String = json.encodeToString(value)
+public fun toJsonEncodedString(value: Any): String = DockerKotlinJson.encodeToString(value)
 
-public fun fromJsonEncodedString(value: String): Map<String, String?> = json.decodeFromString(value)
+public fun fromJsonEncodedString(value: String): Map<String, String?> = DockerKotlinJson.decodeFromString(value)

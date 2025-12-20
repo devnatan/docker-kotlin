@@ -13,6 +13,7 @@ import me.devnatan.dockerkt.resource.network.NetworkResource
 import me.devnatan.dockerkt.resource.secret.SecretResource
 import me.devnatan.dockerkt.resource.system.SystemResource
 import me.devnatan.dockerkt.resource.volume.VolumeResource
+import me.devnatan.dockerkt.util.DockerKotlinJson
 import kotlin.coroutines.CoroutineContext
 
 public actual class DockerClient public actual constructor(
@@ -22,7 +23,7 @@ public actual class DockerClient public actual constructor(
 
     actual override val coroutineContext: CoroutineContext = SupervisorJob()
 
-    public actual val json: Json = Json { ignoreUnknownKeys = true }
+    public actual val json: Json get() = DockerKotlinJson
     public actual val httpClient: HttpClient = createHttpClient(this)
 
     @get:JvmName("images")
