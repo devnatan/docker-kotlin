@@ -1,15 +1,20 @@
-@file:OptIn(ExperimentalCoroutinesApi::class)
-
 package me.devnatan.dockerkt.resource.image
 
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.test.runTest
 import me.devnatan.dockerkt.resource.ResourceIT
 import me.devnatan.dockerkt.withImage
 import kotlin.test.Test
 import kotlin.test.assertTrue
+import kotlin.test.fail
 
-class PullImageIT : ResourceIT() {
+class ImageIT : ResourceIT() {
+
+    @Test
+    fun `list images`() = runTest {
+        testClient.images.list()
+    }
+
     @Test
     fun `image pull`() =
         runTest {
@@ -19,5 +24,19 @@ class PullImageIT : ResourceIT() {
                     message = "Pulled image must be in the images list",
                 )
             }
+        }
+
+    @Test
+    fun `image remove`() =
+        runTest {
+            val image = "busybox:latest"
+
+            try {
+                testClient.images.pull(image).collect()
+            } catch (e: Throwable) {
+                fail("Failed to pull image", e)
+            }
+
+            testClient.images.remove(image)
         }
 }
