@@ -41,7 +41,8 @@ public class ImageResource internal constructor(
                 }.execute { response ->
                     val channel = response.body<ByteReadChannel>()
                     while (true) {
-                        emit(json.decodeFromString(channel.readUTF8Line() ?: break))
+                        val line = channel.readUTF8Line() ?: break
+                        emit(json.decodeFromString(line))
                     }
                 }
         }
