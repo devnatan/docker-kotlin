@@ -24,7 +24,7 @@ public data class ContainerConfig(
     @SerialName("OpenStdin") public val openStdin: Boolean? = null,
     @SerialName("StdinOnce") public val stdinOnce: Boolean? = null,
     @SerialName("Env") public val env: List<String>? = emptyList(),
-    @SerialName("Cmd") public val command: List<String> = emptyList(),
+    @SerialName("Cmd") public val command: List<String>? = emptyList(),
     @SerialName("Healthcheck") public val healthcheck: HealthConfig? = null,
     @SerialName("ArgsEscaped") public val argsEscaped: Boolean? = null,
     @SerialName("Image") public val image: String? = null,
