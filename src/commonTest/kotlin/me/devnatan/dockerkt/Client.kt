@@ -6,7 +6,10 @@ package me.devnatan.dockerkt
  */
 fun createTestDockerClient(block: DockerClientConfigBuilder.() -> Unit = {}): DockerClient =
     runCatching {
-        DockerClient { apply(block) }
+        DockerClient {
+            debugHttpCalls(true)
+            apply(block)
+        }
     }.onFailure {
         @Suppress("TooGenericExceptionThrown")
         throw RuntimeException("Failed to initialize Docker test client", it)

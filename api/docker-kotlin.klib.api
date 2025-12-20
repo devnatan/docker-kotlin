@@ -1571,7 +1571,7 @@ final class me.devnatan.dockerkt.models.image/ImageRootFs { // me.devnatan.docke
 }
 
 final class me.devnatan.dockerkt.models.image/ImageSummary { // me.devnatan.dockerkt.models.image/ImageSummary|null[0]
-    constructor <init>(kotlin/String, kotlin/String, kotlin.collections/List<kotlin/String>, kotlin.collections/List<kotlin/String>, kotlin/Int, kotlin/Long, kotlin/Int, kotlin/Long, kotlin.collections/Map<kotlin/String, kotlin/String>?, kotlin/Int) // me.devnatan.dockerkt.models.image/ImageSummary.<init>|<init>(kotlin.String;kotlin.String;kotlin.collections.List<kotlin.String>;kotlin.collections.List<kotlin.String>;kotlin.Int;kotlin.Long;kotlin.Int;kotlin.Long;kotlin.collections.Map<kotlin.String,kotlin.String>?;kotlin.Int){}[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin.collections/List<kotlin/String>, kotlin.collections/List<kotlin/String>, kotlin/Int, kotlin/Long, kotlin/Int, kotlin.collections/Map<kotlin/String, kotlin/String>?, kotlin/Int) // me.devnatan.dockerkt.models.image/ImageSummary.<init>|<init>(kotlin.String;kotlin.String;kotlin.collections.List<kotlin.String>;kotlin.collections.List<kotlin.String>;kotlin.Int;kotlin.Long;kotlin.Int;kotlin.collections.Map<kotlin.String,kotlin.String>?;kotlin.Int){}[0]
 
     final val containers // me.devnatan.dockerkt.models.image/ImageSummary.containers|{}containers[0]
         final fun <get-containers>(): kotlin/Int // me.devnatan.dockerkt.models.image/ImageSummary.containers.<get-containers>|<get-containers>(){}[0]
@@ -1591,20 +1591,17 @@ final class me.devnatan.dockerkt.models.image/ImageSummary { // me.devnatan.dock
         final fun <get-sharedSize>(): kotlin/Int // me.devnatan.dockerkt.models.image/ImageSummary.sharedSize.<get-sharedSize>|<get-sharedSize>(){}[0]
     final val size // me.devnatan.dockerkt.models.image/ImageSummary.size|{}size[0]
         final fun <get-size>(): kotlin/Long // me.devnatan.dockerkt.models.image/ImageSummary.size.<get-size>|<get-size>(){}[0]
-    final val virtualSize // me.devnatan.dockerkt.models.image/ImageSummary.virtualSize|{}virtualSize[0]
-        final fun <get-virtualSize>(): kotlin/Long // me.devnatan.dockerkt.models.image/ImageSummary.virtualSize.<get-virtualSize>|<get-virtualSize>(){}[0]
 
     final fun component1(): kotlin/String // me.devnatan.dockerkt.models.image/ImageSummary.component1|component1(){}[0]
-    final fun component10(): kotlin/Int // me.devnatan.dockerkt.models.image/ImageSummary.component10|component10(){}[0]
     final fun component2(): kotlin/String // me.devnatan.dockerkt.models.image/ImageSummary.component2|component2(){}[0]
     final fun component3(): kotlin.collections/List<kotlin/String> // me.devnatan.dockerkt.models.image/ImageSummary.component3|component3(){}[0]
     final fun component4(): kotlin.collections/List<kotlin/String> // me.devnatan.dockerkt.models.image/ImageSummary.component4|component4(){}[0]
     final fun component5(): kotlin/Int // me.devnatan.dockerkt.models.image/ImageSummary.component5|component5(){}[0]
     final fun component6(): kotlin/Long // me.devnatan.dockerkt.models.image/ImageSummary.component6|component6(){}[0]
     final fun component7(): kotlin/Int // me.devnatan.dockerkt.models.image/ImageSummary.component7|component7(){}[0]
-    final fun component8(): kotlin/Long // me.devnatan.dockerkt.models.image/ImageSummary.component8|component8(){}[0]
-    final fun component9(): kotlin.collections/Map<kotlin/String, kotlin/String>? // me.devnatan.dockerkt.models.image/ImageSummary.component9|component9(){}[0]
-    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin.collections/List<kotlin/String> = ..., kotlin.collections/List<kotlin/String> = ..., kotlin/Int = ..., kotlin/Long = ..., kotlin/Int = ..., kotlin/Long = ..., kotlin.collections/Map<kotlin/String, kotlin/String>? = ..., kotlin/Int = ...): me.devnatan.dockerkt.models.image/ImageSummary // me.devnatan.dockerkt.models.image/ImageSummary.copy|copy(kotlin.String;kotlin.String;kotlin.collections.List<kotlin.String>;kotlin.collections.List<kotlin.String>;kotlin.Int;kotlin.Long;kotlin.Int;kotlin.Long;kotlin.collections.Map<kotlin.String,kotlin.String>?;kotlin.Int){}[0]
+    final fun component8(): kotlin.collections/Map<kotlin/String, kotlin/String>? // me.devnatan.dockerkt.models.image/ImageSummary.component8|component8(){}[0]
+    final fun component9(): kotlin/Int // me.devnatan.dockerkt.models.image/ImageSummary.component9|component9(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin.collections/List<kotlin/String> = ..., kotlin.collections/List<kotlin/String> = ..., kotlin/Int = ..., kotlin/Long = ..., kotlin/Int = ..., kotlin.collections/Map<kotlin/String, kotlin/String>? = ..., kotlin/Int = ...): me.devnatan.dockerkt.models.image/ImageSummary // me.devnatan.dockerkt.models.image/ImageSummary.copy|copy(kotlin.String;kotlin.String;kotlin.collections.List<kotlin.String>;kotlin.collections.List<kotlin.String>;kotlin.Int;kotlin.Long;kotlin.Int;kotlin.collections.Map<kotlin.String,kotlin.String>?;kotlin.Int){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.image/ImageSummary.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.image/ImageSummary.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.image/ImageSummary.toString|toString(){}[0]

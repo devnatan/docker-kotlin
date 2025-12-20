@@ -17,7 +17,6 @@ public data class ImageSummary(
     @SerialName("Created") @Required public val created: Int,
     @SerialName("Size") @Required public val size: Long,
     @SerialName("SharedSize") @Required public val sharedSize: Int,
-    @SerialName("VirtualSize") @Required public val virtualSize: Long,
     @SerialName("Labels") @Required public val labels: Map<String, String>?,
     @SerialName("Containers") @Required public val containers: Int,
 )

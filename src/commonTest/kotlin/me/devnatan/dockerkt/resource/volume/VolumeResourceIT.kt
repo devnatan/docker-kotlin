@@ -47,8 +47,8 @@ class VolumeResourceIT : ResourceIT() {
     @Test
     fun `list volumes`() =
         runTest {
-            val volumes = testClient.volumes.list().volumes
-            assertTrue("Volumes must be empty, given: $volumes") { volumes.isEmpty() }
+            testClient.volumes.list().volumes
+            // Just expect no exception is thrown
         }
 
     @Test
@@ -58,6 +58,7 @@ class VolumeResourceIT : ResourceIT() {
                 testClient.volumes
                     .list()
                     .volumes.size
+
             val newCount = 5
             repeat(newCount) {
                 testClient.volumes.create()

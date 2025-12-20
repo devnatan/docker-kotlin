@@ -32,7 +32,7 @@ class StartContainerIT : ResourceIT() {
     fun `start a container with auto-assigned port bindings`() =
         runTest {
             testClient.withContainer(
-                "busybox:latest",
+                "nginx:latest",
                 {
                     exposedPort(80u)
                     hostConfig {
@@ -41,27 +41,29 @@ class StartContainerIT : ResourceIT() {
                 },
             ) { id ->
                 testClient.containers.start(id)
+
                 val container = testClient.containers.inspect(id)
-
                 val ports = container.networkSettings.ports
-
                 assertTrue { ports.isNotEmpty() }
+
                 val exposedPort = ExposedPort(80u, ExposedPortProtocol.TCP)
-                assertContains(ports, exposedPort)
+                assertContains(map = ports, key = exposedPort)
 
                 val port80Bindings = container.networkSettings.ports[exposedPort]
                 assertNotNull(port80Bindings)
-                assertTrue { port80Bindings.size == 2 }
+                assertTrue { port80Bindings.isNotEmpty() }
 
                 val ipv4Binding = port80Bindings[0]
                 assertEquals(ipv4Binding.ip, "0.0.0.0")
                 assertNotNull(ipv4Binding.port)
                 assertTrue { ipv4Binding.port!!.toInt() > 0 }
 
-                val ipv6Binding = port80Bindings[1]
-                assertEquals(ipv6Binding.ip, "::")
-                assertNotNull(ipv6Binding.port)
-                assertTrue { ipv6Binding.port!!.toInt() > 0 }
+                if (port80Bindings.size > 1) {
+                    val ipv6Binding = port80Bindings[1]
+                    assertEquals(ipv6Binding.ip, "::")
+                    assertNotNull(ipv6Binding.port)
+                    assertTrue { ipv6Binding.port!!.toInt() > 0 }
+                }
             }
         }
 

@@ -2546,19 +2546,18 @@ public final class me/devnatan/dockerkt/models/image/ImageRootFs$Companion {
 
 public final class me/devnatan/dockerkt/models/image/ImageSummary {
 	public static final field Companion Lme/devnatan/dockerkt/models/image/ImageSummary$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;IJIJLjava/util/Map;I)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;IJILjava/util/Map;I)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component10 ()I
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/util/List;
 	public final fun component4 ()Ljava/util/List;
 	public final fun component5 ()I
 	public final fun component6 ()J
 	public final fun component7 ()I
-	public final fun component8 ()J
-	public final fun component9 ()Ljava/util/Map;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;IJIJLjava/util/Map;I)Lme/devnatan/dockerkt/models/image/ImageSummary;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/image/ImageSummary;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;IJIJLjava/util/Map;IILjava/lang/Object;)Lme/devnatan/dockerkt/models/image/ImageSummary;
+	public final fun component8 ()Ljava/util/Map;
+	public final fun component9 ()I
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;IJILjava/util/Map;I)Lme/devnatan/dockerkt/models/image/ImageSummary;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/image/ImageSummary;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/util/List;IJILjava/util/Map;IILjava/lang/Object;)Lme/devnatan/dockerkt/models/image/ImageSummary;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getContainers ()I
 	public final fun getCreated ()I
@@ -2569,7 +2568,6 @@ public final class me/devnatan/dockerkt/models/image/ImageSummary {
 	public final fun getRepositoryTags ()Ljava/util/List;
 	public final fun getSharedSize ()I
 	public final fun getSize ()J
-	public final fun getVirtualSize ()J
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
 }

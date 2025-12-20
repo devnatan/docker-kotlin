@@ -111,8 +111,7 @@ public actual class ContainerResource(
                 }
             }.body<ContainerCreateResult>()
 
-        // TODO log warns
-        // result.warnings.forEach(logger::warn)
+        result.warnings.forEach { warn -> println("Warning from Docker API: $warn") }
         return result.id
     }
 
