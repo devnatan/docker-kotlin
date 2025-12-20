@@ -12,8 +12,8 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 
 internal open class ListAsMapToEmptyObjectsSerializer<T : Any>(
-    private val tSerializer: KSerializer<T>,
-) : JsonTransformingSerializer<List<T>>(ListSerializer(tSerializer)) {
+    serializer: KSerializer<T>,
+) : JsonTransformingSerializer<List<T>>(ListSerializer(serializer)) {
     override fun transformDeserialize(element: JsonElement): JsonElement =
         JsonArray(element.jsonObject.entries.map { JsonPrimitive(it.key) })
 
