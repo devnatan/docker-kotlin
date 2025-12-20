@@ -6,7 +6,7 @@ public val DockerKotlinJson: Json =
     Json {
         ignoreUnknownKeys = true
         allowStructuredMapKeys = true
-        explicitNulls = false
+        coerceInputValues = true
     }
 
 public fun toJsonEncodedString(value: Any): String = DockerKotlinJson.encodeToString(value)
