@@ -1,6 +1,9 @@
+@file:JvmSynthetic
+
 package me.devnatan.dockerkt.util
 
 import kotlinx.serialization.json.Json
+import kotlin.jvm.JvmSynthetic
 
 public val DockerKotlinJson: Json =
     Json {

@@ -4150,6 +4150,8 @@ final val me.devnatan.dockerkt.models.image/created // me.devnatan.dockerkt.mode
     final fun (me.devnatan.dockerkt.models.image/Image).<get-created>(): kotlin.time/Instant // me.devnatan.dockerkt.models.image/created.<get-created>|<get-created>@me.devnatan.dockerkt.models.image.Image(){}[0]
 final val me.devnatan.dockerkt.models.system/time // me.devnatan.dockerkt.models.system/time|@me.devnatan.dockerkt.models.system.Event{}time[0]
     final fun (me.devnatan.dockerkt.models.system/Event).<get-time>(): kotlin.time/Instant // me.devnatan.dockerkt.models.system/time.<get-time>|<get-time>@me.devnatan.dockerkt.models.system.Event(){}[0]
+final val me.devnatan.dockerkt.util/DockerKotlinJson // me.devnatan.dockerkt.util/DockerKotlinJson|{}DockerKotlinJson[0]
+    final fun <get-DockerKotlinJson>(): kotlinx.serialization.json/Json // me.devnatan.dockerkt.util/DockerKotlinJson.<get-DockerKotlinJson>|<get-DockerKotlinJson>(){}[0]
 
 final var me.devnatan.dockerkt.models.container/stopTimeout // me.devnatan.dockerkt.models.container/stopTimeout|@me.devnatan.dockerkt.models.container.ContainerCreateOptions{}stopTimeout[0]
     final fun (me.devnatan.dockerkt.models.container/ContainerCreateOptions).<get-stopTimeout>(): kotlin.time/Duration? // me.devnatan.dockerkt.models.container/stopTimeout.<get-stopTimeout>|<get-stopTimeout>@me.devnatan.dockerkt.models.container.ContainerCreateOptions(){}[0]

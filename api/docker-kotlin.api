@@ -4020,8 +4020,9 @@ public final class me/devnatan/dockerkt/resource/volume/VolumeResourceKt {
 	public static final fun remove (Lme/devnatan/dockerkt/resource/volume/VolumeResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 }
 
-public final class me/devnatan/dockerkt/util/JsonKt {
+public final synthetic class me/devnatan/dockerkt/util/JsonKt {
 	public static final fun fromJsonEncodedString (Ljava/lang/String;)Ljava/util/Map;
+	public static final fun getDockerKotlinJson ()Lkotlinx/serialization/json/Json;
 	public static final fun toJsonEncodedString (Ljava/lang/Object;)Ljava/lang/String;
 }
 
