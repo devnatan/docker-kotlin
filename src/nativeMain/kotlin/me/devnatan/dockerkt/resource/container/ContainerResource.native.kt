@@ -8,6 +8,7 @@ import me.devnatan.dockerkt.models.container.Container
 import me.devnatan.dockerkt.models.container.ContainerArchiveInfo
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
 import me.devnatan.dockerkt.models.container.ContainerListOptions
+import me.devnatan.dockerkt.models.container.ContainerLogsOptions
 import me.devnatan.dockerkt.models.container.ContainerPruneFilters
 import me.devnatan.dockerkt.models.container.ContainerPruneResult
 import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
@@ -48,6 +49,7 @@ public actual class ContainerResource {
         container: String,
         options: ContainerRemoveOptions,
     ) {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -75,6 +77,7 @@ public actual class ContainerResource {
         container: String,
         detachKeys: String?,
     ) {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -87,6 +90,7 @@ public actual class ContainerResource {
         container: String,
         timeout: Duration?,
     ) {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -99,6 +103,7 @@ public actual class ContainerResource {
         container: String,
         timeout: Duration?,
     ) {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -111,6 +116,7 @@ public actual class ContainerResource {
         container: String,
         signal: String?,
     ) {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -123,6 +129,7 @@ public actual class ContainerResource {
         container: String,
         newName: String,
     ) {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -132,6 +139,7 @@ public actual class ContainerResource {
      * @see unpause
      */
     public actual suspend fun pause(container: String) {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -141,6 +149,7 @@ public actual class ContainerResource {
      * @see pause
      */
     public actual suspend fun unpause(container: String) {
+        TODO("Not yet implemented")
     }
 
     /**
@@ -155,6 +164,7 @@ public actual class ContainerResource {
         container: String,
         options: ResizeTTYOptions,
     ) {
+        TODO("Not yet implemented")
     }
 
     public actual fun attach(container: String): Flow<Frame> {
@@ -210,5 +220,10 @@ public actual class ContainerResource {
         inputPath: String,
         remotePath: String,
     ) {
+        TODO("Not yet implemented")
+    }
+
+    public actual fun logs(container: String, options: ContainerLogsOptions): Flow<Frame> {
+        TODO("Not yet implemented")
     }
 }

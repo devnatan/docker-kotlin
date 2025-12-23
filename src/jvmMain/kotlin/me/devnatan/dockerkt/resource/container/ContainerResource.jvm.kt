@@ -8,6 +8,7 @@ import io.ktor.client.request.get
 import io.ktor.client.request.head
 import io.ktor.client.request.parameter
 import io.ktor.client.request.post
+import io.ktor.client.request.prepareGet
 import io.ktor.client.request.preparePost
 import io.ktor.client.request.put
 import io.ktor.client.request.setBody
@@ -15,6 +16,11 @@ import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.util.cio.toByteReadChannel
 import io.ktor.utils.io.ByteReadChannel
+import io.ktor.utils.io.availableForRead
+import io.ktor.utils.io.core.ByteOrder
+import io.ktor.utils.io.core.discard
+import io.ktor.utils.io.readByte
+import io.ktor.utils.io.readPacket
 import io.ktor.utils.io.readUTF8Line
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
@@ -39,6 +45,7 @@ import me.devnatan.dockerkt.models.container.ContainerArchiveInfo
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
 import me.devnatan.dockerkt.models.container.ContainerCreateResult
 import me.devnatan.dockerkt.models.container.ContainerListOptions
+import me.devnatan.dockerkt.models.container.ContainerLogsOptions
 import me.devnatan.dockerkt.models.container.ContainerPruneFilters
 import me.devnatan.dockerkt.models.container.ContainerPruneResult
 import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
@@ -593,4 +600,60 @@ public actual class ContainerResource(
                 setBody(archive.buffered().asInputStream().toByteReadChannel())
             }
         }
+
+    public actual fun logs(container: String, options: ContainerLogsOptions): Flow<Frame> = flow {
+        httpClient.prepareGet("$CONTAINERS/$container/logs") {
+            parameter("follow", options.follow)
+            parameter("stdout", options.stdout)
+            parameter("stderr", options.stderr)
+            parameter("since", options.since)
+            parameter("until", options.until)
+            parameter("timestamps", options.showTimestamps)
+            parameter("tail", options.tail)
+        }.execute { response ->
+            val channel = response.body<ByteReadChannel>()
+            while (!channel.isClosedForRead) {
+                val fb = channel.readByte()
+                val stream = Stream.typeOfOrNull(fb)
+
+                // Unknown stream = tty enabled
+                if (stream == null) {
+                    val remaining = channel.availableForRead
+
+                    // Remaining +1 includes the previously read first byte. Reinsert the first byte since we read it
+                    // before but the type was not expected, so this byte is actually the first character of the line.
+                    val len = remaining + 1
+                    val payload = ByteReadChannel(
+                        ByteArray(len) {
+                            if (it == 0) fb else channel.readByte()
+                        },
+                    )
+
+                    val line = payload.readUTF8Line() ?: error("Payload cannot be null")
+
+                    // Try to determine the "correct" stream since we cannot have this information.
+                    val stdoutEnabled = options.stdout ?: false
+                    val stdErrEnabled = options.stderr ?: false
+                    val expectedStream: Stream = stream ?: when {
+                        stdoutEnabled && !stdErrEnabled -> Stream.StdOut
+                        stdErrEnabled && !stdoutEnabled -> Stream.StdErr
+                        else -> Stream.Unknown
+                    }
+
+                    emit(Frame(line, len, expectedStream))
+                    continue
+                }
+
+                val header = channel.readPacket(7)
+
+                // We discard the first three bytes because the payload size is in the last four bytes
+                // and the total header size is 8.
+                header.discard(3)
+
+                val payloadLength = header.readInt()
+                val payloadData = channel.readUTF8Line(payloadLength)!!
+                emit(Frame(payloadData, payloadLength, stream))
+            }
+        }
+    }
 }

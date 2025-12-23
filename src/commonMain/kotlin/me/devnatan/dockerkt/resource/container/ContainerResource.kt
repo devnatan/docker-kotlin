@@ -1,6 +1,7 @@
 package me.devnatan.dockerkt.resource.container
 
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.io.RawSource
 import me.devnatan.dockerkt.DockerResponseException
 import me.devnatan.dockerkt.models.Frame
@@ -9,6 +10,7 @@ import me.devnatan.dockerkt.models.container.Container
 import me.devnatan.dockerkt.models.container.ContainerArchiveInfo
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
 import me.devnatan.dockerkt.models.container.ContainerListOptions
+import me.devnatan.dockerkt.models.container.ContainerLogsOptions
 import me.devnatan.dockerkt.models.container.ContainerPruneFilters
 import me.devnatan.dockerkt.models.container.ContainerPruneResult
 import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
@@ -194,4 +196,6 @@ public expect class ContainerResource {
         inputPath: String,
         remotePath: String,
     )
+
+    public fun logs(container: String, options: ContainerLogsOptions): Flow<Frame>
 }

@@ -1,9 +1,12 @@
 package me.devnatan.dockerkt.resource.container
 
+import kotlinx.coroutines.flow.Flow
 import me.devnatan.dockerkt.DockerResponseException
+import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
 import me.devnatan.dockerkt.models.container.ContainerListOptions
+import me.devnatan.dockerkt.models.container.ContainerLogsOptions
 import me.devnatan.dockerkt.models.container.ContainerPruneFilters
 import me.devnatan.dockerkt.models.container.ContainerPruneResult
 import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
@@ -59,74 +62,18 @@ public suspend inline fun ContainerResource.resizeTTY(
     resizeTTY(container, ResizeTTYOptions().apply(options))
 }
 
-// public inline fun ContainerResource.logs(
-//     id: String,
-//     block: ContainerLogsOptions.() -> Unit,
-// ): Flow<Frame> {
-//     return logs(id, ContainerLogsOptions().apply(block))
-// }
+public inline fun ContainerResource.logs(
+    id: String,
+    block: ContainerLogsOptions.() -> Unit,
+): Flow<Frame> {
+    return logs(id, ContainerLogsOptions().apply(block))
+}
 
-// public fun ContainerResource.logs(id: String): Flow<Frame> = logs(
-//     id,
-//     options = ContainerLogsOptions(
-//         follow = true,
-//         stderr = true,
-//         stdout = true,
-//     ),
-// )
-
-// public fun ContainerResource.logs(id: String, options: ContainerLogsOptions): Flow<Frame> = flow {
-//     httpClient.prepareGet("${ContainerResource.BASE_PATH}/$id/logs") {
-//         parameter("follow", options.follow)
-//         parameter("stdout", options.stdout)
-//         parameter("stderr", options.stderr)
-//         parameter("since", options.since)
-//         parameter("until", options.until)
-//         parameter("timestamps", options.showTimestamps)
-//         parameter("tail", options.tail)
-//     }.execute { response ->
-//         val channel = response.body<ByteReadChannel>()
-//         while (!channel.isClosedForRead) {
-//             val fb = channel.readByte()
-//             val stream = Stream.typeOfOrNull(fb)
-//
-//             // Unknown stream = tty enabled
-//             if (stream == null) {
-//                 val remaining = channel.availableForRead
-//
-//                 // Remaining +1 includes the previously read first byte. Reinsert the first byte since we read it
-//                 // before but the type was not expected, so this byte is actually the first character of the line.
-//                 val len = remaining + 1
-//                 val payload = ByteReadChannel(
-//                     ByteArray(len) {
-//                         if (it == 0) fb else channel.readByte()
-//                     },
-//                 )
-//
-//                 val line = payload.readUTF8Line() ?: error("Payload cannot be null")
-//
-//                 // Try to determine the "correct" stream since we cannot have this information.
-//                 val stdoutEnabled = options.stdout ?: false
-//                 val stdErrEnabled = options.stderr ?: false
-//                 val expectedStream: Stream = stream ?: when {
-//                     stdoutEnabled && !stdErrEnabled -> Stream.StdOut
-//                     stdErrEnabled && !stdoutEnabled -> Stream.StdErr
-//                     else -> Stream.Unknown
-//                 }
-//
-//                 emit(Frame(line, len, expectedStream))
-//                 continue
-//             }
-//
-//             val header = channel.readPacket(7)
-//
-//             // We discard the first three bytes because the payload size is in the last four bytes
-//             // and the total header size is 8.
-//             header.discard(3)
-//
-//             val payloadLength = header.readInt(ByteOrder.BIG_ENDIAN)
-//             val payloadData = channel.readUTF8Line(payloadLength)!!
-//             emit(Frame(payloadData, payloadLength, stream))
-//         }
-//     }
-// }
+public fun ContainerResource.logs(id: String): Flow<Frame> = logs(
+    id,
+    options = ContainerLogsOptions(
+        follow = true,
+        stderr = true,
+        stdout = true,
+    ),
+)
