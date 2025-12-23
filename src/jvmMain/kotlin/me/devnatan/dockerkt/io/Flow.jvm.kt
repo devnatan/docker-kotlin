@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import me.devnatan.dockerkt.Closeable
 
-public fun interface YokiFlow<T> {
+public fun interface DockerClientFlow<T> {
     public fun onEach(value: T)
 
     public fun onStart(): Unit = Unit
@@ -28,7 +28,7 @@ internal class InternalYokiFlow internal constructor() : Closeable {
 
     fun <T> start(
         flow: Flow<T>,
-        callback: YokiFlow<T>,
+        callback: DockerClientFlow<T>,
     ) {
         flow
             .onStart { callback.onStart() }
