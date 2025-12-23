@@ -63,14 +63,14 @@ public suspend inline fun ContainerResource.resizeTTY(
 }
 
 public inline fun ContainerResource.logs(
-    id: String,
+    container: String,
     block: ContainerLogsOptions.() -> Unit,
 ): Flow<Frame> {
-    return logs(id, ContainerLogsOptions().apply(block))
+    return logs(container, ContainerLogsOptions().apply(block))
 }
 
-public fun ContainerResource.logs(id: String): Flow<Frame> = logs(
-    id,
+public fun ContainerResource.logs(container: String): Flow<Frame> = logs(
+    container = container,
     options = ContainerLogsOptions(
         follow = true,
         stderr = true,

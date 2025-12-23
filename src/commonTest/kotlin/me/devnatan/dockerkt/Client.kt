@@ -7,7 +7,6 @@ package me.devnatan.dockerkt
 fun createTestDockerClient(block: DockerClientConfigBuilder.() -> Unit = {}): DockerClient =
     runCatching {
         DockerClient {
-            debugHttpCalls(true)
             apply(block)
         }
     }.onFailure {

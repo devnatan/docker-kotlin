@@ -27,6 +27,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.future.asCompletableFuture
+import kotlinx.io.EOFException
 import kotlinx.io.RawSource
 import kotlinx.io.asInputStream
 import kotlinx.io.asSource
@@ -613,7 +614,12 @@ public actual class ContainerResource(
         }.execute { response ->
             val channel = response.body<ByteReadChannel>()
             while (!channel.isClosedForRead) {
-                val fb = channel.readByte()
+                val fb: Byte = runCatching {
+                    channel.readByte()
+                }.getOrElse {
+                    break // container stopped while streaming logs?
+                }
+
                 val stream = Stream.typeOfOrNull(fb)
 
                 // Unknown stream = tty enabled
