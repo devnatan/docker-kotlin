@@ -61,22 +61,22 @@ public final class me/devnatan/dockerkt/DocketClientConfig$Companion {
 	public final fun builder ()Lme/devnatan/dockerkt/DockerClientConfigBuilder;
 }
 
-public final class me/devnatan/dockerkt/io/SocketUtils {
-	public static final field DEFAULT_DOCKER_HTTP_SOCKET Ljava/lang/String;
-	public static final field DEFAULT_DOCKER_UNIX_SOCKET Ljava/lang/String;
-}
-
-public abstract interface class me/devnatan/dockerkt/io/YokiFlow {
+public abstract interface class me/devnatan/dockerkt/io/DockerClientFrameListener {
 	public fun onComplete (Ljava/lang/Throwable;)V
 	public abstract fun onEach (Ljava/lang/Object;)V
 	public fun onError (Ljava/lang/Throwable;)V
 	public fun onStart ()V
 }
 
-public final class me/devnatan/dockerkt/io/YokiFlow$DefaultImpls {
-	public static fun onComplete (Lme/devnatan/dockerkt/io/YokiFlow;Ljava/lang/Throwable;)V
-	public static fun onError (Lme/devnatan/dockerkt/io/YokiFlow;Ljava/lang/Throwable;)V
-	public static fun onStart (Lme/devnatan/dockerkt/io/YokiFlow;)V
+public final class me/devnatan/dockerkt/io/DockerClientFrameListener$DefaultImpls {
+	public static fun onComplete (Lme/devnatan/dockerkt/io/DockerClientFrameListener;Ljava/lang/Throwable;)V
+	public static fun onError (Lme/devnatan/dockerkt/io/DockerClientFrameListener;Ljava/lang/Throwable;)V
+	public static fun onStart (Lme/devnatan/dockerkt/io/DockerClientFrameListener;)V
+}
+
+public final class me/devnatan/dockerkt/io/SocketUtils {
+	public static final field DEFAULT_DOCKER_HTTP_SOCKET Ljava/lang/String;
+	public static final field DEFAULT_DOCKER_UNIX_SOCKET Ljava/lang/String;
 }
 
 public final class me/devnatan/dockerkt/models/BlkioWeightDevice {
@@ -3830,6 +3830,7 @@ public final class me/devnatan/dockerkt/resource/container/ContainerResource {
 	public final fun listAsync ()Ljava/util/concurrent/CompletableFuture;
 	public final fun listAsync (Lme/devnatan/dockerkt/models/container/ContainerListOptions;)Ljava/util/concurrent/CompletableFuture;
 	public static synthetic fun listAsync$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lme/devnatan/dockerkt/models/container/ContainerListOptions;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
+	public final fun logs (Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerLogsOptions;)Lkotlinx/coroutines/flow/Flow;
 	public final synthetic fun pause (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun pauseAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
 	public final synthetic fun prune (Lme/devnatan/dockerkt/models/container/ContainerPruneFilters;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -3875,6 +3876,8 @@ public final class me/devnatan/dockerkt/resource/container/ContainerResource {
 public final class me/devnatan/dockerkt/resource/container/ContainerResourceExtKt {
 	public static final fun create (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun list (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun logs (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
+	public static final fun logs (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
 	public static final fun prune (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun remove (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun resizeTTY (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
