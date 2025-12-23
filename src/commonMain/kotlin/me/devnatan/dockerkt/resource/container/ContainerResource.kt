@@ -197,5 +197,8 @@ public expect class ContainerResource {
         remotePath: String,
     )
 
-    public fun logs(container: String, options: ContainerLogsOptions): Flow<Frame>
+    public fun logs(
+        container: String,
+        options: ContainerLogsOptions,
+    ): Flow<Frame>
 }

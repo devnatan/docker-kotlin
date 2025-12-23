@@ -223,7 +223,10 @@ public actual class ContainerResource {
         TODO("Not yet implemented")
     }
 
-    public actual fun logs(container: String, options: ContainerLogsOptions): Flow<Frame> {
+    public actual fun logs(
+        container: String,
+        options: ContainerLogsOptions,
+    ): Flow<Frame> {
         TODO("Not yet implemented")
     }
 }

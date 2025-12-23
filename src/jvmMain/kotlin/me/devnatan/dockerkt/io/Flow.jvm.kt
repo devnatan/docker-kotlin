@@ -35,19 +35,18 @@ internal class InternalDockerClientFrameListener internal constructor() : Closea
             .onCompletion { exception ->
                 this@InternalDockerClientFrameListener.error = exception
                 callback.onComplete(exception)
-            }
-            .onEach(callback::onEach)
+            }.onEach(callback::onEach)
             .catch { exception ->
                 this@InternalDockerClientFrameListener.error = exception
                 callback.onError(exception)
-            }
-            .launchIn(coroutineScope)
+            }.launchIn(coroutineScope)
     }
 
     override fun close() {
-        val exception = error?.let { cause ->
-            CancellationException("An error occurred while consuming flow.", cause)
-        }
+        val exception =
+            error?.let { cause ->
+                CancellationException("An error occurred while consuming flow.", cause)
+            }
         coroutineScope.cancel(exception)
     }
 }
