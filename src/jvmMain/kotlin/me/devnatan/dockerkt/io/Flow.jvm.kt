@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import me.devnatan.dockerkt.Closeable
 
-public fun interface DockerClientFlow<T> {
+public fun interface DockerClientFrameListener<T> {
     public fun onEach(value: T)
 
     public fun onStart(): Unit = Unit
@@ -22,24 +22,32 @@ public fun interface DockerClientFlow<T> {
     public fun onComplete(error: Throwable?): Unit = Unit
 }
 
-internal class InternalYokiFlow internal constructor() : Closeable {
+internal class InternalDockerClientFrameListener internal constructor() : Closeable {
     private val coroutineScope: CoroutineScope = CoroutineScope(Dispatchers.Default)
     private var error: Throwable? = null
 
     fun <T> start(
         flow: Flow<T>,
-        callback: DockerClientFlow<T>,
+        callback: DockerClientFrameListener<T>,
     ) {
         flow
             .onStart { callback.onStart() }
-            .onCompletion { error -> callback.onComplete(error.also { this@InternalYokiFlow.error = it }) }
+            .onCompletion { exception ->
+                this@InternalDockerClientFrameListener.error = exception
+                callback.onComplete(exception)
+            }
             .onEach(callback::onEach)
-            .catch { error -> callback.onError(error.also { this@InternalYokiFlow.error = it }) }
+            .catch { exception ->
+                this@InternalDockerClientFrameListener.error = exception
+                callback.onError(exception)
+            }
             .launchIn(coroutineScope)
     }
 
     override fun close() {
-        val exception = error?.let { cause -> CancellationException("An error occurred while consuming flow.", cause) }
+        val exception = error?.let { cause ->
+            CancellationException("An error occurred while consuming flow.", cause)
+        }
         coroutineScope.cancel(exception)
     }
 }

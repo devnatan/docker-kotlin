@@ -61,22 +61,22 @@ public final class me/devnatan/dockerkt/DocketClientConfig$Companion {
 	public final fun builder ()Lme/devnatan/dockerkt/DockerClientConfigBuilder;
 }
 
-public final class me/devnatan/dockerkt/io/SocketUtils {
-	public static final field DEFAULT_DOCKER_HTTP_SOCKET Ljava/lang/String;
-	public static final field DEFAULT_DOCKER_UNIX_SOCKET Ljava/lang/String;
-}
-
-public abstract interface class me/devnatan/dockerkt/io/YokiFlow {
+public abstract interface class me/devnatan/dockerkt/io/DockerClientFrameListener {
 	public fun onComplete (Ljava/lang/Throwable;)V
 	public abstract fun onEach (Ljava/lang/Object;)V
 	public fun onError (Ljava/lang/Throwable;)V
 	public fun onStart ()V
 }
 
-public final class me/devnatan/dockerkt/io/YokiFlow$DefaultImpls {
-	public static fun onComplete (Lme/devnatan/dockerkt/io/YokiFlow;Ljava/lang/Throwable;)V
-	public static fun onError (Lme/devnatan/dockerkt/io/YokiFlow;Ljava/lang/Throwable;)V
-	public static fun onStart (Lme/devnatan/dockerkt/io/YokiFlow;)V
+public final class me/devnatan/dockerkt/io/DockerClientFrameListener$DefaultImpls {
+	public static fun onComplete (Lme/devnatan/dockerkt/io/DockerClientFrameListener;Ljava/lang/Throwable;)V
+	public static fun onError (Lme/devnatan/dockerkt/io/DockerClientFrameListener;Ljava/lang/Throwable;)V
+	public static fun onStart (Lme/devnatan/dockerkt/io/DockerClientFrameListener;)V
+}
+
+public final class me/devnatan/dockerkt/io/SocketUtils {
+	public static final field DEFAULT_DOCKER_HTTP_SOCKET Ljava/lang/String;
+	public static final field DEFAULT_DOCKER_UNIX_SOCKET Ljava/lang/String;
 }
 
 public final class me/devnatan/dockerkt/models/BlkioWeightDevice {
