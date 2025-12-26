@@ -1,0 +1,8 @@
+headers = http_native.h
+headerFilter = http_native.h
+package = me.devnatan.dockerkt.native
+
+linkerOpts.linux = -lhttp_native -lpthread -ldl -lm
+linkerOpts.macos = -lhttp_native -lpthread -ldl -lm -framework Security -framework CoreFoundation
+linkerOpts.mingw = -lhttp_native -lws2_32 -luserenv -lbcrypt -lntdll
+---

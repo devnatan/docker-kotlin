@@ -50,8 +50,33 @@ kotlin {
         }
     }
 
-    linuxX64()
-    macosX64()
+    val hostOs = System.getProperty("os.name")
+    val isArm64 = System.getProperty("os.arch") == "aarch64"
+    val isMingwX64 = hostOs.startsWith("Windows")
+    val nativeTarget = when {
+        hostOs == "Mac OS X" && isArm64 -> macosArm64("native")
+        hostOs == "Mac OS X" && !isArm64 -> macosX64("native")
+        hostOs == "Linux" && isArm64 -> linuxArm64("native")
+        hostOs == "Linux" && !isArm64 -> linuxX64("native")
+        isMingwX64 -> mingwX64("native")
+        else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
+    }
+
+    nativeTarget.apply {
+        compilations["main"].cinterops {
+            val libhttp by creating {
+                defFile("src/nativeInterop/cinterop/http_native.def")
+                packageName("me.devnatan.dockerkt.interop")
+                includeDirs.allHeaders("src/nativeInterop/cinterop")
+
+                // Configurar caminho da biblioteca compilada
+                extraOpts(
+                    "-libraryPath", "$rootDir/../interop/target/release"
+                )
+            }
+        }
+    }
+
 
     sourceSets {
         val commonMain by getting {
@@ -89,21 +114,17 @@ kotlin {
             }
         }
 
-        val nativeMain by creating {
+        val nativeMain by getting {
             dependsOn(commonMain)
             dependencies {
                 implementation(libs.ktor.client.engine.cio)
             }
         }
 
-        val nativeTest by creating {
+        val nativeTest by getting {
             dependsOn(commonTest)
         }
 
-        val linuxX64Main by getting { dependsOn(nativeMain) }
-        val linuxX64Test by getting { dependsOn(nativeTest) }
-        val macosX64Main by getting { dependsOn(nativeMain) }
-        val macosX64Test by getting { dependsOn(nativeTest) }
     }
 }
 
