@@ -1,0 +1,20 @@
+[package]
+name = "interop"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.83.0"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+name = "interop"
+
+[dependencies]
+reqwest = { version = "0.12", features = ["blocking", "json", "rustls-tls"], default-features = false }
+tokio = { version = "1.42", features = ["full"] }
+hickory-resolver = "0.24"  # Novo nome do trust-dns
+hickory-proto = "0.24"
+hyper = { version = "1.5", features = ["full"] }
+hyper-util = { version = "0.1", features = ["full"] }
+http-body-util = "0.1"
+tower = "0.5"
+bytes = "1.8"
