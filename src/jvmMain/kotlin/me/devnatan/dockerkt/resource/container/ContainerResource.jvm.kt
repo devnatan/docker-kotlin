@@ -605,71 +605,73 @@ public actual class ContainerResource(
         options: ContainerLogsOptions,
     ): Flow<Frame> =
         flow {
-            httpClient
-                .prepareGet("$CONTAINERS/$container/logs") {
-                    parameter("follow", options.follow)
-                    parameter("stdout", options.stdout)
-                    parameter("stderr", options.stderr)
-                    parameter("since", options.since)
-                    parameter("until", options.until)
-                    parameter("timestamps", options.showTimestamps)
-                    parameter("tail", options.tail)
-                }.execute { response ->
-                    val channel = response.body<ByteReadChannel>()
-                    if (channel.isClosedForRead) {
-                        throw CancellationException("Container stopped? Logs are not available.")
-                    }
-
-                    while (!channel.isClosedForRead) {
-                        val fb: Byte =
-                            runCatching {
-                                channel.readByte()
-                            }.getOrElse {
-                                break // container stopped while streaming logs?
-                            }
-
-                        val stream = Stream.typeOfOrNull(fb)
-
-                        // Unknown stream = tty enabled
-                        if (stream == null) {
-                            val remaining = channel.availableForRead
-
-                            // Remaining +1 includes the previously read first byte. Reinsert the first byte since we read it
-                            // before but the type was not expected, so this byte is actually the first character of the line.
-                            val len = remaining + 1
-                            val payload =
-                                ByteReadChannel(
-                                    ByteArray(len) {
-                                        if (it == 0) fb else channel.readByte()
-                                    },
-                                )
-
-                            val line = payload.readUTF8Line() ?: error("Payload cannot be null")
-
-                            // Try to determine the "correct" stream since we cannot have this information.
-                            val stdoutEnabled = options.stdout ?: false
-                            val stdErrEnabled = options.stderr ?: false
-                            val expectedStream: Stream =
-                                stream ?: when {
-                                    stdoutEnabled && !stdErrEnabled -> Stream.StdOut
-                                    stdErrEnabled && !stdoutEnabled -> Stream.StdErr
-                                    else -> Stream.Unknown
-                                }
-
-                            emit(Frame(line, len, expectedStream))
-                            continue
+            requestCatching(HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) }) {
+                httpClient
+                    .prepareGet("$CONTAINERS/$container/logs") {
+                        parameter("follow", options.follow)
+                        parameter("stdout", options.stdout)
+                        parameter("stderr", options.stderr)
+                        parameter("since", options.since)
+                        parameter("until", options.until)
+                        parameter("timestamps", options.showTimestamps)
+                        parameter("tail", options.tail)
+                    }.execute { response ->
+                        val channel = response.body<ByteReadChannel>()
+                        if (channel.isClosedForRead) {
+                            throw CancellationException("Container stopped? Logs are not available.")
                         }
 
-                        val header = channel.readPacket(7)
+                        while (!channel.isClosedForRead) {
+                            val fb: Byte =
+                                runCatching {
+                                    channel.readByte()
+                                }.getOrElse {
+                                    break // container stopped while streaming logs?
+                                }
 
-                        // We discard the first three bytes because the payload size is in the last four bytes
-                        // and the total header size is 8.
-                        header.discard(3)
+                            val stream = Stream.typeOfOrNull(fb)
 
-                        val payloadLength = header.readInt()
-                        val payloadData = channel.readUTF8Line(payloadLength)!!
-                        emit(Frame(payloadData, payloadLength, stream))
+                            // Unknown stream = tty enabled
+                            if (stream == null) {
+                                val remaining = channel.availableForRead
+
+                                // Remaining +1 includes the previously read first byte. Reinsert the first byte since we read it
+                                // before but the type was not expected, so this byte is actually the first character of the line.
+                                val len = remaining + 1
+                                val payload =
+                                    ByteReadChannel(
+                                        ByteArray(len) {
+                                            if (it == 0) fb else channel.readByte()
+                                        },
+                                    )
+
+                                val line = payload.readUTF8Line() ?: error("Payload cannot be null")
+
+                                // Try to determine the "correct" stream since we cannot have this information.
+                                val stdoutEnabled = options.stdout ?: false
+                                val stdErrEnabled = options.stderr ?: false
+                                val expectedStream: Stream =
+                                    stream ?: when {
+                                        stdoutEnabled && !stdErrEnabled -> Stream.StdOut
+                                        stdErrEnabled && !stdoutEnabled -> Stream.StdErr
+                                        else -> Stream.Unknown
+                                    }
+
+                                emit(Frame(line, len, expectedStream))
+                                continue
+                            }
+
+                            val header = channel.readPacket(7)
+
+                            // We discard the first three bytes because the payload size is in the last four bytes
+                            // and the total header size is 8.
+                            header.discard(3)
+
+                            val payloadLength = header.readInt()
+                            val payloadData = channel.readUTF8Line(payloadLength)!!
+                            emit(Frame(payloadData, payloadLength, stream))
+                        }
                     }
-                }
+            }
         }
 }
