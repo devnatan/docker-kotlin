@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlinx.serialization)
@@ -50,33 +52,7 @@ kotlin {
         }
     }
 
-    val hostOs = System.getProperty("os.name")
-    val isArm64 = System.getProperty("os.arch") == "aarch64"
-    val isMingwX64 = hostOs.startsWith("Windows")
-    val nativeTarget = when {
-        hostOs == "Mac OS X" && isArm64 -> macosArm64("native")
-        hostOs == "Mac OS X" && !isArm64 -> macosX64("native")
-        hostOs == "Linux" && isArm64 -> linuxArm64("native")
-        hostOs == "Linux" && !isArm64 -> linuxX64("native")
-        isMingwX64 -> mingwX64("native")
-        else -> throw GradleException("Host OS is not supported in Kotlin/Native.")
-    }
-
-    nativeTarget.apply {
-        compilations["main"].cinterops {
-            val libhttp by creating {
-                defFile("src/nativeInterop/cinterop/http_native.def")
-                packageName("me.devnatan.dockerkt.interop")
-                includeDirs.allHeaders("src/nativeInterop/cinterop")
-
-                // Configurar caminho da biblioteca compilada
-                extraOpts(
-                    "-libraryPath", "$rootDir/../interop/target/release"
-                )
-            }
-        }
-    }
-
+    mingwX64()
 
     sourceSets {
         val commonMain by getting {
@@ -114,17 +90,40 @@ kotlin {
             }
         }
 
-        val nativeMain by getting {
+        val nativeMain by creating {
             dependsOn(commonMain)
             dependencies {
                 implementation(libs.ktor.client.engine.cio)
             }
         }
 
-        val nativeTest by getting {
-            dependsOn(commonTest)
-        }
+        val nativeTest by creating { dependsOn(commonTest) }
 
+        val mingwX64Main by getting { dependsOn(nativeMain) }
+        val mingwX64Test by getting { dependsOn(nativeTest) }
+    }
+
+    targets.withType<KotlinNativeTarget> {
+        val interopDir = layout.projectDirectory.dir("../interop")
+        compilations["main"].cinterops {
+            val libhttp by creating {
+                defFile("src/nativeInterop/cinterop/http_native.def")
+                packageName("me.devnatan.dockerkt.interop")
+                includeDirs.allHeaders("src/nativeInterop/cinterop")
+
+                val platform = this@withType.name
+                when (platform) {
+                    "mingwX64", "mingwX64Main" -> {
+                        extraOpts(
+                            "-libraryPath", "$interopDir/target/x86_64-pc-windows-gnu/debug",
+                        )
+                    }
+                    else -> extraOpts(
+                        "-libraryPath", "$interopDir/target/debug"
+                    )
+                }
+            }
+        }
     }
 }
 
