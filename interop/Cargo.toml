@@ -1,0 +1,22 @@
+[package]
+name = "http-native"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.83.0"
+
+[lib]
+crate-type = ["cdylib", "staticlib"]
+name = "http_native"
+
+[dependencies]
+reqwest = { version = "0.12", features = ["blocking", "json", "rustls-tls"], default-features = false }
+tokio = { version = "1.42", features = ["full"] }
+hickory-resolver = "0.24"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+
+[build-dependencies]
+cbindgen = "0.29.2"

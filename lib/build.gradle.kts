@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.plugin.mpp.KotlinNativeTarget
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlinx.serialization)
@@ -50,8 +52,7 @@ kotlin {
         }
     }
 
-    linuxX64()
-    macosX64()
+    mingwX64()
 
     sourceSets {
         val commonMain by getting {
@@ -96,14 +97,33 @@ kotlin {
             }
         }
 
-        val nativeTest by creating {
-            dependsOn(commonTest)
-        }
+        val nativeTest by creating { dependsOn(commonTest) }
 
-        val linuxX64Main by getting { dependsOn(nativeMain) }
-        val linuxX64Test by getting { dependsOn(nativeTest) }
-        val macosX64Main by getting { dependsOn(nativeMain) }
-        val macosX64Test by getting { dependsOn(nativeTest) }
+        val mingwX64Main by getting { dependsOn(nativeMain) }
+        val mingwX64Test by getting { dependsOn(nativeTest) }
+    }
+
+    targets.withType<KotlinNativeTarget> {
+        val interopDir = layout.projectDirectory.dir("../interop")
+        compilations["main"].cinterops {
+            val libhttp by creating {
+                defFile("src/nativeInterop/cinterop/http_native.def")
+                packageName("me.devnatan.dockerkt.interop")
+                includeDirs.allHeaders("src/nativeInterop/cinterop")
+
+                val platform = this@withType.name
+                when (platform) {
+                    "mingwX64", "mingwX64Main" -> {
+                        extraOpts(
+                            "-libraryPath", "$interopDir/target/x86_64-pc-windows-gnu/debug",
+                        )
+                    }
+                    else -> extraOpts(
+                        "-libraryPath", "$interopDir/target/debug"
+                    )
+                }
+            }
+        }
     }
 }
 
