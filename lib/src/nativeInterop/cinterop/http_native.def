@@ -1,8 +1,10 @@
 headers = http_native.h
 headerFilter = http_native.h
-package = me.devnatan.dockerkt.native
+package = me.devnatan.dockerkt.interop
 
-linkerOpts.linux = -lhttp_native -lpthread -ldl -lm
-linkerOpts.macos = -lhttp_native -lpthread -ldl -lm -framework Security -framework CoreFoundation
-linkerOpts.mingw = -lhttp_native -lws2_32 -luserenv -lbcrypt -lntdll
+staticLibraries.mingw = libhttp_native.a
+
+libraryPaths.mingw = ../../../interop/target/x86_64-pc-windows-gnu/debug
+
+linkerOpts.mingw = -lws2_32 -luserenv -lbcrypt -lntdll -liphlpapi
 ---
