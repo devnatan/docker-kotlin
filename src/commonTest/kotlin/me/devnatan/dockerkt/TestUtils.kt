@@ -74,10 +74,13 @@ suspend fun <R> DockerClient.withVolume(
     }
 }
 
-/**
- * Make a container started forever.
- */
+/** Make a container started forever by attaching stdin */
 fun ContainerCreateOptions.keepStartedForever() {
     attachStdin = true
     tty = true
+}
+
+/** Make a container started forever. */
+fun ContainerCreateOptions.sleepForever() {
+    command = listOf("sleep", "infinity")
 }

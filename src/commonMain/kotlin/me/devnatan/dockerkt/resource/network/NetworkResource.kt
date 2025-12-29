@@ -8,7 +8,6 @@ import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.HttpStatusCode
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.io.requestCatching
 import me.devnatan.dockerkt.models.network.Network
@@ -18,6 +17,8 @@ import me.devnatan.dockerkt.models.network.NetworkListFilters
 import me.devnatan.dockerkt.models.network.NetworkPruneOptions
 import me.devnatan.dockerkt.resource.NetworkNotFoundException
 
+private const val BasePath = "/networks"
+
 /**
  * Networks are user-defined networks that containers can be attached to.
  * See the [networking documentation](https://docs.docker.com/network/) for more information.
@@ -26,10 +27,6 @@ public class NetworkResource internal constructor(
     private val httpClient: HttpClient,
     private val json: Json,
 ) {
-    private companion object {
-        const val BASE_PATH = "/networks"
-    }
-
     /**
      * Returns a list of networks.
      *
@@ -38,7 +35,7 @@ public class NetworkResource internal constructor(
      */
     public suspend fun list(filters: NetworkListFilters? = null): List<Network> =
         httpClient
-            .get(BASE_PATH) {
+            .get(BasePath) {
                 parameter("filters", filters?.let(json::encodeToString))
             }.body()
 
@@ -56,7 +53,7 @@ public class NetworkResource internal constructor(
         requestCatching(
             HttpStatusCode.NotFound to { NetworkNotFoundException(it, id) },
         ) {
-            httpClient.get("$BASE_PATH/$id") {
+            httpClient.get("$BasePath/$id") {
                 parameter("verbose", options?.verbose)
                 parameter("scope", options?.scope)
             }
@@ -69,7 +66,7 @@ public class NetworkResource internal constructor(
      * @see <a href="https://docs.docker.com/engine/api/latest/#operation/NetworkDelete">NetworkDelete</a>
      */
     public suspend fun remove(id: String) {
-        httpClient.delete("$BASE_PATH/$id")
+        httpClient.delete("$BasePath/$id")
     }
 
     /**
@@ -82,7 +79,7 @@ public class NetworkResource internal constructor(
         checkNotNull(config.name) { "Network name is required and cannot be null" }
 
         return httpClient
-            .post("$BASE_PATH/create") {
+            .post("$BasePath/create") {
                 setBody(config)
             }.body()
     }
@@ -95,7 +92,7 @@ public class NetworkResource internal constructor(
      * @see <a href="https://docs.docker.com/engine/api/latest/#operation/NetworkPrune">NetworkPrune</a>
      */
     public suspend fun prune(options: NetworkPruneOptions? = null) {
-        httpClient.post("$BASE_PATH/prune") {
+        httpClient.post("$BasePath/prune") {
             parameter("filters", options)
         }
     }
@@ -111,7 +108,7 @@ public class NetworkResource internal constructor(
         id: String,
         container: String,
     ) {
-        httpClient.post("$BASE_PATH/$id/connect") {
+        httpClient.post("$BasePath/$id/connect") {
             setBody(mapOf("Container" to container))
         }
     }
@@ -127,7 +124,7 @@ public class NetworkResource internal constructor(
         id: String,
         container: String,
     ) {
-        httpClient.post("$BASE_PATH/$id/disconnect") {
+        httpClient.post("$BasePath/$id/disconnect") {
             setBody(mapOf("Container" to container))
         }
     }

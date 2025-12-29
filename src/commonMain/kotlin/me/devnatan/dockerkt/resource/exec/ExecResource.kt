@@ -3,15 +3,14 @@ package me.devnatan.dockerkt.resource.exec
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get
-import io.ktor.client.request.header
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.client.statement.bodyAsChannel
 import io.ktor.http.HttpStatusCode
 import io.ktor.utils.io.ByteReadChannel
+import io.ktor.utils.io.cancel
+import io.ktor.utils.io.readAvailable
 import io.ktor.utils.io.readFully
-import io.ktor.utils.io.readRemaining
-import io.ktor.utils.io.readText
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import me.devnatan.dockerkt.io.requestCatching
@@ -28,6 +27,9 @@ import me.devnatan.dockerkt.resource.container.ContainerNotFoundException
 import me.devnatan.dockerkt.resource.container.ContainerNotRunningException
 import kotlin.jvm.JvmSynthetic
 
+public const val DefaultBufferSize: Int = 8 * 1024 // 8192 bytes
+private const val BasePath: String = "/exec"
+
 /**
  * Exec runs new commands inside running containers.
  *
@@ -38,10 +40,6 @@ import kotlin.jvm.JvmSynthetic
 public class ExecResource internal constructor(
     private val httpClient: HttpClient,
 ) {
-    private companion object {
-        const val BASE_PATH = "/exec"
-    }
-
     /**
      * Runs a command inside a running container.
      *
@@ -85,7 +83,7 @@ public class ExecResource internal constructor(
         requestCatching(
             HttpStatusCode.NotFound to { exception -> ExecNotFoundException(exception, id) },
         ) {
-            httpClient.get("$BASE_PATH/$id/json")
+            httpClient.get("$BasePath/$id/json")
         }.body()
 
     /**
@@ -120,21 +118,10 @@ public class ExecResource internal constructor(
             HttpStatusCode.NotFound to { exception -> ExecNotFoundException(exception, id) },
             HttpStatusCode.Conflict to { exception -> ContainerNotRunningException(exception, null) },
         ) {
-            val headers =
-                if (options.detach == true) {
-                    emptyMap()
-                } else {
-                    mapOf(
-                        "Connection" to "Upgrade",
-                        "Upgrade" to "tcp",
-                    )
-                }
-
             val response =
-                httpClient.post("$BASE_PATH/$id/start") {
-                    setBody(options)
-                    headers.forEach { (key, value) ->
-                        header(key, value)
+                httpClient.post("$BasePath/$id/start") {
+                    if (!headers.contains("Connection", "upgrade")) {
+                        setBody(options)
                     }
                 }
 
@@ -150,7 +137,7 @@ public class ExecResource internal constructor(
                 options.stream -> {
                     val flow =
                         readFromSocket(
-                            response.bodyAsChannel(),
+                            channel = response.bodyAsChannel(),
                             tty = options.tty == true,
                             demux = options.demux,
                         )
@@ -185,35 +172,70 @@ public class ExecResource internal constructor(
         demux: Boolean,
     ): Flow<*> =
         flow {
-            if (demux && !tty) {
-                // Demux stdout and stderr
-                while (!channel.isClosedForRead) {
-                    val header = ByteArray(8)
-                    channel.readFully(header, 0, 8)
+            try {
+                if (tty) {
+                    val buffer = ByteArray(DefaultBufferSize)
+                    while (true) {
+                        val bytesRead =
+                            try {
+                                channel.readAvailable(buffer, 0, buffer.size)
+                            } catch (e: Exception) {
+                                break
+                            }
 
-                    val streamType = Stream.typeOfOrNull(header[0])!!
-                    val size =
-                        ((header[4].toInt() and 0xFF) shl 24) or
-                            ((header[5].toInt() and 0xFF) shl 16) or
-                            ((header[6].toInt() and 0xFF) shl 8) or
-                            (header[7].toInt() and 0xFF)
+                        if (bytesRead == -1) {
+                            break
+                        }
 
-                    val data = ByteArray(size)
-                    channel.readFully(data, 0, size)
+                        if (bytesRead > 0) {
+                            emit(buffer.copyOf(bytesRead).decodeToString())
+                        }
+                    }
+                } else {
+                    while (true) {
+                        val header = ByteArray(8)
+                        val headerBytesRead =
+                            try {
+                                channel.readFully(header, 0, 8)
+                                8
+                            } catch (e: Exception) {
+                                break
+                            }
 
-                    emit(
-                        DemuxedOutput(
-                            stdout = if (streamType == Stream.StdOut) data.decodeToString() else "",
-                            stderr = if (streamType == Stream.StdErr) data.decodeToString() else "",
-                        ),
-                    )
+                        if (headerBytesRead < 8) {
+                            break
+                        }
+
+                        val streamType = Stream.typeOfOrNull(header[0])!!
+                        val size =
+                            ((header[4].toInt() and 0xFF) shl 24) or
+                                ((header[5].toInt() and 0xFF) shl 16) or
+                                ((header[6].toInt() and 0xFF) shl 8) or
+                                (header[7].toInt() and 0xFF)
+
+                        if (size > 0) {
+                            val data = ByteArray(size)
+                            try {
+                                channel.readFully(data, 0, size)
+                            } catch (_: Exception) {
+                                break
+                            }
+
+                            if (demux) {
+                                emit(
+                                    DemuxedOutput(
+                                        stdout = if (streamType == Stream.StdOut) data.decodeToString() else "",
+                                        stderr = if (streamType == Stream.StdErr) data.decodeToString() else "",
+                                    ),
+                                )
+                            } else {
+                                emit(data.decodeToString())
+                            }
+                        }
+                    }
                 }
-            } else {
-                // Regular stream
-                while (!channel.isClosedForRead) {
-                    val chunk = channel.readRemaining()
-                    emit(chunk.readText())
-                }
+            } finally {
+                channel.cancel()
             }
         }
 
@@ -222,23 +244,27 @@ public class ExecResource internal constructor(
         tty: Boolean,
         demux: Boolean,
     ): Any =
-        if (demux && !tty) {
-            val stdout = StringBuilder()
-            val stderr = StringBuilder()
+        try {
+            if (demux && !tty) {
+                val stdout = StringBuilder()
+                val stderr = StringBuilder()
 
-            readFromSocket(channel, tty, demux).collect { output ->
-                output as DemuxedOutput
-                stdout.append(output.stdout)
-                stderr.append(output.stderr)
-            }
+                readFromSocket(channel, tty, demux).collect { output ->
+                    output as DemuxedOutput
+                    stdout.append(output.stdout)
+                    stderr.append(output.stderr)
+                }
 
-            DemuxedOutput(stdout.toString(), stderr.toString())
-        } else {
-            val output = StringBuilder()
-            readFromSocket(channel, tty, demux).collect { chunk ->
-                output.append(chunk as String)
+                DemuxedOutput(stdout.toString(), stderr.toString())
+            } else {
+                val output = StringBuilder()
+                readFromSocket(channel, tty, demux).collect { chunk ->
+                    output.append(chunk as String)
+                }
+                output.toString()
             }
-            output.toString()
+        } finally {
+            channel.cancel()
         }
 
     /**
@@ -257,7 +283,7 @@ public class ExecResource internal constructor(
         requestCatching(
             HttpStatusCode.NotFound to { exception -> ExecNotFoundException(exception, id) },
         ) {
-            httpClient.post("$BASE_PATH/$id/resize") {
+            httpClient.post("$BasePath/$id/resize") {
                 setBody(options)
             }
         }

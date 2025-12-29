@@ -11,10 +11,6 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class VolumeResourceIT : ResourceIT() {
-    companion object {
-        const val VOLUME_NAME = "docker-kotlin"
-    }
-
     @Test
     fun `create volume`() =
         runTest {
@@ -27,7 +23,7 @@ class VolumeResourceIT : ResourceIT() {
     @Test
     fun `remove volume`() =
         runTest {
-            val volumes = testClient.volumes.create { name = VOLUME_NAME }
+            val volumes = testClient.volumes.create { name = "dockerkt" }
             assertTrue(
                 testClient.volumes
                     .list()

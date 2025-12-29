@@ -8,7 +8,6 @@ import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
 import io.ktor.http.HttpStatusCode
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.io.requestCatching
 import me.devnatan.dockerkt.models.IdOnlyResponse
@@ -16,6 +15,8 @@ import me.devnatan.dockerkt.models.secret.Secret
 import me.devnatan.dockerkt.models.secret.SecretListFilters
 import me.devnatan.dockerkt.models.secret.SecretSpec
 import me.devnatan.dockerkt.resource.swarm.NodeNotPartOfSwarmException
+
+private const val BasePath = "/secrets"
 
 /**
  * Secrets are sensitive data that can be used by Docker services.
@@ -25,10 +26,6 @@ public class SecretResource internal constructor(
     private val httpClient: HttpClient,
     private val json: Json,
 ) {
-    private companion object {
-        const val BASE_PATH = "/secrets"
-    }
-
     /**
      * Lists all secrets.
      * @param filters Filters to process on the secrets list.
@@ -37,7 +34,7 @@ public class SecretResource internal constructor(
         requestCatching(
             HttpStatusCode.ServiceUnavailable to ::NodeNotPartOfSwarmException,
         ) {
-            httpClient.get(BASE_PATH) {
+            httpClient.get(BasePath) {
                 parameter("filters", filters?.let(json::encodeToString))
             }
         }.body()
@@ -47,7 +44,7 @@ public class SecretResource internal constructor(
      *
      * @param id The id of the secret.
      */
-    public suspend fun inspect(id: String): Secret = httpClient.get("$BASE_PATH/$id").body()
+    public suspend fun inspect(id: String): Secret = httpClient.get("$BasePath/$id").body()
 
     /**
      * Deletes a secret.
@@ -55,7 +52,7 @@ public class SecretResource internal constructor(
      * @param id The id of the secret.
      */
     public suspend fun delete(id: String) {
-        httpClient.delete("$BASE_PATH/$id")
+        httpClient.delete("$BasePath/$id")
     }
 
     /**
@@ -68,7 +65,7 @@ public class SecretResource internal constructor(
             HttpStatusCode.Conflict to { SecretNameConflictException(it, options.name) },
             HttpStatusCode.ServiceUnavailable to ::NodeNotPartOfSwarmException,
         ) {
-            httpClient.post("$BASE_PATH/create") {
+            httpClient.post("$BasePath/create") {
                 setBody(options)
             }
         }.body<IdOnlyResponse>().id
@@ -89,7 +86,7 @@ public class SecretResource internal constructor(
             HttpStatusCode.NotFound to { SecretNotFoundException(it, id, version) },
             HttpStatusCode.ServiceUnavailable to ::NodeNotPartOfSwarmException,
         ) {
-            httpClient.post("$BASE_PATH/$id/update") {
+            httpClient.post("$BasePath/$id/update") {
                 parameter("version", version)
                 setBody(options)
             }

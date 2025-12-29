@@ -1,18 +1,33 @@
 package me.devnatan.dockerkt
 
-import me.devnatan.dockerkt.io.DEFAULT_DOCKER_HTTP_SOCKET
-import me.devnatan.dockerkt.io.DEFAULT_DOCKER_UNIX_SOCKET
-import me.devnatan.dockerkt.io.HTTP_SOCKET_PREFIX
-import me.devnatan.dockerkt.io.UNIX_SOCKET_PREFIX
+import me.devnatan.dockerkt.io.DefaultDockerHttpSocket
+import me.devnatan.dockerkt.io.DefaultDockerUnixSocket
+import me.devnatan.dockerkt.io.HttpSocketPrefix
+import me.devnatan.dockerkt.io.UnixSocketPrefix
 import kotlin.jvm.JvmStatic
 
 internal val DefaultDocketClientConfig = DocketClientConfig.builder().forCurrentPlatform().build()
 
 /**
+ * Daemon socket to connect to.
+ */
+private const val DockerHostEnvKey = "DOCKER_HOST"
+
+/**
+ * Override the negotiated Docker Remote API version.
+ */
+private const val DockerApiVersionEnvKey = "DOCKER_API_VERSION"
+
+/**
+ * Minimum Docker Remote API version supported by docker-kotlin.
+ */
+public const val DefaultDockerApiVersion: String = "1.41"
+
+/**
  * Class to store all Docker client configurations.
  *
  * @param socketPath Docker socket file used to communicate with the main Docker daemon.
- *                   If not set, it will try to get from [DOCKER_HOST_ENV_KEY] environment variable, if it's found,
+ *                   If not set, it will try to get from [DockerHostEnvKey] environment variable, if it's found,
  *                   will try to select the socket path based on current operating system.
  * @param apiVersion The version of the Docker API that will be used during communication.
  *                   See more: [Versioned API and SDK](https://docs.docker.com/engine/api/#versioned-api-and-sdk).
@@ -47,8 +62,8 @@ public class DockerClientConfigBuilder {
      */
     private var apiVersion: String =
         envOrFallback(
-            key = DOCKER_API_VERSION_ENV_KEY,
-            fallback = DEFAULT_DOCKER_API_VERSION,
+            key = DockerApiVersionEnvKey,
+            fallback = DefaultDockerApiVersion,
             prefix = null,
         )
 
@@ -90,15 +105,15 @@ public class DockerClientConfigBuilder {
     /**
      * Configures to use a Unix socket defaults common to the standard Docker configuration.
      *
-     * The socket path is defined to [DEFAULT_DOCKER_UNIX_SOCKET] if `DOCKER_HOST` env var is not set, or it doesn't
-     * have the [UNIX_SOCKET_PREFIX] on its prefix.
+     * The socket path is defined to [DefaultDockerUnixSocket] if `DOCKER_HOST` env var is not set, or it doesn't
+     * have the [UnixSocketPrefix] on its prefix.
      */
     public fun useUnixDefaults(): DockerClientConfigBuilder {
         socketPath =
             envOrFallback(
-                key = DOCKER_HOST_ENV_KEY,
-                fallback = DEFAULT_DOCKER_UNIX_SOCKET,
-                prefix = UNIX_SOCKET_PREFIX,
+                key = DockerHostEnvKey,
+                fallback = DefaultDockerUnixSocket,
+                prefix = UnixSocketPrefix,
             )
         return this
     }
@@ -106,15 +121,15 @@ public class DockerClientConfigBuilder {
     /**
      * Configures to use an HTTP socket defaults common to the standard Docker configuration.
      *
-     * The socket path is defined to [DEFAULT_DOCKER_HTTP_SOCKET] if `DOCKER_HOST` env var is not set, or it doesn't
-     * have the [HTTP_SOCKET_PREFIX] on its prefix.
+     * The socket path is defined to [DefaultDockerHttpSocket] if `DOCKER_HOST` env var is not set, or it doesn't
+     * have the [HttpSocketPrefix] on its prefix.
      */
     public fun useHttpDefaults(): DockerClientConfigBuilder {
         socketPath =
             envOrFallback(
-                key = DOCKER_HOST_ENV_KEY,
-                fallback = DEFAULT_DOCKER_HTTP_SOCKET,
-                prefix = HTTP_SOCKET_PREFIX,
+                key = DockerHostEnvKey,
+                fallback = DefaultDockerHttpSocket,
+                prefix = HttpSocketPrefix,
             )
         return this
     }
@@ -126,7 +141,7 @@ public class DockerClientConfigBuilder {
     public fun forCurrentPlatform(): DockerClientConfigBuilder {
         socketPath =
             envOrFallback(
-                key = DOCKER_HOST_ENV_KEY,
+                key = DockerHostEnvKey,
                 fallback = selectDockerSocketPath(),
                 prefix = null,
             )
@@ -163,25 +178,8 @@ public class DockerClientConfigBuilder {
      */
     private fun selectDockerSocketPath(): String =
         if (isUnixPlatform()) {
-            DEFAULT_DOCKER_UNIX_SOCKET
+            DefaultDockerUnixSocket
         } else {
-            DEFAULT_DOCKER_HTTP_SOCKET
+            DefaultDockerHttpSocket
         }
-
-    public companion object {
-        /**
-         * Daemon socket to connect to.
-         */
-        private const val DOCKER_HOST_ENV_KEY = "DOCKER_HOST"
-
-        /**
-         * Override the negotiated Docker Remote API version.
-         */
-        private const val DOCKER_API_VERSION_ENV_KEY = "DOCKER_API_VERSION"
-
-        /**
-         * Minimum Docker Remote API version supported by docker-kotlin.
-         */
-        public const val DEFAULT_DOCKER_API_VERSION: String = "1.41"
-    }
 }

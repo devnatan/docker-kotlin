@@ -4,6 +4,7 @@ package me.devnatan.dockerkt.resource.container
 
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runTest
+import me.devnatan.dockerkt.keepStartedForever
 import me.devnatan.dockerkt.models.container.volume
 import me.devnatan.dockerkt.resource.ResourceIT
 import me.devnatan.dockerkt.withContainer
@@ -18,7 +19,7 @@ class InspectContainerIT : ResourceIT() {
                 "busybox:latest",
                 {
                     volume("/opt")
-                    command = listOf("sleep", "infinity")
+                    keepStartedForever()
                 },
             ) { id ->
                 testClient.containers.start(id)

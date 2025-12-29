@@ -7,7 +7,6 @@ import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.request.setBody
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.models.volume.Volume
 import me.devnatan.dockerkt.models.volume.VolumeCreateOptions
@@ -18,18 +17,16 @@ import me.devnatan.dockerkt.models.volume.VolumePruneResponse
 import me.devnatan.dockerkt.models.volume.VolumeRemoveOptions
 import kotlin.jvm.JvmOverloads
 
+private const val BasePath = "/volumes"
+
 public class VolumeResource internal constructor(
     private val httpClient: HttpClient,
     private val json: Json,
 ) {
-    private companion object {
-        const val BASE_PATH = "/volumes"
-    }
-
     @JvmOverloads
     public suspend fun list(options: VolumeListOptions? = null): VolumeListResponse =
         httpClient
-            .get(BASE_PATH) {
+            .get(BasePath) {
                 parameter("filters", options?.let(json::encodeToString))
             }.body()
 
@@ -43,7 +40,7 @@ public class VolumeResource internal constructor(
      */
     public suspend fun create(config: VolumeCreateOptions): Volume =
         httpClient
-            .post("$BASE_PATH/create") {
+            .post("$BasePath/create") {
                 setBody(config)
             }.body()
 
@@ -55,7 +52,7 @@ public class VolumeResource internal constructor(
      *
      * @see <a href="https://docs.docker.com/engine/api/v1.41/#operation/VolumeInspect">VolumeInspect</a>
      */
-    public suspend fun inspect(id: String): Volume = httpClient.get("$BASE_PATH/$id").body()
+    public suspend fun inspect(id: String): Volume = httpClient.get("$BasePath/$id").body()
 
     /**
      * Remove a volume
@@ -69,7 +66,7 @@ public class VolumeResource internal constructor(
         id: String,
         options: VolumeRemoveOptions? = null,
     ) {
-        httpClient.delete("$BASE_PATH/$id") {
+        httpClient.delete("$BasePath/$id") {
             parameter("force", options?.force)
         }
     }
@@ -85,7 +82,7 @@ public class VolumeResource internal constructor(
     @JvmOverloads
     public suspend fun prune(options: VolumePruneOptions? = null): VolumePruneResponse =
         httpClient
-            .post("$BASE_PATH/prune") {
+            .post("$BasePath/prune") {
                 parameter("filters", options?.let(json::encodeToString))
             }.body()
 }

@@ -15,13 +15,12 @@ import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.readUTF8Line
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.models.image.ImageBuildOptions
 import me.devnatan.dockerkt.models.image.ImagePull
 import me.devnatan.dockerkt.models.image.ImageSummary
 
-private const val BASE_PATH = "/images"
+private const val BasePath = "/images"
 
 public class ImageResource internal constructor(
     private val httpClient: HttpClient,
@@ -31,12 +30,12 @@ public class ImageResource internal constructor(
         private val TAR_CONTENT_TYPE = ContentType.parse("application/x-tar")
     }
 
-    public suspend fun list(): List<ImageSummary> = httpClient.get("$BASE_PATH/json").body()
+    public suspend fun list(): List<ImageSummary> = httpClient.get("$BasePath/json").body()
 
     public fun pull(image: String): Flow<ImagePull> =
         flow {
             httpClient
-                .preparePost("$BASE_PATH/create") {
+                .preparePost("$BasePath/create") {
                     parameter("fromImage", image)
                 }.execute { response ->
                     val channel = response.body<ByteReadChannel>()
@@ -52,7 +51,7 @@ public class ImageResource internal constructor(
         force: Boolean? = false,
         noprune: Boolean? = false,
     ) {
-        httpClient.delete("$BASE_PATH/$name") {
+        httpClient.delete("$BasePath/$name") {
             parameter("force", force)
             parameter("noprune", noprune)
         }

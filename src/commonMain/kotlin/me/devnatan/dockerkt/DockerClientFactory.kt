@@ -2,11 +2,10 @@
 
 package me.devnatan.dockerkt
 
-import me.devnatan.dockerkt.DockerClientConfigBuilder.Companion.DEFAULT_DOCKER_API_VERSION
 import kotlin.jvm.JvmSynthetic
 
 /**
- * Creates a new Docker client instance with platform default socket path and [DEFAULT_DOCKER_API_VERSION]
+ * Creates a new Docker client instance with platform default socket path and [DefaultDockerApiVersion]
  * Docker API version that'll be merged with specified configuration.
  *
  * @param configure The client configuration.

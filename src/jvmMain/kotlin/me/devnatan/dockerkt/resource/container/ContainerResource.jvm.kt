@@ -594,7 +594,7 @@ public actual class ContainerResource(
             val archive = writeTarFile(inputPath)
 
             httpClient.put("$CONTAINERS/$container/archive") {
-                parameter("path", remotePath.ifEmpty { FS_ROOT })
+                parameter("path", remotePath.ifEmpty { FileSystemRoot })
                 parameter("noOverwriteDirNonDir", false)
                 setBody(archive.buffered().asInputStream().toByteReadChannel())
             }

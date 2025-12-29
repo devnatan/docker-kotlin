@@ -1,7 +1,6 @@
 package me.devnatan.dockerkt.resource.container
 
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
 import kotlinx.io.RawSource
 import me.devnatan.dockerkt.DockerResponseException
 import me.devnatan.dockerkt.models.Frame
@@ -20,7 +19,7 @@ import me.devnatan.dockerkt.resource.image.ImageNotFoundException
 import kotlin.jvm.JvmOverloads
 import kotlin.time.Duration
 
-internal const val FS_ROOT = "/"
+internal const val FileSystemRoot = "/"
 
 public expect class ContainerResource {
     /**
@@ -170,7 +169,7 @@ public expect class ContainerResource {
     @JvmOverloads
     public suspend fun archive(
         container: String,
-        path: String = FS_ROOT,
+        path: String = FileSystemRoot,
     ): ContainerArchiveInfo
 
     /**

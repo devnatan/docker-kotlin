@@ -10,7 +10,6 @@ import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.readUTF8Line
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.io.requestCatching
 import me.devnatan.dockerkt.models.system.Event
@@ -26,10 +25,6 @@ public class SystemResource internal constructor(
     private val httpClient: HttpClient,
     private val json: Json,
 ) {
-    private companion object {
-        const val PING_ENDPOINT = "/_ping"
-    }
-
     /**
      * Gets the version of Docker that is running and information about the system that Docker is running on.
      *
@@ -54,9 +49,9 @@ public class SystemResource internal constructor(
     public suspend fun ping(head: Boolean = true): SystemPingData =
         requestCatching {
             if (head) {
-                httpClient.head(PING_ENDPOINT)
+                httpClient.head("/_ping")
             } else {
-                httpClient.get(PING_ENDPOINT)
+                httpClient.get("/_ping")
             }
         }.headers.let { headers ->
             SystemPingData(

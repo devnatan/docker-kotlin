@@ -9,7 +9,10 @@ import io.ktor.client.plugins.ResponseException
 import io.ktor.client.plugins.UserAgent
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
-import io.ktor.client.plugins.logging.*
+import io.ktor.client.plugins.logging.LogLevel
+import io.ktor.client.plugins.logging.Logger
+import io.ktor.client.plugins.logging.Logging
+import io.ktor.client.plugins.logging.SIMPLE
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.URLBuilder
@@ -30,6 +33,7 @@ internal fun createHttpClient(client: DockerClient): HttpClient {
     check(client.config.socketPath.isNotBlank()) { "Socket path cannot be blank" }
     return HttpClient {
         expectSuccess = true
+
         install(ContentNegotiation) {
             json(
                 Json {
@@ -86,8 +90,8 @@ private fun createUrlBuilder(socketPath: String): URLBuilder =
     if (isUnixSocket(socketPath)) {
         URLBuilder(
             protocol = URLProtocol.HTTP,
-            port = DOCKER_SOCKET_PORT,
-            host = socketPath.substringAfter(UNIX_SOCKET_PREFIX).encodeToByteArray().toHexString() + ENCODED_HOSTNAME_SUFFIX,
+            port = DockerSocketPort,
+            host = socketPath.substringAfter(UnixSocketPrefix).encodeToByteArray().toHexString() + EncodedHostnameSuffix,
         )
     } else {
         val url = Url(socketPath)

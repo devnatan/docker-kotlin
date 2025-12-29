@@ -11,14 +11,10 @@ import kotlin.test.assertFalse
 import kotlin.test.assertTrue
 
 class NetworkResourceIT : ResourceIT() {
-    companion object {
-        const val NETWORK_NAME = "docker-kotlin"
-    }
-
     @Test
     fun `create network`() =
         runTest {
-            val createdNetwork = testClient.networks.create { name = NETWORK_NAME }
+            val createdNetwork = testClient.networks.create { name = "dockerkt" }
             val inspectedNetwork = testClient.networks.inspect(createdNetwork.id)
             assertEquals(createdNetwork.id, inspectedNetwork.id)
 
@@ -29,7 +25,7 @@ class NetworkResourceIT : ResourceIT() {
     @Test
     fun `remove network`() =
         runTest {
-            val network = testClient.networks.create { name = NETWORK_NAME }
+            val network = testClient.networks.create { name = "dockerkt" }
             assertTrue(testClient.networks.list().any { it.id == network.id })
 
             testClient.networks.remove(network.id)
@@ -50,7 +46,7 @@ class NetworkResourceIT : ResourceIT() {
             val oldCount = testClient.networks.list().size
             val newCount = 5
             repeat(newCount) {
-                testClient.networks.create { name = "$NETWORK_NAME-$it" }
+                testClient.networks.create { name = "dockerkt-$it" }
             }
 
             // check for >= because docker can have default networks defined
