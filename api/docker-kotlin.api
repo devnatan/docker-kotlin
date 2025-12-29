@@ -16,8 +16,6 @@ public final class me/devnatan/dockerkt/DockerClient : kotlinx/coroutines/Corout
 }
 
 public final class me/devnatan/dockerkt/DockerClientConfigBuilder {
-	public static final field Companion Lme/devnatan/dockerkt/DockerClientConfigBuilder$Companion;
-	public static final field DEFAULT_DOCKER_API_VERSION Ljava/lang/String;
 	public fun <init> ()V
 	public final fun apiVersion (Ljava/lang/String;)Lme/devnatan/dockerkt/DockerClientConfigBuilder;
 	public final fun build ()Lme/devnatan/dockerkt/DocketClientConfig;
@@ -29,7 +27,8 @@ public final class me/devnatan/dockerkt/DockerClientConfigBuilder {
 	public final fun useUnixDefaults ()Lme/devnatan/dockerkt/DockerClientConfigBuilder;
 }
 
-public final class me/devnatan/dockerkt/DockerClientConfigBuilder$Companion {
+public final class me/devnatan/dockerkt/DockerClientConfigKt {
+	public static final field DefaultDockerApiVersion Ljava/lang/String;
 }
 
 public final synthetic class me/devnatan/dockerkt/DockerClientFactoryKt {
@@ -75,8 +74,8 @@ public final class me/devnatan/dockerkt/io/DockerClientFrameListener$DefaultImpl
 }
 
 public final class me/devnatan/dockerkt/io/SocketUtils {
-	public static final field DEFAULT_DOCKER_HTTP_SOCKET Ljava/lang/String;
-	public static final field DEFAULT_DOCKER_UNIX_SOCKET Ljava/lang/String;
+	public static final field DefaultDockerHttpSocket Ljava/lang/String;
+	public static final field DefaultDockerUnixSocket Ljava/lang/String;
 }
 
 public final class me/devnatan/dockerkt/models/BlkioWeightDevice {
@@ -1077,10 +1076,6 @@ public final synthetic class me/devnatan/dockerkt/models/ResizeTTYOptions$$seria
 
 public final class me/devnatan/dockerkt/models/ResizeTTYOptions$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
-}
-
-public class me/devnatan/dockerkt/models/Resource {
-	public final fun getRawValues ()Ljava/util/Map;
 }
 
 public final class me/devnatan/dockerkt/models/ResourceLimit {
@@ -2124,6 +2119,19 @@ public final class me/devnatan/dockerkt/models/container/NetworkSettings$Compani
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class me/devnatan/dockerkt/models/exec/DemuxedOutput {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lme/devnatan/dockerkt/models/exec/DemuxedOutput;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/exec/DemuxedOutput;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/exec/DemuxedOutput;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStderr ()Ljava/lang/String;
+	public final fun getStdout ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class me/devnatan/dockerkt/models/exec/ExecCreateOptions {
 	public static final field Companion Lme/devnatan/dockerkt/models/exec/ExecCreateOptions$Companion;
 	public fun <init> ()V
@@ -2231,14 +2239,20 @@ public final class me/devnatan/dockerkt/models/exec/ExecInspectResponse$Companio
 public final class me/devnatan/dockerkt/models/exec/ExecStartOptions {
 	public static final field Companion Lme/devnatan/dockerkt/models/exec/ExecStartOptions$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;ZZZ)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;ZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/Boolean;
 	public final fun component2 ()Ljava/lang/Boolean;
-	public final fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;)Lme/devnatan/dockerkt/models/exec/ExecStartOptions;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/exec/ExecStartOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/exec/ExecStartOptions;
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun copy (Ljava/lang/Boolean;Ljava/lang/Boolean;ZZZ)Lme/devnatan/dockerkt/models/exec/ExecStartOptions;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/exec/ExecStartOptions;Ljava/lang/Boolean;Ljava/lang/Boolean;ZZZILjava/lang/Object;)Lme/devnatan/dockerkt/models/exec/ExecStartOptions;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDemux ()Z
 	public final fun getDetach ()Ljava/lang/Boolean;
+	public final fun getSocket ()Z
+	public final fun getStream ()Z
 	public final fun getTty ()Ljava/lang/Boolean;
 	public fun hashCode ()I
 	public final fun setDetach (Ljava/lang/Boolean;)V
@@ -2258,6 +2272,75 @@ public final synthetic class me/devnatan/dockerkt/models/exec/ExecStartOptions$$
 
 public final class me/devnatan/dockerkt/models/exec/ExecStartOptions$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class me/devnatan/dockerkt/models/exec/ExecStartResult {
+	public static final field Companion Lme/devnatan/dockerkt/models/exec/ExecStartResult$Companion;
+	public synthetic fun <init> (ILkotlinx/serialization/internal/SerializationConstructorMarker;)V
+	public static final synthetic fun write$Self (Lme/devnatan/dockerkt/models/exec/ExecStartResult;Lkotlinx/serialization/encoding/CompositeEncoder;Lkotlinx/serialization/descriptors/SerialDescriptor;)V
+}
+
+public final class me/devnatan/dockerkt/models/exec/ExecStartResult$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/exec/ExecStartResult$Complete : me/devnatan/dockerkt/models/exec/ExecStartResult {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lme/devnatan/dockerkt/models/exec/ExecStartResult$Complete;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/exec/ExecStartResult$Complete;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/exec/ExecStartResult$Complete;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOutput ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class me/devnatan/dockerkt/models/exec/ExecStartResult$CompleteDemuxed : me/devnatan/dockerkt/models/exec/ExecStartResult {
+	public fun <init> (Lme/devnatan/dockerkt/models/exec/DemuxedOutput;)V
+	public final fun component1 ()Lme/devnatan/dockerkt/models/exec/DemuxedOutput;
+	public final fun copy (Lme/devnatan/dockerkt/models/exec/DemuxedOutput;)Lme/devnatan/dockerkt/models/exec/ExecStartResult$CompleteDemuxed;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/exec/ExecStartResult$CompleteDemuxed;Lme/devnatan/dockerkt/models/exec/DemuxedOutput;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/exec/ExecStartResult$CompleteDemuxed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOutput ()Lme/devnatan/dockerkt/models/exec/DemuxedOutput;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class me/devnatan/dockerkt/models/exec/ExecStartResult$Detached : me/devnatan/dockerkt/models/exec/ExecStartResult {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/exec/ExecStartResult$Detached;
+}
+
+public final class me/devnatan/dockerkt/models/exec/ExecStartResult$Socket : me/devnatan/dockerkt/models/exec/ExecStartResult {
+	public fun <init> (Lio/ktor/utils/io/ByteReadChannel;)V
+	public final fun component1 ()Lio/ktor/utils/io/ByteReadChannel;
+	public final fun copy (Lio/ktor/utils/io/ByteReadChannel;)Lme/devnatan/dockerkt/models/exec/ExecStartResult$Socket;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/exec/ExecStartResult$Socket;Lio/ktor/utils/io/ByteReadChannel;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/exec/ExecStartResult$Socket;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getChannel ()Lio/ktor/utils/io/ByteReadChannel;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class me/devnatan/dockerkt/models/exec/ExecStartResult$Stream : me/devnatan/dockerkt/models/exec/ExecStartResult {
+	public fun <init> (Lkotlinx/coroutines/flow/Flow;)V
+	public final fun component1 ()Lkotlinx/coroutines/flow/Flow;
+	public final fun copy (Lkotlinx/coroutines/flow/Flow;)Lme/devnatan/dockerkt/models/exec/ExecStartResult$Stream;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/exec/ExecStartResult$Stream;Lkotlinx/coroutines/flow/Flow;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/exec/ExecStartResult$Stream;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOutput ()Lkotlinx/coroutines/flow/Flow;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class me/devnatan/dockerkt/models/exec/ExecStartResult$StreamDemuxed : me/devnatan/dockerkt/models/exec/ExecStartResult {
+	public fun <init> (Lkotlinx/coroutines/flow/Flow;)V
+	public final fun component1 ()Lkotlinx/coroutines/flow/Flow;
+	public final fun copy (Lkotlinx/coroutines/flow/Flow;)Lme/devnatan/dockerkt/models/exec/ExecStartResult$StreamDemuxed;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/exec/ExecStartResult$StreamDemuxed;Lkotlinx/coroutines/flow/Flow;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/exec/ExecStartResult$StreamDemuxed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOutput ()Lkotlinx/coroutines/flow/Flow;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class me/devnatan/dockerkt/models/image/Image {
@@ -3891,7 +3974,6 @@ public final class me/devnatan/dockerkt/resource/exec/ExecNotFoundException : me
 }
 
 public final class me/devnatan/dockerkt/resource/exec/ExecResource {
-	public static final field BASE_PATH Ljava/lang/String;
 	public final synthetic fun create (Ljava/lang/String;Lme/devnatan/dockerkt/models/exec/ExecCreateOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun inspect (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun resize (Ljava/lang/String;Lme/devnatan/dockerkt/models/ResizeTTYOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -3902,6 +3984,10 @@ public final class me/devnatan/dockerkt/resource/exec/ExecResourceExtKt {
 	public static final fun create (Lme/devnatan/dockerkt/resource/exec/ExecResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun start (Lme/devnatan/dockerkt/resource/exec/ExecResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun start$default (Lme/devnatan/dockerkt/resource/exec/ExecResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class me/devnatan/dockerkt/resource/exec/ExecResourceKt {
+	public static final field DefaultBufferSize I
 }
 
 public class me/devnatan/dockerkt/resource/image/ImageException : me/devnatan/dockerkt/DockerResourceException {
@@ -3928,7 +4014,6 @@ public final class me/devnatan/dockerkt/resource/image/ImageResourceKt {
 }
 
 public final class me/devnatan/dockerkt/resource/network/NetworkResource {
-	public static final field BASE_PATH Ljava/lang/String;
 	public final fun connectContainer (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun create (Lme/devnatan/dockerkt/models/network/NetworkCreateOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun disconnectContainer (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -3961,7 +4046,6 @@ public final class me/devnatan/dockerkt/resource/secret/SecretNotFoundException 
 }
 
 public final class me/devnatan/dockerkt/resource/secret/SecretResource {
-	public static final field BASE_PATH Ljava/lang/String;
 	public final fun create (Lme/devnatan/dockerkt/models/secret/SecretSpec;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun delete (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun inspect (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -3984,7 +4068,6 @@ public class me/devnatan/dockerkt/resource/swarm/SwarmException : me/devnatan/do
 }
 
 public final class me/devnatan/dockerkt/resource/system/SystemResource {
-	public static final field PING_ENDPOINT Ljava/lang/String;
 	public final fun events (Lme/devnatan/dockerkt/models/system/MonitorEventsOptions;)Lkotlinx/coroutines/flow/Flow;
 	public static synthetic fun events$default (Lme/devnatan/dockerkt/resource/system/SystemResource;Lme/devnatan/dockerkt/models/system/MonitorEventsOptions;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
 	public final fun ping (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -3998,7 +4081,6 @@ public final class me/devnatan/dockerkt/resource/system/SystemResourceKt {
 }
 
 public final class me/devnatan/dockerkt/resource/volume/VolumeResource {
-	public static final field BASE_PATH Ljava/lang/String;
 	public final fun create (Lme/devnatan/dockerkt/models/volume/VolumeCreateOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun inspect (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun list (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
