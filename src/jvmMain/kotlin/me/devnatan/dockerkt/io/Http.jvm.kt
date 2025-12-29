@@ -4,7 +4,35 @@ import io.ktor.client.HttpClientConfig
 import io.ktor.client.engine.HttpClientEngineConfig
 import io.ktor.client.engine.okhttp.OkHttpConfig
 import me.devnatan.dockerkt.DockerClient
+import okhttp3.Interceptor
+import okhttp3.Response
 import java.util.concurrent.TimeUnit
+
+// Ktor doesn't allow us to change "Upgrade" header so we set it directly in the engine
+private class UpgradeHeaderInterceptor : Interceptor {
+    override fun intercept(chain: Interceptor.Chain): Response {
+        val request = chain.request()
+
+        if (request.url.encodedPath.matches(Regex(".*/exec/.*/start$"))) {
+            try {
+                val newRequest =
+                    request
+                        .newBuilder()
+                        .header("Connection", "Upgrade")
+                        .header("Upgrade", "tcp")
+                        .build()
+
+                return chain.proceed(newRequest)
+            } catch (e: IllegalArgumentException) {
+                if (e.message.equals("expected a null or empty request body with 'Connection: upgrade'")) {
+                    return chain.proceed(request)
+                }
+            }
+        }
+
+        return chain.proceed(request)
+    }
+}
 
 internal actual fun <T : HttpClientEngineConfig> HttpClientConfig<out T>.configureHttpClient(client: DockerClient) {
     engine {
@@ -22,6 +50,7 @@ internal actual fun <T : HttpClientEngineConfig> HttpClientConfig<out T>.configu
             connectTimeout(0, TimeUnit.MILLISECONDS)
             callTimeout(0, TimeUnit.MILLISECONDS)
             retryOnConnectionFailure(true)
+            addInterceptor(UpgradeHeaderInterceptor())
         }
     }
 }
