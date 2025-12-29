@@ -1099,6 +1099,22 @@ final class me.devnatan.dockerkt.models.container/NetworkSettings { // me.devnat
     }
 }
 
+final class me.devnatan.dockerkt.models.exec/DemuxedOutput { // me.devnatan.dockerkt.models.exec/DemuxedOutput|null[0]
+    constructor <init>(kotlin/String, kotlin/String) // me.devnatan.dockerkt.models.exec/DemuxedOutput.<init>|<init>(kotlin.String;kotlin.String){}[0]
+
+    final val stderr // me.devnatan.dockerkt.models.exec/DemuxedOutput.stderr|{}stderr[0]
+        final fun <get-stderr>(): kotlin/String // me.devnatan.dockerkt.models.exec/DemuxedOutput.stderr.<get-stderr>|<get-stderr>(){}[0]
+    final val stdout // me.devnatan.dockerkt.models.exec/DemuxedOutput.stdout|{}stdout[0]
+        final fun <get-stdout>(): kotlin/String // me.devnatan.dockerkt.models.exec/DemuxedOutput.stdout.<get-stdout>|<get-stdout>(){}[0]
+
+    final fun component1(): kotlin/String // me.devnatan.dockerkt.models.exec/DemuxedOutput.component1|component1(){}[0]
+    final fun component2(): kotlin/String // me.devnatan.dockerkt.models.exec/DemuxedOutput.component2|component2(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ...): me.devnatan.dockerkt.models.exec/DemuxedOutput // me.devnatan.dockerkt.models.exec/DemuxedOutput.copy|copy(kotlin.String;kotlin.String){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.exec/DemuxedOutput.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.exec/DemuxedOutput.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.exec/DemuxedOutput.toString|toString(){}[0]
+}
+
 final class me.devnatan.dockerkt.models.exec/ExecCreateOptions { // me.devnatan.dockerkt.models.exec/ExecCreateOptions|null[0]
     constructor <init>(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin.collections/List<kotlin/String>? = ..., kotlin.collections/List<kotlin/String>? = ..., kotlin/Boolean? = ..., kotlin/String? = ..., kotlin/String? = ...) // me.devnatan.dockerkt.models.exec/ExecCreateOptions.<init>|<init>(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.String?;kotlin.Boolean?;kotlin.collections.List<kotlin.String>?;kotlin.collections.List<kotlin.String>?;kotlin.Boolean?;kotlin.String?;kotlin.String?){}[0]
 
@@ -1220,8 +1236,14 @@ final class me.devnatan.dockerkt.models.exec/ExecInspectResponse { // me.devnata
 }
 
 final class me.devnatan.dockerkt.models.exec/ExecStartOptions { // me.devnatan.dockerkt.models.exec/ExecStartOptions|null[0]
-    constructor <init>(kotlin/Boolean? = ..., kotlin/Boolean? = ...) // me.devnatan.dockerkt.models.exec/ExecStartOptions.<init>|<init>(kotlin.Boolean?;kotlin.Boolean?){}[0]
+    constructor <init>(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ...) // me.devnatan.dockerkt.models.exec/ExecStartOptions.<init>|<init>(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
 
+    final val demux // me.devnatan.dockerkt.models.exec/ExecStartOptions.demux|{}demux[0]
+        final fun <get-demux>(): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecStartOptions.demux.<get-demux>|<get-demux>(){}[0]
+    final val socket // me.devnatan.dockerkt.models.exec/ExecStartOptions.socket|{}socket[0]
+        final fun <get-socket>(): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecStartOptions.socket.<get-socket>|<get-socket>(){}[0]
+    final val stream // me.devnatan.dockerkt.models.exec/ExecStartOptions.stream|{}stream[0]
+        final fun <get-stream>(): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecStartOptions.stream.<get-stream>|<get-stream>(){}[0]
     final val tty // me.devnatan.dockerkt.models.exec/ExecStartOptions.tty|{}tty[0]
         final fun <get-tty>(): kotlin/Boolean? // me.devnatan.dockerkt.models.exec/ExecStartOptions.tty.<get-tty>|<get-tty>(){}[0]
 
@@ -1231,7 +1253,10 @@ final class me.devnatan.dockerkt.models.exec/ExecStartOptions { // me.devnatan.d
 
     final fun component1(): kotlin/Boolean? // me.devnatan.dockerkt.models.exec/ExecStartOptions.component1|component1(){}[0]
     final fun component2(): kotlin/Boolean? // me.devnatan.dockerkt.models.exec/ExecStartOptions.component2|component2(){}[0]
-    final fun copy(kotlin/Boolean? = ..., kotlin/Boolean? = ...): me.devnatan.dockerkt.models.exec/ExecStartOptions // me.devnatan.dockerkt.models.exec/ExecStartOptions.copy|copy(kotlin.Boolean?;kotlin.Boolean?){}[0]
+    final fun component3(): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecStartOptions.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecStartOptions.component4|component4(){}[0]
+    final fun component5(): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecStartOptions.component5|component5(){}[0]
+    final fun copy(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ...): me.devnatan.dockerkt.models.exec/ExecStartOptions // me.devnatan.dockerkt.models.exec/ExecStartOptions.copy|copy(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecStartOptions.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.exec/ExecStartOptions.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.exec/ExecStartOptions.toString|toString(){}[0]
@@ -3946,7 +3971,7 @@ final class me.devnatan.dockerkt.resource.exec/ExecResource { // me.devnatan.doc
     final suspend fun create(kotlin/String, me.devnatan.dockerkt.models.exec/ExecCreateOptions): kotlin/String // me.devnatan.dockerkt.resource.exec/ExecResource.create|create(kotlin.String;me.devnatan.dockerkt.models.exec.ExecCreateOptions){}[0]
     final suspend fun inspect(kotlin/String): me.devnatan.dockerkt.models.exec/ExecInspectResponse // me.devnatan.dockerkt.resource.exec/ExecResource.inspect|inspect(kotlin.String){}[0]
     final suspend fun resize(kotlin/String, me.devnatan.dockerkt.models/ResizeTTYOptions) // me.devnatan.dockerkt.resource.exec/ExecResource.resize|resize(kotlin.String;me.devnatan.dockerkt.models.ResizeTTYOptions){}[0]
-    final suspend fun start(kotlin/String, me.devnatan.dockerkt.models.exec/ExecStartOptions) // me.devnatan.dockerkt.resource.exec/ExecResource.start|start(kotlin.String;me.devnatan.dockerkt.models.exec.ExecStartOptions){}[0]
+    final suspend fun start(kotlin/String, me.devnatan.dockerkt.models.exec/ExecStartOptions): me.devnatan.dockerkt.models.exec/ExecStartResult // me.devnatan.dockerkt.resource.exec/ExecResource.start|start(kotlin.String;me.devnatan.dockerkt.models.exec.ExecStartOptions){}[0]
 }
 
 final class me.devnatan.dockerkt.resource.image/ImageNotFoundException : me.devnatan.dockerkt.resource.image/ImageException { // me.devnatan.dockerkt.resource.image/ImageNotFoundException|null[0]
@@ -4053,11 +4078,6 @@ final class me.devnatan.dockerkt/DockerClientConfigBuilder { // me.devnatan.dock
     final fun socketPath(kotlin/String): me.devnatan.dockerkt/DockerClientConfigBuilder // me.devnatan.dockerkt/DockerClientConfigBuilder.socketPath|socketPath(kotlin.String){}[0]
     final fun useHttpDefaults(): me.devnatan.dockerkt/DockerClientConfigBuilder // me.devnatan.dockerkt/DockerClientConfigBuilder.useHttpDefaults|useHttpDefaults(){}[0]
     final fun useUnixDefaults(): me.devnatan.dockerkt/DockerClientConfigBuilder // me.devnatan.dockerkt/DockerClientConfigBuilder.useUnixDefaults|useUnixDefaults(){}[0]
-
-    final object Companion { // me.devnatan.dockerkt/DockerClientConfigBuilder.Companion|null[0]
-        final const val DEFAULT_DOCKER_API_VERSION // me.devnatan.dockerkt/DockerClientConfigBuilder.Companion.DEFAULT_DOCKER_API_VERSION|{}DEFAULT_DOCKER_API_VERSION[0]
-            final fun <get-DEFAULT_DOCKER_API_VERSION>(): kotlin/String // me.devnatan.dockerkt/DockerClientConfigBuilder.Companion.DEFAULT_DOCKER_API_VERSION.<get-DEFAULT_DOCKER_API_VERSION>|<get-DEFAULT_DOCKER_API_VERSION>(){}[0]
-    }
 }
 
 final class me.devnatan.dockerkt/DockerResponseException : me.devnatan.dockerkt/DockerResourceException { // me.devnatan.dockerkt/DockerResponseException|null[0]
@@ -4082,11 +4102,6 @@ final class me.devnatan.dockerkt/DocketClientConfig { // me.devnatan.dockerkt/Do
     }
 }
 
-open class me.devnatan.dockerkt.models/Resource { // me.devnatan.dockerkt.models/Resource|null[0]
-    final val rawValues // me.devnatan.dockerkt.models/Resource.rawValues|{}rawValues[0]
-        final fun <get-rawValues>(): kotlin.collections/Map<kotlin/String, kotlin/String> // me.devnatan.dockerkt.models/Resource.rawValues.<get-rawValues>|<get-rawValues>(){}[0]
-}
-
 open class me.devnatan.dockerkt.resource.container/ContainerException : me.devnatan.dockerkt/DockerResourceException // me.devnatan.dockerkt.resource.container/ContainerException|null[0]
 
 open class me.devnatan.dockerkt.resource.exec/ExecException : me.devnatan.dockerkt/DockerResourceException // me.devnatan.dockerkt.resource.exec/ExecException|null[0]
@@ -4106,15 +4121,89 @@ open class me.devnatan.dockerkt/DockerResourceException : me.devnatan.dockerkt/D
         open fun <get-message>(): kotlin/String? // me.devnatan.dockerkt/DockerResourceException.message.<get-message>|<get-message>(){}[0]
 }
 
+sealed class me.devnatan.dockerkt.models.exec/ExecStartResult { // me.devnatan.dockerkt.models.exec/ExecStartResult|null[0]
+    final class Complete : me.devnatan.dockerkt.models.exec/ExecStartResult { // me.devnatan.dockerkt.models.exec/ExecStartResult.Complete|null[0]
+        constructor <init>(kotlin/String) // me.devnatan.dockerkt.models.exec/ExecStartResult.Complete.<init>|<init>(kotlin.String){}[0]
+
+        final val output // me.devnatan.dockerkt.models.exec/ExecStartResult.Complete.output|{}output[0]
+            final fun <get-output>(): kotlin/String // me.devnatan.dockerkt.models.exec/ExecStartResult.Complete.output.<get-output>|<get-output>(){}[0]
+
+        final fun component1(): kotlin/String // me.devnatan.dockerkt.models.exec/ExecStartResult.Complete.component1|component1(){}[0]
+        final fun copy(kotlin/String = ...): me.devnatan.dockerkt.models.exec/ExecStartResult.Complete // me.devnatan.dockerkt.models.exec/ExecStartResult.Complete.copy|copy(kotlin.String){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecStartResult.Complete.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.exec/ExecStartResult.Complete.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.exec/ExecStartResult.Complete.toString|toString(){}[0]
+    }
+
+    final class CompleteDemuxed : me.devnatan.dockerkt.models.exec/ExecStartResult { // me.devnatan.dockerkt.models.exec/ExecStartResult.CompleteDemuxed|null[0]
+        constructor <init>(me.devnatan.dockerkt.models.exec/DemuxedOutput) // me.devnatan.dockerkt.models.exec/ExecStartResult.CompleteDemuxed.<init>|<init>(me.devnatan.dockerkt.models.exec.DemuxedOutput){}[0]
+
+        final val output // me.devnatan.dockerkt.models.exec/ExecStartResult.CompleteDemuxed.output|{}output[0]
+            final fun <get-output>(): me.devnatan.dockerkt.models.exec/DemuxedOutput // me.devnatan.dockerkt.models.exec/ExecStartResult.CompleteDemuxed.output.<get-output>|<get-output>(){}[0]
+
+        final fun component1(): me.devnatan.dockerkt.models.exec/DemuxedOutput // me.devnatan.dockerkt.models.exec/ExecStartResult.CompleteDemuxed.component1|component1(){}[0]
+        final fun copy(me.devnatan.dockerkt.models.exec/DemuxedOutput = ...): me.devnatan.dockerkt.models.exec/ExecStartResult.CompleteDemuxed // me.devnatan.dockerkt.models.exec/ExecStartResult.CompleteDemuxed.copy|copy(me.devnatan.dockerkt.models.exec.DemuxedOutput){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecStartResult.CompleteDemuxed.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.exec/ExecStartResult.CompleteDemuxed.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.exec/ExecStartResult.CompleteDemuxed.toString|toString(){}[0]
+    }
+
+    final class Socket : me.devnatan.dockerkt.models.exec/ExecStartResult { // me.devnatan.dockerkt.models.exec/ExecStartResult.Socket|null[0]
+        constructor <init>(io.ktor.utils.io/ByteReadChannel) // me.devnatan.dockerkt.models.exec/ExecStartResult.Socket.<init>|<init>(io.ktor.utils.io.ByteReadChannel){}[0]
+
+        final val channel // me.devnatan.dockerkt.models.exec/ExecStartResult.Socket.channel|{}channel[0]
+            final fun <get-channel>(): io.ktor.utils.io/ByteReadChannel // me.devnatan.dockerkt.models.exec/ExecStartResult.Socket.channel.<get-channel>|<get-channel>(){}[0]
+
+        final fun component1(): io.ktor.utils.io/ByteReadChannel // me.devnatan.dockerkt.models.exec/ExecStartResult.Socket.component1|component1(){}[0]
+        final fun copy(io.ktor.utils.io/ByteReadChannel = ...): me.devnatan.dockerkt.models.exec/ExecStartResult.Socket // me.devnatan.dockerkt.models.exec/ExecStartResult.Socket.copy|copy(io.ktor.utils.io.ByteReadChannel){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecStartResult.Socket.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.exec/ExecStartResult.Socket.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.exec/ExecStartResult.Socket.toString|toString(){}[0]
+    }
+
+    final class Stream : me.devnatan.dockerkt.models.exec/ExecStartResult { // me.devnatan.dockerkt.models.exec/ExecStartResult.Stream|null[0]
+        constructor <init>(kotlinx.coroutines.flow/Flow<kotlin/String>) // me.devnatan.dockerkt.models.exec/ExecStartResult.Stream.<init>|<init>(kotlinx.coroutines.flow.Flow<kotlin.String>){}[0]
+
+        final val output // me.devnatan.dockerkt.models.exec/ExecStartResult.Stream.output|{}output[0]
+            final fun <get-output>(): kotlinx.coroutines.flow/Flow<kotlin/String> // me.devnatan.dockerkt.models.exec/ExecStartResult.Stream.output.<get-output>|<get-output>(){}[0]
+
+        final fun component1(): kotlinx.coroutines.flow/Flow<kotlin/String> // me.devnatan.dockerkt.models.exec/ExecStartResult.Stream.component1|component1(){}[0]
+        final fun copy(kotlinx.coroutines.flow/Flow<kotlin/String> = ...): me.devnatan.dockerkt.models.exec/ExecStartResult.Stream // me.devnatan.dockerkt.models.exec/ExecStartResult.Stream.copy|copy(kotlinx.coroutines.flow.Flow<kotlin.String>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecStartResult.Stream.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.exec/ExecStartResult.Stream.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.exec/ExecStartResult.Stream.toString|toString(){}[0]
+    }
+
+    final class StreamDemuxed : me.devnatan.dockerkt.models.exec/ExecStartResult { // me.devnatan.dockerkt.models.exec/ExecStartResult.StreamDemuxed|null[0]
+        constructor <init>(kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models.exec/DemuxedOutput>) // me.devnatan.dockerkt.models.exec/ExecStartResult.StreamDemuxed.<init>|<init>(kotlinx.coroutines.flow.Flow<me.devnatan.dockerkt.models.exec.DemuxedOutput>){}[0]
+
+        final val output // me.devnatan.dockerkt.models.exec/ExecStartResult.StreamDemuxed.output|{}output[0]
+            final fun <get-output>(): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models.exec/DemuxedOutput> // me.devnatan.dockerkt.models.exec/ExecStartResult.StreamDemuxed.output.<get-output>|<get-output>(){}[0]
+
+        final fun component1(): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models.exec/DemuxedOutput> // me.devnatan.dockerkt.models.exec/ExecStartResult.StreamDemuxed.component1|component1(){}[0]
+        final fun copy(kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models.exec/DemuxedOutput> = ...): me.devnatan.dockerkt.models.exec/ExecStartResult.StreamDemuxed // me.devnatan.dockerkt.models.exec/ExecStartResult.StreamDemuxed.copy|copy(kotlinx.coroutines.flow.Flow<me.devnatan.dockerkt.models.exec.DemuxedOutput>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecStartResult.StreamDemuxed.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.exec/ExecStartResult.StreamDemuxed.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.exec/ExecStartResult.StreamDemuxed.toString|toString(){}[0]
+    }
+
+    final object Companion : kotlinx.serialization.internal/SerializerFactory { // me.devnatan.dockerkt.models.exec/ExecStartResult.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.exec/ExecStartResult> // me.devnatan.dockerkt.models.exec/ExecStartResult.Companion.serializer|serializer(){}[0]
+        final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // me.devnatan.dockerkt.models.exec/ExecStartResult.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+    }
+
+    final object Detached : me.devnatan.dockerkt.models.exec/ExecStartResult // me.devnatan.dockerkt.models.exec/ExecStartResult.Detached|null[0]
+}
+
 final object me.devnatan.dockerkt.resource/ResourcePaths { // me.devnatan.dockerkt.resource/ResourcePaths|null[0]
     final const val CONTAINERS // me.devnatan.dockerkt.resource/ResourcePaths.CONTAINERS|{}CONTAINERS[0]
         final fun <get-CONTAINERS>(): kotlin/String // me.devnatan.dockerkt.resource/ResourcePaths.CONTAINERS.<get-CONTAINERS>|<get-CONTAINERS>(){}[0]
 }
 
-final const val me.devnatan.dockerkt.io/DEFAULT_DOCKER_HTTP_SOCKET // me.devnatan.dockerkt.io/DEFAULT_DOCKER_HTTP_SOCKET|{}DEFAULT_DOCKER_HTTP_SOCKET[0]
-    final fun <get-DEFAULT_DOCKER_HTTP_SOCKET>(): kotlin/String // me.devnatan.dockerkt.io/DEFAULT_DOCKER_HTTP_SOCKET.<get-DEFAULT_DOCKER_HTTP_SOCKET>|<get-DEFAULT_DOCKER_HTTP_SOCKET>(){}[0]
-final const val me.devnatan.dockerkt.io/DEFAULT_DOCKER_UNIX_SOCKET // me.devnatan.dockerkt.io/DEFAULT_DOCKER_UNIX_SOCKET|{}DEFAULT_DOCKER_UNIX_SOCKET[0]
-    final fun <get-DEFAULT_DOCKER_UNIX_SOCKET>(): kotlin/String // me.devnatan.dockerkt.io/DEFAULT_DOCKER_UNIX_SOCKET.<get-DEFAULT_DOCKER_UNIX_SOCKET>|<get-DEFAULT_DOCKER_UNIX_SOCKET>(){}[0]
+final const val me.devnatan.dockerkt.io/DefaultDockerHttpSocket // me.devnatan.dockerkt.io/DefaultDockerHttpSocket|{}DefaultDockerHttpSocket[0]
+    final fun <get-DefaultDockerHttpSocket>(): kotlin/String // me.devnatan.dockerkt.io/DefaultDockerHttpSocket.<get-DefaultDockerHttpSocket>|<get-DefaultDockerHttpSocket>(){}[0]
+final const val me.devnatan.dockerkt.io/DefaultDockerUnixSocket // me.devnatan.dockerkt.io/DefaultDockerUnixSocket|{}DefaultDockerUnixSocket[0]
+    final fun <get-DefaultDockerUnixSocket>(): kotlin/String // me.devnatan.dockerkt.io/DefaultDockerUnixSocket.<get-DefaultDockerUnixSocket>|<get-DefaultDockerUnixSocket>(){}[0]
 final const val me.devnatan.dockerkt.models.network/NetworkBridgeDriver // me.devnatan.dockerkt.models.network/NetworkBridgeDriver|{}NetworkBridgeDriver[0]
     final fun <get-NetworkBridgeDriver>(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkBridgeDriver.<get-NetworkBridgeDriver>|<get-NetworkBridgeDriver>(){}[0]
 final const val me.devnatan.dockerkt.models.network/NetworkBuiltinType // me.devnatan.dockerkt.models.network/NetworkBuiltinType|{}NetworkBuiltinType[0]
@@ -4137,6 +4226,10 @@ final const val me.devnatan.dockerkt.models.network/NetworkOverlayDriver // me.d
     final fun <get-NetworkOverlayDriver>(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkOverlayDriver.<get-NetworkOverlayDriver>|<get-NetworkOverlayDriver>(){}[0]
 final const val me.devnatan.dockerkt.models.network/NetworkSwarmScope // me.devnatan.dockerkt.models.network/NetworkSwarmScope|{}NetworkSwarmScope[0]
     final fun <get-NetworkSwarmScope>(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkSwarmScope.<get-NetworkSwarmScope>|<get-NetworkSwarmScope>(){}[0]
+final const val me.devnatan.dockerkt.resource.exec/DefaultBufferSize // me.devnatan.dockerkt.resource.exec/DefaultBufferSize|{}DefaultBufferSize[0]
+    final fun <get-DefaultBufferSize>(): kotlin/Int // me.devnatan.dockerkt.resource.exec/DefaultBufferSize.<get-DefaultBufferSize>|<get-DefaultBufferSize>(){}[0]
+final const val me.devnatan.dockerkt/DefaultDockerApiVersion // me.devnatan.dockerkt/DefaultDockerApiVersion|{}DefaultDockerApiVersion[0]
+    final fun <get-DefaultDockerApiVersion>(): kotlin/String // me.devnatan.dockerkt/DefaultDockerApiVersion.<get-DefaultDockerApiVersion>|<get-DefaultDockerApiVersion>(){}[0]
 
 final val me.devnatan.dockerkt.models.container/createdAt // me.devnatan.dockerkt.models.container/createdAt|@me.devnatan.dockerkt.models.container.ContainerSummary{}createdAt[0]
     final fun (me.devnatan.dockerkt.models.container/ContainerSummary).<get-createdAt>(): kotlin.time/Instant // me.devnatan.dockerkt.models.container/createdAt.<get-createdAt>|<get-createdAt>@me.devnatan.dockerkt.models.container.ContainerSummary(){}[0]
@@ -4193,7 +4286,7 @@ final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResou
 final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/remove(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerRemoveOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.container/remove|remove@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerRemoveOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/resizeTTY(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models/ResizeTTYOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.container/resizeTTY|resizeTTY@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.ResizeTTYOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.exec/ExecResource).me.devnatan.dockerkt.resource.exec/create(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.exec/ExecCreateOptions, kotlin/Unit>): kotlin/String // me.devnatan.dockerkt.resource.exec/create|create@me.devnatan.dockerkt.resource.exec.ExecResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.exec.ExecCreateOptions,kotlin.Unit>){}[0]
-final suspend inline fun (me.devnatan.dockerkt.resource.exec/ExecResource).me.devnatan.dockerkt.resource.exec/start(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.exec/ExecStartOptions, kotlin/Unit> = ...) // me.devnatan.dockerkt.resource.exec/start|start@me.devnatan.dockerkt.resource.exec.ExecResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.exec.ExecStartOptions,kotlin.Unit>){}[0]
+final suspend inline fun (me.devnatan.dockerkt.resource.exec/ExecResource).me.devnatan.dockerkt.resource.exec/start(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.exec/ExecStartOptions, kotlin/Unit> = ...): me.devnatan.dockerkt.models.exec/ExecStartResult // me.devnatan.dockerkt.resource.exec/start|start@me.devnatan.dockerkt.resource.exec.ExecResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.exec.ExecStartOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.image/ImageResource).me.devnatan.dockerkt.resource.image/build(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.image/ImageBuildOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.image/build|build@me.devnatan.dockerkt.resource.image.ImageResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.image.ImageBuildOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.network/NetworkResource).me.devnatan.dockerkt.resource.network/create(kotlin/Function1<me.devnatan.dockerkt.models.network/NetworkCreateOptions, kotlin/Unit>): me.devnatan.dockerkt.models.network/Network // me.devnatan.dockerkt.resource.network/create|create@me.devnatan.dockerkt.resource.network.NetworkResource(kotlin.Function1<me.devnatan.dockerkt.models.network.NetworkCreateOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.network/NetworkResource).me.devnatan.dockerkt.resource.network/inspect(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.network/NetworkInspectOptions, kotlin/Unit>): me.devnatan.dockerkt.models.network/Network // me.devnatan.dockerkt.resource.network/inspect|inspect@me.devnatan.dockerkt.resource.network.NetworkResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.network.NetworkInspectOptions,kotlin.Unit>){}[0]
