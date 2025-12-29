@@ -2,6 +2,7 @@ package me.devnatan.dockerkt.resource.exec
 
 import me.devnatan.dockerkt.models.exec.ExecCreateOptions
 import me.devnatan.dockerkt.models.exec.ExecStartOptions
+import me.devnatan.dockerkt.models.exec.ExecStartResult
 import me.devnatan.dockerkt.resource.container.ContainerNotFoundException
 import me.devnatan.dockerkt.resource.container.ContainerNotRunningException
 
@@ -32,6 +33,4 @@ public suspend inline fun ExecResource.create(
 public suspend inline fun ExecResource.start(
     id: String,
     options: ExecStartOptions.() -> Unit = {},
-) {
-    start(id, ExecStartOptions().apply(options))
-}
+): ExecStartResult = start(id, ExecStartOptions().apply(options))
