@@ -1,3 +1,5 @@
+import org.jmailen.gradle.kotlinter.support.ReporterType
+
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
     alias(libs.plugins.kotlinx.serialization)
@@ -123,4 +125,8 @@ publishing {
             credentials(PasswordCredentials::class)
         }
     }
+}
+
+kotlinter {
+    reporters = arrayOf(ReporterType.html.name)
 }
