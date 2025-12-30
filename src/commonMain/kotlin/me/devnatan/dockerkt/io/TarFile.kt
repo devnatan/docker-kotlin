@@ -2,6 +2,7 @@ package me.devnatan.dockerkt.io
 
 import kotlinx.io.Buffer
 import kotlinx.io.RawSource
+import kotlinx.io.files.Path
 import kotlinx.io.readByteArray
 import kotlinx.io.readTo
 import kotlin.math.min
@@ -233,5 +234,108 @@ internal object TarUtils {
     ): Long {
         val str = readString(source, offset, maxLength).trim()
         return if (str.isEmpty()) 0 else str.toLongOrNull(8) ?: 0
+    }
+}
+
+public object TarOperations {
+    /**
+     * Creates a tar archive from a single file.
+     */
+    public fun createTarFromFile(filePath: Path): ByteArray {
+        val data = FileSystemUtils.readFile(filePath)
+        val metadata = FileSystemUtils.getMetadata(filePath)
+        val fileName = filePath.name
+
+        val entry =
+            TarEntry(
+                name = fileName,
+                size = data.size.toLong(),
+                mode = 644, // Default file permissions
+                mtime = FileSystemUtils.currentTimeSeconds(),
+                isDirectory = false,
+                data = data,
+            )
+
+        return TarUtils.createTarArchive(listOf(entry))
+    }
+
+    /**
+     * Creates a tar archive from a directory recursively.
+     */
+    public fun createTarFromDirectory(
+        dirPath: Path,
+        basePath: String = "",
+    ): ByteArray {
+        val entries = mutableListOf<TarEntry>()
+        collectEntriesFromDirectory(dirPath, basePath, entries)
+        return TarUtils.createTarArchive(entries)
+    }
+
+    private fun collectEntriesFromDirectory(
+        dirPath: Path,
+        basePath: String,
+        entries: MutableList<TarEntry>,
+    ) {
+        val files = FileSystemUtils.listDirectory(dirPath)
+
+        files.forEach { file ->
+            val fileName = file.name
+            val entryName = if (basePath.isEmpty()) fileName else "$basePath/$fileName"
+
+            if (FileSystemUtils.isDirectory(file)) {
+                // Add directory entry
+                entries.add(
+                    TarEntry(
+                        name = "$entryName/",
+                        size = 0,
+                        mode = 755, // Default directory permissions
+                        mtime = FileSystemUtils.currentTimeSeconds(),
+                        isDirectory = true,
+                        data = null,
+                    ),
+                )
+
+                // Recursively add contents
+                collectEntriesFromDirectory(file, entryName, entries)
+            } else {
+                // Add file entry
+                val data = FileSystemUtils.readFile(file)
+                entries.add(
+                    TarEntry(
+                        name = entryName,
+                        size = data.size.toLong(),
+                        mode = 644, // Default file permissions
+                        mtime = FileSystemUtils.currentTimeSeconds(),
+                        isDirectory = false,
+                        data = data,
+                    ),
+                )
+            }
+        }
+    }
+
+    /**
+     * Extracts a tar archive to the local filesystem.
+     */
+    public fun extractTar(
+        tarData: ByteArray,
+        destinationPath: Path,
+    ) {
+        val entries = TarUtils.extractTarArchive(tarData)
+
+        entries.forEach { entry ->
+            destinationPath
+            val entryPath = Path(destinationPath, entry.name)
+
+            if (entry.isDirectory) {
+                FileSystemUtils.createDirectories(entryPath)
+            } else {
+                // Create parent directories
+                entryPath.parent?.let { FileSystemUtils.createDirectories(it) }
+
+                // Write file
+                entry.data?.let { FileSystemUtils.writeFile(entryPath, it) }
+            }
+        }
     }
 }
