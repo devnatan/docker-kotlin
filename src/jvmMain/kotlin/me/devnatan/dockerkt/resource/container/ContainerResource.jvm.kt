@@ -28,15 +28,14 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.future.asCompletableFuture
-import kotlinx.io.files.FileNotFoundException
 import kotlinx.io.files.Path
 import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.DockerResponseException
 import me.devnatan.dockerkt.io.FileSystemUtils
+import me.devnatan.dockerkt.io.TarEntry
 import me.devnatan.dockerkt.io.TarOperations
-import me.devnatan.dockerkt.io.readTarFile
+import me.devnatan.dockerkt.io.TarUtils
 import me.devnatan.dockerkt.io.requestCatching
-import me.devnatan.dockerkt.io.writeTarFile
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
 import me.devnatan.dockerkt.models.Stream
@@ -542,10 +541,10 @@ public actual class ContainerResource(
     ): ContainerCopyResult =
         requestCatching(
             HttpStatusCode.NotFound to { exception ->
-                if (exception.message?.contains("container") == true) {
-                    ContainerNotFoundException(exception, container)
-                } else {
+                if (exception.message?.contains("file") == true) {
                     ArchiveNotFoundException(exception, container, sourcePath)
+                } else {
+                    ContainerNotFoundException(exception, container)
                 }
             },
         ) {
@@ -633,11 +632,18 @@ public actual class ContainerResource(
     ) {
         val path = Path(sourcePath)
         if (!FileSystemUtils.exists(path) || !FileSystemUtils.isDirectory(path)) {
-            throw FileNotFoundException("Source directory not found: $sourcePath")
+            throw IllegalArgumentException("Source directory not found: $sourcePath")
         }
 
-        val tarArchive = TarOperations.createTarFromDirectory(path)
+        // Create tar with directory contents only (not including the root directory name)
+        val tarArchive = createTarFromDirectoryContents(path)
         copyTo(container, destinationPath, tarArchive, options)
+    }
+
+    private fun createTarFromDirectoryContents(dirPath: Path): ByteArray {
+        val entries = mutableListOf<TarEntry>()
+        TarOperations.collectDirectoryContents(dirPath, "", entries)
+        return TarUtils.createTarArchive(entries)
     }
 
     public actual fun logs(
