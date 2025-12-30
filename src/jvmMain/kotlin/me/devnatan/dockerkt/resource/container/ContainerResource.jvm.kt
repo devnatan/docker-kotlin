@@ -566,27 +566,79 @@ public actual class ContainerResource(
             ContainerCopyResult(archiveData, stat)
         }
 
-    /**
-     * Uploads files into a container file system.
-     *
-     * @param container The container id.
-     * @param inputPath Path to the file that will be uploaded.
-     * @param remotePath Path to the file or directory inside the container file system.
-     */
-    public actual suspend fun uploadArchive(
+    public actual suspend fun copyTo(
         container: String,
-        inputPath: String,
-        remotePath: String,
+        destinationPath: String,
+        tarArchive: ByteArray,
+        options: ContainerCopyOptions,
     ): Unit =
-        requestCatching {
-            val archive = writeTarFile(inputPath)
-
+        requestCatching(
+            HttpStatusCode.NotFound to { exception -> ContainerNotFoundException(exception, container) },
+            HttpStatusCode.BadRequest to { exception ->
+                IllegalArgumentException("Invalid destination path: $destinationPath", exception)
+            },
+        ) {
             httpClient.put("$CONTAINERS/$container/archive") {
-                parameter("path", remotePath.ifEmpty { FileSystemRoot })
-                parameter("noOverwriteDirNonDir", false)
-                setBody(archive.buffered().asInputStream().toByteReadChannel())
+                parameter("path", destinationPath)
+                parameter("noOverwriteDirNonDir", options.noOverwriteDirNonDir.toString())
+                parameter("copyUIDGID", options.copyUIDGID.toString())
+
+                setBody(tarArchive)
+                contentType(ContentType.Application.OctetStream)
             }
         }
+
+    public actual suspend fun copyFileFrom(
+        container: String,
+        sourcePath: String,
+        destinationPath: String,
+    ) {
+        val result = copyFrom(container, sourcePath)
+        TarOperations.extractTar(result.archiveData, Path(destinationPath))
+    }
+
+    public actual suspend fun copyFileTo(
+        container: String,
+        sourcePath: String,
+        destinationPath: String,
+        options: ContainerCopyOptions,
+    ) {
+        val path = Path(sourcePath)
+        if (!FileSystemUtils.exists(path)) {
+            throw IllegalArgumentException("Source file not found: $sourcePath")
+        }
+
+        if (FileSystemUtils.isDirectory(path)) {
+            throw IllegalArgumentException("Source is a directory, use copyDirectoryTo instead: $sourcePath")
+        }
+
+        val tarArchive = TarOperations.createTarFromFile(path)
+        copyTo(container, destinationPath, tarArchive, options)
+    }
+
+    public actual suspend fun copyDirectoryFrom(
+        container: String,
+        sourcePath: String,
+        destinationPath: String,
+    ) {
+        val result = copyFrom(container, sourcePath)
+        TarOperations.extractTar(result.archiveData, Path(destinationPath))
+    }
+
+    public actual suspend fun copyDirectoryTo(
+        container: String,
+        sourcePath: String,
+        destinationPath: String,
+        options: ContainerCopyOptions,
+    ) {
+        val path = Path(sourcePath)
+        if (!FileSystemUtils.exists(path) || !FileSystemUtils.isDirectory(path)) {
+            throw FileNotFoundException("Source directory not found: $sourcePath")
+        }
+
+        val tarArchive = TarOperations.createTarFromDirectory(path)
+        copyTo(container, destinationPath, tarArchive, options)
+    }
 
     public actual fun logs(
         container: String,
