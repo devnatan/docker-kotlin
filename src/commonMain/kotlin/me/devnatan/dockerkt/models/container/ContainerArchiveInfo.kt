@@ -7,13 +7,18 @@ import kotlin.time.Instant
 
 @Serializable
 public data class ContainerArchiveInfo(
+    @SerialName("name")
     val name: String,
+    @SerialName("size")
     val size: Long,
-    val mode: Int,
-    @SerialName("mtime") val modifiedAtRaw: String,
+    @SerialName("mode")
+    val mode: Long,
+    @SerialName("mtime")
+    val modifiedAtMillis: String,
+    @SerialName("linkTarget")
     val linkTarget: String = "",
 )
 
 @OptIn(ExperimentalTime::class)
 public val ContainerArchiveInfo.modifiedAt: Instant
-    get() = Instant.parse(modifiedAtRaw)
+    get() = Instant.parse(modifiedAtMillis)
