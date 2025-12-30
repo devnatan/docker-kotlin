@@ -1,12 +1,12 @@
 package me.devnatan.dockerkt.resource.container
 
 import kotlinx.coroutines.flow.Flow
-import kotlinx.io.RawSource
 import me.devnatan.dockerkt.DockerResponseException
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
 import me.devnatan.dockerkt.models.container.Container
-import me.devnatan.dockerkt.models.container.ContainerArchiveInfo
+import me.devnatan.dockerkt.models.container.ContainerCopyOptions
+import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
 import me.devnatan.dockerkt.models.container.ContainerListOptions
 import me.devnatan.dockerkt.models.container.ContainerLogsOptions
@@ -16,10 +16,7 @@ import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
 import me.devnatan.dockerkt.models.container.ContainerSummary
 import me.devnatan.dockerkt.models.container.ContainerWaitResult
 import me.devnatan.dockerkt.resource.image.ImageNotFoundException
-import kotlin.jvm.JvmOverloads
 import kotlin.time.Duration
-
-internal const val FileSystemRoot = "/"
 
 public expect class ContainerResource {
     /**
@@ -160,44 +157,115 @@ public expect class ContainerResource {
     // TODO documentation
     public suspend fun prune(filters: ContainerPruneFilters = ContainerPruneFilters()): ContainerPruneResult
 
-    /**
-     * Retrieves information about files of a container file system.
-     *
-     * @param container The container id.
-     * @param path The path to the file or directory inside the container file system.
-     */
-    @JvmOverloads
-    public suspend fun archive(
-        container: String,
-        path: String = FileSystemRoot,
-    ): ContainerArchiveInfo
-
-    /**
-     * Downloads files from a container file system.
-     *
-     * @param container The container id.
-     * @param remotePath The path to the file or directory inside the container file system.
-     */
-    public suspend fun downloadArchive(
-        container: String,
-        remotePath: String,
-    ): RawSource
-
-    /**
-     * Uploads files into a container file system.
-     *
-     * @param container The container id.
-     * @param inputPath Path to the file that will be uploaded.
-     * @param remotePath Path to the file or directory inside the container file system.
-     */
-    public suspend fun uploadArchive(
-        container: String,
-        inputPath: String,
-        remotePath: String,
-    )
-
     public fun logs(
         container: String,
         options: ContainerLogsOptions,
     ): Flow<Frame>
+
+    /**
+     * Copy files or folders from a container to the local filesystem.
+     *
+     * This method retrieves files from a container as a tar archive.
+     * The archive is then extracted to the local filesystem.
+     *
+     * @param container Container id or name.
+     * @param sourcePath Path to the file or folder inside the container.
+     * @return [ContainerCopyResult] containing the tar archive and path statistics.
+     * @throws ContainerNotFoundException If the container is not found.
+     * @throws ArchiveNotFoundException If the path does not exist in the container.
+     */
+    public suspend fun copyFrom(
+        container: String,
+        sourcePath: String,
+    ): ContainerCopyResult
+
+    /**
+     * Copy files or folders from the local filesystem to a container.
+     *
+     * This method uploads a tar archive to a container and extracts it
+     * at the specified destination path.
+     *
+     * @param container Container id or name.
+     * @param destinationPath Path inside the container where files will be extracted.
+     * @param tarArchive The tar archive containing files to copy.
+     * @param options Additional options for the copy operation.
+     * @throws ContainerNotFoundException If the container is not found.
+     * @throws IllegalArgumentException If the destination path is invalid.
+     */
+    public suspend fun copyTo(
+        container: String,
+        destinationPath: String,
+        tarArchive: ByteArray,
+        options: ContainerCopyOptions = ContainerCopyOptions(path = destinationPath),
+    )
+
+    /**
+     * Copy a single file from the local filesystem to a container.
+     *
+     * This is a convenience method that creates a tar archive from a single file
+     * and uploads it to the container.
+     *
+     * @param container Container id or name.
+     * @param sourcePath Path to the file on the local filesystem.
+     * @param destinationPath Path inside the container where the file will be copied.
+     * @param options Additional options for the copy operation.
+     * @throws ArchiveNotFoundException If the source file does not exist.
+     * @throws ContainerNotFoundException If the container is not found.
+     */
+    public suspend fun copyFileTo(
+        container: String,
+        sourcePath: String,
+        destinationPath: String,
+        options: ContainerCopyOptions = ContainerCopyOptions(path = destinationPath),
+    )
+
+    /**
+     * Copy a file from a container to the local filesystem.
+     *
+     * This is a convenience method that retrieves a tar archive from the container
+     * and extracts a single file from it.
+     *
+     * @param container Container id or name.
+     * @param sourcePath Path to the file inside the container.
+     * @param destinationPath Path on the local filesystem where the file will be saved.
+     * @throws ContainerNotFoundException If the container is not found.
+     * @throws ArchiveNotFoundException If the source path does not exist in the container.
+     */
+    public suspend fun copyFileFrom(
+        container: String,
+        sourcePath: String,
+        destinationPath: String,
+    )
+
+    /**
+     * Copy a directory from a container to the local filesystem.
+     *
+     * @param container Container id or name.
+     * @param sourcePath Path to the directory inside the container.
+     * @param destinationPath Path on the local filesystem where files will be extracted.
+     * @throws ContainerNotFoundException If the container is not found.
+     * @throws ArchiveNotFoundException If the source path does not exist in the container.
+     */
+    public suspend fun copyDirectoryFrom(
+        container: String,
+        sourcePath: String,
+        destinationPath: String,
+    )
+
+    /**
+     * Copy a directory from the local filesystem to a container.
+     *
+     * @param container Container ID or name.
+     * @param sourcePath Path to the directory on the local filesystem.
+     * @param destinationPath Path inside the container where files will be copied.
+     * @param options Additional options for the copy operation.
+     * @throws kotlinx.io.files.FileNotFoundException If the source directory does not exist.
+     * @throws ContainerNotFoundException If the container is not found.
+     */
+    public suspend fun copyDirectoryTo(
+        container: String,
+        sourcePath: String,
+        destinationPath: String,
+        options: ContainerCopyOptions = ContainerCopyOptions(path = destinationPath),
+    )
 }
