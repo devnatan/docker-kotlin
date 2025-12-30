@@ -1,11 +1,11 @@
 package me.devnatan.dockerkt.resource.container
 
 import kotlinx.coroutines.flow.Flow
-import kotlinx.io.RawSource
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
 import me.devnatan.dockerkt.models.container.Container
-import me.devnatan.dockerkt.models.container.ContainerArchiveInfo
+import me.devnatan.dockerkt.models.container.ContainerCopyOptions
+import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
 import me.devnatan.dockerkt.models.container.ContainerListOptions
 import me.devnatan.dockerkt.models.container.ContainerLogsOptions
@@ -182,51 +182,44 @@ public actual class ContainerResource {
         TODO("Not yet implemented")
     }
 
-    /**
-     * Retrieves information about files of a container file system.
-     *
-     * @param container The container id.
-     * @param path The path to the file or directory inside the container file system.
-     */
-    public actual suspend fun archive(
-        container: String,
-        path: String,
-    ): ContainerArchiveInfo {
-        TODO("Not yet implemented")
-    }
-
-    /**
-     * Downloads files from a container file system.
-     *
-     * @param container The container id.
-     * @param remotePath The path to the file or directory inside the container file system.
-     */
-    public actual suspend fun downloadArchive(
-        container: String,
-        remotePath: String,
-    ): RawSource {
-        TODO("Not yet implemented")
-    }
-
-    /**
-     * Uploads files into a container file system.
-     *
-     * @param container The container id.
-     * @param inputPath Path to the file that will be uploaded.
-     * @param remotePath Path to the file or directory inside the container file system.
-     */
-    public actual suspend fun uploadArchive(
-        container: String,
-        inputPath: String,
-        remotePath: String,
-    ) {
-        TODO("Not yet implemented")
-    }
-
     public actual fun logs(
         container: String,
         options: ContainerLogsOptions,
     ): Flow<Frame> {
         TODO("Not yet implemented")
+    }
+
+    public actual suspend fun copyFrom(container: String, sourcePath: String): ContainerCopyResult {
+        TODO("Not yet implemented")
+    }
+
+    public actual suspend fun copyTo(
+        container: String,
+        destinationPath: String,
+        tarArchive: ByteArray,
+        options: ContainerCopyOptions
+    ) {
+    }
+
+    public actual suspend fun copyFileTo(
+        container: String,
+        sourcePath: String,
+        destinationPath: String,
+        options: ContainerCopyOptions
+    ) {
+    }
+
+    public actual suspend fun copyFileFrom(container: String, sourcePath: String, destinationPath: String) {
+    }
+
+    public actual suspend fun copyDirectoryFrom(container: String, sourcePath: String, destinationPath: String) {
+    }
+
+    public actual suspend fun copyDirectoryTo(
+        container: String,
+        sourcePath: String,
+        destinationPath: String,
+        options: ContainerCopyOptions
+    ) {
     }
 }
