@@ -78,6 +78,37 @@ public final class me/devnatan/dockerkt/io/SocketUtils {
 	public static final field DefaultDockerUnixSocket Ljava/lang/String;
 }
 
+public final class me/devnatan/dockerkt/io/TarEntry {
+	public fun <init> (Ljava/lang/String;JJJZ[B)V
+	public synthetic fun <init> (Ljava/lang/String;JJJZ[BILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun component4 ()J
+	public final fun component5 ()Z
+	public final fun component6 ()[B
+	public final fun copy (Ljava/lang/String;JJJZ[B)Lme/devnatan/dockerkt/io/TarEntry;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/io/TarEntry;Ljava/lang/String;JJJZ[BILjava/lang/Object;)Lme/devnatan/dockerkt/io/TarEntry;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getData ()[B
+	public final fun getMode ()J
+	public final fun getMtime ()J
+	public final fun getName ()Ljava/lang/String;
+	public final fun getSize ()J
+	public fun hashCode ()I
+	public final fun isDirectory ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class me/devnatan/dockerkt/io/TarOperations {
+	public static final field INSTANCE Lme/devnatan/dockerkt/io/TarOperations;
+	public final fun collectDirectoryContents (Lkotlinx/io/files/Path;Ljava/lang/String;Ljava/util/List;)V
+	public final fun createTarFromDirectory (Lkotlinx/io/files/Path;Ljava/lang/String;)[B
+	public static synthetic fun createTarFromDirectory$default (Lme/devnatan/dockerkt/io/TarOperations;Lkotlinx/io/files/Path;Ljava/lang/String;ILjava/lang/Object;)[B
+	public final fun createTarFromFile (Lkotlinx/io/files/Path;)[B
+	public final fun extractTar ([BLkotlinx/io/files/Path;)V
+}
+
 public final class me/devnatan/dockerkt/models/BlkioWeightDevice {
 	public static final field Companion Lme/devnatan/dockerkt/models/BlkioWeightDevice$Companion;
 	public fun <init> (Ljava/lang/String;I)V
@@ -1290,19 +1321,19 @@ public final class me/devnatan/dockerkt/models/container/Container$Companion {
 
 public final class me/devnatan/dockerkt/models/container/ContainerArchiveInfo {
 	public static final field Companion Lme/devnatan/dockerkt/models/container/ContainerArchiveInfo$Companion;
-	public fun <init> (Ljava/lang/String;JILjava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;JILjava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;JJLjava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (Ljava/lang/String;JJLjava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()J
-	public final fun component3 ()I
+	public final fun component3 ()J
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;JILjava/lang/String;Ljava/lang/String;)Lme/devnatan/dockerkt/models/container/ContainerArchiveInfo;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerArchiveInfo;Ljava/lang/String;JILjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerArchiveInfo;
+	public final fun copy (Ljava/lang/String;JJLjava/lang/String;Ljava/lang/String;)Lme/devnatan/dockerkt/models/container/ContainerArchiveInfo;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerArchiveInfo;Ljava/lang/String;JJLjava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerArchiveInfo;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getLinkTarget ()Ljava/lang/String;
-	public final fun getMode ()I
-	public final fun getModifiedAtRaw ()Ljava/lang/String;
+	public final fun getMode ()J
+	public final fun getModifiedAtMillis ()Ljava/lang/String;
 	public final fun getName ()Ljava/lang/String;
 	public final fun getSize ()J
 	public fun hashCode ()I
@@ -1403,6 +1434,57 @@ public final synthetic class me/devnatan/dockerkt/models/container/ContainerConf
 
 public final class me/devnatan/dockerkt/models/container/ContainerConfig$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerCopyOptions {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/ContainerCopyOptions$Companion;
+	public fun <init> (Ljava/lang/String;ZZZ)V
+	public synthetic fun <init> (Ljava/lang/String;ZZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun copy (Ljava/lang/String;ZZZ)Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;Ljava/lang/String;ZZZILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCopyUIDGID ()Z
+	public final fun getExtractArchive ()Z
+	public final fun getNoOverwriteDirNonDir ()Z
+	public final fun getPath ()Ljava/lang/String;
+	public fun hashCode ()I
+	public final fun setCopyUIDGID (Z)V
+	public final fun setExtractArchive (Z)V
+	public final fun setNoOverwriteDirNonDir (Z)V
+	public final fun setPath (Ljava/lang/String;)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/ContainerCopyOptions$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/ContainerCopyOptions$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerCopyOptions$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerCopyResult {
+	public fun <init> ([BLme/devnatan/dockerkt/models/container/ContainerArchiveInfo;)V
+	public final fun component1 ()[B
+	public final fun component2 ()Lme/devnatan/dockerkt/models/container/ContainerArchiveInfo;
+	public final fun copy ([BLme/devnatan/dockerkt/models/container/ContainerArchiveInfo;)Lme/devnatan/dockerkt/models/container/ContainerCopyResult;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerCopyResult;[BLme/devnatan/dockerkt/models/container/ContainerArchiveInfo;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerCopyResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getArchiveData ()[B
+	public final fun getStat ()Lme/devnatan/dockerkt/models/container/ContainerArchiveInfo;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class me/devnatan/dockerkt/models/container/ContainerCreateOptions {
@@ -3858,6 +3940,11 @@ public final class me/devnatan/dockerkt/resource/ResourcePaths {
 	public static final field INSTANCE Lme/devnatan/dockerkt/resource/ResourcePaths;
 }
 
+public final class me/devnatan/dockerkt/resource/container/ArchiveNotFoundException : me/devnatan/dockerkt/resource/container/ContainerException {
+	public final fun getContainerId ()Ljava/lang/String;
+	public final fun getSourcePath ()Ljava/lang/String;
+}
+
 public final class me/devnatan/dockerkt/resource/container/ContainerAlreadyExistsException : me/devnatan/dockerkt/resource/container/ContainerException {
 	public final fun getName ()Ljava/lang/String;
 }
@@ -3892,12 +3979,18 @@ public final class me/devnatan/dockerkt/resource/container/ContainerRenameConfli
 
 public final class me/devnatan/dockerkt/resource/container/ContainerResource {
 	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lkotlinx/serialization/json/Json;Lio/ktor/client/HttpClient;)V
-	public final fun archive (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public static synthetic fun archive$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 	public final synthetic fun attach (Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
+	public final fun copyDirectoryFrom (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun copyDirectoryTo (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun copyDirectoryTo$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun copyFileFrom (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun copyFileTo (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun copyFileTo$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun copyFrom (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun copyTo (Ljava/lang/String;Ljava/lang/String;[BLme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun copyTo$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;[BLme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 	public final synthetic fun create (Lme/devnatan/dockerkt/models/container/ContainerCreateOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun createAsync (Lme/devnatan/dockerkt/models/container/ContainerCreateOptions;)Ljava/util/concurrent/CompletableFuture;
-	public final fun downloadArchive (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final synthetic fun inspect (Ljava/lang/String;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun inspect$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;ZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 	public final fun inspectAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
@@ -3948,7 +4041,6 @@ public final class me/devnatan/dockerkt/resource/container/ContainerResource {
 	public final fun stopAsync (Ljava/lang/String;I)Ljava/util/concurrent/CompletableFuture;
 	public final synthetic fun unpause (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun unpauseAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public final fun uploadArchive (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final synthetic fun wait (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun wait$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 	public final fun waitAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
@@ -3957,6 +4049,9 @@ public final class me/devnatan/dockerkt/resource/container/ContainerResource {
 }
 
 public final class me/devnatan/dockerkt/resource/container/ContainerResourceExtKt {
+	public static final fun copyDirectoryTo (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun copyFileTo (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun copyTo (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;[BLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun create (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun list (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun logs (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;

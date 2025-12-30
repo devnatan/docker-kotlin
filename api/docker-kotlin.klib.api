@@ -122,6 +122,34 @@ abstract interface me.devnatan.dockerkt/Closeable { // me.devnatan.dockerkt/Clos
     abstract fun close() // me.devnatan.dockerkt/Closeable.close|close(){}[0]
 }
 
+final class me.devnatan.dockerkt.io/TarEntry { // me.devnatan.dockerkt.io/TarEntry|null[0]
+    constructor <init>(kotlin/String, kotlin/Long, kotlin/Long, kotlin/Long, kotlin/Boolean, kotlin/ByteArray? = ...) // me.devnatan.dockerkt.io/TarEntry.<init>|<init>(kotlin.String;kotlin.Long;kotlin.Long;kotlin.Long;kotlin.Boolean;kotlin.ByteArray?){}[0]
+
+    final val data // me.devnatan.dockerkt.io/TarEntry.data|{}data[0]
+        final fun <get-data>(): kotlin/ByteArray? // me.devnatan.dockerkt.io/TarEntry.data.<get-data>|<get-data>(){}[0]
+    final val isDirectory // me.devnatan.dockerkt.io/TarEntry.isDirectory|{}isDirectory[0]
+        final fun <get-isDirectory>(): kotlin/Boolean // me.devnatan.dockerkt.io/TarEntry.isDirectory.<get-isDirectory>|<get-isDirectory>(){}[0]
+    final val mode // me.devnatan.dockerkt.io/TarEntry.mode|{}mode[0]
+        final fun <get-mode>(): kotlin/Long // me.devnatan.dockerkt.io/TarEntry.mode.<get-mode>|<get-mode>(){}[0]
+    final val mtime // me.devnatan.dockerkt.io/TarEntry.mtime|{}mtime[0]
+        final fun <get-mtime>(): kotlin/Long // me.devnatan.dockerkt.io/TarEntry.mtime.<get-mtime>|<get-mtime>(){}[0]
+    final val name // me.devnatan.dockerkt.io/TarEntry.name|{}name[0]
+        final fun <get-name>(): kotlin/String // me.devnatan.dockerkt.io/TarEntry.name.<get-name>|<get-name>(){}[0]
+    final val size // me.devnatan.dockerkt.io/TarEntry.size|{}size[0]
+        final fun <get-size>(): kotlin/Long // me.devnatan.dockerkt.io/TarEntry.size.<get-size>|<get-size>(){}[0]
+
+    final fun component1(): kotlin/String // me.devnatan.dockerkt.io/TarEntry.component1|component1(){}[0]
+    final fun component2(): kotlin/Long // me.devnatan.dockerkt.io/TarEntry.component2|component2(){}[0]
+    final fun component3(): kotlin/Long // me.devnatan.dockerkt.io/TarEntry.component3|component3(){}[0]
+    final fun component4(): kotlin/Long // me.devnatan.dockerkt.io/TarEntry.component4|component4(){}[0]
+    final fun component5(): kotlin/Boolean // me.devnatan.dockerkt.io/TarEntry.component5|component5(){}[0]
+    final fun component6(): kotlin/ByteArray? // me.devnatan.dockerkt.io/TarEntry.component6|component6(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Long = ..., kotlin/Long = ..., kotlin/Long = ..., kotlin/Boolean = ..., kotlin/ByteArray? = ...): me.devnatan.dockerkt.io/TarEntry // me.devnatan.dockerkt.io/TarEntry.copy|copy(kotlin.String;kotlin.Long;kotlin.Long;kotlin.Long;kotlin.Boolean;kotlin.ByteArray?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.io/TarEntry.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.io/TarEntry.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.io/TarEntry.toString|toString(){}[0]
+}
+
 final class me.devnatan.dockerkt.models.container/Container { // me.devnatan.dockerkt.models.container/Container|null[0]
     final val appArmorProfile // me.devnatan.dockerkt.models.container/Container.appArmorProfile|{}appArmorProfile[0]
         final fun <get-appArmorProfile>(): kotlin/String? // me.devnatan.dockerkt.models.container/Container.appArmorProfile.<get-appArmorProfile>|<get-appArmorProfile>(){}[0]
@@ -215,14 +243,14 @@ final class me.devnatan.dockerkt.models.container/Container { // me.devnatan.doc
 }
 
 final class me.devnatan.dockerkt.models.container/ContainerArchiveInfo { // me.devnatan.dockerkt.models.container/ContainerArchiveInfo|null[0]
-    constructor <init>(kotlin/String, kotlin/Long, kotlin/Int, kotlin/String, kotlin/String = ...) // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.<init>|<init>(kotlin.String;kotlin.Long;kotlin.Int;kotlin.String;kotlin.String){}[0]
+    constructor <init>(kotlin/String, kotlin/Long, kotlin/Long, kotlin/String, kotlin/String = ...) // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.<init>|<init>(kotlin.String;kotlin.Long;kotlin.Long;kotlin.String;kotlin.String){}[0]
 
     final val linkTarget // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.linkTarget|{}linkTarget[0]
         final fun <get-linkTarget>(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.linkTarget.<get-linkTarget>|<get-linkTarget>(){}[0]
     final val mode // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.mode|{}mode[0]
-        final fun <get-mode>(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.mode.<get-mode>|<get-mode>(){}[0]
-    final val modifiedAtRaw // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.modifiedAtRaw|{}modifiedAtRaw[0]
-        final fun <get-modifiedAtRaw>(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.modifiedAtRaw.<get-modifiedAtRaw>|<get-modifiedAtRaw>(){}[0]
+        final fun <get-mode>(): kotlin/Long // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.mode.<get-mode>|<get-mode>(){}[0]
+    final val modifiedAtMillis // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.modifiedAtMillis|{}modifiedAtMillis[0]
+        final fun <get-modifiedAtMillis>(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.modifiedAtMillis.<get-modifiedAtMillis>|<get-modifiedAtMillis>(){}[0]
     final val name // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.name|{}name[0]
         final fun <get-name>(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.name.<get-name>|<get-name>(){}[0]
     final val size // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.size|{}size[0]
@@ -230,10 +258,10 @@ final class me.devnatan.dockerkt.models.container/ContainerArchiveInfo { // me.d
 
     final fun component1(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.component1|component1(){}[0]
     final fun component2(): kotlin/Long // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.component2|component2(){}[0]
-    final fun component3(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.component3|component3(){}[0]
+    final fun component3(): kotlin/Long // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.component3|component3(){}[0]
     final fun component4(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.component4|component4(){}[0]
     final fun component5(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.component5|component5(){}[0]
-    final fun copy(kotlin/String = ..., kotlin/Long = ..., kotlin/Int = ..., kotlin/String = ..., kotlin/String = ...): me.devnatan.dockerkt.models.container/ContainerArchiveInfo // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.copy|copy(kotlin.String;kotlin.Long;kotlin.Int;kotlin.String;kotlin.String){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Long = ..., kotlin/Long = ..., kotlin/String = ..., kotlin/String = ...): me.devnatan.dockerkt.models.container/ContainerArchiveInfo // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.copy|copy(kotlin.String;kotlin.Long;kotlin.Long;kotlin.String;kotlin.String){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerArchiveInfo.toString|toString(){}[0]
@@ -350,6 +378,61 @@ final class me.devnatan.dockerkt.models.container/ContainerConfig { // me.devnat
 
         final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/ContainerConfig> // me.devnatan.dockerkt.models.container/ContainerConfig.Companion.serializer|serializer(){}[0]
     }
+}
+
+final class me.devnatan.dockerkt.models.container/ContainerCopyOptions { // me.devnatan.dockerkt.models.container/ContainerCopyOptions|null[0]
+    constructor <init>(kotlin/String, kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ...) // me.devnatan.dockerkt.models.container/ContainerCopyOptions.<init>|<init>(kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
+
+    final var copyUIDGID // me.devnatan.dockerkt.models.container/ContainerCopyOptions.copyUIDGID|{}copyUIDGID[0]
+        final fun <get-copyUIDGID>(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerCopyOptions.copyUIDGID.<get-copyUIDGID>|<get-copyUIDGID>(){}[0]
+        final fun <set-copyUIDGID>(kotlin/Boolean) // me.devnatan.dockerkt.models.container/ContainerCopyOptions.copyUIDGID.<set-copyUIDGID>|<set-copyUIDGID>(kotlin.Boolean){}[0]
+    final var extractArchive // me.devnatan.dockerkt.models.container/ContainerCopyOptions.extractArchive|{}extractArchive[0]
+        final fun <get-extractArchive>(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerCopyOptions.extractArchive.<get-extractArchive>|<get-extractArchive>(){}[0]
+        final fun <set-extractArchive>(kotlin/Boolean) // me.devnatan.dockerkt.models.container/ContainerCopyOptions.extractArchive.<set-extractArchive>|<set-extractArchive>(kotlin.Boolean){}[0]
+    final var noOverwriteDirNonDir // me.devnatan.dockerkt.models.container/ContainerCopyOptions.noOverwriteDirNonDir|{}noOverwriteDirNonDir[0]
+        final fun <get-noOverwriteDirNonDir>(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerCopyOptions.noOverwriteDirNonDir.<get-noOverwriteDirNonDir>|<get-noOverwriteDirNonDir>(){}[0]
+        final fun <set-noOverwriteDirNonDir>(kotlin/Boolean) // me.devnatan.dockerkt.models.container/ContainerCopyOptions.noOverwriteDirNonDir.<set-noOverwriteDirNonDir>|<set-noOverwriteDirNonDir>(kotlin.Boolean){}[0]
+    final var path // me.devnatan.dockerkt.models.container/ContainerCopyOptions.path|{}path[0]
+        final fun <get-path>(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerCopyOptions.path.<get-path>|<get-path>(){}[0]
+        final fun <set-path>(kotlin/String) // me.devnatan.dockerkt.models.container/ContainerCopyOptions.path.<set-path>|<set-path>(kotlin.String){}[0]
+
+    final fun component1(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerCopyOptions.component1|component1(){}[0]
+    final fun component2(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerCopyOptions.component2|component2(){}[0]
+    final fun component3(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerCopyOptions.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerCopyOptions.component4|component4(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ...): me.devnatan.dockerkt.models.container/ContainerCopyOptions // me.devnatan.dockerkt.models.container/ContainerCopyOptions.copy|copy(kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerCopyOptions.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerCopyOptions.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerCopyOptions.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.container/ContainerCopyOptions> { // me.devnatan.dockerkt.models.container/ContainerCopyOptions.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.container/ContainerCopyOptions.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.container/ContainerCopyOptions.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.container/ContainerCopyOptions.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.container/ContainerCopyOptions // me.devnatan.dockerkt.models.container/ContainerCopyOptions.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.container/ContainerCopyOptions) // me.devnatan.dockerkt.models.container/ContainerCopyOptions.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.container.ContainerCopyOptions){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.container/ContainerCopyOptions.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/ContainerCopyOptions> // me.devnatan.dockerkt.models.container/ContainerCopyOptions.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class me.devnatan.dockerkt.models.container/ContainerCopyResult { // me.devnatan.dockerkt.models.container/ContainerCopyResult|null[0]
+    constructor <init>(kotlin/ByteArray, me.devnatan.dockerkt.models.container/ContainerArchiveInfo?) // me.devnatan.dockerkt.models.container/ContainerCopyResult.<init>|<init>(kotlin.ByteArray;me.devnatan.dockerkt.models.container.ContainerArchiveInfo?){}[0]
+
+    final val archiveData // me.devnatan.dockerkt.models.container/ContainerCopyResult.archiveData|{}archiveData[0]
+        final fun <get-archiveData>(): kotlin/ByteArray // me.devnatan.dockerkt.models.container/ContainerCopyResult.archiveData.<get-archiveData>|<get-archiveData>(){}[0]
+    final val stat // me.devnatan.dockerkt.models.container/ContainerCopyResult.stat|{}stat[0]
+        final fun <get-stat>(): me.devnatan.dockerkt.models.container/ContainerArchiveInfo? // me.devnatan.dockerkt.models.container/ContainerCopyResult.stat.<get-stat>|<get-stat>(){}[0]
+
+    final fun component1(): kotlin/ByteArray // me.devnatan.dockerkt.models.container/ContainerCopyResult.component1|component1(){}[0]
+    final fun component2(): me.devnatan.dockerkt.models.container/ContainerArchiveInfo? // me.devnatan.dockerkt.models.container/ContainerCopyResult.component2|component2(){}[0]
+    final fun copy(kotlin/ByteArray = ..., me.devnatan.dockerkt.models.container/ContainerArchiveInfo? = ...): me.devnatan.dockerkt.models.container/ContainerCopyResult // me.devnatan.dockerkt.models.container/ContainerCopyResult.copy|copy(kotlin.ByteArray;me.devnatan.dockerkt.models.container.ContainerArchiveInfo?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerCopyResult.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerCopyResult.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerCopyResult.toString|toString(){}[0]
 }
 
 final class me.devnatan.dockerkt.models.container/ContainerCreateOptions { // me.devnatan.dockerkt.models.container/ContainerCreateOptions|null[0]
@@ -3901,6 +3984,13 @@ final class me.devnatan.dockerkt.models/ThrottleDevice { // me.devnatan.dockerkt
     }
 }
 
+final class me.devnatan.dockerkt.resource.container/ArchiveNotFoundException : me.devnatan.dockerkt.resource.container/ContainerException { // me.devnatan.dockerkt.resource.container/ArchiveNotFoundException|null[0]
+    final val containerId // me.devnatan.dockerkt.resource.container/ArchiveNotFoundException.containerId|{}containerId[0]
+        final fun <get-containerId>(): kotlin/String // me.devnatan.dockerkt.resource.container/ArchiveNotFoundException.containerId.<get-containerId>|<get-containerId>(){}[0]
+    final val sourcePath // me.devnatan.dockerkt.resource.container/ArchiveNotFoundException.sourcePath|{}sourcePath[0]
+        final fun <get-sourcePath>(): kotlin/String // me.devnatan.dockerkt.resource.container/ArchiveNotFoundException.sourcePath.<get-sourcePath>|<get-sourcePath>(){}[0]
+}
+
 final class me.devnatan.dockerkt.resource.container/ContainerAlreadyExistsException : me.devnatan.dockerkt.resource.container/ContainerException { // me.devnatan.dockerkt.resource.container/ContainerAlreadyExistsException|null[0]
     final val name // me.devnatan.dockerkt.resource.container/ContainerAlreadyExistsException.name|{}name[0]
         final fun <get-name>(): kotlin/String // me.devnatan.dockerkt.resource.container/ContainerAlreadyExistsException.name.<get-name>|<get-name>(){}[0]
@@ -3943,9 +4033,13 @@ final class me.devnatan.dockerkt.resource.container/ContainerResource { // me.de
 
     final fun attach(kotlin/String): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models/Frame> // me.devnatan.dockerkt.resource.container/ContainerResource.attach|attach(kotlin.String){}[0]
     final fun logs(kotlin/String, me.devnatan.dockerkt.models.container/ContainerLogsOptions): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models/Frame> // me.devnatan.dockerkt.resource.container/ContainerResource.logs|logs(kotlin.String;me.devnatan.dockerkt.models.container.ContainerLogsOptions){}[0]
-    final suspend fun archive(kotlin/String, kotlin/String = ...): me.devnatan.dockerkt.models.container/ContainerArchiveInfo // me.devnatan.dockerkt.resource.container/ContainerResource.archive|archive(kotlin.String;kotlin.String){}[0]
+    final suspend fun copyDirectoryFrom(kotlin/String, kotlin/String, kotlin/String) // me.devnatan.dockerkt.resource.container/ContainerResource.copyDirectoryFrom|copyDirectoryFrom(kotlin.String;kotlin.String;kotlin.String){}[0]
+    final suspend fun copyDirectoryTo(kotlin/String, kotlin/String, kotlin/String, me.devnatan.dockerkt.models.container/ContainerCopyOptions = ...) // me.devnatan.dockerkt.resource.container/ContainerResource.copyDirectoryTo|copyDirectoryTo(kotlin.String;kotlin.String;kotlin.String;me.devnatan.dockerkt.models.container.ContainerCopyOptions){}[0]
+    final suspend fun copyFileFrom(kotlin/String, kotlin/String, kotlin/String) // me.devnatan.dockerkt.resource.container/ContainerResource.copyFileFrom|copyFileFrom(kotlin.String;kotlin.String;kotlin.String){}[0]
+    final suspend fun copyFileTo(kotlin/String, kotlin/String, kotlin/String, me.devnatan.dockerkt.models.container/ContainerCopyOptions = ...) // me.devnatan.dockerkt.resource.container/ContainerResource.copyFileTo|copyFileTo(kotlin.String;kotlin.String;kotlin.String;me.devnatan.dockerkt.models.container.ContainerCopyOptions){}[0]
+    final suspend fun copyFrom(kotlin/String, kotlin/String): me.devnatan.dockerkt.models.container/ContainerCopyResult // me.devnatan.dockerkt.resource.container/ContainerResource.copyFrom|copyFrom(kotlin.String;kotlin.String){}[0]
+    final suspend fun copyTo(kotlin/String, kotlin/String, kotlin/ByteArray, me.devnatan.dockerkt.models.container/ContainerCopyOptions = ...) // me.devnatan.dockerkt.resource.container/ContainerResource.copyTo|copyTo(kotlin.String;kotlin.String;kotlin.ByteArray;me.devnatan.dockerkt.models.container.ContainerCopyOptions){}[0]
     final suspend fun create(me.devnatan.dockerkt.models.container/ContainerCreateOptions): kotlin/String // me.devnatan.dockerkt.resource.container/ContainerResource.create|create(me.devnatan.dockerkt.models.container.ContainerCreateOptions){}[0]
-    final suspend fun downloadArchive(kotlin/String, kotlin/String): kotlinx.io/RawSource // me.devnatan.dockerkt.resource.container/ContainerResource.downloadArchive|downloadArchive(kotlin.String;kotlin.String){}[0]
     final suspend fun inspect(kotlin/String, kotlin/Boolean = ...): me.devnatan.dockerkt.models.container/Container // me.devnatan.dockerkt.resource.container/ContainerResource.inspect|inspect(kotlin.String;kotlin.Boolean){}[0]
     final suspend fun kill(kotlin/String, kotlin/String? = ...) // me.devnatan.dockerkt.resource.container/ContainerResource.kill|kill(kotlin.String;kotlin.String?){}[0]
     final suspend fun list(me.devnatan.dockerkt.models.container/ContainerListOptions = ...): kotlin.collections/List<me.devnatan.dockerkt.models.container/ContainerSummary> // me.devnatan.dockerkt.resource.container/ContainerResource.list|list(me.devnatan.dockerkt.models.container.ContainerListOptions){}[0]
@@ -3958,7 +4052,6 @@ final class me.devnatan.dockerkt.resource.container/ContainerResource { // me.de
     final suspend fun start(kotlin/String, kotlin/String? = ...) // me.devnatan.dockerkt.resource.container/ContainerResource.start|start(kotlin.String;kotlin.String?){}[0]
     final suspend fun stop(kotlin/String, kotlin.time/Duration? = ...) // me.devnatan.dockerkt.resource.container/ContainerResource.stop|stop(kotlin.String;kotlin.time.Duration?){}[0]
     final suspend fun unpause(kotlin/String) // me.devnatan.dockerkt.resource.container/ContainerResource.unpause|unpause(kotlin.String){}[0]
-    final suspend fun uploadArchive(kotlin/String, kotlin/String, kotlin/String) // me.devnatan.dockerkt.resource.container/ContainerResource.uploadArchive|uploadArchive(kotlin.String;kotlin.String;kotlin.String){}[0]
     final suspend fun wait(kotlin/String, kotlin/String? = ...): me.devnatan.dockerkt.models.container/ContainerWaitResult // me.devnatan.dockerkt.resource.container/ContainerResource.wait|wait(kotlin.String;kotlin.String?){}[0]
 }
 
@@ -4195,6 +4288,13 @@ sealed class me.devnatan.dockerkt.models.exec/ExecStartResult { // me.devnatan.d
     final object Detached : me.devnatan.dockerkt.models.exec/ExecStartResult // me.devnatan.dockerkt.models.exec/ExecStartResult.Detached|null[0]
 }
 
+final object me.devnatan.dockerkt.io/TarOperations { // me.devnatan.dockerkt.io/TarOperations|null[0]
+    final fun collectDirectoryContents(kotlinx.io.files/Path, kotlin/String, kotlin.collections/MutableList<me.devnatan.dockerkt.io/TarEntry>) // me.devnatan.dockerkt.io/TarOperations.collectDirectoryContents|collectDirectoryContents(kotlinx.io.files.Path;kotlin.String;kotlin.collections.MutableList<me.devnatan.dockerkt.io.TarEntry>){}[0]
+    final fun createTarFromDirectory(kotlinx.io.files/Path, kotlin/String = ...): kotlin/ByteArray // me.devnatan.dockerkt.io/TarOperations.createTarFromDirectory|createTarFromDirectory(kotlinx.io.files.Path;kotlin.String){}[0]
+    final fun createTarFromFile(kotlinx.io.files/Path): kotlin/ByteArray // me.devnatan.dockerkt.io/TarOperations.createTarFromFile|createTarFromFile(kotlinx.io.files.Path){}[0]
+    final fun extractTar(kotlin/ByteArray, kotlinx.io.files/Path) // me.devnatan.dockerkt.io/TarOperations.extractTar|extractTar(kotlin.ByteArray;kotlinx.io.files.Path){}[0]
+}
+
 final object me.devnatan.dockerkt.resource/ResourcePaths { // me.devnatan.dockerkt.resource/ResourcePaths|null[0]
     final const val CONTAINERS // me.devnatan.dockerkt.resource/ResourcePaths.CONTAINERS|{}CONTAINERS[0]
         final fun <get-CONTAINERS>(): kotlin/String // me.devnatan.dockerkt.resource/ResourcePaths.CONTAINERS.<get-CONTAINERS>|<get-CONTAINERS>(){}[0]
@@ -4280,6 +4380,9 @@ final inline fun (me.devnatan.dockerkt.models.container/ContainerListOptions).me
 final inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/logs(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerLogsOptions, kotlin/Unit>): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models/Frame> // me.devnatan.dockerkt.resource.container/logs|logs@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerLogsOptions,kotlin.Unit>){}[0]
 final inline fun (me.devnatan.dockerkt.resource.system/SystemResource).me.devnatan.dockerkt.resource.system/events(kotlin/Function1<me.devnatan.dockerkt.models.system/MonitorEventsOptions, kotlin/Unit>): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models.system/Event> // me.devnatan.dockerkt.resource.system/events|events@me.devnatan.dockerkt.resource.system.SystemResource(kotlin.Function1<me.devnatan.dockerkt.models.system.MonitorEventsOptions,kotlin.Unit>){}[0]
 final inline fun me.devnatan.dockerkt/DockerClient(crossinline kotlin/Function1<me.devnatan.dockerkt/DockerClientConfigBuilder, kotlin/Unit>): me.devnatan.dockerkt/DockerClient // me.devnatan.dockerkt/DockerClient|DockerClient(kotlin.Function1<me.devnatan.dockerkt.DockerClientConfigBuilder,kotlin.Unit>){}[0]
+final suspend fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/copyDirectoryTo(kotlin/String, kotlin/String, kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerCopyOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.container/copyDirectoryTo|copyDirectoryTo@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.String;kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerCopyOptions,kotlin.Unit>){}[0]
+final suspend fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/copyFileTo(kotlin/String, kotlin/String, kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerCopyOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.container/copyFileTo|copyFileTo@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.String;kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerCopyOptions,kotlin.Unit>){}[0]
+final suspend fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/copyTo(kotlin/String, kotlin/String, kotlin/ByteArray, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerCopyOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.container/copyTo|copyTo@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.String;kotlin.ByteArray;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerCopyOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/create(kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerCreateOptions, kotlin/Unit>): kotlin/String // me.devnatan.dockerkt.resource.container/create|create@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerCreateOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/list(kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerListOptions, kotlin/Unit>): kotlin.collections/List<me.devnatan.dockerkt.models.container/ContainerSummary> // me.devnatan.dockerkt.resource.container/list|list@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerListOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/prune(kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerPruneFilters, kotlin/Unit>): me.devnatan.dockerkt.models.container/ContainerPruneResult // me.devnatan.dockerkt.resource.container/prune|prune@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerPruneFilters,kotlin.Unit>){}[0]
