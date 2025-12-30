@@ -38,7 +38,7 @@ val client = DockerClient {
 
 ### System
 
-#### Get System Information
+#### Get Docker Version
 
 ```kotlin
 val version: SystemVersion = client.system.version()
