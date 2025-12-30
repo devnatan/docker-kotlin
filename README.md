@@ -12,7 +12,7 @@ dependencies {
 
 ## Basic Usage
 
-Use `DockerKotlin.create()` to create a new Docker client instance with the default settings, default settings are based on the 
+Use `DockerKotlin.create()` to create a new Docker client instance with the default settings, default settings are based on the
 current platform or environment variables, e.g.: socket path will be set to [`DOCKER_HOST`](https://docs.docker.com/compose/environment-variables/envvars/#docker_host)
 if present otherwise `unix://var/run/docker.sock` if the current platform is Unix-like.
 
@@ -28,7 +28,17 @@ val client = DockerClient {
 }
 ```
 
-##### Get System Information
+
+## Resources
+
+* [System](#system)
+* [Containers](#containers)
+* [Networks](#networks)
+* [Exec](#exec)
+
+### System
+
+#### Get System Information
 
 ```kotlin
 val version: SystemVersion = client.system.version()
@@ -36,7 +46,7 @@ val version: SystemVersion = client.system.version()
 
 ### Containers
 
-##### Create and start a Container with explicit port bindings
+#### Create and start a Container with explicit port bindings
 
 ```kotlin
 val containerId = client.containers.create("busybox:latest") {
@@ -53,7 +63,7 @@ val containerId = client.containers.create("busybox:latest") {
 client.containers.start(containerId)
 ```
 
-##### Create and start a Container with auto-assigned port bindings
+#### Create and start a Container with auto-assigned port bindings
 
 ```kotlin
 val containerId = client.containers.create("busybox:latest") {
@@ -72,13 +82,13 @@ val container = testClient.containers.inspect(id)
 val ports = container.networkSettings.ports
 ```
 
-##### List All Containers
+#### List All Containers
 
 ```kotlin
 val containers: List<Container> = client.containers.list()
 ```
 
-##### Stream Container Logs
+#### Stream Container Logs
 
 ```kotlin
 val logs: Flow<Frame> = client.containers.logs("floral-fury") {
@@ -94,7 +104,7 @@ logs.onStart { /* streaming started */ }
 
 ### Networks
 
-##### Create a new Network
+#### Create a new Network
 
 ```kotlin
 val networkId: String = client.networks.create {
@@ -103,19 +113,19 @@ val networkId: String = client.networks.create {
 }
 ```
 
-##### List all Networks
+#### List all Networks
 ```kotlin
 val networks = client.networks.list()
 ```
 
-##### Connect a container to a network
+#### Connect a container to a network
 ```kotlin
 client.networks.connect(networkId, containerId)
 ```
 
 ### Exec
 
-##### Execute a command in a running container
+#### Execute a command in a running container
 ```kotlin
 val execId = client.exec.create(containerId) {
     command = listOf("echo", "Hello, Docker!")
@@ -129,7 +139,7 @@ when (result) {
 }
 ```
 
-##### Execute a command with streaming output
+#### Execute a command with streaming output
 ```kotlin
 val execId = client.exec.create(containerId) {
     command = listOf("sh", "-c", "for i in 1 2 3; do echo line \$i; sleep 1; done")
@@ -147,7 +157,7 @@ when (result) {
 }
 ```
 
-##### Execute a command with separated stdout/stderr
+#### Execute a command with separated stdout/stderr
 ```kotlin
 val execId = client.exec.create(containerId) {
     command = listOf("sh", "-c", "echo stdout; echo stderr >&2")
@@ -165,7 +175,7 @@ when (result) {
 }
 ```
 
-##### Check exec exit code
+#### Check exec exit code
 ```kotlin
 val execId = client.exec.create(containerId) {
     command = listOf("false")
@@ -177,11 +187,11 @@ val execInfo = client.exec.inspect(execId)
 println("Exit code: ${execInfo.exitCode}") // Exit code: 1
 ```
 
-## File Operations
+### File Operations
 
-##### Copy a file from container to host
+#### Copy a file from container to host
 ```kotlin
-client.containers.copy.copyFileFrom(
+client.containers.copyFileFrom(
     containerId,
     sourcePath = "/var/log/app.log",
     destinationPath = "/tmp/app.log"
@@ -190,32 +200,32 @@ client.containers.copy.copyFileFrom(
 
 ##### Copy a file from host to container
 ```kotlin
-client.containers.copy.copyFileTo(
+client.containers.copyFileTo(
     containerId,
     sourcePath = "/home/user/config.json",
     destinationPath = "/app/config/"
 )
 ```
 
-##### Copy a directory from container to host
+#### Copy a directory from container to host
 ```kotlin
-client.containers.copy.copyDirectoryFrom(
+client.containers.copyDirectoryFrom(
     containerId,
     sourcePath = "/app/logs",
     destinationPath = "/tmp/container-logs"
 )
 ```
 
-##### Copy a directory from host to container
+#### Copy a directory from host to container
 ```kotlin
-client.containers.copy.copyDirectoryTo(
+client.containers.copyDirectoryTo(
     containerId,
     sourcePath = "/home/user/configs",
     destinationPath = "/app/"
 )
 ```
 
-##### Advanced copy with custom options
+#### Advanced copy with custom options
 ```kotlin
 // Copy with custom options
 client.containers.copy.copyTo(
@@ -229,7 +239,7 @@ client.containers.copy.copyTo(
 }
 
 // Get raw tar archive from container
-val result = client.containers.copy.copyFrom(containerId, "/app/config")
+val result = client.containers.copyFrom(containerId, "/app/config")
 val tarData = result.archiveData
 
 // Archive info including file metadata
