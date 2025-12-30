@@ -4,14 +4,14 @@ docker-kotlin allows you to interact with the Docker Engine Remote API.
 
 ```kotlin
 dependencies {
-    implementation("me.devnatan:docker-kotlin:0.10.0")
+    implementation("me.devnatan:docker-kotlin:0.11.0")
 }
 ```
 
 > [!NOTE]
 > Docker Kotlin **currently supports JVM runtime only**. Native platform support (Linux, macOS, Windows, etc.) is under active development in [#209](https://github.com/devnatan/docker-kotlin/pull/209). 
 > 
-> If you attempt to use Docker Kotlin on native targets before this work is complete, you'll encounter `NotImplementedError`. We're working hard to bring full multiplatform support soon! 🚀
+> If you attempt to use Docker Kotlin on native targets before this work is complete, you'll encounter `NotImplementedError`. We're working hard to bring full multiplatform support soon!
 
 ## Basic Usage
 
