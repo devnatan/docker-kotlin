@@ -34,6 +34,8 @@ val client = DockerClient {
 val version: SystemVersion = client.system.version()
 ```
 
+### Containers
+
 ##### Create and start a Container with explicit port bindings
 
 ```kotlin
@@ -76,15 +78,6 @@ val ports = container.networkSettings.ports
 val containers: List<Container> = client.containers.list()
 ```
 
-##### Create a new Network
-
-```kotlin
-val networkId: String = client.networks.create {
-    name = "octopus-net"
-    driver = "overlay"
-}
-```
-
 ##### Stream Container Logs
 
 ```kotlin
@@ -97,6 +90,150 @@ logs.onStart { /* streaming started */ }
     .onCompletion { /* streaming finished */ }
     .catch { /* something went wrong */ }
     .collect { log -> /* do something with each log */ }
+```
+
+### Networks
+
+##### Create a new Network
+
+```kotlin
+val networkId: String = client.networks.create {
+    name = "octopus-net"
+    driver = "overlay"
+}
+```
+
+##### List all Networks
+```kotlin
+val networks = client.networks.list()
+```
+
+##### Connect a container to a network
+```kotlin
+client.networks.connect(networkId, containerId)
+```
+
+### Exec
+
+##### Execute a command in a running container
+```kotlin
+val execId = client.exec.create(containerId) {
+    command = listOf("echo", "Hello, Docker!")
+    attachStdout = true
+}
+
+val result = client.exec.start(execId, ExecStartOptions())
+when (result) {
+    is ExecStartResult.Complete -> println(result.output)
+    else -> error("Unexpected result")
+}
+```
+
+##### Execute a command with streaming output
+```kotlin
+val execId = client.exec.create(containerId) {
+    command = listOf("sh", "-c", "for i in 1 2 3; do echo line \$i; sleep 1; done")
+    attachStdout = true
+}
+
+val result = client.exec.start(execId) { stream = true }
+when (result) {
+    is ExecStartResult.Stream -> {
+        result.output.collect { chunk ->
+            print(chunk)
+        }
+    }
+    else -> error("Unexpected result")
+}
+```
+
+##### Execute a command with separated stdout/stderr
+```kotlin
+val execId = client.exec.create(containerId) {
+    command = listOf("sh", "-c", "echo stdout; echo stderr >&2")
+    attachStdout = true
+    attachStderr = true
+}
+
+val result = client.exec.start(execId) { demux = true }
+when (result) {
+    is ExecStartResult.CompleteDemuxed -> {
+        println("STDOUT: ${result.output.stdout}")
+        println("STDERR: ${result.output.stderr}")
+    }
+    else -> error("Unexpected result")
+}
+```
+
+##### Check exec exit code
+```kotlin
+val execId = client.exec.create(containerId) {
+    command = listOf("false")
+}
+
+client.exec.start(execId) { detach = true }
+
+val execInfo = client.exec.inspect(execId)
+println("Exit code: ${execInfo.exitCode}") // Exit code: 1
+```
+
+## File Operations
+
+##### Copy a file from container to host
+```kotlin
+client.containers.copy.copyFileFrom(
+    containerId,
+    sourcePath = "/var/log/app.log",
+    destinationPath = "/tmp/app.log"
+)
+```
+
+##### Copy a file from host to container
+```kotlin
+client.containers.copy.copyFileTo(
+    containerId,
+    sourcePath = "/home/user/config.json",
+    destinationPath = "/app/config/"
+)
+```
+
+##### Copy a directory from container to host
+```kotlin
+client.containers.copy.copyDirectoryFrom(
+    containerId,
+    sourcePath = "/app/logs",
+    destinationPath = "/tmp/container-logs"
+)
+```
+
+##### Copy a directory from host to container
+```kotlin
+client.containers.copy.copyDirectoryTo(
+    containerId,
+    sourcePath = "/home/user/configs",
+    destinationPath = "/app/"
+)
+```
+
+##### Advanced copy with custom options
+```kotlin
+// Copy with custom options
+client.containers.copy.copyTo(
+    container = containerId,
+    destinationPath = "/app/data",
+    tarArchive = myTarArchive
+) {
+    path = "/app/data"
+    noOverwriteDirNonDir = true  // Don't overwrite if types mismatch
+    copyUIDGID = true            // Preserve UID/GID
+}
+
+// Get raw tar archive from container
+val result = client.containers.copy.copyFrom(containerId, "/app/config")
+val tarData = result.archiveData
+
+// Archive info including file metadata
+val stats = result.stat 
 ```
 
 ## License
