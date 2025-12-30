@@ -4,6 +4,8 @@ import kotlinx.coroutines.flow.Flow
 import me.devnatan.dockerkt.DockerResponseException
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
+import me.devnatan.dockerkt.models.container.ContainerCopyOptions
+import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
 import me.devnatan.dockerkt.models.container.ContainerListOptions
 import me.devnatan.dockerkt.models.container.ContainerLogsOptions
@@ -76,4 +78,79 @@ public fun ContainerResource.logs(container: String): Flow<Frame> =
                 stderr = true,
                 stdout = true,
             ),
+    )
+
+/**
+ * Copy files or folders from the local filesystem to a container.
+ *
+ * This method uploads a tar archive to a container and extracts it
+ * at the specified destination path.
+ *
+ * @param container Container id or name.
+ * @param destinationPath Path inside the container where files will be extracted.
+ * @param tarArchive The tar archive containing files to copy.
+ * @param options Additional options for the copy operation.
+ * @throws ContainerNotFoundException If the container is not found.
+ * @throws IllegalArgumentException If the destination path is invalid.
+ */
+public suspend fun ContainerResource.copyTo(
+    container: String,
+    destinationPath: String,
+    tarArchive: ByteArray,
+    options: ContainerCopyOptions.() -> Unit,
+): Unit =
+    copyTo(
+        container = container,
+        destinationPath = destinationPath,
+        tarArchive = tarArchive,
+        options = ContainerCopyOptions(path = destinationPath).apply(options),
+    )
+
+/**
+ * Copy a single file from the local filesystem to a container.
+ *
+ * This is a convenience method that creates a tar archive from a single file
+ * and uploads it to the container.
+ *
+ * @param container Container id or name.
+ * @param sourcePath Path to the file on the local filesystem.
+ * @param destinationPath Path inside the container where the file will be copied.
+ * @param options Additional options for the copy operation.
+ * @throws ArchiveNotFoundException If the source file does not exist.
+ * @throws ContainerNotFoundException If the container is not found.
+ */
+public suspend fun ContainerResource.copyFileTo(
+    container: String,
+    sourcePath: String,
+    destinationPath: String,
+    options: ContainerCopyOptions.() -> Unit,
+): Unit =
+    copyFileTo(
+        container = container,
+        sourcePath = sourcePath,
+        destinationPath = destinationPath,
+        options = ContainerCopyOptions(path = destinationPath).apply(options),
+    )
+
+/**
+ * Copy a directory from the local filesystem to a container.
+ *
+ * @param container Container ID or name.
+ * @param sourcePath Path to the directory on the local filesystem.
+ * @param destinationPath Path inside the container where files will be copied.
+ * @param options Additional options for the copy operation.
+ * @throws kotlinx.io.files.FileNotFoundException If the source directory does not exist.
+ * @throws ContainerNotFoundException If the container is not found.
+ */
+public suspend fun ContainerResource.copyDirectoryTo(
+    container: String,
+    sourcePath: String,
+    destinationPath: String,
+    options: ContainerCopyOptions.() -> Unit,
+): Unit =
+    copyDirectoryTo(
+        container = container,
+        sourcePath = sourcePath,
+        destinationPath = destinationPath,
+        options = ContainerCopyOptions(path = destinationPath).apply(options),
     )

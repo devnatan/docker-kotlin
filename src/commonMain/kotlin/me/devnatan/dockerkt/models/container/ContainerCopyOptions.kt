@@ -8,24 +8,24 @@ import kotlinx.serialization.Transient
 public data class ContainerCopyOptions(
     /** Path inside the container where files will be copied to. */
     @SerialName("Path")
-    val path: String,
+    var path: String,
     /**
      * If true, extract the tar archive in the destination directory.
      * If false, copy the tar archive itself.
      * Default: true
      */
     @Transient
-    val extractArchive: Boolean = true,
+    var extractArchive: Boolean = true,
     /**
      * If true, do not overwrite existing files/directories.
      * Default: false
      */
     @Transient
-    val noOverwriteDirNonDir: Boolean = false,
+    var noOverwriteDirNonDir: Boolean = false,
     /**
      * If true, copy UID/GID maps for the files.
      * Default: false
      */
     @Transient
-    val copyUIDGID: Boolean = false,
+    var copyUIDGID: Boolean = false,
 )
