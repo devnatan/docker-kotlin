@@ -7,11 +7,7 @@ import kotlinx.io.readByteArray
 import kotlinx.io.readTo
 import kotlin.math.min
 
-internal expect fun readTarFile(input: RawSource): RawSource
-
-internal expect fun writeTarFile(filePath: String): RawSource
-
-internal data class TarEntry(
+public data class TarEntry(
     val name: String,
     val size: Long,
     val mode: Long,
@@ -60,7 +56,6 @@ internal object TarUtils {
     private const val SIZE_SIZE = 12
     private const val MTIME_SIZE = 12
     private const val CHECKSUM_SIZE = 8
-    private const val TYPE_SIZE = 1
 
     private const val TYPE_REGULAR = '0'.code.toByte()
     private const val TYPE_DIRECTORY = '5'.code.toByte()
@@ -269,6 +264,49 @@ public object TarOperations {
         val entries = mutableListOf<TarEntry>()
         collectEntriesFromDirectory(dirPath, basePath, entries)
         return TarUtils.createTarArchive(entries)
+    }
+
+    public fun collectDirectoryContents(
+        dirPath: Path,
+        basePath: String,
+        entries: MutableList<TarEntry>,
+    ) {
+        val files = FileSystemUtils.listDirectory(dirPath)
+
+        files.forEach { file ->
+            val fileName = file.name
+            val entryName = if (basePath.isEmpty()) fileName else "$basePath/$fileName"
+
+            if (FileSystemUtils.isDirectory(file)) {
+                // Add directory entry
+                entries.add(
+                    TarEntry(
+                        name = "$entryName/",
+                        size = 0,
+                        mode = 755,
+                        mtime = FileSystemUtils.currentTimeSeconds(),
+                        isDirectory = true,
+                        data = null,
+                    ),
+                )
+
+                // Recursively add contents
+                collectDirectoryContents(file, entryName, entries)
+            } else {
+                // Add file entry
+                val data = FileSystemUtils.readFile(file)
+                entries.add(
+                    TarEntry(
+                        name = entryName,
+                        size = data.size.toLong(),
+                        mode = 644,
+                        mtime = FileSystemUtils.currentTimeSeconds(),
+                        isDirectory = false,
+                        data = data,
+                    ),
+                )
+            }
+        }
     }
 
     private fun collectEntriesFromDirectory(
