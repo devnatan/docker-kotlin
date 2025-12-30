@@ -192,7 +192,7 @@ println("Exit code: ${execInfo.exitCode}") // Exit code: 1
 #### Copy a file from container to host
 ```kotlin
 client.containers.copyFileFrom(
-    containerId,
+    container = containerId,
     sourcePath = "/var/log/app.log",
     destinationPath = "/tmp/app.log"
 )
@@ -201,7 +201,7 @@ client.containers.copyFileFrom(
 ##### Copy a file from host to container
 ```kotlin
 client.containers.copyFileTo(
-    containerId,
+    container = "bailarina-caputina",
     sourcePath = "/home/user/config.json",
     destinationPath = "/app/config/"
 )
@@ -210,7 +210,7 @@ client.containers.copyFileTo(
 #### Copy a directory from container to host
 ```kotlin
 client.containers.copyDirectoryFrom(
-    containerId,
+    container = "knoten",
     sourcePath = "/app/logs",
     destinationPath = "/tmp/container-logs"
 )
@@ -219,7 +219,7 @@ client.containers.copyDirectoryFrom(
 #### Copy a directory from host to container
 ```kotlin
 client.containers.copyDirectoryTo(
-    containerId,
+    container = "globson",
     sourcePath = "/home/user/configs",
     destinationPath = "/app/"
 )
@@ -227,9 +227,8 @@ client.containers.copyDirectoryTo(
 
 #### Advanced copy with custom options
 ```kotlin
-// Copy with custom options
-client.containers.copy.copyTo(
-    container = containerId,
+client.containers.copyTo(
+    container = "tapioca",
     destinationPath = "/app/data",
     tarArchive = myTarArchive
 ) {
