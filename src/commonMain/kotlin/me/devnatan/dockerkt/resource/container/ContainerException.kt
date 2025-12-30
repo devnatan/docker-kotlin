@@ -41,3 +41,9 @@ public class ContainerNotRunningException internal constructor(
     cause: Throwable?,
     public val containerId: String?,
 ) : ContainerException(cause)
+
+public class ArchiveNotFoundException internal constructor(
+    cause: Throwable?,
+    public val containerId: String,
+    public val sourcePath: String,
+) : ContainerException(cause)
