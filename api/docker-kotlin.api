@@ -223,8 +223,6 @@ public final class me/devnatan/dockerkt/models/ExposedPort {
 	public synthetic fun <init> (SLme/devnatan/dockerkt/models/ExposedPortProtocol;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1-Mh2AYeg ()S
 	public final fun component2 ()Lme/devnatan/dockerkt/models/ExposedPortProtocol;
-	public final fun copy-vckuEUM (SLme/devnatan/dockerkt/models/ExposedPortProtocol;)Lme/devnatan/dockerkt/models/ExposedPort;
-	public static synthetic fun copy-vckuEUM$default (Lme/devnatan/dockerkt/models/ExposedPort;SLme/devnatan/dockerkt/models/ExposedPortProtocol;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/ExposedPort;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getPort-Mh2AYeg ()S
 	public final fun getProtocol ()Lme/devnatan/dockerkt/models/ExposedPortProtocol;
@@ -377,8 +375,6 @@ public final class me/devnatan/dockerkt/models/Healthcheck {
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()I
 	public final fun component3 ()Ljava/util/List;
-	public final fun copy (Ljava/lang/String;ILjava/util/List;)Lme/devnatan/dockerkt/models/Healthcheck;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/Healthcheck;Ljava/lang/String;ILjava/util/List;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/Healthcheck;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getFailingStreak ()I
 	public final fun getLogs ()Ljava/util/List;
@@ -408,8 +404,6 @@ public final class me/devnatan/dockerkt/models/HealthcheckResult {
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/Integer;
 	public final fun component4 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;)Lme/devnatan/dockerkt/models/HealthcheckResult;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/HealthcheckResult;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/HealthcheckResult;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getEndedAt ()Lkotlin/time/Instant;
 	public final fun getEndedAtString ()Ljava/lang/String;
@@ -793,8 +787,6 @@ public final class me/devnatan/dockerkt/models/Mount {
 	public final fun component6 ()Lme/devnatan/dockerkt/models/MountBindOptions;
 	public final fun component7 ()Lme/devnatan/dockerkt/models/MountVolumeOptions;
 	public final fun component8 ()Lme/devnatan/dockerkt/models/MountTmpfsOptions;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/Mount$Type;ZLjava/lang/String;Lme/devnatan/dockerkt/models/MountBindOptions;Lme/devnatan/dockerkt/models/MountVolumeOptions;Lme/devnatan/dockerkt/models/MountTmpfsOptions;)Lme/devnatan/dockerkt/models/Mount;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/Mount;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/Mount$Type;ZLjava/lang/String;Lme/devnatan/dockerkt/models/MountBindOptions;Lme/devnatan/dockerkt/models/MountVolumeOptions;Lme/devnatan/dockerkt/models/MountTmpfsOptions;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/Mount;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBindOptions ()Lme/devnatan/dockerkt/models/MountBindOptions;
 	public final fun getConsistency ()Ljava/lang/String;
@@ -1020,8 +1012,6 @@ public final class me/devnatan/dockerkt/models/ProcessConfig {
 	public final fun component3 ()Z
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/util/List;
-	public final fun copy (ZLjava/lang/String;ZLjava/lang/String;Ljava/util/List;)Lme/devnatan/dockerkt/models/ProcessConfig;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/ProcessConfig;ZLjava/lang/String;ZLjava/lang/String;Ljava/util/List;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/ProcessConfig;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getArguments ()Ljava/util/List;
 	public final fun getEntrypoint ()Ljava/lang/String;
@@ -1185,8 +1175,6 @@ public final class me/devnatan/dockerkt/models/Stream {
 	public static final fun STDOUT ()Lme/devnatan/dockerkt/models/Stream;
 	public static final fun UNKNOWN ()Lme/devnatan/dockerkt/models/Stream;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun copy (BLjava/lang/String;)Lme/devnatan/dockerkt/models/Stream;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/Stream;BLjava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/Stream;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -1274,8 +1262,6 @@ public final class me/devnatan/dockerkt/models/container/Container {
 	public final fun component7 ()Ljava/lang/String;
 	public final fun component8 ()Ljava/lang/String;
 	public final fun component9 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lme/devnatan/dockerkt/models/container/ContainerState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Lme/devnatan/dockerkt/models/container/NetworkSettings;Lme/devnatan/dockerkt/models/container/ContainerConfig;Ljava/util/List;)Lme/devnatan/dockerkt/models/container/Container;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/Container;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Lme/devnatan/dockerkt/models/container/ContainerState;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;Ljava/lang/Long;Ljava/lang/Long;Lme/devnatan/dockerkt/models/container/NetworkSettings;Lme/devnatan/dockerkt/models/container/ContainerConfig;Ljava/util/List;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/Container;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAppArmorProfile ()Ljava/lang/String;
 	public final fun getArgs ()Ljava/util/List;
@@ -1815,8 +1801,6 @@ public final class me/devnatan/dockerkt/models/container/ContainerPruneResult {
 	public static final field Companion Lme/devnatan/dockerkt/models/container/ContainerPruneResult$Companion;
 	public final fun component1 ()Ljava/util/List;
 	public final fun component2 ()J
-	public final fun copy (Ljava/util/List;J)Lme/devnatan/dockerkt/models/container/ContainerPruneResult;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerPruneResult;Ljava/util/List;JILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerPruneResult;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDeletedContainers ()Ljava/util/List;
 	public final fun getReclaimedSpace ()J
@@ -1889,8 +1873,6 @@ public final class me/devnatan/dockerkt/models/container/ContainerState {
 	public final fun component7 ()Ljava/lang/String;
 	public final fun component8 ()Ljava/lang/Integer;
 	public final fun component9 ()Ljava/lang/Integer;
-	public final fun copy (Ljava/lang/String;ZZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;ZLme/devnatan/dockerkt/models/Healthcheck;)Lme/devnatan/dockerkt/models/container/ContainerState;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerState;Ljava/lang/String;ZZZZLjava/lang/String;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;ZLme/devnatan/dockerkt/models/Healthcheck;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerState;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getError ()Ljava/lang/String;
 	public final fun getExitCode ()Ljava/lang/Integer;
@@ -1987,8 +1969,6 @@ public final class me/devnatan/dockerkt/models/container/ContainerSummary {
 	public final fun component7 ()Ljava/lang/Long;
 	public final fun component8 ()Ljava/lang/Long;
 	public final fun component9 ()Ljava/util/Map;
-	public final fun copy (Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/Long;Ljava/lang/Long;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerSummaryHostConfig;)Lme/devnatan/dockerkt/models/container/ContainerSummary;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerSummary;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;JLjava/lang/Long;Ljava/lang/Long;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerSummaryHostConfig;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerSummary;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCommand ()Ljava/lang/String;
 	public final fun getCreatedAt ()J
@@ -2025,8 +2005,6 @@ public final class me/devnatan/dockerkt/models/container/ContainerSummary$Compan
 public final class me/devnatan/dockerkt/models/container/ContainerSummaryHostConfig {
 	public static final field Companion Lme/devnatan/dockerkt/models/container/ContainerSummaryHostConfig$Companion;
 	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Lme/devnatan/dockerkt/models/container/ContainerSummaryHostConfig;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerSummaryHostConfig;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerSummaryHostConfig;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getNetworkMode ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -2056,8 +2034,6 @@ public final class me/devnatan/dockerkt/models/container/ContainerWaitResult {
 	public static final field Companion Lme/devnatan/dockerkt/models/container/ContainerWaitResult$Companion;
 	public final fun component1 ()I
 	public final fun component2 ()Lme/devnatan/dockerkt/models/container/ContainerWaitResult$Error;
-	public final fun copy (ILme/devnatan/dockerkt/models/container/ContainerWaitResult$Error;)Lme/devnatan/dockerkt/models/container/ContainerWaitResult;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerWaitResult;ILme/devnatan/dockerkt/models/container/ContainerWaitResult$Error;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerWaitResult;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getError ()Lme/devnatan/dockerkt/models/container/ContainerWaitResult$Error;
 	public final fun getStatusCode ()I
@@ -2116,8 +2092,6 @@ public final class me/devnatan/dockerkt/models/container/MountPoint {
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Z
 	public final fun component7 ()Lme/devnatan/dockerkt/models/MountBindOptions$Propagation;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLme/devnatan/dockerkt/models/MountBindOptions$Propagation;)Lme/devnatan/dockerkt/models/container/MountPoint;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/MountPoint;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLme/devnatan/dockerkt/models/MountBindOptions$Propagation;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/MountPoint;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDest ()Ljava/lang/String;
 	public final fun getDriver ()Ljava/lang/String;
@@ -2163,8 +2137,6 @@ public final class me/devnatan/dockerkt/models/container/NetworkSettings {
 	public final fun component7 ()Ljava/lang/Integer;
 	public final fun component8 ()Ljava/lang/String;
 	public final fun component9 ()Ljava/lang/Integer;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Lme/devnatan/dockerkt/models/container/NetworkSettings;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/NetworkSettings;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/Integer;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/NetworkSettings;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getBridge ()Ljava/lang/String;
 	public final fun getEndpointId ()Ljava/lang/String;
@@ -2285,8 +2257,6 @@ public final class me/devnatan/dockerkt/models/exec/ExecInspectResponse {
 	public final fun component7 ()Z
 	public final fun component8 ()Z
 	public final fun component9 ()Z
-	public final fun copy (ZLjava/lang/String;Ljava/lang/String;ZILme/devnatan/dockerkt/models/ProcessConfig;ZZZLjava/lang/String;I)Lme/devnatan/dockerkt/models/exec/ExecInspectResponse;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/exec/ExecInspectResponse;ZLjava/lang/String;Ljava/lang/String;ZILme/devnatan/dockerkt/models/ProcessConfig;ZZZLjava/lang/String;IILjava/lang/Object;)Lme/devnatan/dockerkt/models/exec/ExecInspectResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getCanRemove ()Z
 	public final fun getContainerId ()Ljava/lang/String;
@@ -2922,11 +2892,14 @@ public final class me/devnatan/dockerkt/models/network/IPAMConfig$Companion {
 
 public final class me/devnatan/dockerkt/models/network/Network {
 	public static final field Companion Lme/devnatan/dockerkt/models/network/Network$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZLjava/util/Map;Ljava/util/Map;Ljava/util/Map;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZLjava/util/Map;Ljava/util/Map;Ljava/util/Map;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZZLjava/util/Map;Ljava/util/Map;Ljava/util/Map;Lkotlin/time/Instant;Lme/devnatan/dockerkt/models/network/IPAM;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZZLjava/util/Map;Ljava/util/Map;Ljava/util/Map;Lkotlin/time/Instant;Lme/devnatan/dockerkt/models/network/IPAM;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component10 ()Ljava/util/Map;
 	public final fun component11 ()Ljava/util/Map;
+	public final fun component12 ()Ljava/util/Map;
+	public final fun component13 ()Lkotlin/time/Instant;
+	public final fun component14 ()Lme/devnatan/dockerkt/models/network/IPAM;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
@@ -2934,15 +2907,18 @@ public final class me/devnatan/dockerkt/models/network/Network {
 	public final fun component6 ()Z
 	public final fun component7 ()Z
 	public final fun component8 ()Z
-	public final fun component9 ()Ljava/util/Map;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZLjava/util/Map;Ljava/util/Map;Ljava/util/Map;)Lme/devnatan/dockerkt/models/network/Network;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/network/Network;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZLjava/util/Map;Ljava/util/Map;Ljava/util/Map;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/network/Network;
+	public final fun component9 ()Z
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZZLjava/util/Map;Ljava/util/Map;Ljava/util/Map;Lkotlin/time/Instant;Lme/devnatan/dockerkt/models/network/IPAM;)Lme/devnatan/dockerkt/models/network/Network;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/network/Network;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZZZZLjava/util/Map;Ljava/util/Map;Ljava/util/Map;Lkotlin/time/Instant;Lme/devnatan/dockerkt/models/network/IPAM;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/network/Network;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getContainers ()Ljava/util/Map;
+	public final fun getCreated ()Lkotlin/time/Instant;
 	public final fun getDriver ()Ljava/lang/String;
+	public final fun getEnableIPv4 ()Z
 	public final fun getEnableIPv6 ()Z
 	public final fun getId ()Ljava/lang/String;
 	public final fun getIngress ()Z
+	public final fun getIpam ()Lme/devnatan/dockerkt/models/network/IPAM;
 	public final fun getLabels ()Ljava/util/Map;
 	public final fun getName ()Ljava/lang/String;
 	public final fun getOptions ()Ljava/util/Map;
@@ -2970,18 +2946,18 @@ public final class me/devnatan/dockerkt/models/network/Network$Companion {
 
 public final class me/devnatan/dockerkt/models/network/NetworkContainer {
 	public static final field Companion Lme/devnatan/dockerkt/models/network/NetworkContainer$Companion;
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
-	public final fun component4 ()Z
-	public final fun component5 ()Z
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZ)Lme/devnatan/dockerkt/models/network/NetworkContainer;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/network/NetworkContainer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZZILjava/lang/Object;)Lme/devnatan/dockerkt/models/network/NetworkContainer;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lme/devnatan/dockerkt/models/network/NetworkContainer;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/network/NetworkContainer;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/network/NetworkContainer;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getEndpointId ()Ljava/lang/String;
-	public final fun getIpv4Address ()Z
-	public final fun getIpv6Address ()Z
+	public final fun getIpv4Address ()Ljava/lang/String;
+	public final fun getIpv6Address ()Ljava/lang/String;
 	public final fun getMacAddress ()Ljava/lang/String;
 	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -3131,19 +3107,22 @@ public final class me/devnatan/dockerkt/models/network/NetworkListFilters {
 	public fun <init> (ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public fun <init> (ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
 	public fun <init> (ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
-	public synthetic fun <init> (ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+	public synthetic fun <init> (ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Z
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/String;
 	public final fun component6 ()Ljava/lang/String;
-	public final fun copy (ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lme/devnatan/dockerkt/models/network/NetworkListFilters;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/network/NetworkListFilters;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/network/NetworkListFilters;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun copy (ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lme/devnatan/dockerkt/models/network/NetworkListFilters;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/network/NetworkListFilters;ZLjava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/network/NetworkListFilters;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDangling ()Z
 	public final fun getDriver ()Ljava/lang/String;
 	public final fun getId ()Ljava/lang/String;
+	public final fun getLabel ()Ljava/lang/String;
 	public final fun getName ()Ljava/lang/String;
 	public final fun getScope ()Ljava/lang/String;
 	public final fun getType ()Ljava/lang/String;
@@ -3151,6 +3130,7 @@ public final class me/devnatan/dockerkt/models/network/NetworkListFilters {
 	public final fun setDangling (Z)V
 	public final fun setDriver (Ljava/lang/String;)V
 	public final fun setId (Ljava/lang/String;)V
+	public final fun setLabel (Ljava/lang/String;)V
 	public final fun setName (Ljava/lang/String;)V
 	public final fun setScope (Ljava/lang/String;)V
 	public final fun setType (Ljava/lang/String;)V
@@ -3202,6 +3182,35 @@ public final synthetic class me/devnatan/dockerkt/models/network/NetworkPruneOpt
 }
 
 public final class me/devnatan/dockerkt/models/network/NetworkPruneOptions$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/network/NetworkPruneResult {
+	public static final field Companion Lme/devnatan/dockerkt/models/network/NetworkPruneResult$Companion;
+	public fun <init> ()V
+	public fun <init> (Ljava/util/List;)V
+	public synthetic fun <init> (Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/util/List;
+	public final fun copy (Ljava/util/List;)Lme/devnatan/dockerkt/models/network/NetworkPruneResult;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/network/NetworkPruneResult;Ljava/util/List;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/network/NetworkPruneResult;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getNetworksDeleted ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/network/NetworkPruneResult$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/network/NetworkPruneResult$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/network/NetworkPruneResult;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/network/NetworkPruneResult;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/network/NetworkPruneResult$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -3377,8 +3386,6 @@ public final class me/devnatan/dockerkt/models/system/Event {
 	public final fun component4 ()Lme/devnatan/dockerkt/models/system/EventScope;
 	public final fun component5 ()J
 	public final fun component6 ()J
-	public final fun copy (Lme/devnatan/dockerkt/models/system/EventType;Lme/devnatan/dockerkt/models/system/EventAction;Lme/devnatan/dockerkt/models/system/EventActor;Lme/devnatan/dockerkt/models/system/EventScope;JJ)Lme/devnatan/dockerkt/models/system/Event;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/system/Event;Lme/devnatan/dockerkt/models/system/EventType;Lme/devnatan/dockerkt/models/system/EventAction;Lme/devnatan/dockerkt/models/system/EventActor;Lme/devnatan/dockerkt/models/system/EventScope;JJILjava/lang/Object;)Lme/devnatan/dockerkt/models/system/Event;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAction ()Lme/devnatan/dockerkt/models/system/EventAction;
 	public final fun getActor ()Lme/devnatan/dockerkt/models/system/EventActor;
@@ -3458,8 +3465,6 @@ public final class me/devnatan/dockerkt/models/system/EventActor {
 	public static final field Companion Lme/devnatan/dockerkt/models/system/EventActor$Companion;
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/util/Map;
-	public final fun copy (Ljava/lang/String;Ljava/util/Map;)Lme/devnatan/dockerkt/models/system/EventActor;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/system/EventActor;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/system/EventActor;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAttributes ()Ljava/util/Map;
 	public final fun getId ()Ljava/lang/String;
@@ -3554,8 +3559,6 @@ public final class me/devnatan/dockerkt/models/system/SystemPingData {
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Z
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Z)Lme/devnatan/dockerkt/models/system/SystemPingData;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/system/SystemPingData;Ljava/lang/String;Ljava/lang/String;ZILjava/lang/Object;)Lme/devnatan/dockerkt/models/system/SystemPingData;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getApiVersion ()Ljava/lang/String;
 	public final fun getBuilderVersion ()Ljava/lang/String;
@@ -3593,8 +3596,6 @@ public final class me/devnatan/dockerkt/models/system/SystemVersion {
 	public final fun component7 ()Ljava/lang/String;
 	public final fun component8 ()Ljava/lang/String;
 	public final fun component9 ()Ljava/lang/String;
-	public final fun copy (Lme/devnatan/dockerkt/models/system/SystemVersion$Platform;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;)Lme/devnatan/dockerkt/models/system/SystemVersion;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/system/SystemVersion;Lme/devnatan/dockerkt/models/system/SystemVersion$Platform;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ZLjava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/system/SystemVersion;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getApiVersion ()Ljava/lang/String;
 	public final fun getArch ()Ljava/lang/String;
@@ -3633,8 +3634,6 @@ public final class me/devnatan/dockerkt/models/system/SystemVersion$Component {
 	public final fun component1 ()Ljava/lang/String;
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Lme/devnatan/dockerkt/models/system/SystemVersion$Component$Details;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/system/SystemVersion$Component$Details;)Lme/devnatan/dockerkt/models/system/SystemVersion$Component;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/system/SystemVersion$Component;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/system/SystemVersion$Component$Details;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/system/SystemVersion$Component;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDetails ()Lme/devnatan/dockerkt/models/system/SystemVersion$Component$Details;
 	public final fun getName ()Ljava/lang/String;
@@ -3661,8 +3660,6 @@ public final class me/devnatan/dockerkt/models/system/SystemVersion$Component$Co
 public final class me/devnatan/dockerkt/models/system/SystemVersion$Component$Details {
 	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemVersion$Component$Details$Companion;
 	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Lme/devnatan/dockerkt/models/system/SystemVersion$Component$Details;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/system/SystemVersion$Component$Details;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/system/SystemVersion$Component$Details;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getGitCommit ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -3687,8 +3684,6 @@ public final class me/devnatan/dockerkt/models/system/SystemVersion$Component$De
 public final class me/devnatan/dockerkt/models/system/SystemVersion$Platform {
 	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemVersion$Platform$Companion;
 	public final fun component1 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/String;)Lme/devnatan/dockerkt/models/system/SystemVersion$Platform;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/system/SystemVersion$Platform;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/system/SystemVersion$Platform;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getName ()Ljava/lang/String;
 	public fun hashCode ()I
@@ -3797,8 +3792,6 @@ public final class me/devnatan/dockerkt/models/volume/VolumeListOptions {
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
-	public final fun copy (Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Lme/devnatan/dockerkt/models/volume/VolumeListOptions;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/volume/VolumeListOptions;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/volume/VolumeListOptions;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getDangling ()Ljava/lang/Boolean;
 	public final fun getDriver ()Ljava/lang/String;
@@ -3890,8 +3883,6 @@ public final class me/devnatan/dockerkt/models/volume/VolumePruneResponse {
 	public static final field Companion Lme/devnatan/dockerkt/models/volume/VolumePruneResponse$Companion;
 	public final fun component1 ()Ljava/util/List;
 	public final fun component2 ()J
-	public final fun copy (Ljava/util/List;J)Lme/devnatan/dockerkt/models/volume/VolumePruneResponse;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/volume/VolumePruneResponse;Ljava/util/List;JILjava/lang/Object;)Lme/devnatan/dockerkt/models/volume/VolumePruneResponse;
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getSpaceReclaimed ()J
 	public final fun getVolumesDeleted ()Ljava/util/List;
@@ -3926,13 +3917,6 @@ public final class me/devnatan/dockerkt/models/volume/VolumeRemoveOptions {
 	public fun hashCode ()I
 	public final fun setForce (Z)V
 	public fun toString ()Ljava/lang/String;
-}
-
-public class me/devnatan/dockerkt/resource/NetworkException : me/devnatan/dockerkt/DockerResourceException {
-}
-
-public final class me/devnatan/dockerkt/resource/NetworkNotFoundException : me/devnatan/dockerkt/resource/NetworkException {
-	public final fun getNetworkId ()Ljava/lang/String;
 }
 
 public final class me/devnatan/dockerkt/resource/ResourcePaths {
@@ -4106,6 +4090,26 @@ public final class me/devnatan/dockerkt/resource/image/ImageResource$Companion {
 
 public final class me/devnatan/dockerkt/resource/image/ImageResourceKt {
 	public static final fun build (Lme/devnatan/dockerkt/resource/image/ImageResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class me/devnatan/dockerkt/resource/network/NetworkConflictException : me/devnatan/dockerkt/resource/network/NetworkException {
+	public final fun getNetworkName ()Ljava/lang/String;
+}
+
+public class me/devnatan/dockerkt/resource/network/NetworkException : me/devnatan/dockerkt/DockerResourceException {
+}
+
+public final class me/devnatan/dockerkt/resource/network/NetworkForbiddenException : me/devnatan/dockerkt/resource/network/NetworkException {
+	public final fun getNetworkId ()Ljava/lang/String;
+}
+
+public final class me/devnatan/dockerkt/resource/network/NetworkInUseException : me/devnatan/dockerkt/resource/network/NetworkException {
+	public fun <init> (Ljava/lang/Throwable;Ljava/lang/String;)V
+	public final fun getNetworkId ()Ljava/lang/String;
+}
+
+public final class me/devnatan/dockerkt/resource/network/NetworkNotFoundException : me/devnatan/dockerkt/resource/network/NetworkException {
+	public final fun getNetworkName ()Ljava/lang/String;
 }
 
 public final class me/devnatan/dockerkt/resource/network/NetworkResource {

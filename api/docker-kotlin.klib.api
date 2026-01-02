@@ -221,7 +221,6 @@ final class me.devnatan.dockerkt.models.container/Container { // me.devnatan.doc
     final fun component7(): kotlin/String? // me.devnatan.dockerkt.models.container/Container.component7|component7(){}[0]
     final fun component8(): kotlin/String? // me.devnatan.dockerkt.models.container/Container.component8|component8(){}[0]
     final fun component9(): kotlin/String? // me.devnatan.dockerkt.models.container/Container.component9|component9(){}[0]
-    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String? = ..., kotlin.collections/List<kotlin/String> = ..., me.devnatan.dockerkt.models.container/ContainerState = ..., kotlin/String = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String = ..., kotlin/Int = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin.collections/List<kotlin/String>? = ..., kotlin/Long? = ..., kotlin/Long? = ..., me.devnatan.dockerkt.models.container/NetworkSettings = ..., me.devnatan.dockerkt.models.container/ContainerConfig = ..., kotlin.collections/List<me.devnatan.dockerkt.models/Mount> = ...): me.devnatan.dockerkt.models.container/Container // me.devnatan.dockerkt.models.container/Container.copy|copy(kotlin.String;kotlin.String;kotlin.String?;kotlin.collections.List<kotlin.String>;me.devnatan.dockerkt.models.container.ContainerState;kotlin.String;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String;kotlin.Int;kotlin.String;kotlin.String;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.collections.List<kotlin.String>?;kotlin.Long?;kotlin.Long?;me.devnatan.dockerkt.models.container.NetworkSettings;me.devnatan.dockerkt.models.container.ContainerConfig;kotlin.collections.List<me.devnatan.dockerkt.models.Mount>){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/Container.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/Container.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/Container.toString|toString(){}[0]
@@ -776,7 +775,6 @@ final class me.devnatan.dockerkt.models.container/ContainerPruneResult { // me.d
 
     final fun component1(): kotlin.collections/List<kotlin/String> // me.devnatan.dockerkt.models.container/ContainerPruneResult.component1|component1(){}[0]
     final fun component2(): kotlin/Long // me.devnatan.dockerkt.models.container/ContainerPruneResult.component2|component2(){}[0]
-    final fun copy(kotlin.collections/List<kotlin/String> = ..., kotlin/Long = ...): me.devnatan.dockerkt.models.container/ContainerPruneResult // me.devnatan.dockerkt.models.container/ContainerPruneResult.copy|copy(kotlin.collections.List<kotlin.String>;kotlin.Long){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerPruneResult.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerPruneResult.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerPruneResult.toString|toString(){}[0]
@@ -876,7 +874,6 @@ final class me.devnatan.dockerkt.models.container/ContainerState { // me.devnata
     final fun component7(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerState.component7|component7(){}[0]
     final fun component8(): kotlin/Int? // me.devnatan.dockerkt.models.container/ContainerState.component8|component8(){}[0]
     final fun component9(): kotlin/Int? // me.devnatan.dockerkt.models.container/ContainerState.component9|component9(){}[0]
-    final fun copy(kotlin/String = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin/String? = ..., kotlin/Boolean = ..., me.devnatan.dockerkt.models/Healthcheck? = ...): me.devnatan.dockerkt.models.container/ContainerState // me.devnatan.dockerkt.models.container/ContainerState.copy|copy(kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.String;kotlin.String;kotlin.Int?;kotlin.Int?;kotlin.String?;kotlin.Boolean;me.devnatan.dockerkt.models.Healthcheck?){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerState.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerState.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerState.toString|toString(){}[0]
@@ -969,7 +966,6 @@ final class me.devnatan.dockerkt.models.container/ContainerSummary { // me.devna
     final fun component7(): kotlin/Long? // me.devnatan.dockerkt.models.container/ContainerSummary.component7|component7(){}[0]
     final fun component8(): kotlin/Long? // me.devnatan.dockerkt.models.container/ContainerSummary.component8|component8(){}[0]
     final fun component9(): kotlin.collections/Map<kotlin/String, kotlin/String> // me.devnatan.dockerkt.models.container/ContainerSummary.component9|component9(){}[0]
-    final fun copy(kotlin/String = ..., kotlin.collections/List<kotlin/String>? = ..., kotlin/String = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/Long = ..., kotlin/Long? = ..., kotlin/Long? = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin/String = ..., kotlin/String = ..., me.devnatan.dockerkt.models.container/ContainerSummaryHostConfig = ...): me.devnatan.dockerkt.models.container/ContainerSummary // me.devnatan.dockerkt.models.container/ContainerSummary.copy|copy(kotlin.String;kotlin.collections.List<kotlin.String>?;kotlin.String;kotlin.String?;kotlin.String?;kotlin.Long;kotlin.Long?;kotlin.Long?;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.String;kotlin.String;me.devnatan.dockerkt.models.container.ContainerSummaryHostConfig){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerSummary.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerSummary.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerSummary.toString|toString(){}[0]
@@ -995,7 +991,6 @@ final class me.devnatan.dockerkt.models.container/ContainerSummaryHostConfig { /
         final fun <get-networkMode>(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerSummaryHostConfig.networkMode.<get-networkMode>|<get-networkMode>(){}[0]
 
     final fun component1(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerSummaryHostConfig.component1|component1(){}[0]
-    final fun copy(kotlin/String = ...): me.devnatan.dockerkt.models.container/ContainerSummaryHostConfig // me.devnatan.dockerkt.models.container/ContainerSummaryHostConfig.copy|copy(kotlin.String){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerSummaryHostConfig.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerSummaryHostConfig.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerSummaryHostConfig.toString|toString(){}[0]
@@ -1022,7 +1017,6 @@ final class me.devnatan.dockerkt.models.container/ContainerWaitResult { // me.de
 
     final fun component1(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerWaitResult.component1|component1(){}[0]
     final fun component2(): me.devnatan.dockerkt.models.container/ContainerWaitResult.Error? // me.devnatan.dockerkt.models.container/ContainerWaitResult.component2|component2(){}[0]
-    final fun copy(kotlin/Int = ..., me.devnatan.dockerkt.models.container/ContainerWaitResult.Error? = ...): me.devnatan.dockerkt.models.container/ContainerWaitResult // me.devnatan.dockerkt.models.container/ContainerWaitResult.copy|copy(kotlin.Int;me.devnatan.dockerkt.models.container.ContainerWaitResult.Error?){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerWaitResult.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerWaitResult.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerWaitResult.toString|toString(){}[0]
@@ -1090,7 +1084,6 @@ final class me.devnatan.dockerkt.models.container/MountPoint { // me.devnatan.do
     final fun component5(): kotlin/String // me.devnatan.dockerkt.models.container/MountPoint.component5|component5(){}[0]
     final fun component6(): kotlin/Boolean // me.devnatan.dockerkt.models.container/MountPoint.component6|component6(){}[0]
     final fun component7(): me.devnatan.dockerkt.models/MountBindOptions.Propagation // me.devnatan.dockerkt.models.container/MountPoint.component7|component7(){}[0]
-    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., me.devnatan.dockerkt.models/MountBindOptions.Propagation = ...): me.devnatan.dockerkt.models.container/MountPoint // me.devnatan.dockerkt.models.container/MountPoint.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.Boolean;me.devnatan.dockerkt.models.MountBindOptions.Propagation){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/MountPoint.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/MountPoint.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/MountPoint.toString|toString(){}[0]
@@ -1161,7 +1154,6 @@ final class me.devnatan.dockerkt.models.container/NetworkSettings { // me.devnat
     final fun component7(): kotlin/Int? // me.devnatan.dockerkt.models.container/NetworkSettings.component7|component7(){}[0]
     final fun component8(): kotlin/String? // me.devnatan.dockerkt.models.container/NetworkSettings.component8|component8(){}[0]
     final fun component9(): kotlin/Int? // me.devnatan.dockerkt.models.container/NetworkSettings.component9|component9(){}[0]
-    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin/String = ..., kotlin/Int = ..., kotlin/String? = ..., kotlin/Int? = ..., kotlin/String? = ..., kotlin/Int? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin.collections/Map<me.devnatan.dockerkt.models/ExposedPort, kotlin.collections/List<me.devnatan.dockerkt.models/PortBinding>?> = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.network/EndpointSettings> = ...): me.devnatan.dockerkt.models.container/NetworkSettings // me.devnatan.dockerkt.models.container/NetworkSettings.copy|copy(kotlin.String;kotlin.String;kotlin.Boolean;kotlin.String;kotlin.Int;kotlin.String?;kotlin.Int?;kotlin.String?;kotlin.Int?;kotlin.String?;kotlin.String?;kotlin.collections.Map<me.devnatan.dockerkt.models.ExposedPort,kotlin.collections.List<me.devnatan.dockerkt.models.PortBinding>?>;kotlin.String;kotlin.String;kotlin.String;kotlin.collections.Map<kotlin.String,me.devnatan.dockerkt.models.network.EndpointSettings>){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/NetworkSettings.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/NetworkSettings.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/NetworkSettings.toString|toString(){}[0]
@@ -1299,7 +1291,6 @@ final class me.devnatan.dockerkt.models.exec/ExecInspectResponse { // me.devnata
     final fun component7(): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecInspectResponse.component7|component7(){}[0]
     final fun component8(): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecInspectResponse.component8|component8(){}[0]
     final fun component9(): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecInspectResponse.component9|component9(){}[0]
-    final fun copy(kotlin/Boolean = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin/Int = ..., me.devnatan.dockerkt.models/ProcessConfig = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/String = ..., kotlin/Int = ...): me.devnatan.dockerkt.models.exec/ExecInspectResponse // me.devnatan.dockerkt.models.exec/ExecInspectResponse.copy|copy(kotlin.Boolean;kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Int;me.devnatan.dockerkt.models.ProcessConfig;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.String;kotlin.Int){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.exec/ExecInspectResponse.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.exec/ExecInspectResponse.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.exec/ExecInspectResponse.toString|toString(){}[0]
@@ -1911,18 +1902,24 @@ final class me.devnatan.dockerkt.models.network/IPAMConfig { // me.devnatan.dock
 }
 
 final class me.devnatan.dockerkt.models.network/Network { // me.devnatan.dockerkt.models.network/Network|null[0]
-    constructor <init>(kotlin/String, kotlin/String? = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.network/NetworkContainer> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...) // me.devnatan.dockerkt.models.network/Network.<init>|<init>(kotlin.String;kotlin.String?;kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.collections.Map<kotlin.String,me.devnatan.dockerkt.models.network.NetworkContainer>;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    constructor <init>(kotlin/String, kotlin/String? = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.network/NetworkContainer> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.time/Instant, me.devnatan.dockerkt.models.network/IPAM? = ...) // me.devnatan.dockerkt.models.network/Network.<init>|<init>(kotlin.String;kotlin.String?;kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.collections.Map<kotlin.String,me.devnatan.dockerkt.models.network.NetworkContainer>;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.time.Instant;me.devnatan.dockerkt.models.network.IPAM?){}[0]
 
     final val containers // me.devnatan.dockerkt.models.network/Network.containers|{}containers[0]
         final fun <get-containers>(): kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.network/NetworkContainer> // me.devnatan.dockerkt.models.network/Network.containers.<get-containers>|<get-containers>(){}[0]
+    final val created // me.devnatan.dockerkt.models.network/Network.created|{}created[0]
+        final fun <get-created>(): kotlin.time/Instant // me.devnatan.dockerkt.models.network/Network.created.<get-created>|<get-created>(){}[0]
     final val driver // me.devnatan.dockerkt.models.network/Network.driver|{}driver[0]
         final fun <get-driver>(): kotlin/String // me.devnatan.dockerkt.models.network/Network.driver.<get-driver>|<get-driver>(){}[0]
+    final val enableIPv4 // me.devnatan.dockerkt.models.network/Network.enableIPv4|{}enableIPv4[0]
+        final fun <get-enableIPv4>(): kotlin/Boolean // me.devnatan.dockerkt.models.network/Network.enableIPv4.<get-enableIPv4>|<get-enableIPv4>(){}[0]
     final val enableIPv6 // me.devnatan.dockerkt.models.network/Network.enableIPv6|{}enableIPv6[0]
         final fun <get-enableIPv6>(): kotlin/Boolean // me.devnatan.dockerkt.models.network/Network.enableIPv6.<get-enableIPv6>|<get-enableIPv6>(){}[0]
     final val id // me.devnatan.dockerkt.models.network/Network.id|{}id[0]
         final fun <get-id>(): kotlin/String // me.devnatan.dockerkt.models.network/Network.id.<get-id>|<get-id>(){}[0]
     final val ingress // me.devnatan.dockerkt.models.network/Network.ingress|{}ingress[0]
         final fun <get-ingress>(): kotlin/Boolean // me.devnatan.dockerkt.models.network/Network.ingress.<get-ingress>|<get-ingress>(){}[0]
+    final val ipam // me.devnatan.dockerkt.models.network/Network.ipam|{}ipam[0]
+        final fun <get-ipam>(): me.devnatan.dockerkt.models.network/IPAM? // me.devnatan.dockerkt.models.network/Network.ipam.<get-ipam>|<get-ipam>(){}[0]
     final val isAttachable // me.devnatan.dockerkt.models.network/Network.isAttachable|{}isAttachable[0]
         final fun <get-isAttachable>(): kotlin/Boolean // me.devnatan.dockerkt.models.network/Network.isAttachable.<get-isAttachable>|<get-isAttachable>(){}[0]
     final val isInternal // me.devnatan.dockerkt.models.network/Network.isInternal|{}isInternal[0]
@@ -1937,8 +1934,11 @@ final class me.devnatan.dockerkt.models.network/Network { // me.devnatan.dockerk
         final fun <get-scope>(): kotlin/String // me.devnatan.dockerkt.models.network/Network.scope.<get-scope>|<get-scope>(){}[0]
 
     final fun component1(): kotlin/String // me.devnatan.dockerkt.models.network/Network.component1|component1(){}[0]
-    final fun component10(): kotlin.collections/Map<kotlin/String, kotlin/String> // me.devnatan.dockerkt.models.network/Network.component10|component10(){}[0]
+    final fun component10(): kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.network/NetworkContainer> // me.devnatan.dockerkt.models.network/Network.component10|component10(){}[0]
     final fun component11(): kotlin.collections/Map<kotlin/String, kotlin/String> // me.devnatan.dockerkt.models.network/Network.component11|component11(){}[0]
+    final fun component12(): kotlin.collections/Map<kotlin/String, kotlin/String> // me.devnatan.dockerkt.models.network/Network.component12|component12(){}[0]
+    final fun component13(): kotlin.time/Instant // me.devnatan.dockerkt.models.network/Network.component13|component13(){}[0]
+    final fun component14(): me.devnatan.dockerkt.models.network/IPAM? // me.devnatan.dockerkt.models.network/Network.component14|component14(){}[0]
     final fun component2(): kotlin/String? // me.devnatan.dockerkt.models.network/Network.component2|component2(){}[0]
     final fun component3(): kotlin/String // me.devnatan.dockerkt.models.network/Network.component3|component3(){}[0]
     final fun component4(): kotlin/String // me.devnatan.dockerkt.models.network/Network.component4|component4(){}[0]
@@ -1946,8 +1946,8 @@ final class me.devnatan.dockerkt.models.network/Network { // me.devnatan.dockerk
     final fun component6(): kotlin/Boolean // me.devnatan.dockerkt.models.network/Network.component6|component6(){}[0]
     final fun component7(): kotlin/Boolean // me.devnatan.dockerkt.models.network/Network.component7|component7(){}[0]
     final fun component8(): kotlin/Boolean // me.devnatan.dockerkt.models.network/Network.component8|component8(){}[0]
-    final fun component9(): kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.network/NetworkContainer> // me.devnatan.dockerkt.models.network/Network.component9|component9(){}[0]
-    final fun copy(kotlin/String = ..., kotlin/String? = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.network/NetworkContainer> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): me.devnatan.dockerkt.models.network/Network // me.devnatan.dockerkt.models.network/Network.copy|copy(kotlin.String;kotlin.String?;kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.collections.Map<kotlin.String,me.devnatan.dockerkt.models.network.NetworkContainer>;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
+    final fun component9(): kotlin/Boolean // me.devnatan.dockerkt.models.network/Network.component9|component9(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String? = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.network/NetworkContainer> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin.time/Instant = ..., me.devnatan.dockerkt.models.network/IPAM? = ...): me.devnatan.dockerkt.models.network/Network // me.devnatan.dockerkt.models.network/Network.copy|copy(kotlin.String;kotlin.String?;kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.collections.Map<kotlin.String,me.devnatan.dockerkt.models.network.NetworkContainer>;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.time.Instant;me.devnatan.dockerkt.models.network.IPAM?){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.network/Network.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.network/Network.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.network/Network.toString|toString(){}[0]
@@ -1969,14 +1969,14 @@ final class me.devnatan.dockerkt.models.network/Network { // me.devnatan.dockerk
 }
 
 final class me.devnatan.dockerkt.models.network/NetworkContainer { // me.devnatan.dockerkt.models.network/NetworkContainer|null[0]
-    constructor <init>(kotlin/String, kotlin/String, kotlin/String, kotlin/Boolean, kotlin/Boolean) // me.devnatan.dockerkt.models.network/NetworkContainer.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean){}[0]
+    constructor <init>(kotlin/String, kotlin/String, kotlin/String, kotlin/String, kotlin/String) // me.devnatan.dockerkt.models.network/NetworkContainer.<init>|<init>(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
 
     final val endpointId // me.devnatan.dockerkt.models.network/NetworkContainer.endpointId|{}endpointId[0]
         final fun <get-endpointId>(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkContainer.endpointId.<get-endpointId>|<get-endpointId>(){}[0]
     final val ipv4Address // me.devnatan.dockerkt.models.network/NetworkContainer.ipv4Address|{}ipv4Address[0]
-        final fun <get-ipv4Address>(): kotlin/Boolean // me.devnatan.dockerkt.models.network/NetworkContainer.ipv4Address.<get-ipv4Address>|<get-ipv4Address>(){}[0]
+        final fun <get-ipv4Address>(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkContainer.ipv4Address.<get-ipv4Address>|<get-ipv4Address>(){}[0]
     final val ipv6Address // me.devnatan.dockerkt.models.network/NetworkContainer.ipv6Address|{}ipv6Address[0]
-        final fun <get-ipv6Address>(): kotlin/Boolean // me.devnatan.dockerkt.models.network/NetworkContainer.ipv6Address.<get-ipv6Address>|<get-ipv6Address>(){}[0]
+        final fun <get-ipv6Address>(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkContainer.ipv6Address.<get-ipv6Address>|<get-ipv6Address>(){}[0]
     final val macAddress // me.devnatan.dockerkt.models.network/NetworkContainer.macAddress|{}macAddress[0]
         final fun <get-macAddress>(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkContainer.macAddress.<get-macAddress>|<get-macAddress>(){}[0]
     final val name // me.devnatan.dockerkt.models.network/NetworkContainer.name|{}name[0]
@@ -1985,9 +1985,9 @@ final class me.devnatan.dockerkt.models.network/NetworkContainer { // me.devnata
     final fun component1(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkContainer.component1|component1(){}[0]
     final fun component2(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkContainer.component2|component2(){}[0]
     final fun component3(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkContainer.component3|component3(){}[0]
-    final fun component4(): kotlin/Boolean // me.devnatan.dockerkt.models.network/NetworkContainer.component4|component4(){}[0]
-    final fun component5(): kotlin/Boolean // me.devnatan.dockerkt.models.network/NetworkContainer.component5|component5(){}[0]
-    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ..., kotlin/Boolean = ...): me.devnatan.dockerkt.models.network/NetworkContainer // me.devnatan.dockerkt.models.network/NetworkContainer.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.Boolean;kotlin.Boolean){}[0]
+    final fun component4(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkContainer.component4|component4(){}[0]
+    final fun component5(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkContainer.component5|component5(){}[0]
+    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ...): me.devnatan.dockerkt.models.network/NetworkContainer // me.devnatan.dockerkt.models.network/NetworkContainer.copy|copy(kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.network/NetworkContainer.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.network/NetworkContainer.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkContainer.toString|toString(){}[0]
@@ -2116,7 +2116,7 @@ final class me.devnatan.dockerkt.models.network/NetworkInspectOptions { // me.de
 }
 
 final class me.devnatan.dockerkt.models.network/NetworkListFilters { // me.devnatan.dockerkt.models.network/NetworkListFilters|null[0]
-    constructor <init>(kotlin/Boolean = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ...) // me.devnatan.dockerkt.models.network/NetworkListFilters.<init>|<init>(kotlin.Boolean;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?){}[0]
+    constructor <init>(kotlin/Boolean = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ...) // me.devnatan.dockerkt.models.network/NetworkListFilters.<init>|<init>(kotlin.Boolean;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?){}[0]
 
     final var dangling // me.devnatan.dockerkt.models.network/NetworkListFilters.dangling|{}dangling[0]
         final fun <get-dangling>(): kotlin/Boolean // me.devnatan.dockerkt.models.network/NetworkListFilters.dangling.<get-dangling>|<get-dangling>(){}[0]
@@ -2127,6 +2127,9 @@ final class me.devnatan.dockerkt.models.network/NetworkListFilters { // me.devna
     final var id // me.devnatan.dockerkt.models.network/NetworkListFilters.id|{}id[0]
         final fun <get-id>(): kotlin/String? // me.devnatan.dockerkt.models.network/NetworkListFilters.id.<get-id>|<get-id>(){}[0]
         final fun <set-id>(kotlin/String?) // me.devnatan.dockerkt.models.network/NetworkListFilters.id.<set-id>|<set-id>(kotlin.String?){}[0]
+    final var label // me.devnatan.dockerkt.models.network/NetworkListFilters.label|{}label[0]
+        final fun <get-label>(): kotlin/String? // me.devnatan.dockerkt.models.network/NetworkListFilters.label.<get-label>|<get-label>(){}[0]
+        final fun <set-label>(kotlin/String?) // me.devnatan.dockerkt.models.network/NetworkListFilters.label.<set-label>|<set-label>(kotlin.String?){}[0]
     final var name // me.devnatan.dockerkt.models.network/NetworkListFilters.name|{}name[0]
         final fun <get-name>(): kotlin/String? // me.devnatan.dockerkt.models.network/NetworkListFilters.name.<get-name>|<get-name>(){}[0]
         final fun <set-name>(kotlin/String?) // me.devnatan.dockerkt.models.network/NetworkListFilters.name.<set-name>|<set-name>(kotlin.String?){}[0]
@@ -2143,7 +2146,8 @@ final class me.devnatan.dockerkt.models.network/NetworkListFilters { // me.devna
     final fun component4(): kotlin/String? // me.devnatan.dockerkt.models.network/NetworkListFilters.component4|component4(){}[0]
     final fun component5(): kotlin/String? // me.devnatan.dockerkt.models.network/NetworkListFilters.component5|component5(){}[0]
     final fun component6(): kotlin/String? // me.devnatan.dockerkt.models.network/NetworkListFilters.component6|component6(){}[0]
-    final fun copy(kotlin/Boolean = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ...): me.devnatan.dockerkt.models.network/NetworkListFilters // me.devnatan.dockerkt.models.network/NetworkListFilters.copy|copy(kotlin.Boolean;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?){}[0]
+    final fun component7(): kotlin/String? // me.devnatan.dockerkt.models.network/NetworkListFilters.component7|component7(){}[0]
+    final fun copy(kotlin/Boolean = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ...): me.devnatan.dockerkt.models.network/NetworkListFilters // me.devnatan.dockerkt.models.network/NetworkListFilters.copy|copy(kotlin.Boolean;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?;kotlin.String?){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.network/NetworkListFilters.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.network/NetworkListFilters.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkListFilters.toString|toString(){}[0]
@@ -2190,6 +2194,34 @@ final class me.devnatan.dockerkt.models.network/NetworkPruneOptions { // me.devn
 
     final object Companion { // me.devnatan.dockerkt.models.network/NetworkPruneOptions.Companion|null[0]
         final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.network/NetworkPruneOptions> // me.devnatan.dockerkt.models.network/NetworkPruneOptions.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class me.devnatan.dockerkt.models.network/NetworkPruneResult { // me.devnatan.dockerkt.models.network/NetworkPruneResult|null[0]
+    constructor <init>(kotlin.collections/List<kotlin/String>? = ...) // me.devnatan.dockerkt.models.network/NetworkPruneResult.<init>|<init>(kotlin.collections.List<kotlin.String>?){}[0]
+
+    final val networksDeleted // me.devnatan.dockerkt.models.network/NetworkPruneResult.networksDeleted|{}networksDeleted[0]
+        final fun <get-networksDeleted>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.network/NetworkPruneResult.networksDeleted.<get-networksDeleted>|<get-networksDeleted>(){}[0]
+
+    final fun component1(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.network/NetworkPruneResult.component1|component1(){}[0]
+    final fun copy(kotlin.collections/List<kotlin/String>? = ...): me.devnatan.dockerkt.models.network/NetworkPruneResult // me.devnatan.dockerkt.models.network/NetworkPruneResult.copy|copy(kotlin.collections.List<kotlin.String>?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.network/NetworkPruneResult.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.network/NetworkPruneResult.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.network/NetworkPruneResult.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.network/NetworkPruneResult> { // me.devnatan.dockerkt.models.network/NetworkPruneResult.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.network/NetworkPruneResult.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.network/NetworkPruneResult.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.network/NetworkPruneResult.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.network/NetworkPruneResult // me.devnatan.dockerkt.models.network/NetworkPruneResult.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.network/NetworkPruneResult) // me.devnatan.dockerkt.models.network/NetworkPruneResult.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.network.NetworkPruneResult){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.network/NetworkPruneResult.Companion|null[0]
+        final val $childSerializers // me.devnatan.dockerkt.models.network/NetworkPruneResult.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.network/NetworkPruneResult> // me.devnatan.dockerkt.models.network/NetworkPruneResult.Companion.serializer|serializer(){}[0]
     }
 }
 
@@ -2379,7 +2411,6 @@ final class me.devnatan.dockerkt.models.system/Event { // me.devnatan.dockerkt.m
     final fun component4(): me.devnatan.dockerkt.models.system/EventScope // me.devnatan.dockerkt.models.system/Event.component4|component4(){}[0]
     final fun component5(): kotlin/Long // me.devnatan.dockerkt.models.system/Event.component5|component5(){}[0]
     final fun component6(): kotlin/Long // me.devnatan.dockerkt.models.system/Event.component6|component6(){}[0]
-    final fun copy(me.devnatan.dockerkt.models.system/EventType = ..., me.devnatan.dockerkt.models.system/EventAction = ..., me.devnatan.dockerkt.models.system/EventActor = ..., me.devnatan.dockerkt.models.system/EventScope = ..., kotlin/Long = ..., kotlin/Long = ...): me.devnatan.dockerkt.models.system/Event // me.devnatan.dockerkt.models.system/Event.copy|copy(me.devnatan.dockerkt.models.system.EventType;me.devnatan.dockerkt.models.system.EventAction;me.devnatan.dockerkt.models.system.EventActor;me.devnatan.dockerkt.models.system.EventScope;kotlin.Long;kotlin.Long){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/Event.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/Event.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/Event.toString|toString(){}[0]
@@ -2408,7 +2439,6 @@ final class me.devnatan.dockerkt.models.system/EventActor { // me.devnatan.docke
 
     final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/EventActor.component1|component1(){}[0]
     final fun component2(): kotlin.collections/Map<kotlin/String, kotlin/String> // me.devnatan.dockerkt.models.system/EventActor.component2|component2(){}[0]
-    final fun copy(kotlin/String = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ...): me.devnatan.dockerkt.models.system/EventActor // me.devnatan.dockerkt.models.system/EventActor.copy|copy(kotlin.String;kotlin.collections.Map<kotlin.String,kotlin.String>){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/EventActor.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/EventActor.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/EventActor.toString|toString(){}[0]
@@ -2464,7 +2494,6 @@ final class me.devnatan.dockerkt.models.system/SystemPingData { // me.devnatan.d
     final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemPingData.component1|component1(){}[0]
     final fun component2(): kotlin/String // me.devnatan.dockerkt.models.system/SystemPingData.component2|component2(){}[0]
     final fun component3(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemPingData.component3|component3(){}[0]
-    final fun copy(kotlin/String = ..., kotlin/String = ..., kotlin/Boolean = ...): me.devnatan.dockerkt.models.system/SystemPingData // me.devnatan.dockerkt.models.system/SystemPingData.copy|copy(kotlin.String;kotlin.String;kotlin.Boolean){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemPingData.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemPingData.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemPingData.toString|toString(){}[0]
@@ -2523,7 +2552,6 @@ final class me.devnatan.dockerkt.models.system/SystemVersion { // me.devnatan.do
     final fun component7(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.component7|component7(){}[0]
     final fun component8(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.component8|component8(){}[0]
     final fun component9(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.component9|component9(){}[0]
-    final fun copy(me.devnatan.dockerkt.models.system/SystemVersion.Platform = ..., kotlin.collections/List<me.devnatan.dockerkt.models.system/SystemVersion.Component> = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String = ..., kotlin/String? = ..., kotlin/Boolean = ..., kotlin/String = ...): me.devnatan.dockerkt.models.system/SystemVersion // me.devnatan.dockerkt.models.system/SystemVersion.copy|copy(me.devnatan.dockerkt.models.system.SystemVersion.Platform;kotlin.collections.List<me.devnatan.dockerkt.models.system.SystemVersion.Component>;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String;kotlin.String?;kotlin.Boolean;kotlin.String){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemVersion.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemVersion.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.toString|toString(){}[0]
@@ -2539,7 +2567,6 @@ final class me.devnatan.dockerkt.models.system/SystemVersion { // me.devnatan.do
         final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.Component.component1|component1(){}[0]
         final fun component2(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.Component.component2|component2(){}[0]
         final fun component3(): me.devnatan.dockerkt.models.system/SystemVersion.Component.Details? // me.devnatan.dockerkt.models.system/SystemVersion.Component.component3|component3(){}[0]
-        final fun copy(kotlin/String = ..., kotlin/String = ..., me.devnatan.dockerkt.models.system/SystemVersion.Component.Details? = ...): me.devnatan.dockerkt.models.system/SystemVersion.Component // me.devnatan.dockerkt.models.system/SystemVersion.Component.copy|copy(kotlin.String;kotlin.String;me.devnatan.dockerkt.models.system.SystemVersion.Component.Details?){}[0]
         final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemVersion.Component.equals|equals(kotlin.Any?){}[0]
         final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemVersion.Component.hashCode|hashCode(){}[0]
         final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.Component.toString|toString(){}[0]
@@ -2549,7 +2576,6 @@ final class me.devnatan.dockerkt.models.system/SystemVersion { // me.devnatan.do
                 final fun <get-gitCommit>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.Component.Details.gitCommit.<get-gitCommit>|<get-gitCommit>(){}[0]
 
             final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.Component.Details.component1|component1(){}[0]
-            final fun copy(kotlin/String = ...): me.devnatan.dockerkt.models.system/SystemVersion.Component.Details // me.devnatan.dockerkt.models.system/SystemVersion.Component.Details.copy|copy(kotlin.String){}[0]
             final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemVersion.Component.Details.equals|equals(kotlin.Any?){}[0]
             final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemVersion.Component.Details.hashCode|hashCode(){}[0]
             final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.Component.Details.toString|toString(){}[0]
@@ -2587,7 +2613,6 @@ final class me.devnatan.dockerkt.models.system/SystemVersion { // me.devnatan.do
             final fun <get-name>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.Platform.name.<get-name>|<get-name>(){}[0]
 
         final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.Platform.component1|component1(){}[0]
-        final fun copy(kotlin/String = ...): me.devnatan.dockerkt.models.system/SystemVersion.Platform // me.devnatan.dockerkt.models.system/SystemVersion.Platform.copy|copy(kotlin.String){}[0]
         final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemVersion.Platform.equals|equals(kotlin.Any?){}[0]
         final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemVersion.Platform.hashCode|hashCode(){}[0]
         final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemVersion.Platform.toString|toString(){}[0]
@@ -2729,7 +2754,6 @@ final class me.devnatan.dockerkt.models.volume/VolumeListOptions { // me.devnata
     final fun component2(): kotlin/String? // me.devnatan.dockerkt.models.volume/VolumeListOptions.component2|component2(){}[0]
     final fun component3(): kotlin/String? // me.devnatan.dockerkt.models.volume/VolumeListOptions.component3|component3(){}[0]
     final fun component4(): kotlin/String? // me.devnatan.dockerkt.models.volume/VolumeListOptions.component4|component4(){}[0]
-    final fun copy(kotlin/Boolean? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ...): me.devnatan.dockerkt.models.volume/VolumeListOptions // me.devnatan.dockerkt.models.volume/VolumeListOptions.copy|copy(kotlin.Boolean?;kotlin.String?;kotlin.String?;kotlin.String?){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.volume/VolumeListOptions.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.volume/VolumeListOptions.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.volume/VolumeListOptions.toString|toString(){}[0]
@@ -2814,7 +2838,6 @@ final class me.devnatan.dockerkt.models.volume/VolumePruneResponse { // me.devna
 
     final fun component1(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.volume/VolumePruneResponse.component1|component1(){}[0]
     final fun component2(): kotlin/Long // me.devnatan.dockerkt.models.volume/VolumePruneResponse.component2|component2(){}[0]
-    final fun copy(kotlin.collections/List<kotlin/String>? = ..., kotlin/Long = ...): me.devnatan.dockerkt.models.volume/VolumePruneResponse // me.devnatan.dockerkt.models.volume/VolumePruneResponse.copy|copy(kotlin.collections.List<kotlin.String>?;kotlin.Long){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.volume/VolumePruneResponse.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.volume/VolumePruneResponse.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.volume/VolumePruneResponse.toString|toString(){}[0]
@@ -2968,7 +2991,6 @@ final class me.devnatan.dockerkt.models/ExposedPort { // me.devnatan.dockerkt.mo
 
     final fun component1(): kotlin/UShort // me.devnatan.dockerkt.models/ExposedPort.component1|component1(){}[0]
     final fun component2(): me.devnatan.dockerkt.models/ExposedPortProtocol // me.devnatan.dockerkt.models/ExposedPort.component2|component2(){}[0]
-    final fun copy(kotlin/UShort = ..., me.devnatan.dockerkt.models/ExposedPortProtocol = ...): me.devnatan.dockerkt.models/ExposedPort // me.devnatan.dockerkt.models/ExposedPort.copy|copy(kotlin.UShort;me.devnatan.dockerkt.models.ExposedPortProtocol){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models/ExposedPort.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models/ExposedPort.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models/ExposedPort.toString|toString(){}[0]
@@ -3109,7 +3131,6 @@ final class me.devnatan.dockerkt.models/Healthcheck { // me.devnatan.dockerkt.mo
     final fun component1(): kotlin/String // me.devnatan.dockerkt.models/Healthcheck.component1|component1(){}[0]
     final fun component2(): kotlin/Int // me.devnatan.dockerkt.models/Healthcheck.component2|component2(){}[0]
     final fun component3(): kotlin.collections/List<me.devnatan.dockerkt.models/HealthcheckResult> // me.devnatan.dockerkt.models/Healthcheck.component3|component3(){}[0]
-    final fun copy(kotlin/String = ..., kotlin/Int = ..., kotlin.collections/List<me.devnatan.dockerkt.models/HealthcheckResult> = ...): me.devnatan.dockerkt.models/Healthcheck // me.devnatan.dockerkt.models/Healthcheck.copy|copy(kotlin.String;kotlin.Int;kotlin.collections.List<me.devnatan.dockerkt.models.HealthcheckResult>){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models/Healthcheck.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models/Healthcheck.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models/Healthcheck.toString|toString(){}[0]
@@ -3148,7 +3169,6 @@ final class me.devnatan.dockerkt.models/HealthcheckResult { // me.devnatan.docke
     final fun component2(): kotlin/String? // me.devnatan.dockerkt.models/HealthcheckResult.component2|component2(){}[0]
     final fun component3(): kotlin/Int? // me.devnatan.dockerkt.models/HealthcheckResult.component3|component3(){}[0]
     final fun component4(): kotlin/String? // me.devnatan.dockerkt.models/HealthcheckResult.component4|component4(){}[0]
-    final fun copy(kotlin/String = ..., kotlin/String? = ..., kotlin/Int? = ..., kotlin/String? = ...): me.devnatan.dockerkt.models/HealthcheckResult // me.devnatan.dockerkt.models/HealthcheckResult.copy|copy(kotlin.String;kotlin.String?;kotlin.Int?;kotlin.String?){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models/HealthcheckResult.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models/HealthcheckResult.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models/HealthcheckResult.toString|toString(){}[0]
@@ -3531,7 +3551,6 @@ final class me.devnatan.dockerkt.models/Mount { // me.devnatan.dockerkt.models/M
     final fun component6(): me.devnatan.dockerkt.models/MountBindOptions? // me.devnatan.dockerkt.models/Mount.component6|component6(){}[0]
     final fun component7(): me.devnatan.dockerkt.models/MountVolumeOptions? // me.devnatan.dockerkt.models/Mount.component7|component7(){}[0]
     final fun component8(): me.devnatan.dockerkt.models/MountTmpfsOptions? // me.devnatan.dockerkt.models/Mount.component8|component8(){}[0]
-    final fun copy(kotlin/String? = ..., kotlin/String? = ..., me.devnatan.dockerkt.models/Mount.Type = ..., kotlin/Boolean = ..., kotlin/String? = ..., me.devnatan.dockerkt.models/MountBindOptions? = ..., me.devnatan.dockerkt.models/MountVolumeOptions? = ..., me.devnatan.dockerkt.models/MountTmpfsOptions? = ...): me.devnatan.dockerkt.models/Mount // me.devnatan.dockerkt.models/Mount.copy|copy(kotlin.String?;kotlin.String?;me.devnatan.dockerkt.models.Mount.Type;kotlin.Boolean;kotlin.String?;me.devnatan.dockerkt.models.MountBindOptions?;me.devnatan.dockerkt.models.MountVolumeOptions?;me.devnatan.dockerkt.models.MountTmpfsOptions?){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models/Mount.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models/Mount.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models/Mount.toString|toString(){}[0]
@@ -3763,7 +3782,6 @@ final class me.devnatan.dockerkt.models/ProcessConfig { // me.devnatan.dockerkt.
     final fun component3(): kotlin/Boolean // me.devnatan.dockerkt.models/ProcessConfig.component3|component3(){}[0]
     final fun component4(): kotlin/String // me.devnatan.dockerkt.models/ProcessConfig.component4|component4(){}[0]
     final fun component5(): kotlin.collections/List<kotlin/String> // me.devnatan.dockerkt.models/ProcessConfig.component5|component5(){}[0]
-    final fun copy(kotlin/Boolean = ..., kotlin/String? = ..., kotlin/Boolean = ..., kotlin/String = ..., kotlin.collections/List<kotlin/String> = ...): me.devnatan.dockerkt.models/ProcessConfig // me.devnatan.dockerkt.models/ProcessConfig.copy|copy(kotlin.Boolean;kotlin.String?;kotlin.Boolean;kotlin.String;kotlin.collections.List<kotlin.String>){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models/ProcessConfig.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models/ProcessConfig.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models/ProcessConfig.toString|toString(){}[0]
@@ -3924,7 +3942,6 @@ final class me.devnatan.dockerkt.models/Stream { // me.devnatan.dockerkt.models/
         final fun <get-name>(): kotlin/String // me.devnatan.dockerkt.models/Stream.name.<get-name>|<get-name>(){}[0]
 
     final fun component2(): kotlin/String // me.devnatan.dockerkt.models/Stream.component2|component2(){}[0]
-    final fun copy(kotlin/Byte = ..., kotlin/String = ...): me.devnatan.dockerkt.models/Stream // me.devnatan.dockerkt.models/Stream.copy|copy(kotlin.Byte;kotlin.String){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models/Stream.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models/Stream.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models/Stream.toString|toString(){}[0]
@@ -4081,13 +4098,35 @@ final class me.devnatan.dockerkt.resource.image/ImageResource { // me.devnatan.d
     final object Companion // me.devnatan.dockerkt.resource.image/ImageResource.Companion|null[0]
 }
 
+final class me.devnatan.dockerkt.resource.network/NetworkConflictException : me.devnatan.dockerkt.resource.network/NetworkException { // me.devnatan.dockerkt.resource.network/NetworkConflictException|null[0]
+    final val networkName // me.devnatan.dockerkt.resource.network/NetworkConflictException.networkName|{}networkName[0]
+        final fun <get-networkName>(): kotlin/String // me.devnatan.dockerkt.resource.network/NetworkConflictException.networkName.<get-networkName>|<get-networkName>(){}[0]
+}
+
+final class me.devnatan.dockerkt.resource.network/NetworkForbiddenException : me.devnatan.dockerkt.resource.network/NetworkException { // me.devnatan.dockerkt.resource.network/NetworkForbiddenException|null[0]
+    final val networkId // me.devnatan.dockerkt.resource.network/NetworkForbiddenException.networkId|{}networkId[0]
+        final fun <get-networkId>(): kotlin/String // me.devnatan.dockerkt.resource.network/NetworkForbiddenException.networkId.<get-networkId>|<get-networkId>(){}[0]
+}
+
+final class me.devnatan.dockerkt.resource.network/NetworkInUseException : me.devnatan.dockerkt.resource.network/NetworkException { // me.devnatan.dockerkt.resource.network/NetworkInUseException|null[0]
+    constructor <init>(kotlin/Throwable, kotlin/String) // me.devnatan.dockerkt.resource.network/NetworkInUseException.<init>|<init>(kotlin.Throwable;kotlin.String){}[0]
+
+    final val networkId // me.devnatan.dockerkt.resource.network/NetworkInUseException.networkId|{}networkId[0]
+        final fun <get-networkId>(): kotlin/String // me.devnatan.dockerkt.resource.network/NetworkInUseException.networkId.<get-networkId>|<get-networkId>(){}[0]
+}
+
+final class me.devnatan.dockerkt.resource.network/NetworkNotFoundException : me.devnatan.dockerkt.resource.network/NetworkException { // me.devnatan.dockerkt.resource.network/NetworkNotFoundException|null[0]
+    final val networkName // me.devnatan.dockerkt.resource.network/NetworkNotFoundException.networkName|{}networkName[0]
+        final fun <get-networkName>(): kotlin/String // me.devnatan.dockerkt.resource.network/NetworkNotFoundException.networkName.<get-networkName>|<get-networkName>(){}[0]
+}
+
 final class me.devnatan.dockerkt.resource.network/NetworkResource { // me.devnatan.dockerkt.resource.network/NetworkResource|null[0]
     final suspend fun connectContainer(kotlin/String, kotlin/String) // me.devnatan.dockerkt.resource.network/NetworkResource.connectContainer|connectContainer(kotlin.String;kotlin.String){}[0]
-    final suspend fun create(me.devnatan.dockerkt.models.network/NetworkCreateOptions): me.devnatan.dockerkt.models.network/Network // me.devnatan.dockerkt.resource.network/NetworkResource.create|create(me.devnatan.dockerkt.models.network.NetworkCreateOptions){}[0]
+    final suspend fun create(me.devnatan.dockerkt.models.network/NetworkCreateOptions): kotlin/String // me.devnatan.dockerkt.resource.network/NetworkResource.create|create(me.devnatan.dockerkt.models.network.NetworkCreateOptions){}[0]
     final suspend fun disconnectContainer(kotlin/String, kotlin/String) // me.devnatan.dockerkt.resource.network/NetworkResource.disconnectContainer|disconnectContainer(kotlin.String;kotlin.String){}[0]
     final suspend fun inspect(kotlin/String, me.devnatan.dockerkt.models.network/NetworkInspectOptions? = ...): me.devnatan.dockerkt.models.network/Network // me.devnatan.dockerkt.resource.network/NetworkResource.inspect|inspect(kotlin.String;me.devnatan.dockerkt.models.network.NetworkInspectOptions?){}[0]
     final suspend fun list(me.devnatan.dockerkt.models.network/NetworkListFilters? = ...): kotlin.collections/List<me.devnatan.dockerkt.models.network/Network> // me.devnatan.dockerkt.resource.network/NetworkResource.list|list(me.devnatan.dockerkt.models.network.NetworkListFilters?){}[0]
-    final suspend fun prune(me.devnatan.dockerkt.models.network/NetworkPruneOptions? = ...) // me.devnatan.dockerkt.resource.network/NetworkResource.prune|prune(me.devnatan.dockerkt.models.network.NetworkPruneOptions?){}[0]
+    final suspend fun prune(me.devnatan.dockerkt.models.network/NetworkPruneOptions? = ...): me.devnatan.dockerkt.models.network/NetworkPruneResult // me.devnatan.dockerkt.resource.network/NetworkResource.prune|prune(me.devnatan.dockerkt.models.network.NetworkPruneOptions?){}[0]
     final suspend fun remove(kotlin/String) // me.devnatan.dockerkt.resource.network/NetworkResource.remove|remove(kotlin.String){}[0]
 }
 
@@ -4125,11 +4164,6 @@ final class me.devnatan.dockerkt.resource.volume/VolumeResource { // me.devnatan
     final suspend fun list(me.devnatan.dockerkt.models.volume/VolumeListOptions? = ...): me.devnatan.dockerkt.models.volume/VolumeListResponse // me.devnatan.dockerkt.resource.volume/VolumeResource.list|list(me.devnatan.dockerkt.models.volume.VolumeListOptions?){}[0]
     final suspend fun prune(me.devnatan.dockerkt.models.volume/VolumePruneOptions? = ...): me.devnatan.dockerkt.models.volume/VolumePruneResponse // me.devnatan.dockerkt.resource.volume/VolumeResource.prune|prune(me.devnatan.dockerkt.models.volume.VolumePruneOptions?){}[0]
     final suspend fun remove(kotlin/String, me.devnatan.dockerkt.models.volume/VolumeRemoveOptions? = ...) // me.devnatan.dockerkt.resource.volume/VolumeResource.remove|remove(kotlin.String;me.devnatan.dockerkt.models.volume.VolumeRemoveOptions?){}[0]
-}
-
-final class me.devnatan.dockerkt.resource/NetworkNotFoundException : me.devnatan.dockerkt.resource/NetworkException { // me.devnatan.dockerkt.resource/NetworkNotFoundException|null[0]
-    final val networkId // me.devnatan.dockerkt.resource/NetworkNotFoundException.networkId|{}networkId[0]
-        final fun <get-networkId>(): kotlin/String // me.devnatan.dockerkt.resource/NetworkNotFoundException.networkId.<get-networkId>|<get-networkId>(){}[0]
 }
 
 final class me.devnatan.dockerkt/DockerClient : kotlinx.coroutines/CoroutineScope, me.devnatan.dockerkt/Closeable { // me.devnatan.dockerkt/DockerClient|null[0]
@@ -4201,11 +4235,11 @@ open class me.devnatan.dockerkt.resource.exec/ExecException : me.devnatan.docker
 
 open class me.devnatan.dockerkt.resource.image/ImageException : me.devnatan.dockerkt/DockerResourceException // me.devnatan.dockerkt.resource.image/ImageException|null[0]
 
+open class me.devnatan.dockerkt.resource.network/NetworkException : me.devnatan.dockerkt/DockerResourceException // me.devnatan.dockerkt.resource.network/NetworkException|null[0]
+
 open class me.devnatan.dockerkt.resource.secret/SecretException : me.devnatan.dockerkt/DockerResourceException // me.devnatan.dockerkt.resource.secret/SecretException|null[0]
 
 open class me.devnatan.dockerkt.resource.swarm/SwarmException : me.devnatan.dockerkt/DockerResourceException // me.devnatan.dockerkt.resource.swarm/SwarmException|null[0]
-
-open class me.devnatan.dockerkt.resource/NetworkException : me.devnatan.dockerkt/DockerResourceException // me.devnatan.dockerkt.resource/NetworkException|null[0]
 
 open class me.devnatan.dockerkt/DockerException : kotlin/RuntimeException // me.devnatan.dockerkt/DockerException|null[0]
 
@@ -4391,10 +4425,10 @@ final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResou
 final suspend inline fun (me.devnatan.dockerkt.resource.exec/ExecResource).me.devnatan.dockerkt.resource.exec/create(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.exec/ExecCreateOptions, kotlin/Unit>): kotlin/String // me.devnatan.dockerkt.resource.exec/create|create@me.devnatan.dockerkt.resource.exec.ExecResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.exec.ExecCreateOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.exec/ExecResource).me.devnatan.dockerkt.resource.exec/start(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.exec/ExecStartOptions, kotlin/Unit> = ...): me.devnatan.dockerkt.models.exec/ExecStartResult // me.devnatan.dockerkt.resource.exec/start|start@me.devnatan.dockerkt.resource.exec.ExecResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.exec.ExecStartOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.image/ImageResource).me.devnatan.dockerkt.resource.image/build(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.image/ImageBuildOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.image/build|build@me.devnatan.dockerkt.resource.image.ImageResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.image.ImageBuildOptions,kotlin.Unit>){}[0]
-final suspend inline fun (me.devnatan.dockerkt.resource.network/NetworkResource).me.devnatan.dockerkt.resource.network/create(kotlin/Function1<me.devnatan.dockerkt.models.network/NetworkCreateOptions, kotlin/Unit>): me.devnatan.dockerkt.models.network/Network // me.devnatan.dockerkt.resource.network/create|create@me.devnatan.dockerkt.resource.network.NetworkResource(kotlin.Function1<me.devnatan.dockerkt.models.network.NetworkCreateOptions,kotlin.Unit>){}[0]
+final suspend inline fun (me.devnatan.dockerkt.resource.network/NetworkResource).me.devnatan.dockerkt.resource.network/create(kotlin/Function1<me.devnatan.dockerkt.models.network/NetworkCreateOptions, kotlin/Unit>): kotlin/String // me.devnatan.dockerkt.resource.network/create|create@me.devnatan.dockerkt.resource.network.NetworkResource(kotlin.Function1<me.devnatan.dockerkt.models.network.NetworkCreateOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.network/NetworkResource).me.devnatan.dockerkt.resource.network/inspect(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.network/NetworkInspectOptions, kotlin/Unit>): me.devnatan.dockerkt.models.network/Network // me.devnatan.dockerkt.resource.network/inspect|inspect@me.devnatan.dockerkt.resource.network.NetworkResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.network.NetworkInspectOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.network/NetworkResource).me.devnatan.dockerkt.resource.network/list(kotlin/Function1<me.devnatan.dockerkt.models.network/NetworkListFilters, kotlin/Unit>): kotlin.collections/List<me.devnatan.dockerkt.models.network/Network> // me.devnatan.dockerkt.resource.network/list|list@me.devnatan.dockerkt.resource.network.NetworkResource(kotlin.Function1<me.devnatan.dockerkt.models.network.NetworkListFilters,kotlin.Unit>){}[0]
-final suspend inline fun (me.devnatan.dockerkt.resource.network/NetworkResource).me.devnatan.dockerkt.resource.network/prune(kotlin/Function1<me.devnatan.dockerkt.models.network/NetworkPruneOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.network/prune|prune@me.devnatan.dockerkt.resource.network.NetworkResource(kotlin.Function1<me.devnatan.dockerkt.models.network.NetworkPruneOptions,kotlin.Unit>){}[0]
+final suspend inline fun (me.devnatan.dockerkt.resource.network/NetworkResource).me.devnatan.dockerkt.resource.network/prune(kotlin/Function1<me.devnatan.dockerkt.models.network/NetworkPruneOptions, kotlin/Unit>): me.devnatan.dockerkt.models.network/NetworkPruneResult // me.devnatan.dockerkt.resource.network/prune|prune@me.devnatan.dockerkt.resource.network.NetworkResource(kotlin.Function1<me.devnatan.dockerkt.models.network.NetworkPruneOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.secret/SecretResource).me.devnatan.dockerkt.resource.secret/create(kotlin/Function1<me.devnatan.dockerkt.models.secret/SecretSpec, kotlin/Unit>): kotlin/String // me.devnatan.dockerkt.resource.secret/create|create@me.devnatan.dockerkt.resource.secret.SecretResource(kotlin.Function1<me.devnatan.dockerkt.models.secret.SecretSpec,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.secret/SecretResource).me.devnatan.dockerkt.resource.secret/list(kotlin/Function1<me.devnatan.dockerkt.models.secret/SecretListFilters, kotlin/Unit>): kotlin.collections/List<me.devnatan.dockerkt.models.secret/Secret> // me.devnatan.dockerkt.resource.secret/list|list@me.devnatan.dockerkt.resource.secret.SecretResource(kotlin.Function1<me.devnatan.dockerkt.models.secret.SecretListFilters,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.secret/SecretResource).me.devnatan.dockerkt.resource.secret/update(kotlin/String, kotlin/Long, kotlin/Function1<me.devnatan.dockerkt.models.secret/SecretSpec, kotlin/Unit>) // me.devnatan.dockerkt.resource.secret/update|update@me.devnatan.dockerkt.resource.secret.SecretResource(kotlin.String;kotlin.Long;kotlin.Function1<me.devnatan.dockerkt.models.secret.SecretSpec,kotlin.Unit>){}[0]
