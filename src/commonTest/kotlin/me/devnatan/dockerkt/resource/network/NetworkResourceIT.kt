@@ -242,41 +242,33 @@ class NetworkResourceIT : ResourceIT() {
     //     }
     // }
     //
-    // @Test
-    // fun `connect container to network by names`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-connect-names"
-    //     }
-    //
-    //     testClient.withContainer(
-    //         image = "alpine:latest",
-    //         options = {
-    //             name = "test-container-connect"
-    //             sleepForever()
-    //         },
-    //     ) { containerId ->
-    //         try {
-    //             testClient.containers.start(containerId)
-    //
-    //             // Connect using names instead of IDs
-    //             testClient.networks.connectContainer(
-    //                 "test-network-connect-names",
-    //                 "test-container-connect"
-    //             )
-    //
-    //             delay(500)
-    //
-    //             // Verify connection
-    //             val network = testClient.networks.inspect("test-network-connect-names")
-    //             assertTrue(network.containers.containsKey(containerId))
-    //
-    //             testClient.containers.stop(containerId)
-    //         } finally {
-    //             testClient.networks.remove(networkId.id)
-    //         }
-    //     }
-    // }
-    //
+    @Test
+    fun `connect container to network by names`() = runTest {
+        testClient.networks.use(options = { name = "test-network-connect-names" }) { networkId ->
+            testClient.withContainer(
+                image = "alpine:latest",
+                options = {
+                    name = "test-container-connect"
+                    sleepForever()
+                },
+            ) { containerId ->
+                testClient.containers.start(containerId)
+
+                // Connect using names instead of IDs
+                testClient.networks.connectContainer(
+                    "test-network-connect-names",
+                    "test-container-connect"
+                )
+
+                delay(500)
+
+                // Verify connection
+                val network = testClient.networks.inspect("test-network-connect-names")
+                assertTrue(network.containers.containsKey(containerId))
+            }
+        }
+    }
+
     @Test
     fun `disconnect container from network`() = runTest {
         testClient.networks.use(options = { name = "test-network-disconnect" }) { networkId ->
