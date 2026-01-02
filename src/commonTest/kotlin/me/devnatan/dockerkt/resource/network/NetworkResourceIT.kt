@@ -7,7 +7,7 @@ import me.devnatan.dockerkt.models.network.NetworkHostDriver
 import me.devnatan.dockerkt.resource.ResourceIT
 import me.devnatan.dockerkt.sleepForever
 import me.devnatan.dockerkt.withContainer
-import me.devnatan.dockerkt.withNetwork
+import me.devnatan.dockerkt.use
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -18,7 +18,7 @@ class NetworkResourceIT : ResourceIT() {
 
     @Test
     fun `create network with minimal configuration`() = runTest {
-        testClient.withNetwork(
+        testClient.networks.use(
             options = { name = "test-network-minimal" }
         ) { networkId ->
             assertNotNull(networkId)
@@ -30,7 +30,7 @@ class NetworkResourceIT : ResourceIT() {
 
     @Test
     fun `create network with full configuration`() = runTest {
-        testClient.withNetwork(options = {
+        testClient.networks.use(options = {
             name = "test-network-full"
             driver = "bridge"
             checkDuplicate = true
@@ -53,7 +53,7 @@ class NetworkResourceIT : ResourceIT() {
         // Note: overlay driver might not be available in all Docker setups
         // This test might be skipped if not in swarm mode
         try {
-            testClient.withNetwork(options = {
+            testClient.networks.use(options = {
                 name = "test-overlay-network"
                 driver = "overlay"
                 isAttachable = true
@@ -437,31 +437,28 @@ class NetworkResourceIT : ResourceIT() {
     //     }
     // }
     //
-    // @Test
-    // fun `network with options`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-options"
-    //         driver = "bridge"
-    //         options = mapOf(
-    //             "com.docker.network.bridge.name" to "test-bridge",
-    //             "com.docker.network.bridge.enable_ip_masquerade" to "true"
-    //         )
-    //     }
-    //
-    //     try {
-    //         val network = testClient.networks.inspect(networkId.id)
-    //         assertEquals("test-network-options", network.name)
-    //         assertNotNull(network.options)
-    //         assertEquals("test-bridge", network.options?.get("com.docker.network.bridge.name"))
-    //     } finally {
-    //         testClient.networks.remove(networkId.id)
-    //     }
-    // }
-    //
+
+    @Test
+    fun `create network with custom options`() = runTest {
+        testClient.networks.use(options = {
+            name = "test-network-options"
+            driver = "bridge"
+            options = mapOf(
+                "com.docker.network.bridge.name" to "test-bridge",
+                "com.docker.network.bridge.enable_ip_masquerade" to "true"
+            )
+        }) { networkId ->
+            val network = testClient.networks.inspect(networkId)
+            assertEquals("test-network-options", network.name)
+            assertNotNull(network.options)
+            assertEquals("test-bridge", network.options["com.docker.network.bridge.name"])
+        }
+    }
+
 
     @Test
     fun `create internal network`() = runTest {
-        testClient.withNetwork(options = {
+        testClient.networks.use(options = {
             name = "test-network-internal"
             isInternal = true
         }) { networkId ->
@@ -473,7 +470,7 @@ class NetworkResourceIT : ResourceIT() {
 
     @Test
     fun `create network with IPv6 enabled`() = runTest {
-        testClient.withNetwork(options = {
+        testClient.networks.use(options = {
             name = "test-network-ipv6"
             enableIpv6 = true
         }) { networkId ->
@@ -486,7 +483,7 @@ class NetworkResourceIT : ResourceIT() {
 
     @Test
     fun `create network fails with duplicate name`() = runTest {
-        testClient.withNetwork(options = {
+        testClient.networks.use(options = {
             name = "test-network-duplicate"
         }) {
             // Try to create another network with the same name

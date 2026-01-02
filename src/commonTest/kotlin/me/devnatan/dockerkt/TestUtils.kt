@@ -8,6 +8,7 @@ import me.devnatan.dockerkt.models.volume.VolumeCreateOptions
 import me.devnatan.dockerkt.resource.container.create
 import me.devnatan.dockerkt.resource.container.remove
 import me.devnatan.dockerkt.resource.image.ImageNotFoundException
+import me.devnatan.dockerkt.resource.network.NetworkResource
 import me.devnatan.dockerkt.resource.network.create
 import me.devnatan.dockerkt.resource.volume.create
 import me.devnatan.dockerkt.resource.volume.remove
@@ -90,13 +91,13 @@ fun ContainerCreateOptions.sleepForever() {
     command = listOf("sleep", "infinity")
 }
 
-suspend fun <R> DockerClient.withNetwork(
+suspend fun <R> NetworkResource.use(
     options: NetworkCreateOptions.() -> Unit = {},
     block: suspend (networkId: String) -> R,
 ) {
     val networkId: String =
         try {
-            networks.create(options)
+            create(options)
         } catch (e: Throwable) {
             fail("Failed to create network", e)
         }
@@ -104,6 +105,6 @@ suspend fun <R> DockerClient.withNetwork(
     try {
         block(networkId)
     } finally {
-        networks.remove(networkId)
+        remove(networkId)
     }
 }
