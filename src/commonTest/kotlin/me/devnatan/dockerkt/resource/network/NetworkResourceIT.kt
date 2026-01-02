@@ -2,6 +2,8 @@ package me.devnatan.dockerkt.resource.network
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.test.runTest
+import me.devnatan.dockerkt.models.network.IPAM
+import me.devnatan.dockerkt.models.network.IPAMConfig
 import me.devnatan.dockerkt.models.network.NetworkBridgeDriver
 import me.devnatan.dockerkt.models.network.NetworkHostDriver
 import me.devnatan.dockerkt.resource.ResourceIT
@@ -11,6 +13,7 @@ import me.devnatan.dockerkt.use
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
+import kotlin.test.assertFalse
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
@@ -274,42 +277,30 @@ class NetworkResourceIT : ResourceIT() {
     //     }
     // }
     //
-    // @Test
-    // fun `disconnect container from network`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-disconnect"
-    //     }
-    //
-    //     testClient.withContainer(
-    //         image = "alpine:latest",
-    //         options = { sleepForever() },
-    //     ) { containerId ->
-    //         try {
-    //             testClient.containers.start(containerId)
-    //
-    //             // Connect container
-    //             testClient.networks.connectContainer(networkId.id, containerId)
-    //             delay(500)
-    //
-    //             // Verify connection
-    //             var network = testClient.networks.inspect(networkId.id)
-    //             assertTrue(network.containers.containsKey(containerId))
-    //
-    //             // Disconnect container
-    //             testClient.networks.disconnectContainer(networkId.id, containerId)
-    //             delay(500)
-    //
-    //             // Verify disconnection
-    //             network = testClient.networks.inspect(networkId.id)
-    //             assertFalse(network.containers.containsKey(containerId))
-    //
-    //             testClient.containers.stop(containerId)
-    //         } finally {
-    //             testClient.networks.remove(networkId.id)
-    //         }
-    //     }
-    // }
-    //
+    @Test
+    fun `disconnect container from network`() = runTest {
+        testClient.networks.use(options = { name = "test-network-disconnect" }) { networkId ->
+            testClient.withContainer(
+                image = "alpine:latest",
+                options = { sleepForever() },
+            ) { containerId ->
+                testClient.containers.start(containerId)
+
+                testClient.networks.connectContainer(networkId, containerId)
+                delay(500)
+
+                // Verify connection
+                assertTrue(testClient.networks.inspect(networkId).containers.containsKey(containerId))
+
+                testClient.networks.disconnectContainer(networkId, containerId)
+                delay(500)
+
+                // Verify disconnection
+                assertFalse(testClient.networks.inspect(networkId).containers.containsKey(containerId))
+            }
+        }
+    }
+
     @Test
     fun `connect multiple containers on same network`() = runTest {
         testClient.networks.use(options = { name = "test-network-multi-containers" }) { networkId ->
@@ -335,9 +326,6 @@ class NetworkResourceIT : ResourceIT() {
                     assertTrue(network.containers.containsKey(container1Id))
                     assertTrue(network.containers.containsKey(container2Id))
                     assertEquals(2, network.containers.size)
-
-                    testClient.containers.stop(container1Id)
-                    testClient.containers.stop(container2Id)
                 }
             }
         }
@@ -372,7 +360,7 @@ class NetworkResourceIT : ResourceIT() {
 
     @Test
     fun `prune does not remove networks with connected containers`() = runTest {
-        testClient.withNetwork(options = {
+        testClient.networks.use(options = {
             name = "test-network-prune-with-container"
         }) { networkId ->
             testClient.withContainer(
