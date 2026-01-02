@@ -2361,7 +2361,7 @@ final class me.devnatan.dockerkt.models.secret/SecretSpec { // me.devnatan.docke
 
 final class me.devnatan.dockerkt.models.system/Event { // me.devnatan.dockerkt.models.system/Event|null[0]
     final val action // me.devnatan.dockerkt.models.system/Event.action|{}action[0]
-        final fun <get-action>(): kotlin/String // me.devnatan.dockerkt.models.system/Event.action.<get-action>|<get-action>(){}[0]
+        final fun <get-action>(): me.devnatan.dockerkt.models.system/EventAction // me.devnatan.dockerkt.models.system/Event.action.<get-action>|<get-action>(){}[0]
     final val actor // me.devnatan.dockerkt.models.system/Event.actor|{}actor[0]
         final fun <get-actor>(): me.devnatan.dockerkt.models.system/EventActor // me.devnatan.dockerkt.models.system/Event.actor.<get-actor>|<get-actor>(){}[0]
     final val scope // me.devnatan.dockerkt.models.system/Event.scope|{}scope[0]
@@ -2374,12 +2374,12 @@ final class me.devnatan.dockerkt.models.system/Event { // me.devnatan.dockerkt.m
         final fun <get-type>(): me.devnatan.dockerkt.models.system/EventType // me.devnatan.dockerkt.models.system/Event.type.<get-type>|<get-type>(){}[0]
 
     final fun component1(): me.devnatan.dockerkt.models.system/EventType // me.devnatan.dockerkt.models.system/Event.component1|component1(){}[0]
-    final fun component2(): kotlin/String // me.devnatan.dockerkt.models.system/Event.component2|component2(){}[0]
+    final fun component2(): me.devnatan.dockerkt.models.system/EventAction // me.devnatan.dockerkt.models.system/Event.component2|component2(){}[0]
     final fun component3(): me.devnatan.dockerkt.models.system/EventActor // me.devnatan.dockerkt.models.system/Event.component3|component3(){}[0]
     final fun component4(): me.devnatan.dockerkt.models.system/EventScope // me.devnatan.dockerkt.models.system/Event.component4|component4(){}[0]
     final fun component5(): kotlin/Long // me.devnatan.dockerkt.models.system/Event.component5|component5(){}[0]
     final fun component6(): kotlin/Long // me.devnatan.dockerkt.models.system/Event.component6|component6(){}[0]
-    final fun copy(me.devnatan.dockerkt.models.system/EventType = ..., kotlin/String = ..., me.devnatan.dockerkt.models.system/EventActor = ..., me.devnatan.dockerkt.models.system/EventScope = ..., kotlin/Long = ..., kotlin/Long = ...): me.devnatan.dockerkt.models.system/Event // me.devnatan.dockerkt.models.system/Event.copy|copy(me.devnatan.dockerkt.models.system.EventType;kotlin.String;me.devnatan.dockerkt.models.system.EventActor;me.devnatan.dockerkt.models.system.EventScope;kotlin.Long;kotlin.Long){}[0]
+    final fun copy(me.devnatan.dockerkt.models.system/EventType = ..., me.devnatan.dockerkt.models.system/EventAction = ..., me.devnatan.dockerkt.models.system/EventActor = ..., me.devnatan.dockerkt.models.system/EventScope = ..., kotlin/Long = ..., kotlin/Long = ...): me.devnatan.dockerkt.models.system/Event // me.devnatan.dockerkt.models.system/Event.copy|copy(me.devnatan.dockerkt.models.system.EventType;me.devnatan.dockerkt.models.system.EventAction;me.devnatan.dockerkt.models.system.EventActor;me.devnatan.dockerkt.models.system.EventScope;kotlin.Long;kotlin.Long){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/Event.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/Event.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/Event.toString|toString(){}[0]
