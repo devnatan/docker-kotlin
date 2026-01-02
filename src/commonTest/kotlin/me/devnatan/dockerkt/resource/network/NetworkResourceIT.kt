@@ -168,13 +168,13 @@ class NetworkResourceIT : ResourceIT() {
     //     }
     // }
     //
-    // @Test
-    // fun `inspect fails when network not found`() = runTest {
-    //     assertFailsWith<NetworkNotFoundException> {
-    //         testClient.networks.inspect("nonexistent-network-id-12345")
-    //     }
-    // }
-    //
+
+    @Test
+    fun `inspect fails when network not found`() = runTest {
+        assertFailsWith<NetworkNotFoundException> {
+            testClient.networks.inspect("nonexistent-network-id-12345")
+        }
+    }
 
     @Test
     fun `remove network by id`() = runTest {
