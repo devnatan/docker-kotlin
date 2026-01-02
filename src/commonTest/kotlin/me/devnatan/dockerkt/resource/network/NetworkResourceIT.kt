@@ -458,22 +458,18 @@ class NetworkResourceIT : ResourceIT() {
     //     }
     // }
     //
-    // @Test
-    // fun `create internal network`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-internal"
-    //         isInternal = true
-    //     }
-    //
-    //     try {
-    //         val network = testClient.networks.inspect(networkId.id)
-    //         assertEquals("test-network-internal", network.name)
-    //         assertTrue(network.isInternal)
-    //     } finally {
-    //         testClient.networks.remove(networkId.id)
-    //     }
-    // }
-    //
+
+    @Test
+    fun `create internal network`() = runTest {
+        testClient.withNetwork(options = {
+            name = "test-network-internal"
+            isInternal = true
+        }) { networkId ->
+            val network = testClient.networks.inspect(networkId)
+            assertEquals("test-network-internal", network.name)
+            assertTrue(network.isInternal)
+        }
+    }
 
     @Test
     fun `create network with IPv6 enabled`() = runTest {
