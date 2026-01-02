@@ -149,25 +149,20 @@ class NetworkResourceIT : ResourceIT() {
     //     }
     // }
     //
-    // @Test
-    // fun `inspect network with verbose option`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-verbose"
-    //     }
-    //
-    //     try {
-    //         val network = testClient.networks.inspect(networkId.id) {
-    //             verbose = true
-    //         }
-    //
-    //         assertEquals("test-network-verbose", network.name)
-    //         // Verbose mode provides more detailed information
-    //         assertNotNull(network.ipam)
-    //     } finally {
-    //         testClient.networks.remove(networkId.id)
-    //     }
-    // }
-    //
+
+    @Test
+    fun `inspect network with verbose option`() = runTest {
+        testClient.networks.use(options = { name = "test-network-verbose" }) { networkId ->
+            val network = testClient.networks.inspect(networkId) {
+                verbose = true
+            }
+
+            assertEquals("test-network-verbose", network.name)
+
+            // Verbose mode provides more detailed information
+            assertNotNull(network.ipam)
+        }
+    }
 
     @Test
     fun `inspect fails when network not found`() = runTest {
