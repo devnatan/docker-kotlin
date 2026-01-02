@@ -13,7 +13,7 @@ import kotlin.jvm.JvmOverloads
  * @property name Matches all or part of a network name.
  * @property scope Filters networks by scope.
  * @property type Filters networks by type. The `custom` type returns all user-defined networks.
- * @see NetworkResource.list
+ * @property label Filters networks by label.
  */
 @Serializable
 public data class NetworkListFilters
@@ -25,4 +25,5 @@ public data class NetworkListFilters
         public var name: String? = null,
         public var scope: String? = null,
         public var type: String? = null,
+        public var label: String? = null,
     )
