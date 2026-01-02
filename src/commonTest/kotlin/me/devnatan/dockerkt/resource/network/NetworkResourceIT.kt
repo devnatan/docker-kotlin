@@ -490,22 +490,19 @@ class NetworkResourceIT : ResourceIT() {
     //     }
     // }
     //
-    // @Test
-    // fun `create network fails with duplicate name`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-duplicate"
-    //     }
-    //
-    //     try {
-    //         // Try to create another network with the same name
-    //         assertFailsWith<Exception> {
-    //             testClient.networks.create {
-    //                 name = "test-network-duplicate"
-    //                 checkDuplicate = true
-    //             }
-    //         }
-    //     } finally {
-    //         testClient.networks.remove(networkId.id)
-    //     }
-    // }
+
+    @Test
+    fun `create network fails with duplicate name`() = runTest {
+        testClient.withNetwork(options = {
+            name = "test-network-duplicate"
+        }) {
+            // Try to create another network with the same name
+            assertFailsWith<Exception> {
+                testClient.networks.create {
+                    name = "test-network-duplicate"
+                    checkDuplicate = true
+                }
+            }
+        }
+    }
 }
