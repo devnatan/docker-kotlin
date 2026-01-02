@@ -10,12 +10,12 @@ import io.ktor.client.request.setBody
 import io.ktor.http.HttpStatusCode
 import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.io.requestCatching
+import me.devnatan.dockerkt.models.IdOnlyResponse
 import me.devnatan.dockerkt.models.network.Network
 import me.devnatan.dockerkt.models.network.NetworkCreateOptions
 import me.devnatan.dockerkt.models.network.NetworkInspectOptions
 import me.devnatan.dockerkt.models.network.NetworkListFilters
 import me.devnatan.dockerkt.models.network.NetworkPruneOptions
-import me.devnatan.dockerkt.resource.NetworkNotFoundException
 
 private const val BasePath = "/networks"
 
@@ -75,13 +75,24 @@ public class NetworkResource internal constructor(
      * @param config The network configuration.
      * @see <a href="https://docs.docker.com/engine/api/latest/#operation/NetworkCreate">NetworkCreate</a>
      */
-    public suspend fun create(config: NetworkCreateOptions): Network {
+    public suspend fun create(config: NetworkCreateOptions): String {
         checkNotNull(config.name) { "Network name is required and cannot be null" }
 
-        return httpClient
-            .post("$BasePath/create") {
-                setBody(config)
-            }.body()
+        return requestCatching(
+            HttpStatusCode.Conflict to { exception ->
+                NetworkConflictException(exception, config.name!!)
+            },
+            HttpStatusCode.Forbidden to { exception ->
+                NetworkForbiddenException(exception, config.name!!)
+            },
+        ) {
+            httpClient
+                .post("$BasePath/create") {
+                    setBody(config)
+                }
+                .body<IdOnlyResponse>()
+                .id
+        }
     }
 
     /**
