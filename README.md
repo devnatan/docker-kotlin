@@ -15,22 +15,15 @@ dependencies {
 
 ## Basic Usage
 
-Use `DockerKotlin.create()` to create a new Docker client instance with the default settings, default settings are based on the
+Use `DockerKotlin { ... }` to create a new Docker client instance with the default settings. Default settings are based on the
 current platform or environment variables, e.g.: socket path will be set to [`DOCKER_HOST`](https://docs.docker.com/compose/environment-variables/envvars/#docker_host)
 if present otherwise `unix://var/run/docker.sock` if the current platform is Unix-like.
-
-```kotlin
-val client = DockerClient.create()
-```
-
-To change the default configuration properties use `DockerClientConfig` and `DockerClient` overload.
 
 ```kotlin
 val client = DockerClient {
     // this: DockerClientConfigBuilder
 }
 ```
-
 
 ## Resources
 
