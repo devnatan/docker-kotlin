@@ -29,15 +29,24 @@ class NetworkResourceIT : ResourceIT() {
     }
 
     @Test
-    fun `create network`() =
-        runTest {
-            val createdNetwork = testClient.networks.create { name = "dockerkt" }
-            val inspectedNetwork = testClient.networks.inspect(createdNetwork.id)
-            assertEquals(createdNetwork.id, inspectedNetwork.id)
-
-            // cleanup
-            testClient.networks.remove(inspectedNetwork.id)
+    fun `create network with full configuration`() = runTest {
+        testClient.withNetwork(options = {
+            name = "test-network-full"
+            driver = "bridge"
+            checkDuplicate = true
+            enableIpv6 = false
+            isInternal = false
+            isAttachable = true
+            labels = mapOf("env" to "test", "purpose" to "integration-test")
+        }) { networkId ->
+            val network = testClient.networks.inspect(networkId)
+            assertEquals("test-network-full", network.name)
+            assertEquals("bridge", network.driver)
+            assertTrue(network.isAttachable)
+            assertEquals("test", network.labels["env"])
+            assertEquals("integration-test", network.labels["purpose"])
         }
+    }
 
     @Test
     fun `remove network`() =
