@@ -410,33 +410,34 @@ class NetworkResourceIT : ResourceIT() {
             }
         }
     }
-    //
-    // @Test
-    // fun `network with custom IPAM configuration`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-custom-ipam"
-    //         driver = "bridge"
-    //         ipam = IPAM(driver = "default", config = listOf(IPAMConfig(
-    //             subnet = "172.20.0.0/16",
-    //             ipRange = "172.20.10.0/24",
-    //             gateway = "172.20.0.1"
-    //         )))
-    //     }
-    //
-    //     try {
-    //         val network = testClient.networks.inspect(networkId.id)
-    //         assertEquals("test-network-custom-ipam", network.name)
-    //
-    //         val ipamConfig = network.ipam?.config?.firstOrNull()
-    //         assertNotNull(ipamConfig)
-    //         assertEquals("172.20.0.0/16", ipamConfig.subnet)
-    //         assertEquals("172.20.10.0/24", ipamConfig.ipRange)
-    //         assertEquals("172.20.0.1", ipamConfig.gateway)
-    //     } finally {
-    //         testClient.networks.remove(networkId.id)
-    //     }
-    // }
-    //
+
+    @Test
+    fun `create network with custom IPAM configuration`() = runTest {
+        testClient.networks.use(options = {
+            name = "test-network-custom-ipam"
+            driver = "bridge"
+            ipam = IPAM(
+                driver = "default",
+                config = listOf(
+                    IPAMConfig(
+                        subnet = "172.20.0.0/16",
+                        ipRange = "172.20.10.0/24",
+                        gateway = "172.20.0.1"
+                    )
+                )
+            )
+        }) { networkId ->
+            val network = testClient.networks.inspect(networkId)
+            assertEquals("test-network-custom-ipam", network.name)
+
+            val ipamConfig = network.ipam?.config?.firstOrNull()
+            assertNotNull(ipamConfig)
+            assertEquals("172.20.0.0/16", ipamConfig.subnet)
+            assertEquals("172.20.10.0/24", ipamConfig.ipRange)
+            assertEquals("172.20.0.1", ipamConfig.gateway)
+        }
+    }
+
 
     @Test
     fun `create network with custom options`() = runTest {
