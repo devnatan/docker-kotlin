@@ -114,41 +114,6 @@ class NetworkResourceIT : ResourceIT() {
         }
     }
 
-    // @Test
-    // fun `inspect network by id`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-inspect-id"
-    //         driver = "bridge"
-    //     }
-    //
-    //     try {
-    //         val network = testClient.networks.inspect(networkId.id)
-    //
-    //         assertEquals(networkId.id, network.id)
-    //         assertEquals("test-network-inspect-id", network.name)
-    //         assertEquals("bridge", network.driver)
-    //         assertNotNull(network.created)
-    //     } finally {
-    //         testClient.networks.remove(networkId.id)
-    //     }
-    // }
-    //
-    // @Test
-    // fun `inspect network by name`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-inspect-name"
-    //     }
-    //
-    //     try {
-    //         val network = testClient.networks.inspect("test-network-inspect-name")
-    //
-    //         assertEquals(networkId.id, network.id)
-    //         assertEquals("test-network-inspect-name", network.name)
-    //     } finally {
-    //         testClient.networks.remove(networkId.id)
-    //     }
-    // }
-    //
     @Test
     fun `inspect network by id`() = runTest {
         testClient.networks.use(options = {
@@ -164,6 +129,15 @@ class NetworkResourceIT : ResourceIT() {
         }
     }
 
+    @Test
+    fun `inspect network by name`() = runTest {
+        testClient.networks.use(options = { name = "test-network-inspect-name" }) { createdNetworkId ->
+            val inspectedNetwork = testClient.networks.inspect("test-network-inspect-name")
+
+            assertEquals(createdNetworkId, inspectedNetwork.id)
+            assertEquals("test-network-inspect-name", inspectedNetwork.name)
+        }
+    }
 
     @Test
     fun `inspect network with verbose option`() = runTest {
