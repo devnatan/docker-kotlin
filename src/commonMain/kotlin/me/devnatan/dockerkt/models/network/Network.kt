@@ -2,6 +2,7 @@ package me.devnatan.dockerkt.models.network
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
+import kotlin.time.Instant
 
 @Serializable
 public data class Network(
@@ -16,6 +17,7 @@ public data class Network(
     @SerialName("Containers") val containers: Map<String, NetworkContainer> = emptyMap(),
     @SerialName("Options") val options: Map<String, String> = emptyMap(),
     @SerialName("Labels") val labels: Map<String, String> = emptyMap(),
+    @SerialName("Created") val created: Instant,
 )
 
 public const val NetworkCustomType: String = "custom"
