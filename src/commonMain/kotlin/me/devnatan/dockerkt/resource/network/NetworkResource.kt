@@ -16,6 +16,7 @@ import me.devnatan.dockerkt.models.network.NetworkCreateOptions
 import me.devnatan.dockerkt.models.network.NetworkInspectOptions
 import me.devnatan.dockerkt.models.network.NetworkListFilters
 import me.devnatan.dockerkt.models.network.NetworkPruneOptions
+import me.devnatan.dockerkt.models.network.NetworkPruneResult
 
 private const val BasePath = "/networks"
 
@@ -98,15 +99,18 @@ public class NetworkResource internal constructor(
     /**
      * Deletes all unused networks.
      *
-     * @param options The network prune options.
+     * Networks are considered unused if they have no containers attached to them.
      *
-     * @see <a href="https://docs.docker.com/engine/api/latest/#operation/NetworkPrune">NetworkPrune</a>
+     * @param options The network prune options. Use [prune] extension function for DSL syntax.
+     * @return Information about the pruned networks.
      */
-    public suspend fun prune(options: NetworkPruneOptions? = null) {
-        httpClient.post("$BasePath/prune") {
-            parameter("filters", options)
+    public suspend fun prune(options: NetworkPruneOptions? = null): NetworkPruneResult = httpClient
+        .post("$BasePath/prune") {
+            options?.let {
+                parameter("filters", json.encodeToString(it))
+            }
         }
-    }
+        .body()
 
     /**
      * Connects a container to a network.
@@ -174,10 +178,10 @@ public suspend inline fun NetworkResource.inspect(
 /**
  * Deletes all unused networks.
  *
- * @param options The network prune options.
+ * @param options The prune options configuration block.
+ * @return Information about the pruned networks.
  *
- * @see <a href="https://docs.docker.com/engine/api/latest/#operation/NetworkPrune">NetworkPrune</a>
+ * @see <a href="https://docs.docker.com/engine/api/latest/#operation/NetworkPrune"
  */
-public suspend inline fun NetworkResource.prune(options: NetworkPruneOptions.() -> Unit) {
+public suspend inline fun NetworkResource.prune(options: NetworkPruneOptions.() -> Unit): NetworkPruneResult =
     prune(NetworkPruneOptions().apply(options))
-}

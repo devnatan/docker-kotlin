@@ -1,13 +1,17 @@
-@file:OptIn(ExperimentalCoroutinesApi::class)
-
 package me.devnatan.dockerkt.resource.network
 
-import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.test.runTest
+import me.devnatan.dockerkt.models.network.NetworkBridgeDriver
+import me.devnatan.dockerkt.models.network.NetworkHostDriver
 import me.devnatan.dockerkt.resource.ResourceIT
+import me.devnatan.dockerkt.sleepForever
+import me.devnatan.dockerkt.withContainer
+import me.devnatan.dockerkt.withNetwork
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
+import kotlin.test.assertFailsWith
+import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
 class NetworkResourceIT : ResourceIT() {
@@ -57,3 +61,60 @@ class NetworkResourceIT : ResourceIT() {
             testClient.networks.prune()
         }
 }
+    @Test
+    fun `prune unused networks`() = runTest {
+        try {
+            val network1 = testClient.networks.create { name = "test-network-prune-1" }
+            val network2 = testClient.networks.create { name = "test-network-prune-2" }
+
+            testClient.networks.inspect(network1)
+            testClient.networks.inspect(network2)
+
+            testClient.networks.prune()
+
+            delay(500)
+
+            // Networks should be removed (they were unused)
+            assertFailsWith<NetworkNotFoundException> {
+                testClient.networks.inspect(network1)
+            }
+            assertFailsWith<NetworkNotFoundException> {
+                testClient.networks.inspect(network2)
+            }
+        } finally {
+            // Suppress errors for removal
+            runCatching { testClient.networks.remove("test-network-prune-1") }
+            runCatching { testClient.networks.remove("test-network-prune-2") }
+        }
+    }
+
+    @Test
+    fun `prune does not remove networks with connected containers`() = runTest {
+        testClient.withNetwork(options = {
+            name = "test-network-prune-with-container"
+        }) { networkId ->
+            testClient.withContainer(
+                image = "alpine:latest",
+                options = {
+                    sleepForever()
+                },
+            ) { containerId ->
+                testClient.containers.start(containerId)
+
+                // Connect container to network
+                testClient.networks.connectContainer(networkId, containerId)
+                delay(500)
+
+                // Try to prune - this network should NOT be removed
+                testClient.networks.prune()
+                delay(500)
+
+                val network = testClient.networks.inspect(networkId)
+                assertEquals(
+                    expected = "test-network-prune-with-container",
+                    actual = network.name,
+                    message = "Network should still exist because it has a connected container"
+                )
+            }
+        }
+    }
