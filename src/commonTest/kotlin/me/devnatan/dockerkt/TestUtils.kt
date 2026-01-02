@@ -29,7 +29,8 @@ suspend fun <R> DockerClient.withImage(
     } finally {
         try {
             images.remove(imageName, force = true)
-        } catch (_: ImageNotFoundException) {}
+        } catch (_: ImageNotFoundException) {
+        }
     }
 }
 

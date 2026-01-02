@@ -8,8 +8,8 @@ import me.devnatan.dockerkt.models.network.NetworkBridgeDriver
 import me.devnatan.dockerkt.models.network.NetworkHostDriver
 import me.devnatan.dockerkt.resource.ResourceIT
 import me.devnatan.dockerkt.sleepForever
-import me.devnatan.dockerkt.withContainer
 import me.devnatan.dockerkt.use
+import me.devnatan.dockerkt.withContainer
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -18,436 +18,473 @@ import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
 class NetworkResourceIT : ResourceIT() {
-
     @Test
-    fun `create network with minimal configuration`() = runTest {
-        testClient.networks.use(
-            options = { name = "test-network-minimal" }
-        ) { networkId ->
-            assertNotNull(networkId)
+    fun `create network with minimal configuration`() =
+        runTest {
+            testClient.networks.use(
+                options = { name = "test-network-minimal" },
+            ) { networkId ->
+                assertNotNull(networkId)
 
-            val network = testClient.networks.inspect(networkId)
-            assertEquals("test-network-minimal", network.name)
+                val network = testClient.networks.inspect(networkId)
+                assertEquals("test-network-minimal", network.name)
+            }
         }
-    }
 
     @Test
-    fun `create network with full configuration`() = runTest {
-        testClient.networks.use(options = {
-            name = "test-network-full"
-            driver = "bridge"
-            checkDuplicate = true
-            enableIpv6 = false
-            isInternal = false
-            isAttachable = true
-            labels = mapOf("env" to "test", "purpose" to "integration-test")
-        }) { networkId ->
-            val network = testClient.networks.inspect(networkId)
-            assertEquals("test-network-full", network.name)
-            assertEquals("bridge", network.driver)
-            assertTrue(network.isAttachable)
-            assertEquals("test", network.labels["env"])
-            assertEquals("integration-test", network.labels["purpose"])
-        }
-    }
-
-    @Test
-    fun `create overlay network`() = runTest {
-        // Note: overlay driver might not be available in all Docker setups
-        // This test might be skipped if not in swarm mode
-        try {
+    fun `create network with full configuration`() =
+        runTest {
             testClient.networks.use(options = {
-                name = "test-overlay-network"
-                driver = "overlay"
+                name = "test-network-full"
+                driver = "bridge"
+                checkDuplicate = true
+                enableIpv6 = false
+                isInternal = false
                 isAttachable = true
+                labels = mapOf("env" to "test", "purpose" to "integration-test")
             }) { networkId ->
                 val network = testClient.networks.inspect(networkId)
-                assertEquals("test-overlay-network", network.name)
-                assertEquals("overlay", network.driver)
+                assertEquals("test-network-full", network.name)
+                assertEquals("bridge", network.driver)
+                assertTrue(network.isAttachable)
+                assertEquals("test", network.labels["env"])
+                assertEquals("integration-test", network.labels["purpose"])
             }
-        } catch (e: AssertionError) {
-            println("Skipping overlay network test: ${e.message}")
         }
-    }
 
     @Test
-    fun `list all networks`() = runTest {
-        val networks = testClient.networks.list()
-
-        assertNotNull(networks)
-        assertTrue(networks.isNotEmpty())
-
-        // Docker always has at least the default networks (bridge, host, none)
-        assertTrue(networks.any { it.name == NetworkBridgeDriver })
-        assertTrue(networks.any { it.name == NetworkHostDriver })
-        assertTrue(networks.any { it.name == "none" })
-    }
-
-    @Test
-    fun `list networks with name filter`() = runTest {
-        testClient.networks.use(options = { name = "test-network-filter"}) {
-            val networks = testClient.networks.list {
-                name = "test-network-filter"
+    fun `create overlay network`() =
+        runTest {
+            // Note: overlay driver might not be available in all Docker setups
+            // This test might be skipped if not in swarm mode
+            try {
+                testClient.networks.use(options = {
+                    name = "test-overlay-network"
+                    driver = "overlay"
+                    isAttachable = true
+                }) { networkId ->
+                    val network = testClient.networks.inspect(networkId)
+                    assertEquals("test-overlay-network", network.name)
+                    assertEquals("overlay", network.driver)
+                }
+            } catch (e: AssertionError) {
+                println("Skipping overlay network test: ${e.message}")
             }
-
-            assertEquals(1, networks.size)
-            assertEquals("test-network-filter", networks[0].name)
-        }
-    }
-
-    @Test
-    fun `list networks with driver filter`() = runTest {
-        val networks = testClient.networks.list {
-            driver = NetworkBridgeDriver
         }
 
-        assertNotNull(networks)
-        assertTrue(networks.isNotEmpty())
-        assertTrue(networks.all { it.driver == NetworkBridgeDriver })
-    }
+    @Test
+    fun `list all networks`() =
+        runTest {
+            val networks = testClient.networks.list()
+
+            assertNotNull(networks)
+            assertTrue(networks.isNotEmpty())
+
+            // Docker always has at least the default networks (bridge, host, none)
+            assertTrue(networks.any { it.name == NetworkBridgeDriver })
+            assertTrue(networks.any { it.name == NetworkHostDriver })
+            assertTrue(networks.any { it.name == "none" })
+        }
 
     @Test
-    fun `list networks with label filter`() = runTest {
-        testClient.networks.use(options = {
-            name = "test-network-labeled"
-            labels = mapOf("test-label" to "test-value")
-        }) {
-            val networks = testClient.networks.list {
-                label = "test-label=test-value"
+    fun `list networks with name filter`() =
+        runTest {
+            testClient.networks.use(options = { name = "test-network-filter" }) {
+                val networks =
+                    testClient.networks.list {
+                        name = "test-network-filter"
+                    }
+
+                assertEquals(1, networks.size)
+                assertEquals("test-network-filter", networks[0].name)
             }
-
-            assertTrue(networks.any { it.name == "test-network-labeled" })
         }
-    }
 
     @Test
-    fun `inspect network by id`() = runTest {
-        testClient.networks.use(options = {
-            name = "test-network-inspect-id"
-            driver = "bridge"
-        }) { networkId ->
-            val network = testClient.networks.inspect(networkId)
+    fun `list networks with driver filter`() =
+        runTest {
+            val networks =
+                testClient.networks.list {
+                    driver = NetworkBridgeDriver
+                }
 
-            assertEquals(networkId, network.id)
-            assertEquals("test-network-inspect-id", network.name)
-            assertEquals("bridge", network.driver)
-            assertNotNull(network.created)
+            assertNotNull(networks)
+            assertTrue(networks.isNotEmpty())
+            assertTrue(networks.all { it.driver == NetworkBridgeDriver })
         }
-    }
 
     @Test
-    fun `inspect network by name`() = runTest {
-        testClient.networks.use(options = { name = "test-network-inspect-name" }) { createdNetworkId ->
-            val inspectedNetwork = testClient.networks.inspect("test-network-inspect-name")
+    fun `list networks with label filter`() =
+        runTest {
+            testClient.networks.use(options = {
+                name = "test-network-labeled"
+                labels = mapOf("test-label" to "test-value")
+            }) {
+                val networks =
+                    testClient.networks.list {
+                        label = "test-label=test-value"
+                    }
 
-            assertEquals(createdNetworkId, inspectedNetwork.id)
-            assertEquals("test-network-inspect-name", inspectedNetwork.name)
-        }
-    }
-
-    @Test
-    fun `inspect network with verbose option`() = runTest {
-        testClient.networks.use(options = { name = "test-network-verbose" }) { networkId ->
-            val network = testClient.networks.inspect(networkId) {
-                verbose = true
+                assertTrue(networks.any { it.name == "test-network-labeled" })
             }
-
-            assertEquals("test-network-verbose", network.name)
-
-            // Verbose mode provides more detailed information
-            assertNotNull(network.ipam)
         }
-    }
 
     @Test
-    fun `inspect fails when network not found`() = runTest {
-        assertFailsWith<NetworkNotFoundException> {
-            testClient.networks.inspect("nonexistent-network-id-12345")
-        }
-    }
+    fun `inspect network by id`() =
+        runTest {
+            testClient.networks.use(options = {
+                name = "test-network-inspect-id"
+                driver = "bridge"
+            }) { networkId ->
+                val network = testClient.networks.inspect(networkId)
 
-    @Test
-    fun `remove network by id`() = runTest {
-        lateinit var removedNetwork: String
-
-        // `use` will try to remove network using its id to cleanup
-        testClient.networks.use(options = {
-            name = "test-network-remove-id"
-        }) { networkId ->
-            // Verify it exists
-            val network = testClient.networks.inspect(networkId)
-            assertEquals("test-network-remove-id", network.name)
-
-            removedNetwork = networkId
-        }
-
-        assertFailsWith<NetworkNotFoundException> {
-            testClient.networks.inspect(removedNetwork)
-        }
-    }
-
-
-    @Test
-    fun `remove network by name`() = runTest {
-        var networkId: String? = null
-        try {
-            networkId = testClient.networks.create {
-                name = "test-network-remove-name"
+                assertEquals(networkId, network.id)
+                assertEquals("test-network-inspect-id", network.name)
+                assertEquals("bridge", network.driver)
+                assertNotNull(network.created)
             }
+        }
 
-            testClient.networks.inspect("test-network-remove-name")
-            testClient.networks.remove("test-network-remove-name")
+    @Test
+    fun `inspect network by name`() =
+        runTest {
+            testClient.networks.use(options = { name = "test-network-inspect-name" }) { createdNetworkId ->
+                val inspectedNetwork = testClient.networks.inspect("test-network-inspect-name")
+
+                assertEquals(createdNetworkId, inspectedNetwork.id)
+                assertEquals("test-network-inspect-name", inspectedNetwork.name)
+            }
+        }
+
+    @Test
+    fun `inspect network with verbose option`() =
+        runTest {
+            testClient.networks.use(options = { name = "test-network-verbose" }) { networkId ->
+                val network =
+                    testClient.networks.inspect(networkId) {
+                        verbose = true
+                    }
+
+                assertEquals("test-network-verbose", network.name)
+
+                // Verbose mode provides more detailed information
+                assertNotNull(network.ipam)
+            }
+        }
+
+    @Test
+    fun `inspect fails when network not found`() =
+        runTest {
+            assertFailsWith<NetworkNotFoundException> {
+                testClient.networks.inspect("nonexistent-network-id-12345")
+            }
+        }
+
+    @Test
+    fun `remove network by id`() =
+        runTest {
+            lateinit var removedNetwork: String
+
+            // `use` will try to remove network using its id to cleanup
+            testClient.networks.use(options = {
+                name = "test-network-remove-id"
+            }) { networkId ->
+                // Verify it exists
+                val network = testClient.networks.inspect(networkId)
+                assertEquals("test-network-remove-id", network.name)
+
+                removedNetwork = networkId
+            }
 
             assertFailsWith<NetworkNotFoundException> {
-                testClient.networks.inspect("test-network-remove-name")
+                testClient.networks.inspect(removedNetwork)
             }
-        } finally {
-            runCatching {
-                if (networkId != null) {
-                    testClient.networks.remove(networkId)
+        }
+
+    @Test
+    fun `remove network by name`() =
+        runTest {
+            var networkId: String? = null
+            try {
+                networkId =
+                    testClient.networks.create {
+                        name = "test-network-remove-name"
+                    }
+
+                testClient.networks.inspect("test-network-remove-name")
+                testClient.networks.remove("test-network-remove-name")
+
+                assertFailsWith<NetworkNotFoundException> {
+                    testClient.networks.inspect("test-network-remove-name")
+                }
+            } finally {
+                runCatching {
+                    if (networkId != null) {
+                        testClient.networks.remove(networkId)
+                    }
                 }
             }
         }
-    }
 
     @Test
-    fun `connect container to network`() = runTest {
-        testClient.networks.use(options = { name = "test-network-connect" }) { networkId ->
-            testClient.withContainer(
-                image = "alpine:latest",
-                options = { sleepForever() },
-            ) { containerId ->
-                testClient.containers.start(containerId)
-                testClient.networks.connectContainer(networkId, containerId)
-
-                val network = testClient.networks.inspect(networkId)
-                assertTrue(network.containers.containsKey(containerId))
-            }
-        }
-    }
-
-    @Test
-    fun `connect container to network by names`() = runTest {
-        testClient.networks.use(options = { name = "test-network-connect-names" }) { networkId ->
-            testClient.withContainer(
-                image = "alpine:latest",
-                options = {
-                    name = "test-container-connect"
-                    sleepForever()
-                },
-            ) { containerId ->
-                testClient.containers.start(containerId)
-
-                // Connect using names instead of IDs
-                testClient.networks.connectContainer(
-                    "test-network-connect-names",
-                    "test-container-connect"
-                )
-
-                delay(500)
-
-                // Verify connection
-                val network = testClient.networks.inspect("test-network-connect-names")
-                assertTrue(network.containers.containsKey(containerId))
-            }
-        }
-    }
-
-    @Test
-    fun `disconnect container from network`() = runTest {
-        testClient.networks.use(options = { name = "test-network-disconnect" }) { networkId ->
-            testClient.withContainer(
-                image = "alpine:latest",
-                options = { sleepForever() },
-            ) { containerId ->
-                testClient.containers.start(containerId)
-
-                testClient.networks.connectContainer(networkId, containerId)
-                delay(500)
-
-                // Verify connection
-                assertTrue(testClient.networks.inspect(networkId).containers.containsKey(containerId))
-
-                testClient.networks.disconnectContainer(networkId, containerId)
-                delay(500)
-
-                // Verify disconnection
-                assertFalse(testClient.networks.inspect(networkId).containers.containsKey(containerId))
-            }
-        }
-    }
-
-    @Test
-    fun `connect multiple containers on same network`() = runTest {
-        testClient.networks.use(options = { name = "test-network-multi-containers" }) { networkId ->
-            testClient.withContainer(
-                image = "alpine:latest",
-                options = { sleepForever() },
-            ) { container1Id ->
+    fun `connect container to network`() =
+        runTest {
+            testClient.networks.use(options = { name = "test-network-connect" }) { networkId ->
                 testClient.withContainer(
                     image = "alpine:latest",
                     options = { sleepForever() },
-                ) { container2Id ->
-                    testClient.containers.start(container1Id)
-                    testClient.containers.start(container2Id)
+                ) { containerId ->
+                    testClient.containers.start(containerId)
+                    testClient.networks.connectContainer(networkId, containerId)
 
-                    // Connect both containers
-                    testClient.networks.connectContainer(networkId, container1Id)
-                    testClient.networks.connectContainer(networkId, container2Id)
+                    val network = testClient.networks.inspect(networkId)
+                    assertTrue(network.containers.containsKey(containerId))
+                }
+            }
+        }
+
+    @Test
+    fun `connect container to network by names`() =
+        runTest {
+            testClient.networks.use(options = { name = "test-network-connect-names" }) { networkId ->
+                testClient.withContainer(
+                    image = "alpine:latest",
+                    options = {
+                        name = "test-container-connect"
+                        sleepForever()
+                    },
+                ) { containerId ->
+                    testClient.containers.start(containerId)
+
+                    // Connect using names instead of IDs
+                    testClient.networks.connectContainer(
+                        "test-network-connect-names",
+                        "test-container-connect",
+                    )
 
                     delay(500)
 
-                    // Verify both are connected
-                    val network = testClient.networks.inspect(networkId)
-                    assertTrue(network.containers.containsKey(container1Id))
-                    assertTrue(network.containers.containsKey(container2Id))
-                    assertEquals(2, network.containers.size)
+                    // Verify connection
+                    val network = testClient.networks.inspect("test-network-connect-names")
+                    assertTrue(network.containers.containsKey(containerId))
                 }
             }
         }
-    }
 
     @Test
-    fun `prune unused networks`() = runTest {
-        try {
-            val network1 = testClient.networks.create { name = "test-network-prune-1" }
-            val network2 = testClient.networks.create { name = "test-network-prune-2" }
+    fun `disconnect container from network`() =
+        runTest {
+            testClient.networks.use(options = { name = "test-network-disconnect" }) { networkId ->
+                testClient.withContainer(
+                    image = "alpine:latest",
+                    options = { sleepForever() },
+                ) { containerId ->
+                    testClient.containers.start(containerId)
 
-            testClient.networks.inspect(network1)
-            testClient.networks.inspect(network2)
+                    testClient.networks.connectContainer(networkId, containerId)
+                    delay(500)
 
-            testClient.networks.prune()
-
-            delay(500)
-
-            // Networks should be removed (they were unused)
-            assertFailsWith<NetworkNotFoundException> {
-                testClient.networks.inspect(network1)
-            }
-            assertFailsWith<NetworkNotFoundException> {
-                testClient.networks.inspect(network2)
-            }
-        } finally {
-            // Suppress errors for removal
-            runCatching { testClient.networks.remove("test-network-prune-1") }
-            runCatching { testClient.networks.remove("test-network-prune-2") }
-        }
-    }
-
-    @Test
-    fun `prune does not remove networks with connected containers`() = runTest {
-        testClient.networks.use(options = {
-            name = "test-network-prune-with-container"
-        }) { networkId ->
-            testClient.withContainer(
-                image = "alpine:latest",
-                options = {
-                    sleepForever()
-                },
-            ) { containerId ->
-                testClient.containers.start(containerId)
-
-                // Connect container to network
-                testClient.networks.connectContainer(networkId, containerId)
-                delay(500)
-
-                // Try to prune - this network should NOT be removed
-                testClient.networks.prune()
-                delay(500)
-
-                val network = testClient.networks.inspect(networkId)
-                assertEquals(
-                    expected = "test-network-prune-with-container",
-                    actual = network.name,
-                    message = "Network should still exist because it has a connected container"
-                )
-            }
-        }
-    }
-
-    @Test
-    fun `create network with custom IPAM configuration`() = runTest {
-        testClient.networks.use(options = {
-            name = "test-network-custom-ipam"
-            driver = "bridge"
-            ipam = IPAM(
-                driver = "default",
-                config = listOf(
-                    IPAMConfig(
-                        subnet = "172.20.0.0/16",
-                        ipRange = "172.20.10.0/24",
-                        gateway = "172.20.0.1"
+                    // Verify connection
+                    assertTrue(
+                        testClient.networks
+                            .inspect(networkId)
+                            .containers
+                            .containsKey(containerId),
                     )
-                )
-            )
-        }) { networkId ->
-            val network = testClient.networks.inspect(networkId)
-            assertEquals("test-network-custom-ipam", network.name)
 
-            val ipamConfig = network.ipam?.config?.firstOrNull()
-            assertNotNull(ipamConfig)
-            assertEquals("172.20.0.0/16", ipamConfig.subnet)
-            assertEquals("172.20.10.0/24", ipamConfig.ipRange)
-            assertEquals("172.20.0.1", ipamConfig.gateway)
-        }
-    }
+                    testClient.networks.disconnectContainer(networkId, containerId)
+                    delay(500)
 
-
-    @Test
-    fun `create network with custom options`() = runTest {
-        testClient.networks.use(options = {
-            name = "test-network-options"
-            driver = "bridge"
-            options = mapOf(
-                "com.docker.network.bridge.name" to "test-bridge",
-                "com.docker.network.bridge.enable_ip_masquerade" to "true"
-            )
-        }) { networkId ->
-            val network = testClient.networks.inspect(networkId)
-            assertEquals("test-network-options", network.name)
-            assertNotNull(network.options)
-            assertEquals("test-bridge", network.options["com.docker.network.bridge.name"])
-        }
-    }
-
-
-    @Test
-    fun `create internal network`() = runTest {
-        testClient.networks.use(options = {
-            name = "test-network-internal"
-            isInternal = true
-        }) { networkId ->
-            val network = testClient.networks.inspect(networkId)
-            assertEquals("test-network-internal", network.name)
-            assertTrue(network.isInternal)
-        }
-    }
-
-    @Test
-    fun `create network with IPv6 enabled`() = runTest {
-        testClient.networks.use(options = {
-            name = "test-network-ipv6"
-            enableIpv6 = true
-        }) { networkId ->
-            val network = testClient.networks.inspect(networkId)
-            assertEquals("test-network-ipv6", network.name)
-            assertTrue(network.enableIPv6)
-        }
-    }
-
-
-    @Test
-    fun `create network fails with duplicate name`() = runTest {
-        testClient.networks.use(options = {
-            name = "test-network-duplicate"
-        }) {
-            // Try to create another network with the same name
-            assertFailsWith<Exception> {
-                testClient.networks.create {
-                    name = "test-network-duplicate"
-                    checkDuplicate = true
+                    // Verify disconnection
+                    assertFalse(
+                        testClient.networks
+                            .inspect(networkId)
+                            .containers
+                            .containsKey(containerId),
+                    )
                 }
             }
         }
-    }
+
+    @Test
+    fun `connect multiple containers on same network`() =
+        runTest {
+            testClient.networks.use(options = { name = "test-network-multi-containers" }) { networkId ->
+                testClient.withContainer(
+                    image = "alpine:latest",
+                    options = { sleepForever() },
+                ) { container1Id ->
+                    testClient.withContainer(
+                        image = "alpine:latest",
+                        options = { sleepForever() },
+                    ) { container2Id ->
+                        testClient.containers.start(container1Id)
+                        testClient.containers.start(container2Id)
+
+                        // Connect both containers
+                        testClient.networks.connectContainer(networkId, container1Id)
+                        testClient.networks.connectContainer(networkId, container2Id)
+
+                        delay(500)
+
+                        // Verify both are connected
+                        val network = testClient.networks.inspect(networkId)
+                        assertTrue(network.containers.containsKey(container1Id))
+                        assertTrue(network.containers.containsKey(container2Id))
+                        assertEquals(2, network.containers.size)
+                    }
+                }
+            }
+        }
+
+    @Test
+    fun `prune unused networks`() =
+        runTest {
+            try {
+                val network1 = testClient.networks.create { name = "test-network-prune-1" }
+                val network2 = testClient.networks.create { name = "test-network-prune-2" }
+
+                testClient.networks.inspect(network1)
+                testClient.networks.inspect(network2)
+
+                testClient.networks.prune()
+
+                delay(500)
+
+                // Networks should be removed (they were unused)
+                assertFailsWith<NetworkNotFoundException> {
+                    testClient.networks.inspect(network1)
+                }
+                assertFailsWith<NetworkNotFoundException> {
+                    testClient.networks.inspect(network2)
+                }
+            } finally {
+                // Suppress errors for removal
+                runCatching { testClient.networks.remove("test-network-prune-1") }
+                runCatching { testClient.networks.remove("test-network-prune-2") }
+            }
+        }
+
+    @Test
+    fun `prune does not remove networks with connected containers`() =
+        runTest {
+            testClient.networks.use(options = {
+                name = "test-network-prune-with-container"
+            }) { networkId ->
+                testClient.withContainer(
+                    image = "alpine:latest",
+                    options = {
+                        sleepForever()
+                    },
+                ) { containerId ->
+                    testClient.containers.start(containerId)
+
+                    // Connect container to network
+                    testClient.networks.connectContainer(networkId, containerId)
+                    delay(500)
+
+                    // Try to prune - this network should NOT be removed
+                    testClient.networks.prune()
+                    delay(500)
+
+                    val network = testClient.networks.inspect(networkId)
+                    assertEquals(
+                        expected = "test-network-prune-with-container",
+                        actual = network.name,
+                        message = "Network should still exist because it has a connected container",
+                    )
+                }
+            }
+        }
+
+    @Test
+    fun `create network with custom IPAM configuration`() =
+        runTest {
+            testClient.networks.use(options = {
+                name = "test-network-custom-ipam"
+                driver = "bridge"
+                ipam =
+                    IPAM(
+                        driver = "default",
+                        config =
+                            listOf(
+                                IPAMConfig(
+                                    subnet = "172.20.0.0/16",
+                                    ipRange = "172.20.10.0/24",
+                                    gateway = "172.20.0.1",
+                                ),
+                            ),
+                    )
+            }) { networkId ->
+                val network = testClient.networks.inspect(networkId)
+                assertEquals("test-network-custom-ipam", network.name)
+
+                val ipamConfig = network.ipam?.config?.firstOrNull()
+                assertNotNull(ipamConfig)
+                assertEquals("172.20.0.0/16", ipamConfig.subnet)
+                assertEquals("172.20.10.0/24", ipamConfig.ipRange)
+                assertEquals("172.20.0.1", ipamConfig.gateway)
+            }
+        }
+
+    @Test
+    fun `create network with custom options`() =
+        runTest {
+            testClient.networks.use(options = {
+                name = "test-network-options"
+                driver = "bridge"
+                options =
+                    mapOf(
+                        "com.docker.network.bridge.name" to "test-bridge",
+                        "com.docker.network.bridge.enable_ip_masquerade" to "true",
+                    )
+            }) { networkId ->
+                val network = testClient.networks.inspect(networkId)
+                assertEquals("test-network-options", network.name)
+                assertNotNull(network.options)
+                assertEquals("test-bridge", network.options["com.docker.network.bridge.name"])
+            }
+        }
+
+    @Test
+    fun `create internal network`() =
+        runTest {
+            testClient.networks.use(options = {
+                name = "test-network-internal"
+                isInternal = true
+            }) { networkId ->
+                val network = testClient.networks.inspect(networkId)
+                assertEquals("test-network-internal", network.name)
+                assertTrue(network.isInternal)
+            }
+        }
+
+    @Test
+    fun `create network with IPv6 enabled`() =
+        runTest {
+            testClient.networks.use(options = {
+                name = "test-network-ipv6"
+                enableIpv6 = true
+            }) { networkId ->
+                val network = testClient.networks.inspect(networkId)
+                assertEquals("test-network-ipv6", network.name)
+                assertTrue(network.enableIPv6)
+            }
+        }
+
+    @Test
+    fun `create network fails with duplicate name`() =
+        runTest {
+            testClient.networks.use(options = {
+                name = "test-network-duplicate"
+            }) {
+                // Try to create another network with the same name
+                assertFailsWith<Exception> {
+                    testClient.networks.create {
+                        name = "test-network-duplicate"
+                        checkDuplicate = true
+                    }
+                }
+            }
+        }
 }

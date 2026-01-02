@@ -189,7 +189,10 @@ public actual class ContainerResource {
         TODO("Not yet implemented")
     }
 
-    public actual suspend fun copyFrom(container: String, sourcePath: String): ContainerCopyResult {
+    public actual suspend fun copyFrom(
+        container: String,
+        sourcePath: String,
+    ): ContainerCopyResult {
         TODO("Not yet implemented")
     }
 
@@ -197,7 +200,7 @@ public actual class ContainerResource {
         container: String,
         destinationPath: String,
         tarArchive: ByteArray,
-        options: ContainerCopyOptions
+        options: ContainerCopyOptions,
     ) {
     }
 
@@ -205,21 +208,29 @@ public actual class ContainerResource {
         container: String,
         sourcePath: String,
         destinationPath: String,
-        options: ContainerCopyOptions
+        options: ContainerCopyOptions,
     ) {
     }
 
-    public actual suspend fun copyFileFrom(container: String, sourcePath: String, destinationPath: String) {
+    public actual suspend fun copyFileFrom(
+        container: String,
+        sourcePath: String,
+        destinationPath: String,
+    ) {
     }
 
-    public actual suspend fun copyDirectoryFrom(container: String, sourcePath: String, destinationPath: String) {
+    public actual suspend fun copyDirectoryFrom(
+        container: String,
+        sourcePath: String,
+        destinationPath: String,
+    ) {
     }
 
     public actual suspend fun copyDirectoryTo(
         container: String,
         sourcePath: String,
         destinationPath: String,
-        options: ContainerCopyOptions
+        options: ContainerCopyOptions,
     ) {
     }
 }

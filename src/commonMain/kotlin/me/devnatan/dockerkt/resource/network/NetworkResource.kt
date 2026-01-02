@@ -90,8 +90,7 @@ public class NetworkResource internal constructor(
             httpClient
                 .post("$BasePath/create") {
                     setBody(config)
-                }
-                .body<IdOnlyResponse>()
+                }.body<IdOnlyResponse>()
                 .id
         }
     }
@@ -104,13 +103,13 @@ public class NetworkResource internal constructor(
      * @param options The network prune options. Use [prune] extension function for DSL syntax.
      * @return Information about the pruned networks.
      */
-    public suspend fun prune(options: NetworkPruneOptions? = null): NetworkPruneResult = httpClient
-        .post("$BasePath/prune") {
-            options?.let {
-                parameter("filters", json.encodeToString(it))
-            }
-        }
-        .body()
+    public suspend fun prune(options: NetworkPruneOptions? = null): NetworkPruneResult =
+        httpClient
+            .post("$BasePath/prune") {
+                options?.let {
+                    parameter("filters", json.encodeToString(it))
+                }
+            }.body()
 
     /**
      * Connects a container to a network.
