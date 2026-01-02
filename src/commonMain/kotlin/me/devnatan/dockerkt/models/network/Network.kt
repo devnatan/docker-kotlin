@@ -18,6 +18,7 @@ public data class Network(
     @SerialName("Options") val options: Map<String, String> = emptyMap(),
     @SerialName("Labels") val labels: Map<String, String> = emptyMap(),
     @SerialName("Created") val created: Instant,
+    @SerialName("IPAM") val ipam: IPAM? = null,
 )
 
 public const val NetworkCustomType: String = "custom"
