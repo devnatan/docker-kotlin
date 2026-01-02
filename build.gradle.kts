@@ -38,7 +38,11 @@ kotlin {
     }
 
     compilerOptions {
-        freeCompilerArgs.addAll(listOf("-Xconsistent-data-class-copy-visibility", "-Xexpect-actual-classes"))
+        freeCompilerArgs.addAll(listOf(
+            "-Xconsistent-data-class-copy-visibility",
+            "-Xexpect-actual-classes",
+            "-opt-in=kotlin.time.ExperimentalTime"
+        ))
     }
 
     jvm {
