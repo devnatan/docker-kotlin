@@ -6,6 +6,7 @@ import me.devnatan.dockerkt.models.volume.Volume
 import me.devnatan.dockerkt.models.volume.VolumeCreateOptions
 import me.devnatan.dockerkt.resource.container.create
 import me.devnatan.dockerkt.resource.container.remove
+import me.devnatan.dockerkt.resource.image.ImageNotFoundException
 import me.devnatan.dockerkt.resource.volume.create
 import me.devnatan.dockerkt.resource.volume.remove
 import kotlin.test.fail
@@ -23,7 +24,9 @@ suspend fun <R> DockerClient.withImage(
     try {
         return block(imageName)
     } finally {
-        images.remove(imageName, force = true)
+        try {
+            images.remove(imageName, force = true)
+        } catch (_: ImageNotFoundException) {}
     }
 }
 

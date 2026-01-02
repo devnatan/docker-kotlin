@@ -10,12 +10,14 @@ import io.ktor.client.request.post
 import io.ktor.client.request.preparePost
 import io.ktor.client.request.setBody
 import io.ktor.http.ContentType
+import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.readUTF8Line
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.json.Json
+import me.devnatan.dockerkt.io.requestCatching
 import me.devnatan.dockerkt.models.image.ImageBuildOptions
 import me.devnatan.dockerkt.models.image.ImagePull
 import me.devnatan.dockerkt.models.image.ImageSummary
@@ -51,9 +53,13 @@ public class ImageResource internal constructor(
         force: Boolean? = false,
         noprune: Boolean? = false,
     ) {
-        httpClient.delete("$BasePath/$name") {
-            parameter("force", force)
-            parameter("noprune", noprune)
+        requestCatching(
+            HttpStatusCode.NotFound to { exception -> ImageNotFoundException(exception, name) },
+        ) {
+            httpClient.delete("$BasePath/$name") {
+                parameter("force", force)
+                parameter("noprune", noprune)
+            }
         }
     }
 
