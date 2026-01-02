@@ -115,15 +115,15 @@ public class NetworkResource internal constructor(
     /**
      * Connects a container to a network.
      *
-     * @param id The network id or name.
+     * @param network The network id or name.
      * @param container The id or name of the container to connect to the network.
      * @see <a href="https://docs.docker.com/engine/api/v1.41/#operation/NetworkConnect">NetworkConnect</a>
      */
     public suspend fun connectContainer(
-        id: String,
+        network: String,
         container: String,
     ) {
-        httpClient.post("$BasePath/$id/connect") {
+        httpClient.post("$BasePath/$network/connect") {
             setBody(mapOf("Container" to container))
         }
     }
@@ -131,15 +131,15 @@ public class NetworkResource internal constructor(
     /**
      * Disconnects a container to a network.
      *
-     * @param id The network id or name.
+     * @param network The network id or name.
      * @param container The id or name of the container to connect to the network.
      * @see <a href="https://docs.docker.com/engine/api/latest/#operation/NetworkDisconnect">NetworkDisconnect</a>
      */
     public suspend fun disconnectContainer(
-        id: String,
+        network: String,
         container: String,
     ) {
-        httpClient.post("$BasePath/$id/disconnect") {
+        httpClient.post("$BasePath/$network/disconnect") {
             setBody(mapOf("Container" to container))
         }
     }
@@ -151,7 +151,7 @@ public class NetworkResource internal constructor(
  * @param config The network configuration.
  * @see <a href="https://docs.docker.com/engine/api/latest/#operation/NetworkCreate">NetworkCreate</a>
  */
-public suspend inline fun NetworkResource.create(config: NetworkCreateOptions.() -> Unit): Network =
+public suspend inline fun NetworkResource.create(config: NetworkCreateOptions.() -> Unit): String =
     create(NetworkCreateOptions().apply(config))
 
 /**
