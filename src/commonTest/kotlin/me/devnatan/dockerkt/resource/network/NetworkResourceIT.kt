@@ -15,6 +15,19 @@ import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 
 class NetworkResourceIT : ResourceIT() {
+
+    @Test
+    fun `create network with minimal configuration`() = runTest {
+        testClient.withNetwork(
+            options = { name = "test-network-minimal" }
+        ) { networkId ->
+            assertNotNull(networkId)
+
+            val network = testClient.networks.inspect(networkId)
+            assertEquals("test-network-minimal", network.name)
+        }
+    }
+
     @Test
     fun `create network`() =
         runTest {
