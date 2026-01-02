@@ -310,49 +310,39 @@ class NetworkResourceIT : ResourceIT() {
     //     }
     // }
     //
-    // @Test
-    // fun `multiple containers on same network`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-multi-containers"
-    //     }
-    //
-    //     testClient.withContainer(
-    //         "alpine:latest",
-    //         {
-    //             command = listOf("sleep", "infinity")
-    //         },
-    //     ) { container1Id ->
-    //         testClient.withContainer(
-    //             "alpine:latest",
-    //             {
-    //                 command = listOf("sleep", "infinity")
-    //             },
-    //         ) { container2Id ->
-    //             try {
-    //                 testClient.containers.start(container1Id)
-    //                 testClient.containers.start(container2Id)
-    //
-    //                 // Connect both containers
-    //                 testClient.networks.connectContainer(networkId.id, container1Id)
-    //                 testClient.networks.connectContainer(networkId.id, container2Id)
-    //
-    //                 delay(500)
-    //
-    //                 // Verify both are connected
-    //                 val network = testClient.networks.inspect(networkId.id)
-    //                 assertTrue(network.containers.containsKey(container1Id))
-    //                 assertTrue(network.containers.containsKey(container2Id))
-    //                 assertEquals(2, network.containers.size)
-    //
-    //                 testClient.containers.stop(container1Id)
-    //                 testClient.containers.stop(container2Id)
-    //             } finally {
-    //                 testClient.networks.remove(networkId.id)
-    //             }
-    //         }
-    //     }
-    // }
-    //
+    @Test
+    fun `connect multiple containers on same network`() = runTest {
+        testClient.networks.use(options = { name = "test-network-multi-containers" }) { networkId ->
+            testClient.withContainer(
+                image = "alpine:latest",
+                options = { sleepForever() },
+            ) { container1Id ->
+                testClient.withContainer(
+                    image = "alpine:latest",
+                    options = { sleepForever() },
+                ) { container2Id ->
+                    testClient.containers.start(container1Id)
+                    testClient.containers.start(container2Id)
+
+                    // Connect both containers
+                    testClient.networks.connectContainer(networkId, container1Id)
+                    testClient.networks.connectContainer(networkId, container2Id)
+
+                    delay(500)
+
+                    // Verify both are connected
+                    val network = testClient.networks.inspect(networkId)
+                    assertTrue(network.containers.containsKey(container1Id))
+                    assertTrue(network.containers.containsKey(container2Id))
+                    assertEquals(2, network.containers.size)
+
+                    testClient.containers.stop(container1Id)
+                    testClient.containers.stop(container2Id)
+                }
+            }
+        }
+    }
+
     @Test
     fun `prune unused networks`() = runTest {
         try {
