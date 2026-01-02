@@ -474,22 +474,19 @@ class NetworkResourceIT : ResourceIT() {
     //     }
     // }
     //
-    // @Test
-    // fun `create network with IPv6 enabled`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-ipv6"
-    //         enableIpv6 = true
-    //     }
-    //
-    //     try {
-    //         val network = testClient.networks.inspect(networkId.id)
-    //         assertEquals("test-network-ipv6", network.name)
-    //         assertTrue(network.enableIPv6 ?: false)
-    //     } finally {
-    //         testClient.networks.remove(networkId.id)
-    //     }
-    // }
-    //
+
+    @Test
+    fun `create network with IPv6 enabled`() = runTest {
+        testClient.withNetwork(options = {
+            name = "test-network-ipv6"
+            enableIpv6 = true
+        }) { networkId ->
+            val network = testClient.networks.inspect(networkId)
+            assertEquals("test-network-ipv6", network.name)
+            assertTrue(network.enableIPv6)
+        }
+    }
+
 
     @Test
     fun `create network fails with duplicate name`() = runTest {
