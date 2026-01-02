@@ -153,7 +153,7 @@ public class ExecResource internal constructor(
                 else -> {
                     val output =
                         collectFromSocket(
-                            response.bodyAsChannel(),
+                            channel = response.bodyAsChannel(),
                             tty = options.tty == true,
                             demux = options.demux,
                         )

@@ -10,7 +10,7 @@ import kotlin.time.Instant
 @Serializable
 public data class Event internal constructor(
     @SerialName("Type") public val type: EventType,
-    @SerialName("Action") public val action: String,
+    @SerialName("Action") public val action: EventAction,
     @SerialName("Actor") public val actor: EventActor,
     @SerialName("scope") public val scope: EventScope,
     @SerialName("time") public val timeMillis: Long,
