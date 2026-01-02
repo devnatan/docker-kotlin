@@ -43,18 +43,18 @@ public class NetworkResource internal constructor(
     /**
      * Inspects a network.
      *
-     * @param id The network id or name.
+     * @param network The network id or name.
      * @param options The network inspection options.
      * @see <a href="https://docs.docker.com/engine/api/latest/#operation/NetworkInspect">NetworkInspect</a>
      */
     public suspend fun inspect(
-        id: String,
+        network: String,
         options: NetworkInspectOptions? = null,
     ): Network =
         requestCatching(
-            HttpStatusCode.NotFound to { NetworkNotFoundException(it, id) },
+            HttpStatusCode.NotFound to { NetworkNotFoundException(it, network) },
         ) {
-            httpClient.get("$BasePath/$id") {
+            httpClient.get("$BasePath/$network") {
                 parameter("verbose", options?.verbose)
                 parameter("scope", options?.scope)
             }
@@ -63,11 +63,11 @@ public class NetworkResource internal constructor(
     /**
      * Removes a network.
      *
-     * @param id The network id or name.
+     * @param network The network id or name.
      * @see <a href="https://docs.docker.com/engine/api/latest/#operation/NetworkDelete">NetworkDelete</a>
      */
-    public suspend fun remove(id: String) {
-        httpClient.delete("$BasePath/$id")
+    public suspend fun remove(network: String) {
+        httpClient.delete("$BasePath/$network")
     }
 
     /**

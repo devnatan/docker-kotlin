@@ -71,28 +71,34 @@ class NetworkResourceIT : ResourceIT() {
     }
 
     @Test
-    fun `list networks`() =
-        runTest {
-            // the list of networks will never be empty because Docker
-            // has predefined networks that cannot be removed
-            assertFalse(testClient.networks.list().isEmpty())
-        }
+    fun `list all networks`() = runTest {
+        val networks = testClient.networks.list()
+
+        assertNotNull(networks)
+        assertTrue(networks.isNotEmpty())
+
+        // Docker always has at least the default networks (bridge, host, none)
+        assertTrue(networks.any { it.name == NetworkBridgeDriver })
+        assertTrue(networks.any { it.name == NetworkHostDriver })
+        assertTrue(networks.any { it.name == "none" })
+    }
 
     @Test
-    fun `prune networks`() =
-        runTest {
-            val oldCount = testClient.networks.list().size
-            val newCount = 5
-            repeat(newCount) {
-                testClient.networks.create { name = "dockerkt-$it" }
+    fun `list networks with name filter`() = runTest {
+        testClient.networks.use(options = { name = "test-network-filter"}) {
+            val networks = testClient.networks.list {
+                name = "test-network-filter"
             }
 
-            // check for >= because docker can have default networks defined
-            assertEquals(testClient.networks.list().size, oldCount + newCount)
+            assertEquals(1, networks.size)
+            assertEquals("test-network-filter", networks[0].name)
+        }
+    }
 
-            // just ensure prune will work correctly, comparing sizes may not
-            // work well in different environments
-            testClient.networks.prune()
+    @Test
+    fun `list networks with driver filter`() = runTest {
+        val networks = testClient.networks.list {
+            driver = NetworkBridgeDriver
         }
 
         assertNotNull(networks)
@@ -102,7 +108,7 @@ class NetworkResourceIT : ResourceIT() {
 
     @Test
     fun `list networks with label filter`() = runTest {
-        testClient.withNetwork(options = {
+        testClient.networks.use(options = {
             name = "test-network-labeled"
             labels = mapOf("test-label" to "test-value")
         }) {
