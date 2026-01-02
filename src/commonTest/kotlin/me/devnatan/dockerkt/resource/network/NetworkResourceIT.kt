@@ -175,25 +175,27 @@ class NetworkResourceIT : ResourceIT() {
     //     }
     // }
     //
-    // @Test
-    // fun `remove network by id`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-remove-id"
-    //     }
-    //
-    //     // Verify it exists
-    //     val network = testClient.networks.inspect(networkId.id)
-    //     assertEquals("test-network-remove-id", network.name)
-    //
-    //     // Remove it
-    //     testClient.networks.remove(networkId.id)
-    //
-    //     // Verify it's gone
-    //     assertFailsWith<NetworkNotFoundException> {
-    //         testClient.networks.inspect(networkId.id)
-    //     }
-    // }
-    //
+
+    @Test
+    fun `remove network by id`() = runTest {
+        lateinit var removedNetwork: String
+
+        // `use` will try to remove network using its id to cleanup
+        testClient.networks.use(options = {
+            name = "test-network-remove-id"
+        }) { networkId ->
+            // Verify it exists
+            val network = testClient.networks.inspect(networkId)
+            assertEquals("test-network-remove-id", network.name)
+
+            removedNetwork = networkId
+        }
+
+        assertFailsWith<NetworkNotFoundException> {
+            testClient.networks.inspect(removedNetwork)
+        }
+    }
+
 
     @Test
     fun `remove network by name`() = runTest {
