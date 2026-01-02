@@ -2,11 +2,13 @@ package me.devnatan.dockerkt
 
 import kotlinx.coroutines.flow.collect
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
+import me.devnatan.dockerkt.models.network.NetworkCreateOptions
 import me.devnatan.dockerkt.models.volume.Volume
 import me.devnatan.dockerkt.models.volume.VolumeCreateOptions
 import me.devnatan.dockerkt.resource.container.create
 import me.devnatan.dockerkt.resource.container.remove
 import me.devnatan.dockerkt.resource.image.ImageNotFoundException
+import me.devnatan.dockerkt.resource.network.create
 import me.devnatan.dockerkt.resource.volume.create
 import me.devnatan.dockerkt.resource.volume.remove
 import kotlin.test.fail
@@ -86,4 +88,22 @@ fun ContainerCreateOptions.keepStartedForever() {
 /** Make a container started forever. */
 fun ContainerCreateOptions.sleepForever() {
     command = listOf("sleep", "infinity")
+}
+
+suspend fun <R> DockerClient.withNetwork(
+    options: NetworkCreateOptions.() -> Unit = {},
+    block: suspend (networkId: String) -> R,
+) {
+    val networkId: String =
+        try {
+            networks.create(options)
+        } catch (e: Throwable) {
+            fail("Failed to create network", e)
+        }
+
+    try {
+        block(networkId)
+    } finally {
+        networks.remove(networkId)
+    }
 }
