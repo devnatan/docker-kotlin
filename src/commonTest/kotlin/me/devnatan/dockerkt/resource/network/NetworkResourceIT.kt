@@ -212,36 +212,22 @@ class NetworkResourceIT : ResourceIT() {
     //     }
     // }
     //
-    // @Test
-    // fun `connect container to network`() = runTest {
-    //     val networkId = testClient.networks.create {
-    //         name = "test-network-connect"
-    //     }
-    //
-    //     testClient.withContainer(
-    //         image = "alpine:latest",
-    //         options = { sleepForever() },
-    //     ) { containerId ->
-    //         try {
-    //             testClient.containers.start(containerId)
-    //
-    //             // Connect container to network
-    //             testClient.networks.connectContainer(networkId.id, containerId)
-    //
-    //             // Give it a moment to connect
-    //             delay(500)
-    //
-    //             // Verify connection
-    //             val network = testClient.networks.inspect(networkId.id)
-    //             assertTrue(network.containers?.containsKey(containerId) == true)
-    //
-    //             testClient.containers.stop(containerId)
-    //         } finally {
-    //             testClient.networks.remove(networkId.id)
-    //         }
-    //     }
-    // }
-    //
+    @Test
+    fun `connect container to network`() = runTest {
+        testClient.networks.use(options = { name = "test-network-connect" }) { networkId ->
+            testClient.withContainer(
+                image = "alpine:latest",
+                options = { sleepForever() },
+            ) { containerId ->
+                testClient.containers.start(containerId)
+                testClient.networks.connectContainer(networkId, containerId)
+
+                val network = testClient.networks.inspect(networkId)
+                assertTrue(network.containers.containsKey(containerId))
+            }
+        }
+    }
+
     @Test
     fun `connect container to network by names`() = runTest {
         testClient.networks.use(options = { name = "test-network-connect-names" }) { networkId ->
