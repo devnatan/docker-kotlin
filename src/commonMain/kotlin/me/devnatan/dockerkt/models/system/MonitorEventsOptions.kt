@@ -20,6 +20,11 @@ public data class MonitorEventsOptions(
             types.forEach { type -> addFilter("type", type.name.lowercase()) }
         }
 
+    public fun filterByAction(vararg actions: EventAction): MonitorEventsOptions =
+        apply {
+            actions.forEach { action -> addFilter("event", action.name.lowercase()) }
+        }
+
     /**
      * Adds a new filter to the monitor events.
      *
