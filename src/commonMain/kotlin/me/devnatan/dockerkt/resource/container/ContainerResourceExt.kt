@@ -4,8 +4,9 @@ import kotlinx.coroutines.flow.Flow
 import me.devnatan.dockerkt.DockerResponseException
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
+import me.devnatan.dockerkt.models.container.ContainerAttachOptions
+import me.devnatan.dockerkt.models.container.ContainerAttachResult
 import me.devnatan.dockerkt.models.container.ContainerCopyOptions
-import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
 import me.devnatan.dockerkt.models.container.ContainerListOptions
 import me.devnatan.dockerkt.models.container.ContainerLogsOptions
@@ -154,3 +155,8 @@ public suspend fun ContainerResource.copyDirectoryTo(
         destinationPath = destinationPath,
         options = ContainerCopyOptions(path = destinationPath).apply(options),
     )
+
+public suspend fun ContainerResource.attach(
+    container: String,
+    options: ContainerAttachOptions.() -> Unit,
+): ContainerAttachResult = attach(container, ContainerAttachOptions().apply(options))
