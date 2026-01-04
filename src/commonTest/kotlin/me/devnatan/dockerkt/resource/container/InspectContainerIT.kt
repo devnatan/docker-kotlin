@@ -10,26 +10,22 @@ import me.devnatan.dockerkt.resource.ResourceIT
 import me.devnatan.dockerkt.withContainer
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertNull
 
 class InspectContainerIT : ResourceIT() {
     @Test
     fun `inspects container with volumes`() =
         runTest {
             testClient.withContainer(
-                "busybox:latest",
-                {
+                image = "busybox:latest",
+                options = {
                     volume("/opt")
                     keepStartedForever()
                 },
-            ) { id ->
-                testClient.containers.start(id)
-                try {
-                    val container = testClient.containers.inspect(id)
-                    val volumes = container.config.volumes
-                    assertEquals(volumes, listOf("/opt"))
-                } finally {
-                    testClient.containers.stop(id)
-                }
+            ) { containerId ->
+                val container = testClient.containers.inspect(containerId)
+                val volumes = container.config.volumes
+                assertEquals(volumes, listOf("/opt"))
             }
         }
 }
