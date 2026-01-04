@@ -10,165 +10,180 @@ import kotlin.time.Instant
 @Serializable
 public data class Event internal constructor(
     @SerialName("Type") public val type: EventType,
-    @SerialName("Action") public val action: EventAction,
+    @SerialName("Action") private val rawAction: String,
     @SerialName("Actor") public val actor: EventActor,
     @SerialName("scope") public val scope: EventScope,
     @SerialName("time") public val timeMillis: Long,
     @SerialName("timeNano") public val timeNanos: Long,
-)
+) {
+    val result: String? by lazy {
+        rawAction
+            .substringAfter(
+                delimiter = ":",
+                missingDelimiterValue = "",
+            ).ifEmpty { null }
+            ?.trim()
+    }
+
+    val action: EventAction by lazy {
+        EventAction.entries.first { entry ->
+            entry.name.equals(rawAction.substringBefore(":").uppercase(), ignoreCase = true)
+        }
+    }
+}
 
 public val Event.time: Instant get() = Instant.fromEpochMilliseconds(timeMillis)
 
 @Serializable
 public enum class EventAction {
     @SerialName("attach")
-    ATTACH,
+    Attach,
 
     @SerialName("commit")
-    COMMIT,
+    Commit,
 
     @SerialName("copy")
-    COPY,
+    Copy,
 
     @SerialName("create")
-    CREATE,
+    Create,
 
     @SerialName("delete")
-    DELETE,
+    Delete,
 
     @SerialName("destroy")
-    DESTROY,
+    Destroy,
 
     @SerialName("detach")
-    DETACH,
+    Detach,
 
     @SerialName("die")
-    DIE,
+    Die,
 
     @SerialName("exec_create")
-    EXEC_CREATE,
+    ExecCreate,
 
     @SerialName("exec_detach")
-    EXEC_DETACH,
+    ExecDetach,
 
     @SerialName("exec_start")
-    EXEC_START,
+    ExecStart,
 
     @SerialName("exec_die")
-    EXEC_DIE,
+    ExecDie,
 
     @SerialName("import")
-    IMPORT,
+    Import,
 
     @SerialName("export")
-    EXPORT,
+    Export,
 
     @SerialName("health_status")
-    HEALTH,
+    Health,
 
     @SerialName("kill")
-    KILL,
+    Kill,
 
     @SerialName("oom")
-    OOM,
+    Oom,
 
     @SerialName("pause")
-    PAUSE,
+    Pause,
 
     @SerialName("rename")
-    RENAME,
+    Rename,
 
     @SerialName("resize")
-    RESIZE,
+    Resize,
 
     @SerialName("restart")
-    RESTART,
+    Restart,
 
     @SerialName("start")
-    START,
+    Start,
 
     @SerialName("stop")
-    STOP,
+    Stop,
 
     @SerialName("top")
-    TOP,
+    Top,
 
     @SerialName("unpause")
-    UNPAUSE,
+    Unpause,
 
     @SerialName("update")
-    UPDATE,
+    Update,
 
     @SerialName("prune")
-    PRUNE,
+    Prune,
 
     @SerialName("remove")
-    REMOVE,
+    Remove,
 
     @SerialName("load")
-    IMAGE_LOAD,
+    ImageLoad,
 
     @SerialName("pull")
-    IMAGE_PULL,
+    ImagePull,
 
     @SerialName("push")
-    IMAGE_PUSH,
+    ImagePush,
 
     @SerialName("save")
-    IMAGE_SAVE,
+    ImageSave,
 
     @SerialName("tag")
-    IMAGE_TAG,
+    ImageTag,
 
     @SerialName("untag")
-    IMAGE_UNTAG,
+    ImageUntag,
 
     @SerialName("reload")
-    DAEMON_RELOAD,
+    DaemonReload,
 
     @SerialName("connect")
-    NET_CONNECT,
+    NetworkConnect,
 
     @SerialName("disconnect")
-    NET_DISCONNECT,
-    UNKNOWN,
+    NetworkDisconnect,
+    Unknown,
 }
 
 @Serializable
 public enum class EventType {
     @SerialName("builder")
-    BUILDER,
+    Builder,
 
     @SerialName("config")
-    CONFIG,
+    Config,
 
     @SerialName("container")
-    CONTAINER,
+    Container,
 
     @SerialName("daemon")
-    DAEMON,
+    Daemon,
 
     @SerialName("image")
-    IMAGE,
+    Image,
 
     @SerialName("network")
-    NETWORK,
+    Network,
 
     @SerialName("node")
-    NODE,
+    Node,
 
     @SerialName("plugin")
-    PLUGIN,
+    Plugin,
 
     @SerialName("secret")
-    SECRET,
+    Secret,
 
     @SerialName("service")
-    SERVICE,
+    Service,
 
     @SerialName("volume")
-    VOLUME,
-    UNKNOWN,
+    Volume,
+    Unknown,
 }
 
 @Serializable
@@ -180,9 +195,10 @@ public data class EventActor internal constructor(
 @Serializable
 public enum class EventScope {
     @SerialName("local")
-    LOCAL,
+    Local,
 
     @SerialName("swarm")
-    SWARM,
-    UNKNOWN,
+    Swarm,
+
+    Unknown,
 }
