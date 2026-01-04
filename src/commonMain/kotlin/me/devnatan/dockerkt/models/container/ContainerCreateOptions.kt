@@ -19,6 +19,10 @@ public data class ContainerCreateOptions(
     @SerialName("Domainname") public var domainName: String? = null,
     @SerialName("User") public var user: String? = null,
     @SerialName("AttachStdin") public var attachStdin: Boolean? = null,
+    @SerialName("OpenStdin") public var openStdin: Boolean? = null,
+    @SerialName("StdinOnce") public var stdinOnce: Boolean? = null,
+    @SerialName("AttachStdout") public var attachStdout: Boolean? = null,
+    @SerialName("AttachStderr") public var attachStderr: Boolean? = null,
     @SerialName("ExposedPorts") public var exposedPorts:
         @Serializable(with = ExposedPortsSerializer::class)
         List<ExposedPort>? = null,
