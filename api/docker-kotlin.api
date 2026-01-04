@@ -3381,7 +3381,6 @@ public final class me/devnatan/dockerkt/models/secret/SecretSpec$Driver$Companio
 public final class me/devnatan/dockerkt/models/system/Event {
 	public static final field Companion Lme/devnatan/dockerkt/models/system/Event$Companion;
 	public final fun component1 ()Lme/devnatan/dockerkt/models/system/EventType;
-	public final fun component2 ()Lme/devnatan/dockerkt/models/system/EventAction;
 	public final fun component3 ()Lme/devnatan/dockerkt/models/system/EventActor;
 	public final fun component4 ()Lme/devnatan/dockerkt/models/system/EventScope;
 	public final fun component5 ()J
@@ -3389,6 +3388,7 @@ public final class me/devnatan/dockerkt/models/system/Event {
 	public fun equals (Ljava/lang/Object;)Z
 	public final fun getAction ()Lme/devnatan/dockerkt/models/system/EventAction;
 	public final fun getActor ()Lme/devnatan/dockerkt/models/system/EventActor;
+	public final fun getResult ()Ljava/lang/String;
 	public final fun getScope ()Lme/devnatan/dockerkt/models/system/EventScope;
 	public final fun getTimeMillis ()J
 	public final fun getTimeNanos ()J
@@ -3413,45 +3413,45 @@ public final class me/devnatan/dockerkt/models/system/Event$Companion {
 }
 
 public final class me/devnatan/dockerkt/models/system/EventAction : java/lang/Enum {
-	public static final field ATTACH Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field COMMIT Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field COPY Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field CREATE Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Attach Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Commit Lme/devnatan/dockerkt/models/system/EventAction;
 	public static final field Companion Lme/devnatan/dockerkt/models/system/EventAction$Companion;
-	public static final field DAEMON_RELOAD Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field DELETE Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field DESTROY Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field DETACH Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field DIE Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field EXEC_CREATE Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field EXEC_DETACH Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field EXEC_DIE Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field EXEC_START Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field EXPORT Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field HEALTH Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field IMAGE_LOAD Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field IMAGE_PULL Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field IMAGE_PUSH Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field IMAGE_SAVE Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field IMAGE_TAG Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field IMAGE_UNTAG Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field IMPORT Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field KILL Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field NET_CONNECT Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field NET_DISCONNECT Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field OOM Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field PAUSE Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field PRUNE Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field REMOVE Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field RENAME Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field RESIZE Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field RESTART Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field START Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field STOP Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field TOP Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field UNKNOWN Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field UNPAUSE Lme/devnatan/dockerkt/models/system/EventAction;
-	public static final field UPDATE Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Copy Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Create Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field DaemonReload Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Delete Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Destroy Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Detach Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Die Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field ExecCreate Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field ExecDetach Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field ExecDie Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field ExecStart Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Export Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Health Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field ImageLoad Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field ImagePull Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field ImagePush Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field ImageSave Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field ImageTag Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field ImageUntag Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Import Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Kill Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field NetworkConnect Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field NetworkDisconnect Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Oom Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Pause Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Prune Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Remove Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Rename Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Resize Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Restart Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Start Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Stop Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Top Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Unknown Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Unpause Lme/devnatan/dockerkt/models/system/EventAction;
+	public static final field Update Lme/devnatan/dockerkt/models/system/EventAction;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lme/devnatan/dockerkt/models/system/EventAction;
 	public static fun values ()[Lme/devnatan/dockerkt/models/system/EventAction;
@@ -3493,9 +3493,9 @@ public final class me/devnatan/dockerkt/models/system/EventKt {
 
 public final class me/devnatan/dockerkt/models/system/EventScope : java/lang/Enum {
 	public static final field Companion Lme/devnatan/dockerkt/models/system/EventScope$Companion;
-	public static final field LOCAL Lme/devnatan/dockerkt/models/system/EventScope;
-	public static final field SWARM Lme/devnatan/dockerkt/models/system/EventScope;
-	public static final field UNKNOWN Lme/devnatan/dockerkt/models/system/EventScope;
+	public static final field Local Lme/devnatan/dockerkt/models/system/EventScope;
+	public static final field Swarm Lme/devnatan/dockerkt/models/system/EventScope;
+	public static final field Unknown Lme/devnatan/dockerkt/models/system/EventScope;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lme/devnatan/dockerkt/models/system/EventScope;
 	public static fun values ()[Lme/devnatan/dockerkt/models/system/EventScope;
@@ -3506,19 +3506,19 @@ public final class me/devnatan/dockerkt/models/system/EventScope$Companion {
 }
 
 public final class me/devnatan/dockerkt/models/system/EventType : java/lang/Enum {
-	public static final field BUILDER Lme/devnatan/dockerkt/models/system/EventType;
-	public static final field CONFIG Lme/devnatan/dockerkt/models/system/EventType;
-	public static final field CONTAINER Lme/devnatan/dockerkt/models/system/EventType;
+	public static final field Builder Lme/devnatan/dockerkt/models/system/EventType;
 	public static final field Companion Lme/devnatan/dockerkt/models/system/EventType$Companion;
-	public static final field DAEMON Lme/devnatan/dockerkt/models/system/EventType;
-	public static final field IMAGE Lme/devnatan/dockerkt/models/system/EventType;
-	public static final field NETWORK Lme/devnatan/dockerkt/models/system/EventType;
-	public static final field NODE Lme/devnatan/dockerkt/models/system/EventType;
-	public static final field PLUGIN Lme/devnatan/dockerkt/models/system/EventType;
-	public static final field SECRET Lme/devnatan/dockerkt/models/system/EventType;
-	public static final field SERVICE Lme/devnatan/dockerkt/models/system/EventType;
-	public static final field UNKNOWN Lme/devnatan/dockerkt/models/system/EventType;
-	public static final field VOLUME Lme/devnatan/dockerkt/models/system/EventType;
+	public static final field Config Lme/devnatan/dockerkt/models/system/EventType;
+	public static final field Container Lme/devnatan/dockerkt/models/system/EventType;
+	public static final field Daemon Lme/devnatan/dockerkt/models/system/EventType;
+	public static final field Image Lme/devnatan/dockerkt/models/system/EventType;
+	public static final field Network Lme/devnatan/dockerkt/models/system/EventType;
+	public static final field Node Lme/devnatan/dockerkt/models/system/EventType;
+	public static final field Plugin Lme/devnatan/dockerkt/models/system/EventType;
+	public static final field Secret Lme/devnatan/dockerkt/models/system/EventType;
+	public static final field Service Lme/devnatan/dockerkt/models/system/EventType;
+	public static final field Unknown Lme/devnatan/dockerkt/models/system/EventType;
+	public static final field Volume Lme/devnatan/dockerkt/models/system/EventType;
 	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public static fun valueOf (Ljava/lang/String;)Lme/devnatan/dockerkt/models/system/EventType;
 	public static fun values ()[Lme/devnatan/dockerkt/models/system/EventType;
@@ -3539,6 +3539,7 @@ public final class me/devnatan/dockerkt/models/system/MonitorEventsOptions {
 	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;)Lme/devnatan/dockerkt/models/system/MonitorEventsOptions;
 	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/system/MonitorEventsOptions;Ljava/lang/String;Ljava/lang/String;Ljava/util/Map;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/system/MonitorEventsOptions;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun filterByAction ([Lme/devnatan/dockerkt/models/system/EventAction;)Lme/devnatan/dockerkt/models/system/MonitorEventsOptions;
 	public final fun filterByType ([Lme/devnatan/dockerkt/models/system/EventType;)Lme/devnatan/dockerkt/models/system/MonitorEventsOptions;
 	public final fun getFilters ()Ljava/util/Map;
 	public final fun getSince ()Ljava/lang/String;
