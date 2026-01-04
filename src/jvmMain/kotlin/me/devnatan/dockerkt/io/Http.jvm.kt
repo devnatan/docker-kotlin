@@ -1,10 +1,10 @@
 package me.devnatan.dockerkt.io
 
-import io.ktor.client.HttpClientConfig
-import io.ktor.client.engine.HttpClientEngineConfig
-import io.ktor.client.engine.okhttp.OkHttpConfig
+import io.ktor.client.HttpClient
+import io.ktor.client.engine.okhttp.OkHttp
 import me.devnatan.dockerkt.DockerClient
 import okhttp3.Interceptor
+import okhttp3.OkHttpClient
 import okhttp3.Response
 import java.util.concurrent.TimeUnit
 
@@ -34,23 +34,32 @@ private class UpgradeHeaderInterceptor : Interceptor {
     }
 }
 
-internal actual fun <T : HttpClientEngineConfig> HttpClientConfig<out T>.configureHttpClient(client: DockerClient) {
-    engine {
-        // ensure that current engine is OkHttp, cannot use CIO due to a Ktor Client bug related to data streaming
-        // https://youtrack.jetbrains.com/issue/KTOR-2494
-        require(this is OkHttpConfig) { "Only OkHttp engine is supported for now" }
+internal actual fun createHttpClient(dockerClient: DockerClient) =
+    HttpClient(OkHttp) {
+        configureBaseHttpClient(dockerClient)
 
-        config {
-            val isUnixSocket = isUnixSocket(client.config.socketPath)
-            if (isUnixSocket) {
-                socketFactory(UnixSocketFactory())
+        engine {
+            preconfigured =
+                OkHttpClient()
+                    .newBuilder()
+                    .apply { configureOkHttp(dockerClient.config.socketPath) }
+                    .build()
+
+            config {
+                configureOkHttp(dockerClient.config.socketPath)
             }
-            dns(SocketDns(isUnixSocket))
-            readTimeout(0, TimeUnit.MILLISECONDS)
-            connectTimeout(0, TimeUnit.MILLISECONDS)
-            callTimeout(0, TimeUnit.MILLISECONDS)
-            retryOnConnectionFailure(true)
-            addInterceptor(UpgradeHeaderInterceptor())
         }
     }
+
+private fun OkHttpClient.Builder.configureOkHttp(socketPath: String) {
+    val isUnixSocket = isUnixSocket(socketPath)
+    if (isUnixSocket) {
+        socketFactory(UnixSocketFactory())
+    }
+    dns(SocketDns(isUnixSocket))
+    readTimeout(0, TimeUnit.MILLISECONDS)
+    connectTimeout(0, TimeUnit.MILLISECONDS)
+    callTimeout(0, TimeUnit.MILLISECONDS)
+    retryOnConnectionFailure(true)
+    addInterceptor(UpgradeHeaderInterceptor())
 }
