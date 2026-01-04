@@ -4,6 +4,8 @@ import kotlinx.coroutines.flow.Flow
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
 import me.devnatan.dockerkt.models.container.Container
+import me.devnatan.dockerkt.models.container.ContainerAttachOptions
+import me.devnatan.dockerkt.models.container.ContainerAttachResult
 import me.devnatan.dockerkt.models.container.ContainerCopyOptions
 import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
@@ -167,10 +169,6 @@ public actual class ContainerResource {
         TODO("Not yet implemented")
     }
 
-    public actual fun attach(container: String): Flow<Frame> {
-        TODO("Not yet implemented")
-    }
-
     public actual suspend fun wait(
         container: String,
         condition: String?,
@@ -232,5 +230,12 @@ public actual class ContainerResource {
         destinationPath: String,
         options: ContainerCopyOptions,
     ) {
+    }
+
+    public actual suspend fun attach(
+        container: String,
+        options: ContainerAttachOptions,
+    ): ContainerAttachResult {
+        TODO("Not yet implemented")
     }
 }
