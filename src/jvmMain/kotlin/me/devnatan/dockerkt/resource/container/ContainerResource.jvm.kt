@@ -2,45 +2,62 @@ package me.devnatan.dockerkt.resource.container
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.engine.okhttp.OkHttpEngine
 import io.ktor.client.request.delete
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
 import io.ktor.client.request.post
 import io.ktor.client.request.prepareGet
-import io.ktor.client.request.preparePost
 import io.ktor.client.request.put
 import io.ktor.client.request.setBody
 import io.ktor.client.statement.readRawBytes
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
-import io.ktor.util.cio.toByteReadChannel
 import io.ktor.util.decodeBase64Bytes
 import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.CancellationException
 import io.ktor.utils.io.availableForRead
+import io.ktor.utils.io.cancel
+import io.ktor.utils.io.core.Buffer
 import io.ktor.utils.io.core.discard
+import io.ktor.utils.io.core.writeFully
+import io.ktor.utils.io.jvm.nio.toByteReadChannel
+import io.ktor.utils.io.readAvailable
 import io.ktor.utils.io.readByte
+import io.ktor.utils.io.readByteArray
+import io.ktor.utils.io.readFully
 import io.ktor.utils.io.readPacket
 import io.ktor.utils.io.readUTF8Line
+import io.ktor.utils.io.streams.asByteWriteChannel
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.future.asCompletableFuture
+import kotlinx.coroutines.suspendCancellableCoroutine
+import kotlinx.coroutines.withContext
 import kotlinx.io.files.Path
 import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.DockerResponseException
+import me.devnatan.dockerkt.DocketClientConfig
 import me.devnatan.dockerkt.io.FileSystemUtils
+import me.devnatan.dockerkt.io.HttpSocketPrefix
 import me.devnatan.dockerkt.io.TarEntry
 import me.devnatan.dockerkt.io.TarOperations
 import me.devnatan.dockerkt.io.TarUtils
+import me.devnatan.dockerkt.io.TcpSocketPrefix
+import me.devnatan.dockerkt.io.UnixSocketPrefix
 import me.devnatan.dockerkt.io.requestCatching
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
 import me.devnatan.dockerkt.models.Stream
 import me.devnatan.dockerkt.models.container.Container
 import me.devnatan.dockerkt.models.container.ContainerArchiveInfo
+import me.devnatan.dockerkt.models.container.ContainerAttachOptions
+import me.devnatan.dockerkt.models.container.ContainerAttachResult
 import me.devnatan.dockerkt.models.container.ContainerCopyOptions
 import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
@@ -54,7 +71,19 @@ import me.devnatan.dockerkt.models.container.ContainerSummary
 import me.devnatan.dockerkt.models.container.ContainerWaitResult
 import me.devnatan.dockerkt.resource.ResourcePaths.CONTAINERS
 import me.devnatan.dockerkt.resource.image.ImageNotFoundException
+import okhttp3.Call
+import okhttp3.Callback
+import okhttp3.Request
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.toRequestBody
+import okhttp3.internal.connection.Exchange
+import okio.BufferedSource
+import okio.Sink
+import okio.Source
+import okio.buffer
 import java.util.concurrent.CompletableFuture
+import kotlin.coroutines.resume
+import kotlin.coroutines.resumeWithException
 import kotlin.time.Duration
 import kotlin.time.DurationUnit
 import kotlin.time.toDuration
@@ -63,6 +92,7 @@ public actual class ContainerResource(
     private val coroutineScope: CoroutineScope,
     private val json: Json,
     private val httpClient: HttpClient,
+    private val config: DocketClientConfig,
 ) {
     /**
      * Returns a list of all containers.
@@ -488,24 +518,157 @@ public actual class ContainerResource(
         options: ResizeTTYOptions = ResizeTTYOptions(),
     ): CompletableFuture<Unit> = coroutineScope.async { resizeTTY(container, options) }.asCompletableFuture()
 
-    @JvmSynthetic
-    public actual fun attach(container: String): Flow<Frame> =
-        flow {
-            httpClient
-                .preparePost("$CONTAINERS/$container/attach") {
-                    parameter("stream", "true")
-                    parameter("stdin", "true")
-                    parameter("stdout", "true")
-                    parameter("stderr", "true")
-                }.execute { response ->
-                    val channel = response.body<ByteReadChannel>()
-                    while (!channel.isClosedForRead) {
-                        val line = channel.readUTF8Line() ?: break
+    public actual suspend fun attach(
+        container: String,
+        options: ContainerAttachOptions,
+    ): ContainerAttachResult =
+        when {
+            options.stdin -> attachSocket(container, options)
+            else -> attachDetached(container, options)
+        }
 
-                        // TODO handle stream type
-                        emit(Frame(line, line.length, Stream.StdOut))
+    private suspend fun attachDetached(
+        container: String,
+        options: ContainerAttachOptions,
+    ): ContainerAttachResult =
+        requestCatching(
+            HttpStatusCode.NotFound to { exception -> ContainerNotFoundException(exception, container) },
+            HttpStatusCode.BadRequest to { exception ->
+                IllegalArgumentException(
+                    "Invalid attach options: $options",
+                    exception,
+                )
+            },
+        ) {
+            httpClient.post("$CONTAINERS/$container/attach") {
+                parameter("stream", options.stream)
+                parameter("stdin", options.stdin)
+                parameter("stdout", options.stdout)
+                parameter("stderr", options.stderr)
+                parameter("logs", options.logs)
+                parameter("detachKeys", options.detachKeys)
+            }
+
+            ContainerAttachResult.Detached
+        }
+
+    private suspend fun attachSocket(
+        container: String,
+        options: ContainerAttachOptions,
+    ): ContainerAttachResult {
+        val engine = httpClient.engine as OkHttpEngine
+        val client = engine.config.preconfigured!!
+        val socketPath = config.socketPath
+        val baseUrl =
+            when {
+                socketPath.startsWith(UnixSocketPrefix) -> "http://localhost"
+                socketPath.startsWith(TcpSocketPrefix) -> socketPath.replace(TcpSocketPrefix, "http://")
+                socketPath.startsWith(HttpSocketPrefix) -> socketPath
+                else -> error("Invalid socket path: $socketPath")
+            }
+
+        val requestUrl =
+            "$baseUrl$CONTAINERS/$container/attach?stdin=${options.stdin}&stdout=${options.stdout}&stderr=${options.stderr}&logs=${options.logs}&stream=${options.stream}"
+
+        val request =
+            Request
+                .Builder()
+                .url(requestUrl)
+                .post(ByteArray(0).toRequestBody(null, 0, 0))
+                .header("Connection", "Upgrade")
+                .header("Upgrade", "tcp")
+                .build()
+
+        val response =
+            withContext(Dispatchers.IO) {
+                client.newCall(request).execute()
+            }
+
+        val socket = response.socket ?: error("No socket found in response")
+        val connection =
+            AttachConnection(
+                source = socket.source,
+                sink = socket.sink,
+            )
+
+        val readChannel = connection.source.buffer().toByteReadChannel()
+
+        return ContainerAttachResult.Stream(
+            output = readStream(readChannel),
+            input = { bytes ->
+                val buffer = okio.Buffer()
+                buffer.write(bytes)
+                socket.sink.write(buffer, buffer.size)
+                socket.sink.flush()
+            },
+        )
+    }
+
+    private data class AttachConnection(
+        val source: Source,
+        val sink: Sink,
+    )
+
+    private fun readStream(channel: ByteReadChannel): Flow<Frame> =
+        flow {
+            try {
+                val buffer = ByteArray(1024)
+                while (!channel.isClosedForRead) {
+                    val bytesRead = channel.readAvailable(buffer)
+                    if (bytesRead == -1) break
+
+                    if (bytesRead > 0) {
+                        val text = buffer.copyOf(bytesRead).decodeToString()
+                        emit(Frame(text, text.length, Stream.StdOut))
+                    } else {
+                        delay(10)
                     }
                 }
+            } finally {
+                channel.cancel()
+            }
+        }
+
+    private fun readMultiplexedStream(channel: ByteReadChannel): Flow<Frame> =
+        flow {
+            try {
+                while (!channel.isClosedForRead) {
+                    if (channel.availableForRead < 8) {
+                        delay(10)
+                        continue
+                    }
+
+                    val header = channel.readByteArray(8)
+                    val stream = Stream.typeOfOrNull(header[0]) ?: error("Invalid stream type: ${header[0].toInt()}")
+                    val frameSize =
+                        (
+                            (
+                                ((header[4].toInt() and 0xFF) shl 24) or
+                                    (header[5].toInt() and 0xFF)
+                            ) shl 16
+                        ) or
+                            (header[6].toInt() and 0xFF shl 8) or
+                            (header[7].toInt() and 0xFF)
+
+                    if (frameSize > 0) {
+                        while (!channel.isClosedForRead && channel.availableForRead < frameSize) {
+                            delay(10)
+                        }
+
+                        val data = ByteArray(frameSize)
+
+                        try {
+                            channel.readFully(data)
+                        } catch (_: Throwable) {
+                            break
+                        }
+
+                        emit(Frame(data.decodeToString(), frameSize, stream))
+                    }
+                }
+            } finally {
+                channel.cancel()
+            }
         }
 
     @JvmSynthetic
