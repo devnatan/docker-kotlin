@@ -1345,6 +1345,71 @@ public final class me/devnatan/dockerkt/models/container/ContainerArchiveInfoKt 
 	public static final fun getModifiedAt (Lme/devnatan/dockerkt/models/container/ContainerArchiveInfo;)Lkotlin/time/Instant;
 }
 
+public final class me/devnatan/dockerkt/models/container/ContainerAttachOptions {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/ContainerAttachOptions$Companion;
+	public fun <init> ()V
+	public fun <init> (ZZZZZLjava/lang/String;)V
+	public synthetic fun <init> (ZZZZZLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (ZZZZZLjava/lang/String;)Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;ZZZZZLjava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDetachKeys ()Ljava/lang/String;
+	public final fun getLogs ()Z
+	public final fun getStderr ()Z
+	public final fun getStdin ()Z
+	public final fun getStdout ()Z
+	public final fun getStream ()Z
+	public fun hashCode ()I
+	public final fun setDetachKeys (Ljava/lang/String;)V
+	public final fun setLogs (Z)V
+	public final fun setStderr (Z)V
+	public final fun setStdin (Z)V
+	public final fun setStdout (Z)V
+	public final fun setStream (Z)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/ContainerAttachOptions$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/ContainerAttachOptions$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerAttachOptions$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class me/devnatan/dockerkt/models/container/ContainerAttachResult {
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerAttachResult$Detached : me/devnatan/dockerkt/models/container/ContainerAttachResult {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/ContainerAttachResult$Detached;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerAttachResult$Stream : me/devnatan/dockerkt/models/container/ContainerAttachResult {
+	public fun <init> (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)V
+	public final fun component1 ()Lkotlinx/coroutines/flow/Flow;
+	public final fun copy (Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;)Lme/devnatan/dockerkt/models/container/ContainerAttachResult$Stream;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerAttachResult$Stream;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerAttachResult$Stream;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOutput ()Lkotlinx/coroutines/flow/Flow;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+	public final fun write (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun write ([BLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
 public final class me/devnatan/dockerkt/models/container/ContainerConfig {
 	public static final field Companion Lme/devnatan/dockerkt/models/container/ContainerConfig$Companion;
 	public fun <init> ()V
@@ -1476,36 +1541,42 @@ public final class me/devnatan/dockerkt/models/container/ContainerCopyResult {
 public final class me/devnatan/dockerkt/models/container/ContainerCreateOptions {
 	public static final field Companion Lme/devnatan/dockerkt/models/container/ContainerCreateOptions$Companion;
 	public fun <init> ()V
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lme/devnatan/dockerkt/models/HealthConfig;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;Lme/devnatan/dockerkt/models/HostConfig;Lme/devnatan/dockerkt/models/network/NetworkingConfig;Ljava/lang/Boolean;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lme/devnatan/dockerkt/models/HealthConfig;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;Lme/devnatan/dockerkt/models/HostConfig;Lme/devnatan/dockerkt/models/network/NetworkingConfig;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lme/devnatan/dockerkt/models/HealthConfig;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;Lme/devnatan/dockerkt/models/HostConfig;Lme/devnatan/dockerkt/models/network/NetworkingConfig;Ljava/lang/Boolean;)V
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lme/devnatan/dockerkt/models/HealthConfig;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;Lme/devnatan/dockerkt/models/HostConfig;Lme/devnatan/dockerkt/models/network/NetworkingConfig;Ljava/lang/Boolean;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun component1 ()Ljava/lang/String;
-	public final fun component10 ()Ljava/lang/Boolean;
-	public final fun component11 ()Ljava/lang/String;
+	public final fun component10 ()Ljava/util/List;
+	public final fun component11 ()Ljava/util/List;
 	public final fun component12 ()Ljava/util/List;
-	public final fun component13 ()Ljava/lang/String;
-	public final fun component14 ()Ljava/util/List;
-	public final fun component15 ()Ljava/lang/Boolean;
-	public final fun component16 ()Ljava/lang/String;
-	public final fun component17 ()Ljava/util/List;
-	public final fun component18 ()Ljava/util/Map;
-	public final fun component19 ()Ljava/lang/String;
+	public final fun component13 ()Lme/devnatan/dockerkt/models/HealthConfig;
+	public final fun component14 ()Ljava/lang/Boolean;
+	public final fun component15 ()Ljava/lang/String;
+	public final fun component16 ()Ljava/util/List;
+	public final fun component17 ()Ljava/lang/String;
+	public final fun component18 ()Ljava/util/List;
+	public final fun component19 ()Ljava/lang/Boolean;
 	public final fun component2 ()Ljava/lang/String;
-	public final fun component20 ()Ljava/lang/Integer;
+	public final fun component20 ()Ljava/lang/String;
 	public final fun component21 ()Ljava/util/List;
-	public final fun component22 ()Lme/devnatan/dockerkt/models/HostConfig;
-	public final fun component23 ()Lme/devnatan/dockerkt/models/network/NetworkingConfig;
-	public final fun component24 ()Ljava/lang/Boolean;
+	public final fun component22 ()Ljava/util/Map;
+	public final fun component23 ()Ljava/lang/String;
+	public final fun component24 ()Ljava/lang/Integer;
+	public final fun component25 ()Ljava/util/List;
+	public final fun component26 ()Lme/devnatan/dockerkt/models/HostConfig;
+	public final fun component27 ()Lme/devnatan/dockerkt/models/network/NetworkingConfig;
+	public final fun component28 ()Ljava/lang/Boolean;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Ljava/lang/String;
 	public final fun component5 ()Ljava/lang/Boolean;
-	public final fun component6 ()Ljava/util/List;
-	public final fun component7 ()Ljava/util/List;
-	public final fun component8 ()Ljava/util/List;
-	public final fun component9 ()Lme/devnatan/dockerkt/models/HealthConfig;
-	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lme/devnatan/dockerkt/models/HealthConfig;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;Lme/devnatan/dockerkt/models/HostConfig;Lme/devnatan/dockerkt/models/network/NetworkingConfig;Ljava/lang/Boolean;)Lme/devnatan/dockerkt/models/container/ContainerCreateOptions;
-	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerCreateOptions;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lme/devnatan/dockerkt/models/HealthConfig;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;Lme/devnatan/dockerkt/models/HostConfig;Lme/devnatan/dockerkt/models/network/NetworkingConfig;Ljava/lang/Boolean;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerCreateOptions;
+	public final fun component6 ()Ljava/lang/Boolean;
+	public final fun component7 ()Ljava/lang/Boolean;
+	public final fun component8 ()Ljava/lang/Boolean;
+	public final fun component9 ()Ljava/lang/Boolean;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lme/devnatan/dockerkt/models/HealthConfig;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;Lme/devnatan/dockerkt/models/HostConfig;Lme/devnatan/dockerkt/models/network/NetworkingConfig;Ljava/lang/Boolean;)Lme/devnatan/dockerkt/models/container/ContainerCreateOptions;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerCreateOptions;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lme/devnatan/dockerkt/models/HealthConfig;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Ljava/lang/Boolean;Ljava/lang/String;Ljava/util/List;Ljava/util/Map;Ljava/lang/String;Ljava/lang/Integer;Ljava/util/List;Lme/devnatan/dockerkt/models/HostConfig;Lme/devnatan/dockerkt/models/network/NetworkingConfig;Ljava/lang/Boolean;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerCreateOptions;
 	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAttachStderr ()Ljava/lang/Boolean;
 	public final fun getAttachStdin ()Ljava/lang/Boolean;
+	public final fun getAttachStdout ()Ljava/lang/Boolean;
 	public final fun getBuildMetadata ()Ljava/util/List;
 	public final fun getCommand ()Ljava/util/List;
 	public final fun getDisabledNetwork ()Ljava/lang/Boolean;
@@ -1522,7 +1593,9 @@ public final class me/devnatan/dockerkt/models/container/ContainerCreateOptions 
 	public final fun getMacAddress ()Ljava/lang/String;
 	public final fun getName ()Ljava/lang/String;
 	public final fun getNetworkingConfig ()Lme/devnatan/dockerkt/models/network/NetworkingConfig;
+	public final fun getOpenStdin ()Ljava/lang/Boolean;
 	public final fun getShell ()Ljava/util/List;
+	public final fun getStdinOnce ()Ljava/lang/Boolean;
 	public final fun getStopSignal ()Ljava/lang/String;
 	public final fun getStopTimeout ()Ljava/lang/Integer;
 	public final fun getTty ()Ljava/lang/Boolean;
@@ -1530,7 +1603,9 @@ public final class me/devnatan/dockerkt/models/container/ContainerCreateOptions 
 	public final fun getVolumes ()Ljava/util/List;
 	public final fun getWorkingDirectory ()Ljava/lang/String;
 	public fun hashCode ()I
+	public final fun setAttachStderr (Ljava/lang/Boolean;)V
 	public final fun setAttachStdin (Ljava/lang/Boolean;)V
+	public final fun setAttachStdout (Ljava/lang/Boolean;)V
 	public final fun setBuildMetadata (Ljava/util/List;)V
 	public final fun setCommand (Ljava/util/List;)V
 	public final fun setDisabledNetwork (Ljava/lang/Boolean;)V
@@ -1547,7 +1622,9 @@ public final class me/devnatan/dockerkt/models/container/ContainerCreateOptions 
 	public final fun setMacAddress (Ljava/lang/String;)V
 	public final fun setName (Ljava/lang/String;)V
 	public final fun setNetworkingConfig (Lme/devnatan/dockerkt/models/network/NetworkingConfig;)V
+	public final fun setOpenStdin (Ljava/lang/Boolean;)V
 	public final fun setShell (Ljava/util/List;)V
+	public final fun setStdinOnce (Ljava/lang/Boolean;)V
 	public final fun setStopSignal (Ljava/lang/String;)V
 	public final fun setStopTimeout (Ljava/lang/Integer;)V
 	public final fun setTty (Ljava/lang/Boolean;)V
@@ -3963,8 +4040,8 @@ public final class me/devnatan/dockerkt/resource/container/ContainerRenameConfli
 }
 
 public final class me/devnatan/dockerkt/resource/container/ContainerResource {
-	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lkotlinx/serialization/json/Json;Lio/ktor/client/HttpClient;)V
-	public final synthetic fun attach (Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
+	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lkotlinx/serialization/json/Json;Lio/ktor/client/HttpClient;Lme/devnatan/dockerkt/DocketClientConfig;)V
+	public final fun attach (Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun copyDirectoryFrom (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun copyDirectoryTo (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun copyDirectoryTo$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
@@ -4034,6 +4111,7 @@ public final class me/devnatan/dockerkt/resource/container/ContainerResource {
 }
 
 public final class me/devnatan/dockerkt/resource/container/ContainerResourceExtKt {
+	public static final fun attach (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun copyDirectoryTo (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun copyFileTo (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun copyTo (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;[BLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
