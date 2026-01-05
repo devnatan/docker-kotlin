@@ -6,7 +6,7 @@ import me.devnatan.dockerkt.io.HttpSocketPrefix
 import me.devnatan.dockerkt.io.UnixSocketPrefix
 import kotlin.jvm.JvmStatic
 
-internal val DefaultDocketClientConfig = DocketClientConfig.builder().forCurrentPlatform().build()
+internal val DefaultDockerClientConfig = DockerClientConfig.builder().forCurrentPlatform().build()
 
 /**
  * Daemon socket to connect to.
@@ -32,7 +32,7 @@ public const val DefaultDockerApiVersion: String = "1.41"
  * @param apiVersion The version of the Docker API that will be used during communication.
  *                   See more: [Versioned API and SDK](https://docs.docker.com/engine/api/#versioned-api-and-sdk).
  */
-public class DocketClientConfig(
+public class DockerClientConfig(
     public val socketPath: String,
     public val apiVersion: String,
     public val debugHttpCalls: Boolean,
@@ -149,9 +149,9 @@ public class DockerClientConfigBuilder {
     }
 
     /**
-     * Builds this class to a [DocketClientConfig].
+     * Builds this class to a [DockerClientConfig].
      */
-    public fun build(): DocketClientConfig = DocketClientConfig(socketPath, apiVersion, debugHttpCalls)
+    public fun build(): DockerClientConfig = DockerClientConfig(socketPath, apiVersion, debugHttpCalls)
 
     /**
      * Returns the value for the given environment variable [key] or [fallback] if it isn't set.

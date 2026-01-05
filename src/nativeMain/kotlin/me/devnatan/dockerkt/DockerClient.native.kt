@@ -17,7 +17,7 @@ import me.devnatan.dockerkt.util.DockerKotlinJson
 import kotlin.coroutines.CoroutineContext
 
 public actual class DockerClient public actual constructor(
-    public actual val config: DocketClientConfig,
+    public actual val config: DockerClientConfig,
 ) : CoroutineScope,
     Closeable {
     actual override val coroutineContext: CoroutineContext = SupervisorJob()

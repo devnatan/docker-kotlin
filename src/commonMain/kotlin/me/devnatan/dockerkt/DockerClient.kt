@@ -13,11 +13,11 @@ import me.devnatan.dockerkt.resource.volume.VolumeResource
 import kotlin.coroutines.CoroutineContext
 
 public expect class DockerClient(
-    config: DocketClientConfig,
+    config: DockerClientConfig,
 ) : CoroutineScope {
     override val coroutineContext: CoroutineContext
 
-    public val config: DocketClientConfig
+    public val config: DockerClientConfig
     public val json: Json
     public val httpClient: HttpClient
     public val images: ImageResource
