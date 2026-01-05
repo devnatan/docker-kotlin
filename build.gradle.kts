@@ -145,6 +145,7 @@ dokka {
     dokkaPublications.html {
         moduleName.set("Docker Kotlin")
         moduleVersion.set(project.version.toString())
+        outputDirectory.set(layout.projectDirectory.dir("docs/public"))
     }
 
     dokkaSourceSets.configureEach {
