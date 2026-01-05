@@ -1,3 +1,4 @@
+import org.jetbrains.dokka.gradle.engine.parameters.VisibilityModifier
 import org.jmailen.gradle.kotlinter.support.ReporterType
 
 plugins {
@@ -5,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlinx.serialization)
     alias(libs.plugins.kotlinter)
     alias(libs.plugins.publish)
+    alias(libs.plugins.dokka)
 }
 
 group = "me.devnatan"
@@ -137,4 +139,23 @@ publishing {
 
 kotlinter {
     reporters = arrayOf(ReporterType.html.name)
+}
+
+dokka {
+    dokkaPublications.html {
+        moduleName.set("Docker Kotlin")
+        moduleVersion.set(project.version.toString())
+    }
+
+    dokkaSourceSets.configureEach {
+        documentedVisibilities.set(setOf(VisibilityModifier.Public))
+
+        sourceLink {
+            val sourceSetName = this@configureEach.name
+            localDirectory.set(file("src/$sourceSetName/kotlin"))
+
+            remoteUrl("https://github.com/devnatan/docker-kotlin/blob/main/src/$sourceSetName/kotlin")
+            remoteLineSuffix.set("#L")
+        }
+    }
 }
