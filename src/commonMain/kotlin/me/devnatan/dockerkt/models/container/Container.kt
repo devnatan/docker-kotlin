@@ -38,11 +38,7 @@ public data class Container internal constructor(
 
 @Serializable
 public data class NetworkSettings internal constructor(
-    @SerialName("Bridge") public val bridge: String,
     @SerialName("SandboxID") public val sandboxId: String,
-    @SerialName("HairpinMode") public val hairpinMode: Boolean,
-    @SerialName("LinkLocalIPv6Address") public val linkLocalIPv6Address: String,
-    @SerialName("LinkLocalIPv6PrefixLen") public val linkLocalIPv6PrefixLength: Int,
     @SerialName("GlobalIPv6Address") public val globalIPv6Address: String? = null,
     @SerialName("GlobalIPv6PrefixLen") public val globalIPv6PrefixLength: Int? = null,
     @SerialName("IPAddress") public val ipAddress: String? = null,
@@ -54,8 +50,6 @@ public data class NetworkSettings internal constructor(
         Map<ExposedPort, List<PortBinding>?> =
         emptyMap(),
     @SerialName("SandboxKey") public val sandboxKey: String,
-    @SerialName("EndpointID") public val endpointId: String,
-    @SerialName("Gateway") public val gateway: String,
     @SerialName("Networks") public val networks: Map<String, EndpointSettings> = emptyMap(),
 )
 
