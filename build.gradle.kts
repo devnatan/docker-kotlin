@@ -123,20 +123,6 @@ tasks.check {
     dependsOn("installKotlinterPrePushHook")
 }
 
-mavenPublishing {
-    signing.isRequired = false
-}
-
-publishing {
-    repositories {
-        maven {
-            name = "githubPackages"
-            url = uri("https://maven.pkg.github.com/devnatan/docker-kotlin")
-            credentials(PasswordCredentials::class)
-        }
-    }
-}
-
 kotlinter {
     reporters = arrayOf(ReporterType.html.name)
 }
