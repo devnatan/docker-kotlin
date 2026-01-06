@@ -3,7 +3,6 @@ package me.devnatan.dockerkt.io
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.call.body
-import io.ktor.client.engine.HttpClientEngineConfig
 import io.ktor.client.plugins.HttpResponseValidator
 import io.ktor.client.plugins.ResponseException
 import io.ktor.client.plugins.UserAgent
@@ -27,61 +26,56 @@ import me.devnatan.dockerkt.DockerClient
 import me.devnatan.dockerkt.DockerResponseException
 import me.devnatan.dockerkt.GenericDockerErrorResponse
 
-internal expect fun <T : HttpClientEngineConfig> HttpClientConfig<out T>.configureHttpClient(client: DockerClient)
+internal expect fun createHttpClient(dockerClient: DockerClient): HttpClient
 
-internal fun createHttpClient(client: DockerClient): HttpClient {
-    check(client.config.socketPath.isNotBlank()) { "Socket path cannot be blank" }
-    return HttpClient {
-        expectSuccess = true
+internal fun HttpClientConfig<*>.configureBaseHttpClient(dockerClient: DockerClient) {
+    expectSuccess = true
 
-        install(ContentNegotiation) {
-            json(
-                Json {
-                    ignoreUnknownKeys = true
-                },
+    install(ContentNegotiation) {
+        json(
+            Json {
+                ignoreUnknownKeys = true
+            },
+        )
+    }
+
+    if (dockerClient.config.debugHttpCalls) {
+        install(Logging) {
+            logger = Logger.SIMPLE
+            level = LogLevel.ALL
+        }
+    }
+
+    install(UserAgent) { agent = "docker-kotlin" }
+
+    HttpResponseValidator {
+        handleResponseExceptionWithRequest { exception, _ ->
+            val responseException = exception as? ResponseException ?: return@handleResponseExceptionWithRequest
+            val exceptionResponse = responseException.response
+
+            val errorMessage =
+                runCatching {
+                    exceptionResponse.body<GenericDockerErrorResponse>()
+                }.getOrNull()?.message
+            throw DockerResponseException(
+                cause = exception,
+                message = errorMessage,
+                statusCode = exceptionResponse.status,
             )
         }
+    }
 
-        if (client.config.debugHttpCalls) {
-            install(Logging) {
-                logger = Logger.SIMPLE
-                level = LogLevel.ALL
-            }
-        }
+    defaultRequest {
+        contentType(ContentType.Application.Json)
 
-        install(UserAgent) { agent = "docker-kotlin" }
-        configureHttpClient(client)
-
-        HttpResponseValidator {
-            handleResponseExceptionWithRequest { exception, _ ->
-                val responseException = exception as? ResponseException ?: return@handleResponseExceptionWithRequest
-                val exceptionResponse = responseException.response
-                println("exceptionResponse = ${exceptionResponse.body<String>()}")
-
-                val errorMessage =
-                    runCatching {
-                        exceptionResponse.body<GenericDockerErrorResponse>()
-                    }.getOrNull()?.message
-                throw DockerResponseException(
-                    cause = exception,
-                    message = errorMessage,
-                    statusCode = exceptionResponse.status,
-                )
-            }
-        }
-
-        defaultRequest {
-            contentType(ContentType.Application.Json)
-
-            // workaround for URL prepending
-            // https://github.com/ktorio/ktor/issues/537#issuecomment-603272476
-            url.takeFrom(
-                URLBuilder(createUrlBuilder(client.config.socketPath)).apply {
-                    encodedPath = "/v${client.config.apiVersion}/"
-                    encodedPath += url.encodedPath
-                },
-            )
-        }
+        // workaround for URL prepending
+        // https://github.com/ktorio/ktor/issues/537#issuecomment-603272476
+        url.takeFrom(
+            URLBuilder(createUrlBuilder(dockerClient.config.socketPath)).apply {
+                encodedPath = "/v${dockerClient.config.apiVersion}/"
+                encodedPath += url.encodedPath
+            },
+        )
     }
 }
 

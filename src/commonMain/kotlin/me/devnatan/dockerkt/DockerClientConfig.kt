@@ -2,7 +2,7 @@ package me.devnatan.dockerkt
 
 import me.devnatan.dockerkt.io.DefaultDockerHttpSocket
 import me.devnatan.dockerkt.io.DefaultDockerUnixSocket
-import me.devnatan.dockerkt.io.HttpSocketPrefix
+import me.devnatan.dockerkt.io.TcpSocketPrefix
 import me.devnatan.dockerkt.io.UnixSocketPrefix
 import kotlin.jvm.JvmStatic
 
@@ -122,14 +122,14 @@ public class DockerClientConfigBuilder {
      * Configures to use an HTTP socket defaults common to the standard Docker configuration.
      *
      * The socket path is defined to [DefaultDockerHttpSocket] if `DOCKER_HOST` env var is not set, or it doesn't
-     * have the [HttpSocketPrefix] on its prefix.
+     * have the [TcpSocketPrefix] on its prefix.
      */
     public fun useHttpDefaults(): DockerClientConfigBuilder {
         socketPath =
             envOrFallback(
                 key = DockerHostEnvKey,
                 fallback = DefaultDockerHttpSocket,
-                prefix = HttpSocketPrefix,
+                prefix = TcpSocketPrefix,
             )
         return this
     }

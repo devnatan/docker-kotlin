@@ -33,7 +33,7 @@ public actual class DockerClient public actual constructor(
     public actual val exec: ExecResource = ExecResource(httpClient)
 
     @get:JvmName("containers")
-    public actual val containers: ContainerResource = ContainerResource(this, json, httpClient)
+    public actual val containers: ContainerResource = ContainerResource(this, json, httpClient, config)
 
     @get:JvmName("networks")
     public actual val networks: NetworkResource = NetworkResource(httpClient, json)

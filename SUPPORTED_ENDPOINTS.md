@@ -1,8 +1,8 @@
 # docker-kotlin supported Docker API endpoints
 
-Supports 46 of 106 endpoints
+Supports 47 of 106 endpoints
 
-### Containers (15/25)
+### Containers (16/25)
 * [x] List containers - GET **/containers/json**
 * [x] Create a container - POST **/containers/create**
 * [x] Inspect a container - GET **/containers/:id/json**
@@ -20,7 +20,7 @@ Supports 46 of 106 endpoints
 * [x] Rename a container - **POST /containers/:id/rename**
 * [x] Pause a container - **POST /containers/:id/pause**
 * [x] Unpause a container - **POST /containers/:id/unpause**
-* [ ] Attach to a container - **POST /containers/:id/attach**
+* [x] Attach to a container via TCP socket - **POST /containers/:id/attach**
 * [ ] Attach to a container via a websocket - **POST /containers/:id/attach/ws**
 * [x] Wait for a container - **POST /containers/:id/wait**
 * [x] Remove a container - **DELETE /containers/:id**

@@ -37,6 +37,7 @@ suspend fun <R> DockerClient.withImage(
 suspend fun <R> DockerClient.withContainer(
     image: String,
     options: ContainerCreateOptions.() -> Unit = {},
+    start: Boolean = false,
     block: suspend (String) -> R,
 ): Unit =
     withImage(image) { imageTag ->
@@ -50,6 +51,8 @@ suspend fun <R> DockerClient.withContainer(
         } catch (e: Throwable) {
             fail("Failed to create container", e)
         }
+
+        if (start) containers.start(containerId)
 
         try {
             block(containerId)

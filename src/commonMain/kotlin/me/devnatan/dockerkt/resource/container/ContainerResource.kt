@@ -5,6 +5,8 @@ import me.devnatan.dockerkt.DockerResponseException
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
 import me.devnatan.dockerkt.models.container.Container
+import me.devnatan.dockerkt.models.container.ContainerAttachOptions
+import me.devnatan.dockerkt.models.container.ContainerAttachResult
 import me.devnatan.dockerkt.models.container.ContainerCopyOptions
 import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
@@ -145,8 +147,10 @@ public expect class ContainerResource {
         options: ResizeTTYOptions = ResizeTTYOptions(),
     )
 
-    // TODO documentation
-    public fun attach(container: String): Flow<Frame>
+    public suspend fun attach(
+        container: String,
+        options: ContainerAttachOptions,
+    ): ContainerAttachResult
 
     // TODO documentation
     public suspend fun wait(
