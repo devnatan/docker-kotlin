@@ -13,7 +13,8 @@ plugins {
 group = "me.devnatan"
 version = property("version")
     .toString()
-    .takeUnless { it == "unspecified" }
+    .ifEmpty { null }
+    ?.takeUnless { it == "unspecified" }
     ?.filterNot { it == 'v' } ?: nextGitTag()
 
 fun nextGitTag(): String {
