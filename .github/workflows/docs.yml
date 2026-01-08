@@ -31,7 +31,7 @@ jobs:
         uses: gradle/actions/setup-gradle@v5
 
       - name: Generate Documentation
-        run: ./gradlew dokkaGenerateHtml --rerun-tasks --no-configuration-cache
+        run: ./gradlew dokkaGenerateHtml --rerun-tasks
 
       - name: Deploy Worker
         uses: cloudflare/wrangler-action@v3

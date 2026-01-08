@@ -125,6 +125,8 @@ tasks.check {
 }
 
 tasks.withType<DokkaGenerateTask>().configureEach {
+    notCompatibleWithConfigurationCache("Direct project access")
+
     doLast {
         val packageJsonFile = layout.projectDirectory.file("docs/package.json").asFile
         val currentVersion = project.version.toString()
