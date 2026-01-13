@@ -2240,7 +2240,7 @@ public final class me/devnatan/dockerkt/models/exec/ExecInspectResponse {
 	public final fun component2 ()Ljava/lang/String;
 	public final fun component3 ()Ljava/lang/String;
 	public final fun component4 ()Z
-	public final fun component5 ()I
+	public final fun component5 ()Ljava/lang/Integer;
 	public final fun component6 ()Lme/devnatan/dockerkt/models/ProcessConfig;
 	public final fun component7 ()Z
 	public final fun component8 ()Z
@@ -2249,7 +2249,7 @@ public final class me/devnatan/dockerkt/models/exec/ExecInspectResponse {
 	public final fun getCanRemove ()Z
 	public final fun getContainerId ()Ljava/lang/String;
 	public final fun getDetachKeys ()Ljava/lang/String;
-	public final fun getExitCode ()I
+	public final fun getExitCode ()Ljava/lang/Integer;
 	public final fun getId ()Ljava/lang/String;
 	public final fun getOpenStdErr ()Z
 	public final fun getOpenStdin ()Z

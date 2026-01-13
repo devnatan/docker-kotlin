@@ -10,7 +10,7 @@ public data class ExecInspectResponse internal constructor(
     @SerialName("DetachKeys") val detachKeys: String,
     @SerialName("ID") val id: String,
     @SerialName("Running") val running: Boolean,
-    @SerialName("ExitCode") val exitCode: Int,
+    @SerialName("ExitCode") val exitCode: Int?,
     @SerialName("ProcessConfig") val processConfig: ProcessConfig,
     @SerialName("OpenStdin") val openStdin: Boolean,
     @SerialName("OpenStderr") val openStdErr: Boolean,
