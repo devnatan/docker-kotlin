@@ -2295,7 +2295,11 @@ public final class me/devnatan/dockerkt/models/exec/ExecStartOptions {
 	public final fun getStream ()Z
 	public final fun getTty ()Ljava/lang/Boolean;
 	public fun hashCode ()I
+	public final fun setDemux (Z)V
 	public final fun setDetach (Ljava/lang/Boolean;)V
+	public final fun setSocket (Z)V
+	public final fun setStream (Z)V
+	public final fun setTty (Ljava/lang/Boolean;)V
 	public fun toString ()Ljava/lang/String;
 }
 
