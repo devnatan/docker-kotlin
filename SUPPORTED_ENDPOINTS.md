@@ -1,6 +1,6 @@
 # docker-kotlin supported Docker API endpoints
 
-Supports 46 of 106 endpoints
+Supports 47 of 106 endpoints
 
 ### Containers (15/25)
 * [x] List containers - GET **/containers/json**
@@ -29,13 +29,13 @@ Supports 46 of 106 endpoints
 * [x] Extract an archive of files or folders to a directory in a container - **PUT /containers/:id/archive**
 * [x] Delete stopped containers - **PUT /containers/prune**
 
-### Images (3/15)
+### Images (4/15)
 * [x] List images - GET **/images/json**
 * [ ] Build an image - POST **/build**
 * [ ] Delete builder cache - POST **/build/prune**
 * [ ] Create an image - POST **/images/create**
 * [x] Pull an image - POST **/images/create**
-* [ ] Inspect an image - GET **/images/:name/json**
+* [x] Inspect an image - GET **/images/:name/json**
 * [ ] Get the history of an image - GET **/images/:name/history**
 * [ ] Push an image to a registry - POST **/images/:name/push**
 * [ ] Tag an image - POST **/images/:name/tag**

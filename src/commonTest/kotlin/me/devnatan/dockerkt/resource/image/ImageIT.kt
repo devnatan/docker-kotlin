@@ -5,6 +5,7 @@ import kotlinx.coroutines.test.runTest
 import me.devnatan.dockerkt.resource.ResourceIT
 import me.devnatan.dockerkt.withImage
 import kotlin.test.Test
+import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 import kotlin.test.fail
 
@@ -38,5 +39,14 @@ class ImageIT : ResourceIT() {
             }
 
             testClient.images.remove(image)
+        }
+
+    @Test
+    fun `image inspect`() =
+        runTest {
+            testClient.withImage("itzg/minecraft-server:latest") { imageTag ->
+                val info = testClient.images.inspect(imageTag)
+                assertNotNull(info)
+            }
         }
 }

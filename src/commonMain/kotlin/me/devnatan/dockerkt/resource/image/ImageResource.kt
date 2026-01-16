@@ -18,6 +18,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.io.requestCatching
+import me.devnatan.dockerkt.models.image.Image
 import me.devnatan.dockerkt.models.image.ImageBuildOptions
 import me.devnatan.dockerkt.models.image.ImagePull
 import me.devnatan.dockerkt.models.image.ImageSummary
@@ -104,6 +105,21 @@ public class ImageResource internal constructor(
             setBody(archivePath)
         }
     }
+
+    /**
+     * Return low-level information about an image.
+     *
+     * @param image Image name or ID.
+     * @throws ImageNotFoundException If the image is not found.
+     */
+    public suspend fun inspect(image: String): Image =
+        requestCatching(
+            HttpStatusCode.NotFound to { exception ->
+                ImageNotFoundException(exception, image)
+            },
+        ) {
+            httpClient.get("$BasePath/$image/json")
+        }.body()
 }
 
 public suspend inline fun ImageResource.build(

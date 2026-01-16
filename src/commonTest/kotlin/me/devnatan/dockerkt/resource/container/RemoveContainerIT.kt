@@ -13,7 +13,6 @@ class RemoveContainerIT : ResourceIT() {
     fun `throws ContainerNotFoundException on remove a unknown container`() =
         runTest {
             assertFailsWith<ContainerNotFoundException> {
-                // TODO generate random id
                 testClient.containers.remove("santo-bastao")
             }
         }
