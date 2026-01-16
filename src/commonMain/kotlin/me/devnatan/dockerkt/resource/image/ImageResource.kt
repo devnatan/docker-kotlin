@@ -113,9 +113,11 @@ public class ImageResource internal constructor(
      * @throws ImageNotFoundException If the image is not found.
      */
     public suspend fun inspect(image: String): Image =
-        requestCatching(HttpStatusCode.NotFound to { exception ->
-            ImageNotFoundException(exception, image)
-        }) {
+        requestCatching(
+            HttpStatusCode.NotFound to { exception ->
+                ImageNotFoundException(exception, image)
+            },
+        ) {
             httpClient.get("$BasePath/$image/json")
         }.body()
 }
