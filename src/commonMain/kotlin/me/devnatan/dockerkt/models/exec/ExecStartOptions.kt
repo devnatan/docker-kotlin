@@ -39,10 +39,10 @@ import kotlinx.serialization.Transient
 @Serializable
 public data class ExecStartOptions(
     @SerialName("Detach") var detach: Boolean? = null,
-    @SerialName("Tty") val tty: Boolean? = null,
-    @Transient val stream: Boolean = false,
-    @Transient val socket: Boolean = false,
-    @Transient val demux: Boolean = false,
+    @SerialName("Tty") var tty: Boolean? = null,
+    @Transient var stream: Boolean = false,
+    @Transient var socket: Boolean = false,
+    @Transient var demux: Boolean = false,
 ) {
     init {
         require(!(stream && socket)) {
