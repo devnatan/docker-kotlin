@@ -2516,6 +2516,1098 @@ final class me.devnatan.dockerkt.models.system/MonitorEventsOptions { // me.devn
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/MonitorEventsOptions.toString|toString(){}[0]
 }
 
+final class me.devnatan.dockerkt.models.system/SystemInfo { // me.devnatan.dockerkt.models.system/SystemInfo|null[0]
+    final val architecture // me.devnatan.dockerkt.models.system/SystemInfo.architecture|{}architecture[0]
+        final fun <get-architecture>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.architecture.<get-architecture>|<get-architecture>(){}[0]
+    final val cdiSpecDirs // me.devnatan.dockerkt.models.system/SystemInfo.cdiSpecDirs|{}cdiSpecDirs[0]
+        final fun <get-cdiSpecDirs>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.cdiSpecDirs.<get-cdiSpecDirs>|<get-cdiSpecDirs>(){}[0]
+    final val cgroupDriver // me.devnatan.dockerkt.models.system/SystemInfo.cgroupDriver|{}cgroupDriver[0]
+        final fun <get-cgroupDriver>(): me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver // me.devnatan.dockerkt.models.system/SystemInfo.cgroupDriver.<get-cgroupDriver>|<get-cgroupDriver>(){}[0]
+    final val cgroupVersion // me.devnatan.dockerkt.models.system/SystemInfo.cgroupVersion|{}cgroupVersion[0]
+        final fun <get-cgroupVersion>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.cgroupVersion.<get-cgroupVersion>|<get-cgroupVersion>(){}[0]
+    final val containerd // me.devnatan.dockerkt.models.system/SystemInfo.containerd|{}containerd[0]
+        final fun <get-containerd>(): me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo? // me.devnatan.dockerkt.models.system/SystemInfo.containerd.<get-containerd>|<get-containerd>(){}[0]
+    final val containerdCommit // me.devnatan.dockerkt.models.system/SystemInfo.containerdCommit|{}containerdCommit[0]
+        final fun <get-containerdCommit>(): me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo // me.devnatan.dockerkt.models.system/SystemInfo.containerdCommit.<get-containerdCommit>|<get-containerdCommit>(){}[0]
+    final val containers // me.devnatan.dockerkt.models.system/SystemInfo.containers|{}containers[0]
+        final fun <get-containers>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.containers.<get-containers>|<get-containers>(){}[0]
+    final val containersPaused // me.devnatan.dockerkt.models.system/SystemInfo.containersPaused|{}containersPaused[0]
+        final fun <get-containersPaused>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.containersPaused.<get-containersPaused>|<get-containersPaused>(){}[0]
+    final val containersRunning // me.devnatan.dockerkt.models.system/SystemInfo.containersRunning|{}containersRunning[0]
+        final fun <get-containersRunning>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.containersRunning.<get-containersRunning>|<get-containersRunning>(){}[0]
+    final val containersStopped // me.devnatan.dockerkt.models.system/SystemInfo.containersStopped|{}containersStopped[0]
+        final fun <get-containersStopped>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.containersStopped.<get-containersStopped>|<get-containersStopped>(){}[0]
+    final val cpuCfsPeriod // me.devnatan.dockerkt.models.system/SystemInfo.cpuCfsPeriod|{}cpuCfsPeriod[0]
+        final fun <get-cpuCfsPeriod>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.cpuCfsPeriod.<get-cpuCfsPeriod>|<get-cpuCfsPeriod>(){}[0]
+    final val cpuCfsQuota // me.devnatan.dockerkt.models.system/SystemInfo.cpuCfsQuota|{}cpuCfsQuota[0]
+        final fun <get-cpuCfsQuota>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.cpuCfsQuota.<get-cpuCfsQuota>|<get-cpuCfsQuota>(){}[0]
+    final val cpuSet // me.devnatan.dockerkt.models.system/SystemInfo.cpuSet|{}cpuSet[0]
+        final fun <get-cpuSet>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.cpuSet.<get-cpuSet>|<get-cpuSet>(){}[0]
+    final val cpuShares // me.devnatan.dockerkt.models.system/SystemInfo.cpuShares|{}cpuShares[0]
+        final fun <get-cpuShares>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.cpuShares.<get-cpuShares>|<get-cpuShares>(){}[0]
+    final val debug // me.devnatan.dockerkt.models.system/SystemInfo.debug|{}debug[0]
+        final fun <get-debug>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.debug.<get-debug>|<get-debug>(){}[0]
+    final val defaultAddressPools // me.devnatan.dockerkt.models.system/SystemInfo.defaultAddressPools|{}defaultAddressPools[0]
+        final fun <get-defaultAddressPools>(): kotlin.collections/List<me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool>? // me.devnatan.dockerkt.models.system/SystemInfo.defaultAddressPools.<get-defaultAddressPools>|<get-defaultAddressPools>(){}[0]
+    final val defaultRuntime // me.devnatan.dockerkt.models.system/SystemInfo.defaultRuntime|{}defaultRuntime[0]
+        final fun <get-defaultRuntime>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.defaultRuntime.<get-defaultRuntime>|<get-defaultRuntime>(){}[0]
+    final val discoveredDevices // me.devnatan.dockerkt.models.system/SystemInfo.discoveredDevices|{}discoveredDevices[0]
+        final fun <get-discoveredDevices>(): kotlin.collections/List<me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice>? // me.devnatan.dockerkt.models.system/SystemInfo.discoveredDevices.<get-discoveredDevices>|<get-discoveredDevices>(){}[0]
+    final val dockerRootDir // me.devnatan.dockerkt.models.system/SystemInfo.dockerRootDir|{}dockerRootDir[0]
+        final fun <get-dockerRootDir>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.dockerRootDir.<get-dockerRootDir>|<get-dockerRootDir>(){}[0]
+    final val driver // me.devnatan.dockerkt.models.system/SystemInfo.driver|{}driver[0]
+        final fun <get-driver>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.driver.<get-driver>|<get-driver>(){}[0]
+    final val driverStatus // me.devnatan.dockerkt.models.system/SystemInfo.driverStatus|{}driverStatus[0]
+        final fun <get-driverStatus>(): kotlin.collections/List<kotlin.collections/List<kotlin/String>>? // me.devnatan.dockerkt.models.system/SystemInfo.driverStatus.<get-driverStatus>|<get-driverStatus>(){}[0]
+    final val experimentalBuild // me.devnatan.dockerkt.models.system/SystemInfo.experimentalBuild|{}experimentalBuild[0]
+        final fun <get-experimentalBuild>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.experimentalBuild.<get-experimentalBuild>|<get-experimentalBuild>(){}[0]
+    final val firewallBackend // me.devnatan.dockerkt.models.system/SystemInfo.firewallBackend|{}firewallBackend[0]
+        final fun <get-firewallBackend>(): me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend? // me.devnatan.dockerkt.models.system/SystemInfo.firewallBackend.<get-firewallBackend>|<get-firewallBackend>(){}[0]
+    final val genericResources // me.devnatan.dockerkt.models.system/SystemInfo.genericResources|{}genericResources[0]
+        final fun <get-genericResources>(): kotlin.collections/List<me.devnatan.dockerkt.models.system/SystemInfo.GenericResource>? // me.devnatan.dockerkt.models.system/SystemInfo.genericResources.<get-genericResources>|<get-genericResources>(){}[0]
+    final val httpProxy // me.devnatan.dockerkt.models.system/SystemInfo.httpProxy|{}httpProxy[0]
+        final fun <get-httpProxy>(): kotlin/String? // me.devnatan.dockerkt.models.system/SystemInfo.httpProxy.<get-httpProxy>|<get-httpProxy>(){}[0]
+    final val httpsProxy // me.devnatan.dockerkt.models.system/SystemInfo.httpsProxy|{}httpsProxy[0]
+        final fun <get-httpsProxy>(): kotlin/String? // me.devnatan.dockerkt.models.system/SystemInfo.httpsProxy.<get-httpsProxy>|<get-httpsProxy>(){}[0]
+    final val id // me.devnatan.dockerkt.models.system/SystemInfo.id|{}id[0]
+        final fun <get-id>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.id.<get-id>|<get-id>(){}[0]
+    final val images // me.devnatan.dockerkt.models.system/SystemInfo.images|{}images[0]
+        final fun <get-images>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.images.<get-images>|<get-images>(){}[0]
+    final val indexServerAddress // me.devnatan.dockerkt.models.system/SystemInfo.indexServerAddress|{}indexServerAddress[0]
+        final fun <get-indexServerAddress>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.indexServerAddress.<get-indexServerAddress>|<get-indexServerAddress>(){}[0]
+    final val initBinary // me.devnatan.dockerkt.models.system/SystemInfo.initBinary|{}initBinary[0]
+        final fun <get-initBinary>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.initBinary.<get-initBinary>|<get-initBinary>(){}[0]
+    final val initCommit // me.devnatan.dockerkt.models.system/SystemInfo.initCommit|{}initCommit[0]
+        final fun <get-initCommit>(): me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo // me.devnatan.dockerkt.models.system/SystemInfo.initCommit.<get-initCommit>|<get-initCommit>(){}[0]
+    final val ipv4Forwarding // me.devnatan.dockerkt.models.system/SystemInfo.ipv4Forwarding|{}ipv4Forwarding[0]
+        final fun <get-ipv4Forwarding>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.ipv4Forwarding.<get-ipv4Forwarding>|<get-ipv4Forwarding>(){}[0]
+    final val isolation // me.devnatan.dockerkt.models.system/SystemInfo.isolation|{}isolation[0]
+        final fun <get-isolation>(): me.devnatan.dockerkt.models.system/SystemInfo.Isolation // me.devnatan.dockerkt.models.system/SystemInfo.isolation.<get-isolation>|<get-isolation>(){}[0]
+    final val kernelVersion // me.devnatan.dockerkt.models.system/SystemInfo.kernelVersion|{}kernelVersion[0]
+        final fun <get-kernelVersion>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.kernelVersion.<get-kernelVersion>|<get-kernelVersion>(){}[0]
+    final val labels // me.devnatan.dockerkt.models.system/SystemInfo.labels|{}labels[0]
+        final fun <get-labels>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.labels.<get-labels>|<get-labels>(){}[0]
+    final val liveRestoreEnabled // me.devnatan.dockerkt.models.system/SystemInfo.liveRestoreEnabled|{}liveRestoreEnabled[0]
+        final fun <get-liveRestoreEnabled>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.liveRestoreEnabled.<get-liveRestoreEnabled>|<get-liveRestoreEnabled>(){}[0]
+    final val loggingDriver // me.devnatan.dockerkt.models.system/SystemInfo.loggingDriver|{}loggingDriver[0]
+        final fun <get-loggingDriver>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.loggingDriver.<get-loggingDriver>|<get-loggingDriver>(){}[0]
+    final val memTotal // me.devnatan.dockerkt.models.system/SystemInfo.memTotal|{}memTotal[0]
+        final fun <get-memTotal>(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.memTotal.<get-memTotal>|<get-memTotal>(){}[0]
+    final val memoryLimit // me.devnatan.dockerkt.models.system/SystemInfo.memoryLimit|{}memoryLimit[0]
+        final fun <get-memoryLimit>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.memoryLimit.<get-memoryLimit>|<get-memoryLimit>(){}[0]
+    final val nCPU // me.devnatan.dockerkt.models.system/SystemInfo.nCPU|{}nCPU[0]
+        final fun <get-nCPU>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.nCPU.<get-nCPU>|<get-nCPU>(){}[0]
+    final val nEventsListener // me.devnatan.dockerkt.models.system/SystemInfo.nEventsListener|{}nEventsListener[0]
+        final fun <get-nEventsListener>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.nEventsListener.<get-nEventsListener>|<get-nEventsListener>(){}[0]
+    final val nFd // me.devnatan.dockerkt.models.system/SystemInfo.nFd|{}nFd[0]
+        final fun <get-nFd>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.nFd.<get-nFd>|<get-nFd>(){}[0]
+    final val nGoroutines // me.devnatan.dockerkt.models.system/SystemInfo.nGoroutines|{}nGoroutines[0]
+        final fun <get-nGoroutines>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.nGoroutines.<get-nGoroutines>|<get-nGoroutines>(){}[0]
+    final val name // me.devnatan.dockerkt.models.system/SystemInfo.name|{}name[0]
+        final fun <get-name>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.name.<get-name>|<get-name>(){}[0]
+    final val noProxy // me.devnatan.dockerkt.models.system/SystemInfo.noProxy|{}noProxy[0]
+        final fun <get-noProxy>(): kotlin/String? // me.devnatan.dockerkt.models.system/SystemInfo.noProxy.<get-noProxy>|<get-noProxy>(){}[0]
+    final val oomKillDisable // me.devnatan.dockerkt.models.system/SystemInfo.oomKillDisable|{}oomKillDisable[0]
+        final fun <get-oomKillDisable>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.oomKillDisable.<get-oomKillDisable>|<get-oomKillDisable>(){}[0]
+    final val operatingSystem // me.devnatan.dockerkt.models.system/SystemInfo.operatingSystem|{}operatingSystem[0]
+        final fun <get-operatingSystem>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.operatingSystem.<get-operatingSystem>|<get-operatingSystem>(){}[0]
+    final val osType // me.devnatan.dockerkt.models.system/SystemInfo.osType|{}osType[0]
+        final fun <get-osType>(): me.devnatan.dockerkt.models.system/SystemInfo.OSType // me.devnatan.dockerkt.models.system/SystemInfo.osType.<get-osType>|<get-osType>(){}[0]
+    final val osVersion // me.devnatan.dockerkt.models.system/SystemInfo.osVersion|{}osVersion[0]
+        final fun <get-osVersion>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.osVersion.<get-osVersion>|<get-osVersion>(){}[0]
+    final val pidsLimit // me.devnatan.dockerkt.models.system/SystemInfo.pidsLimit|{}pidsLimit[0]
+        final fun <get-pidsLimit>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.pidsLimit.<get-pidsLimit>|<get-pidsLimit>(){}[0]
+    final val plugins // me.devnatan.dockerkt.models.system/SystemInfo.plugins|{}plugins[0]
+        final fun <get-plugins>(): me.devnatan.dockerkt.models.system/SystemInfo.Plugin // me.devnatan.dockerkt.models.system/SystemInfo.plugins.<get-plugins>|<get-plugins>(){}[0]
+    final val productLicense // me.devnatan.dockerkt.models.system/SystemInfo.productLicense|{}productLicense[0]
+        final fun <get-productLicense>(): kotlin/String? // me.devnatan.dockerkt.models.system/SystemInfo.productLicense.<get-productLicense>|<get-productLicense>(){}[0]
+    final val registryConfig // me.devnatan.dockerkt.models.system/SystemInfo.registryConfig|{}registryConfig[0]
+        final fun <get-registryConfig>(): me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig // me.devnatan.dockerkt.models.system/SystemInfo.registryConfig.<get-registryConfig>|<get-registryConfig>(){}[0]
+    final val runcCommit // me.devnatan.dockerkt.models.system/SystemInfo.runcCommit|{}runcCommit[0]
+        final fun <get-runcCommit>(): me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo // me.devnatan.dockerkt.models.system/SystemInfo.runcCommit.<get-runcCommit>|<get-runcCommit>(){}[0]
+    final val runtimes // me.devnatan.dockerkt.models.system/SystemInfo.runtimes|{}runtimes[0]
+        final fun <get-runtimes>(): kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.system/SystemInfo.Runtime> // me.devnatan.dockerkt.models.system/SystemInfo.runtimes.<get-runtimes>|<get-runtimes>(){}[0]
+    final val securityOptions // me.devnatan.dockerkt.models.system/SystemInfo.securityOptions|{}securityOptions[0]
+        final fun <get-securityOptions>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.securityOptions.<get-securityOptions>|<get-securityOptions>(){}[0]
+    final val serverVersion // me.devnatan.dockerkt.models.system/SystemInfo.serverVersion|{}serverVersion[0]
+        final fun <get-serverVersion>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.serverVersion.<get-serverVersion>|<get-serverVersion>(){}[0]
+    final val swapLimit // me.devnatan.dockerkt.models.system/SystemInfo.swapLimit|{}swapLimit[0]
+        final fun <get-swapLimit>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.swapLimit.<get-swapLimit>|<get-swapLimit>(){}[0]
+    final val swarm // me.devnatan.dockerkt.models.system/SystemInfo.swarm|{}swarm[0]
+        final fun <get-swarm>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm // me.devnatan.dockerkt.models.system/SystemInfo.swarm.<get-swarm>|<get-swarm>(){}[0]
+    final val systemTimeRaw // me.devnatan.dockerkt.models.system/SystemInfo.systemTimeRaw|{}systemTimeRaw[0]
+        final fun <get-systemTimeRaw>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.systemTimeRaw.<get-systemTimeRaw>|<get-systemTimeRaw>(){}[0]
+    final val warnings // me.devnatan.dockerkt.models.system/SystemInfo.warnings|{}warnings[0]
+        final fun <get-warnings>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.warnings.<get-warnings>|<get-warnings>(){}[0]
+
+    final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component1|component1(){}[0]
+    final fun component10(): me.devnatan.dockerkt.models.system/SystemInfo.Plugin // me.devnatan.dockerkt.models.system/SystemInfo.component10|component10(){}[0]
+    final fun component11(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.component11|component11(){}[0]
+    final fun component12(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.component12|component12(){}[0]
+    final fun component13(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.component13|component13(){}[0]
+    final fun component14(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.component14|component14(){}[0]
+    final fun component15(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.component15|component15(){}[0]
+    final fun component16(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.component16|component16(){}[0]
+    final fun component17(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.component17|component17(){}[0]
+    final fun component18(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.component18|component18(){}[0]
+    final fun component19(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.component19|component19(){}[0]
+    final fun component2(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.component2|component2(){}[0]
+    final fun component20(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.component20|component20(){}[0]
+    final fun component21(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.component21|component21(){}[0]
+    final fun component22(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.component22|component22(){}[0]
+    final fun component23(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component23|component23(){}[0]
+    final fun component24(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component24|component24(){}[0]
+    final fun component25(): me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver // me.devnatan.dockerkt.models.system/SystemInfo.component25|component25(){}[0]
+    final fun component26(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component26|component26(){}[0]
+    final fun component27(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.component27|component27(){}[0]
+    final fun component28(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component28|component28(){}[0]
+    final fun component29(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component29|component29(){}[0]
+    final fun component3(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.component3|component3(){}[0]
+    final fun component30(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component30|component30(){}[0]
+    final fun component31(): me.devnatan.dockerkt.models.system/SystemInfo.OSType // me.devnatan.dockerkt.models.system/SystemInfo.component31|component31(){}[0]
+    final fun component32(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component32|component32(){}[0]
+    final fun component33(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.component33|component33(){}[0]
+    final fun component34(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.component34|component34(){}[0]
+    final fun component35(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component35|component35(){}[0]
+    final fun component36(): me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig // me.devnatan.dockerkt.models.system/SystemInfo.component36|component36(){}[0]
+    final fun component37(): kotlin.collections/List<me.devnatan.dockerkt.models.system/SystemInfo.GenericResource>? // me.devnatan.dockerkt.models.system/SystemInfo.component37|component37(){}[0]
+    final fun component38(): kotlin/String? // me.devnatan.dockerkt.models.system/SystemInfo.component38|component38(){}[0]
+    final fun component39(): kotlin/String? // me.devnatan.dockerkt.models.system/SystemInfo.component39|component39(){}[0]
+    final fun component4(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.component4|component4(){}[0]
+    final fun component40(): kotlin/String? // me.devnatan.dockerkt.models.system/SystemInfo.component40|component40(){}[0]
+    final fun component41(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component41|component41(){}[0]
+    final fun component42(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.component42|component42(){}[0]
+    final fun component43(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.component43|component43(){}[0]
+    final fun component44(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component44|component44(){}[0]
+    final fun component45(): kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.system/SystemInfo.Runtime> // me.devnatan.dockerkt.models.system/SystemInfo.component45|component45(){}[0]
+    final fun component46(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component46|component46(){}[0]
+    final fun component47(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm // me.devnatan.dockerkt.models.system/SystemInfo.component47|component47(){}[0]
+    final fun component48(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.component48|component48(){}[0]
+    final fun component49(): me.devnatan.dockerkt.models.system/SystemInfo.Isolation // me.devnatan.dockerkt.models.system/SystemInfo.component49|component49(){}[0]
+    final fun component5(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.component5|component5(){}[0]
+    final fun component50(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component50|component50(){}[0]
+    final fun component51(): me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo // me.devnatan.dockerkt.models.system/SystemInfo.component51|component51(){}[0]
+    final fun component52(): me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo // me.devnatan.dockerkt.models.system/SystemInfo.component52|component52(){}[0]
+    final fun component53(): me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo // me.devnatan.dockerkt.models.system/SystemInfo.component53|component53(){}[0]
+    final fun component54(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.component54|component54(){}[0]
+    final fun component55(): kotlin/String? // me.devnatan.dockerkt.models.system/SystemInfo.component55|component55(){}[0]
+    final fun component56(): kotlin.collections/List<me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool>? // me.devnatan.dockerkt.models.system/SystemInfo.component56|component56(){}[0]
+    final fun component57(): me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend? // me.devnatan.dockerkt.models.system/SystemInfo.component57|component57(){}[0]
+    final fun component58(): kotlin.collections/List<me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice>? // me.devnatan.dockerkt.models.system/SystemInfo.component58|component58(){}[0]
+    final fun component59(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.component59|component59(){}[0]
+    final fun component6(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.component6|component6(){}[0]
+    final fun component60(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.component60|component60(){}[0]
+    final fun component61(): me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo? // me.devnatan.dockerkt.models.system/SystemInfo.component61|component61(){}[0]
+    final fun component7(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component7|component7(){}[0]
+    final fun component8(): kotlin.collections/List<kotlin.collections/List<kotlin/String>>? // me.devnatan.dockerkt.models.system/SystemInfo.component8|component8(){}[0]
+    final fun component9(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.component9|component9(){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.toString|toString(){}[0]
+
+    final enum class CgroupDriver : kotlin/Enum<me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver> { // me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver|null[0]
+        enum entry Cgroupfs // me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver.Cgroupfs|null[0]
+        enum entry None // me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver.None|null[0]
+        enum entry Systemd // me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver.Systemd|null[0]
+        enum entry Unknown // me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver.Unknown|null[0]
+
+        final val entries // me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver.entries|#static{}entries[0]
+            final fun <get-entries>(): kotlin.enums/EnumEntries<me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver> // me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver.entries.<get-entries>|<get-entries>#static(){}[0]
+
+        final fun valueOf(kotlin/String): me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver // me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver.valueOf|valueOf#static(kotlin.String){}[0]
+        final fun values(): kotlin/Array<me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver> // me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver.values|values#static(){}[0]
+
+        final object Companion : kotlinx.serialization.internal/SerializerFactory { // me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver> // me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver.Companion.serializer|serializer(){}[0]
+            final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // me.devnatan.dockerkt.models.system/SystemInfo.CgroupDriver.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+        }
+    }
+
+    final enum class Isolation : kotlin/Enum<me.devnatan.dockerkt.models.system/SystemInfo.Isolation> { // me.devnatan.dockerkt.models.system/SystemInfo.Isolation|null[0]
+        enum entry Default // me.devnatan.dockerkt.models.system/SystemInfo.Isolation.Default|null[0]
+        enum entry Hyperv // me.devnatan.dockerkt.models.system/SystemInfo.Isolation.Hyperv|null[0]
+        enum entry Process // me.devnatan.dockerkt.models.system/SystemInfo.Isolation.Process|null[0]
+        enum entry Unknown // me.devnatan.dockerkt.models.system/SystemInfo.Isolation.Unknown|null[0]
+
+        final val entries // me.devnatan.dockerkt.models.system/SystemInfo.Isolation.entries|#static{}entries[0]
+            final fun <get-entries>(): kotlin.enums/EnumEntries<me.devnatan.dockerkt.models.system/SystemInfo.Isolation> // me.devnatan.dockerkt.models.system/SystemInfo.Isolation.entries.<get-entries>|<get-entries>#static(){}[0]
+
+        final fun valueOf(kotlin/String): me.devnatan.dockerkt.models.system/SystemInfo.Isolation // me.devnatan.dockerkt.models.system/SystemInfo.Isolation.valueOf|valueOf#static(kotlin.String){}[0]
+        final fun values(): kotlin/Array<me.devnatan.dockerkt.models.system/SystemInfo.Isolation> // me.devnatan.dockerkt.models.system/SystemInfo.Isolation.values|values#static(){}[0]
+
+        final object Companion : kotlinx.serialization.internal/SerializerFactory { // me.devnatan.dockerkt.models.system/SystemInfo.Isolation.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Isolation> // me.devnatan.dockerkt.models.system/SystemInfo.Isolation.Companion.serializer|serializer(){}[0]
+            final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // me.devnatan.dockerkt.models.system/SystemInfo.Isolation.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+        }
+    }
+
+    final enum class OSType : kotlin/Enum<me.devnatan.dockerkt.models.system/SystemInfo.OSType> { // me.devnatan.dockerkt.models.system/SystemInfo.OSType|null[0]
+        enum entry Linux // me.devnatan.dockerkt.models.system/SystemInfo.OSType.Linux|null[0]
+        enum entry Unknown // me.devnatan.dockerkt.models.system/SystemInfo.OSType.Unknown|null[0]
+        enum entry Windows // me.devnatan.dockerkt.models.system/SystemInfo.OSType.Windows|null[0]
+
+        final val entries // me.devnatan.dockerkt.models.system/SystemInfo.OSType.entries|#static{}entries[0]
+            final fun <get-entries>(): kotlin.enums/EnumEntries<me.devnatan.dockerkt.models.system/SystemInfo.OSType> // me.devnatan.dockerkt.models.system/SystemInfo.OSType.entries.<get-entries>|<get-entries>#static(){}[0]
+
+        final fun valueOf(kotlin/String): me.devnatan.dockerkt.models.system/SystemInfo.OSType // me.devnatan.dockerkt.models.system/SystemInfo.OSType.valueOf|valueOf#static(kotlin.String){}[0]
+        final fun values(): kotlin/Array<me.devnatan.dockerkt.models.system/SystemInfo.OSType> // me.devnatan.dockerkt.models.system/SystemInfo.OSType.values|values#static(){}[0]
+
+        final object Companion : kotlinx.serialization.internal/SerializerFactory { // me.devnatan.dockerkt.models.system/SystemInfo.OSType.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.OSType> // me.devnatan.dockerkt.models.system/SystemInfo.OSType.Companion.serializer|serializer(){}[0]
+            final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // me.devnatan.dockerkt.models.system/SystemInfo.OSType.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+        }
+    }
+
+    final class ContainerdInfo { // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo|null[0]
+        final val address // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.address|{}address[0]
+            final fun <get-address>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.address.<get-address>|<get-address>(){}[0]
+        final val namespace // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.namespace|{}namespace[0]
+            final fun <get-namespace>(): me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.namespace.<get-namespace>|<get-namespace>(){}[0]
+
+        final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.component1|component1(){}[0]
+        final fun component2(): me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.component2|component2(){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.toString|toString(){}[0]
+
+        final class Namespaces { // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces|null[0]
+            final val containers // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.containers|{}containers[0]
+                final fun <get-containers>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.containers.<get-containers>|<get-containers>(){}[0]
+            final val plugins // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.plugins|{}plugins[0]
+                final fun <get-plugins>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.plugins.<get-plugins>|<get-plugins>(){}[0]
+
+            final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.component1|component1(){}[0]
+            final fun component2(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.component2|component2(){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.toString|toString(){}[0]
+
+            final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces> { // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.$serializer|null[0]
+                final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.$serializer.descriptor|{}descriptor[0]
+                    final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.$serializer.childSerializers|childSerializers(){}[0]
+                final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces) // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.ContainerdInfo.Namespaces){}[0]
+            }
+
+            final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.Companion|null[0]
+                final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces> // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Namespaces.Companion.serializer|serializer(){}[0]
+            }
+        }
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo> { // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.$serializer|null[0]
+            final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo) // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.ContainerdInfo){}[0]
+        }
+
+        final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo> // me.devnatan.dockerkt.models.system/SystemInfo.ContainerdInfo.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class DefaultAddressPool { // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool|null[0]
+        final val base // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.base|{}base[0]
+            final fun <get-base>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.base.<get-base>|<get-base>(){}[0]
+        final val size // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.size|{}size[0]
+            final fun <get-size>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.size.<get-size>|<get-size>(){}[0]
+
+        final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.component1|component1(){}[0]
+        final fun component2(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.component2|component2(){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool> { // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.$serializer|null[0]
+            final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool) // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.DefaultAddressPool){}[0]
+        }
+
+        final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool> // me.devnatan.dockerkt.models.system/SystemInfo.DefaultAddressPool.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class DiscoveredDevice { // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice|null[0]
+        final val id // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.id|{}id[0]
+            final fun <get-id>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.id.<get-id>|<get-id>(){}[0]
+        final val source // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.source|{}source[0]
+            final fun <get-source>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.source.<get-source>|<get-source>(){}[0]
+
+        final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.component1|component1(){}[0]
+        final fun component2(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.component2|component2(){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice> { // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.$serializer|null[0]
+            final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice) // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.DiscoveredDevice){}[0]
+        }
+
+        final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice> // me.devnatan.dockerkt.models.system/SystemInfo.DiscoveredDevice.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class FirewallBackend { // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend|null[0]
+        final val driver // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.driver|{}driver[0]
+            final fun <get-driver>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.driver.<get-driver>|<get-driver>(){}[0]
+        final val info // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.info|{}info[0]
+            final fun <get-info>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.info.<get-info>|<get-info>(){}[0]
+
+        final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.component1|component1(){}[0]
+        final fun component2(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.component2|component2(){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend> { // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.$serializer|null[0]
+            final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend) // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.FirewallBackend){}[0]
+        }
+
+        final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.Companion|null[0]
+            final val $childSerializers // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.Companion.$childSerializers|{}$childSerializers[0]
+
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend> // me.devnatan.dockerkt.models.system/SystemInfo.FirewallBackend.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class GenericResource { // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource|null[0]
+        final val discreteResourceSpec // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.discreteResourceSpec|{}discreteResourceSpec[0]
+            final fun <get-discreteResourceSpec>(): me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec? // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.discreteResourceSpec.<get-discreteResourceSpec>|<get-discreteResourceSpec>(){}[0]
+        final val namedResourceSpec // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.namedResourceSpec|{}namedResourceSpec[0]
+            final fun <get-namedResourceSpec>(): me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec? // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.namedResourceSpec.<get-namedResourceSpec>|<get-namedResourceSpec>(){}[0]
+
+        final fun component1(): me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec? // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.component1|component1(){}[0]
+        final fun component2(): me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec? // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.component2|component2(){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.toString|toString(){}[0]
+
+        final class DiscreteResourceSpec { // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec|null[0]
+            final val kind // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.kind|{}kind[0]
+                final fun <get-kind>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.kind.<get-kind>|<get-kind>(){}[0]
+            final val value // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.value|{}value[0]
+                final fun <get-value>(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.value.<get-value>|<get-value>(){}[0]
+
+            final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.component1|component1(){}[0]
+            final fun component2(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.component2|component2(){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.toString|toString(){}[0]
+
+            final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec> { // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.$serializer|null[0]
+                final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.$serializer.descriptor|{}descriptor[0]
+                    final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.$serializer.childSerializers|childSerializers(){}[0]
+                final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec) // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.GenericResource.DiscreteResourceSpec){}[0]
+            }
+
+            final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.Companion|null[0]
+                final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec> // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.DiscreteResourceSpec.Companion.serializer|serializer(){}[0]
+            }
+        }
+
+        final class NamedResourceSpec { // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec|null[0]
+            final val kind // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.kind|{}kind[0]
+                final fun <get-kind>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.kind.<get-kind>|<get-kind>(){}[0]
+            final val value // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.value|{}value[0]
+                final fun <get-value>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.value.<get-value>|<get-value>(){}[0]
+
+            final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.component1|component1(){}[0]
+            final fun component2(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.component2|component2(){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.toString|toString(){}[0]
+
+            final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec> { // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.$serializer|null[0]
+                final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.$serializer.descriptor|{}descriptor[0]
+                    final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.$serializer.childSerializers|childSerializers(){}[0]
+                final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec) // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.GenericResource.NamedResourceSpec){}[0]
+            }
+
+            final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.Companion|null[0]
+                final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec> // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.NamedResourceSpec.Companion.serializer|serializer(){}[0]
+            }
+        }
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.GenericResource> { // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.$serializer|null[0]
+            final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.GenericResource // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.GenericResource) // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.GenericResource){}[0]
+        }
+
+        final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.GenericResource> // me.devnatan.dockerkt.models.system/SystemInfo.GenericResource.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class GitCommitInfo { // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo|null[0]
+        final val id // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.id|{}id[0]
+            final fun <get-id>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.id.<get-id>|<get-id>(){}[0]
+
+        final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.component1|component1(){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo> { // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.$serializer|null[0]
+            final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo) // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.GitCommitInfo){}[0]
+        }
+
+        final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.Companion|null[0]
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo> // me.devnatan.dockerkt.models.system/SystemInfo.GitCommitInfo.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class Plugin { // me.devnatan.dockerkt.models.system/SystemInfo.Plugin|null[0]
+        final val authorization // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.authorization|{}authorization[0]
+            final fun <get-authorization>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.authorization.<get-authorization>|<get-authorization>(){}[0]
+        final val log // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.log|{}log[0]
+            final fun <get-log>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.log.<get-log>|<get-log>(){}[0]
+        final val network // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.network|{}network[0]
+            final fun <get-network>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.network.<get-network>|<get-network>(){}[0]
+        final val volume // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.volume|{}volume[0]
+            final fun <get-volume>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.volume.<get-volume>|<get-volume>(){}[0]
+
+        final fun component1(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.component1|component1(){}[0]
+        final fun component2(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.component2|component2(){}[0]
+        final fun component3(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.component3|component3(){}[0]
+        final fun component4(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.component4|component4(){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Plugin> { // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.$serializer|null[0]
+            final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Plugin // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Plugin) // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Plugin){}[0]
+        }
+
+        final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.Companion|null[0]
+            final val $childSerializers // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.Companion.$childSerializers|{}$childSerializers[0]
+
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Plugin> // me.devnatan.dockerkt.models.system/SystemInfo.Plugin.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class RegistryConfig { // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig|null[0]
+        final val indexConfigs // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.indexConfigs|{}indexConfigs[0]
+            final fun <get-indexConfigs>(): kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig> // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.indexConfigs.<get-indexConfigs>|<get-indexConfigs>(){}[0]
+        final val insecureRegistryCIDRs // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.insecureRegistryCIDRs|{}insecureRegistryCIDRs[0]
+            final fun <get-insecureRegistryCIDRs>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.insecureRegistryCIDRs.<get-insecureRegistryCIDRs>|<get-insecureRegistryCIDRs>(){}[0]
+        final val mirrors // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.mirrors|{}mirrors[0]
+            final fun <get-mirrors>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.mirrors.<get-mirrors>|<get-mirrors>(){}[0]
+
+        final fun component1(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.component1|component1(){}[0]
+        final fun component2(): kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig> // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.component2|component2(){}[0]
+        final fun component3(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.component3|component3(){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.toString|toString(){}[0]
+
+        final class IndexConfig { // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig|null[0]
+            final val mirrors // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.mirrors|{}mirrors[0]
+                final fun <get-mirrors>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.mirrors.<get-mirrors>|<get-mirrors>(){}[0]
+            final val name // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.name|{}name[0]
+                final fun <get-name>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.name.<get-name>|<get-name>(){}[0]
+            final val official // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.official|{}official[0]
+                final fun <get-official>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.official.<get-official>|<get-official>(){}[0]
+            final val secure // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.secure|{}secure[0]
+                final fun <get-secure>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.secure.<get-secure>|<get-secure>(){}[0]
+
+            final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.component1|component1(){}[0]
+            final fun component2(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.component2|component2(){}[0]
+            final fun component3(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.component3|component3(){}[0]
+            final fun component4(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.component4|component4(){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.toString|toString(){}[0]
+
+            final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig> { // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.$serializer|null[0]
+                final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.$serializer.descriptor|{}descriptor[0]
+                    final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.$serializer.childSerializers|childSerializers(){}[0]
+                final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig) // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.RegistryConfig.IndexConfig){}[0]
+            }
+
+            final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.Companion|null[0]
+                final val $childSerializers // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.Companion.$childSerializers|{}$childSerializers[0]
+
+                final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig> // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.IndexConfig.Companion.serializer|serializer(){}[0]
+            }
+        }
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig> { // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.$serializer|null[0]
+            final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig) // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.RegistryConfig){}[0]
+        }
+
+        final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.Companion|null[0]
+            final val $childSerializers // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.Companion.$childSerializers|{}$childSerializers[0]
+
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig> // me.devnatan.dockerkt.models.system/SystemInfo.RegistryConfig.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class Runtime { // me.devnatan.dockerkt.models.system/SystemInfo.Runtime|null[0]
+        final val path // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.path|{}path[0]
+            final fun <get-path>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.path.<get-path>|<get-path>(){}[0]
+        final val runtimeArgs // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.runtimeArgs|{}runtimeArgs[0]
+            final fun <get-runtimeArgs>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.runtimeArgs.<get-runtimeArgs>|<get-runtimeArgs>(){}[0]
+        final val status // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.status|{}status[0]
+            final fun <get-status>(): kotlin.collections/Map<kotlin/String, kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.status.<get-status>|<get-status>(){}[0]
+
+        final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.component1|component1(){}[0]
+        final fun component2(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.component2|component2(){}[0]
+        final fun component3(): kotlin.collections/Map<kotlin/String, kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.component3|component3(){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.toString|toString(){}[0]
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Runtime> { // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.$serializer|null[0]
+            final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Runtime // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Runtime) // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Runtime){}[0]
+        }
+
+        final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.Companion|null[0]
+            final val $childSerializers // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.Companion.$childSerializers|{}$childSerializers[0]
+
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Runtime> // me.devnatan.dockerkt.models.system/SystemInfo.Runtime.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final class Swarm { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm|null[0]
+        final val cluster // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.cluster|{}cluster[0]
+            final fun <get-cluster>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.cluster.<get-cluster>|<get-cluster>(){}[0]
+        final val controlAvailable // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.controlAvailable|{}controlAvailable[0]
+            final fun <get-controlAvailable>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.controlAvailable.<get-controlAvailable>|<get-controlAvailable>(){}[0]
+        final val error // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.error|{}error[0]
+            final fun <get-error>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.error.<get-error>|<get-error>(){}[0]
+        final val localNodeState // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.localNodeState|{}localNodeState[0]
+            final fun <get-localNodeState>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.localNodeState.<get-localNodeState>|<get-localNodeState>(){}[0]
+        final val managers // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.managers|{}managers[0]
+            final fun <get-managers>(): kotlin/Int? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.managers.<get-managers>|<get-managers>(){}[0]
+        final val nodeAddr // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.nodeAddr|{}nodeAddr[0]
+            final fun <get-nodeAddr>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.nodeAddr.<get-nodeAddr>|<get-nodeAddr>(){}[0]
+        final val nodeID // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.nodeID|{}nodeID[0]
+            final fun <get-nodeID>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.nodeID.<get-nodeID>|<get-nodeID>(){}[0]
+        final val nodes // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.nodes|{}nodes[0]
+            final fun <get-nodes>(): kotlin/Int? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.nodes.<get-nodes>|<get-nodes>(){}[0]
+        final val remoteManagers // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.remoteManagers|{}remoteManagers[0]
+            final fun <get-remoteManagers>(): kotlin.collections/List<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager>? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.remoteManagers.<get-remoteManagers>|<get-remoteManagers>(){}[0]
+
+        final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.component1|component1(){}[0]
+        final fun component2(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.component2|component2(){}[0]
+        final fun component3(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.component3|component3(){}[0]
+        final fun component4(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.component4|component4(){}[0]
+        final fun component5(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.component5|component5(){}[0]
+        final fun component6(): kotlin.collections/List<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager>? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.component6|component6(){}[0]
+        final fun component7(): kotlin/Int? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.component7|component7(){}[0]
+        final fun component8(): kotlin/Int? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.component8|component8(){}[0]
+        final fun component9(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.component9|component9(){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.toString|toString(){}[0]
+
+        final enum class LocalNodeState : kotlin/Enum<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState|null[0]
+            enum entry Active // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.Active|null[0]
+            enum entry Error // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.Error|null[0]
+            enum entry Inactive // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.Inactive|null[0]
+            enum entry Locked // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.Locked|null[0]
+            enum entry Pending // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.Pending|null[0]
+            enum entry Unknown // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.Unknown|null[0]
+
+            final val entries // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.entries|#static{}entries[0]
+                final fun <get-entries>(): kotlin.enums/EnumEntries<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.entries.<get-entries>|<get-entries>#static(){}[0]
+
+            final fun valueOf(kotlin/String): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.valueOf|valueOf#static(kotlin.String){}[0]
+            final fun values(): kotlin/Array<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.values|values#static(){}[0]
+
+            final object Companion : kotlinx.serialization.internal/SerializerFactory { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.Companion|null[0]
+                final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.Companion.serializer|serializer(){}[0]
+                final fun serializer(kotlin/Array<out kotlinx.serialization/KSerializer<*>>...): kotlinx.serialization/KSerializer<*> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.LocalNodeState.Companion.serializer|serializer(kotlin.Array<out|kotlinx.serialization.KSerializer<*>>...){}[0]
+            }
+        }
+
+        final class ClusterInfo { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo|null[0]
+            final val createdAtRaw // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.createdAtRaw|{}createdAtRaw[0]
+                final fun <get-createdAtRaw>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.createdAtRaw.<get-createdAtRaw>|<get-createdAtRaw>(){}[0]
+            final val dataPathPort // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.dataPathPort|{}dataPathPort[0]
+                final fun <get-dataPathPort>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.dataPathPort.<get-dataPathPort>|<get-dataPathPort>(){}[0]
+            final val defaultAddrPool // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.defaultAddrPool|{}defaultAddrPool[0]
+                final fun <get-defaultAddrPool>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.defaultAddrPool.<get-defaultAddrPool>|<get-defaultAddrPool>(){}[0]
+            final val id // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.id|{}id[0]
+                final fun <get-id>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.id.<get-id>|<get-id>(){}[0]
+            final val rootRotationInProgress // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.rootRotationInProgress|{}rootRotationInProgress[0]
+                final fun <get-rootRotationInProgress>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.rootRotationInProgress.<get-rootRotationInProgress>|<get-rootRotationInProgress>(){}[0]
+            final val spec // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.spec|{}spec[0]
+                final fun <get-spec>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.spec.<get-spec>|<get-spec>(){}[0]
+            final val subnetSize // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.subnetSize|{}subnetSize[0]
+                final fun <get-subnetSize>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.subnetSize.<get-subnetSize>|<get-subnetSize>(){}[0]
+            final val tlsInfo // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.tlsInfo|{}tlsInfo[0]
+                final fun <get-tlsInfo>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.tlsInfo.<get-tlsInfo>|<get-tlsInfo>(){}[0]
+            final val updatedAtRaw // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.updatedAtRaw|{}updatedAtRaw[0]
+                final fun <get-updatedAtRaw>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.updatedAtRaw.<get-updatedAtRaw>|<get-updatedAtRaw>(){}[0]
+            final val version // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.version|{}version[0]
+                final fun <get-version>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.version.<get-version>|<get-version>(){}[0]
+
+            final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.component1|component1(){}[0]
+            final fun component10(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.component10|component10(){}[0]
+            final fun component2(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.component2|component2(){}[0]
+            final fun component3(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.component3|component3(){}[0]
+            final fun component4(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.component4|component4(){}[0]
+            final fun component5(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.component5|component5(){}[0]
+            final fun component6(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.component6|component6(){}[0]
+            final fun component7(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.component7|component7(){}[0]
+            final fun component8(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.component8|component8(){}[0]
+            final fun component9(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.component9|component9(){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.toString|toString(){}[0]
+
+            final class ClusterSpec { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec|null[0]
+                final val caConfig // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.caConfig|{}caConfig[0]
+                    final fun <get-caConfig>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.caConfig.<get-caConfig>|<get-caConfig>(){}[0]
+                final val dispatcher // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.dispatcher|{}dispatcher[0]
+                    final fun <get-dispatcher>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.dispatcher.<get-dispatcher>|<get-dispatcher>(){}[0]
+                final val encryptionConfig // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.encryptionConfig|{}encryptionConfig[0]
+                    final fun <get-encryptionConfig>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.encryptionConfig.<get-encryptionConfig>|<get-encryptionConfig>(){}[0]
+                final val labels // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.labels|{}labels[0]
+                    final fun <get-labels>(): kotlin.collections/Map<kotlin/String, kotlin/String> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.labels.<get-labels>|<get-labels>(){}[0]
+                final val name // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.name|{}name[0]
+                    final fun <get-name>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.name.<get-name>|<get-name>(){}[0]
+                final val orchestration // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.orchestration|{}orchestration[0]
+                    final fun <get-orchestration>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.orchestration.<get-orchestration>|<get-orchestration>(){}[0]
+                final val raft // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.raft|{}raft[0]
+                    final fun <get-raft>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.raft.<get-raft>|<get-raft>(){}[0]
+                final val taskDefaults // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.taskDefaults|{}taskDefaults[0]
+                    final fun <get-taskDefaults>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.taskDefaults.<get-taskDefaults>|<get-taskDefaults>(){}[0]
+
+                final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.component1|component1(){}[0]
+                final fun component2(): kotlin.collections/Map<kotlin/String, kotlin/String> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.component2|component2(){}[0]
+                final fun component3(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.component3|component3(){}[0]
+                final fun component4(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.component4|component4(){}[0]
+                final fun component5(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.component5|component5(){}[0]
+                final fun component6(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.component6|component6(){}[0]
+                final fun component7(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.component7|component7(){}[0]
+                final fun component8(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.component8|component8(){}[0]
+                final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.equals|equals(kotlin.Any?){}[0]
+                final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.hashCode|hashCode(){}[0]
+                final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.toString|toString(){}[0]
+
+                final class CAConfig { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig|null[0]
+                    final val externalCAs // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.externalCAs|{}externalCAs[0]
+                        final fun <get-externalCAs>(): kotlin.collections/List<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA>? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.externalCAs.<get-externalCAs>|<get-externalCAs>(){}[0]
+                    final val forceRotate // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.forceRotate|{}forceRotate[0]
+                        final fun <get-forceRotate>(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.forceRotate.<get-forceRotate>|<get-forceRotate>(){}[0]
+                    final val nodeCertExpiry // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.nodeCertExpiry|{}nodeCertExpiry[0]
+                        final fun <get-nodeCertExpiry>(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.nodeCertExpiry.<get-nodeCertExpiry>|<get-nodeCertExpiry>(){}[0]
+                    final val signingCACert // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.signingCACert|{}signingCACert[0]
+                        final fun <get-signingCACert>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.signingCACert.<get-signingCACert>|<get-signingCACert>(){}[0]
+                    final val signingCAKey // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.signingCAKey|{}signingCAKey[0]
+                        final fun <get-signingCAKey>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.signingCAKey.<get-signingCAKey>|<get-signingCAKey>(){}[0]
+
+                    final fun component1(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.component1|component1(){}[0]
+                    final fun component2(): kotlin.collections/List<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA>? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.component2|component2(){}[0]
+                    final fun component3(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.component3|component3(){}[0]
+                    final fun component4(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.component4|component4(){}[0]
+                    final fun component5(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.component5|component5(){}[0]
+                    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.equals|equals(kotlin.Any?){}[0]
+                    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.hashCode|hashCode(){}[0]
+                    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.toString|toString(){}[0]
+
+                    final class ExternalCA { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA|null[0]
+                        final val caCert // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.caCert|{}caCert[0]
+                            final fun <get-caCert>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.caCert.<get-caCert>|<get-caCert>(){}[0]
+                        final val options // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.options|{}options[0]
+                            final fun <get-options>(): kotlin.collections/Map<kotlin/String, kotlin/String> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.options.<get-options>|<get-options>(){}[0]
+                        final val protocol // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.protocol|{}protocol[0]
+                            final fun <get-protocol>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.protocol.<get-protocol>|<get-protocol>(){}[0]
+                        final val url // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.url|{}url[0]
+                            final fun <get-url>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.url.<get-url>|<get-url>(){}[0]
+
+                        final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.component1|component1(){}[0]
+                        final fun component2(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.component2|component2(){}[0]
+                        final fun component3(): kotlin.collections/Map<kotlin/String, kotlin/String> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.component3|component3(){}[0]
+                        final fun component4(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.component4|component4(){}[0]
+                        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.equals|equals(kotlin.Any?){}[0]
+                        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.hashCode|hashCode(){}[0]
+                        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.toString|toString(){}[0]
+
+                        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.$serializer|null[0]
+                            final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.$serializer.descriptor|{}descriptor[0]
+                                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.$serializer.childSerializers|childSerializers(){}[0]
+                            final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                            final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA){}[0]
+                        }
+
+                        final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.Companion|null[0]
+                            final val $childSerializers // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.Companion.$childSerializers|{}$childSerializers[0]
+
+                            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.ExternalCA.Companion.serializer|serializer(){}[0]
+                        }
+                    }
+
+                    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.$serializer|null[0]
+                        final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.$serializer.descriptor|{}descriptor[0]
+                            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.$serializer.childSerializers|childSerializers(){}[0]
+                        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig){}[0]
+                    }
+
+                    final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.Companion|null[0]
+                        final val $childSerializers // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.Companion.$childSerializers|{}$childSerializers[0]
+
+                        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.CAConfig.Companion.serializer|serializer(){}[0]
+                    }
+                }
+
+                final class Dispatcher { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher|null[0]
+                    final val heartbeatPeriod // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.heartbeatPeriod|{}heartbeatPeriod[0]
+                        final fun <get-heartbeatPeriod>(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.heartbeatPeriod.<get-heartbeatPeriod>|<get-heartbeatPeriod>(){}[0]
+
+                    final fun component1(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.component1|component1(){}[0]
+                    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.equals|equals(kotlin.Any?){}[0]
+                    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.hashCode|hashCode(){}[0]
+                    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.toString|toString(){}[0]
+
+                    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.$serializer|null[0]
+                        final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.$serializer.descriptor|{}descriptor[0]
+                            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.$serializer.childSerializers|childSerializers(){}[0]
+                        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher){}[0]
+                    }
+
+                    final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.Companion|null[0]
+                        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Dispatcher.Companion.serializer|serializer(){}[0]
+                    }
+                }
+
+                final class EncryptionConfig { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig|null[0]
+                    final val autoLockManagers // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.autoLockManagers|{}autoLockManagers[0]
+                        final fun <get-autoLockManagers>(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.autoLockManagers.<get-autoLockManagers>|<get-autoLockManagers>(){}[0]
+
+                    final fun component1(): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.component1|component1(){}[0]
+                    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.equals|equals(kotlin.Any?){}[0]
+                    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.hashCode|hashCode(){}[0]
+                    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.toString|toString(){}[0]
+
+                    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.$serializer|null[0]
+                        final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.$serializer.descriptor|{}descriptor[0]
+                            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.$serializer.childSerializers|childSerializers(){}[0]
+                        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig){}[0]
+                    }
+
+                    final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.Companion|null[0]
+                        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.EncryptionConfig.Companion.serializer|serializer(){}[0]
+                    }
+                }
+
+                final class Orquestration { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration|null[0]
+                    final val taskHistoryRetentionLimit // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.taskHistoryRetentionLimit|{}taskHistoryRetentionLimit[0]
+                        final fun <get-taskHistoryRetentionLimit>(): kotlin/Long? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.taskHistoryRetentionLimit.<get-taskHistoryRetentionLimit>|<get-taskHistoryRetentionLimit>(){}[0]
+
+                    final fun component1(): kotlin/Long? // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.component1|component1(){}[0]
+                    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.equals|equals(kotlin.Any?){}[0]
+                    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.hashCode|hashCode(){}[0]
+                    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.toString|toString(){}[0]
+
+                    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.$serializer|null[0]
+                        final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.$serializer.descriptor|{}descriptor[0]
+                            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.$serializer.childSerializers|childSerializers(){}[0]
+                        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration){}[0]
+                    }
+
+                    final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.Companion|null[0]
+                        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Orquestration.Companion.serializer|serializer(){}[0]
+                    }
+                }
+
+                final class Raft { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft|null[0]
+                    final val electionTick // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.electionTick|{}electionTick[0]
+                        final fun <get-electionTick>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.electionTick.<get-electionTick>|<get-electionTick>(){}[0]
+                    final val heartbeatTick // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.heartbeatTick|{}heartbeatTick[0]
+                        final fun <get-heartbeatTick>(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.heartbeatTick.<get-heartbeatTick>|<get-heartbeatTick>(){}[0]
+                    final val keepOldSnapshots // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.keepOldSnapshots|{}keepOldSnapshots[0]
+                        final fun <get-keepOldSnapshots>(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.keepOldSnapshots.<get-keepOldSnapshots>|<get-keepOldSnapshots>(){}[0]
+                    final val logEntriesForSlowFollowers // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.logEntriesForSlowFollowers|{}logEntriesForSlowFollowers[0]
+                        final fun <get-logEntriesForSlowFollowers>(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.logEntriesForSlowFollowers.<get-logEntriesForSlowFollowers>|<get-logEntriesForSlowFollowers>(){}[0]
+                    final val snapshotInterval // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.snapshotInterval|{}snapshotInterval[0]
+                        final fun <get-snapshotInterval>(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.snapshotInterval.<get-snapshotInterval>|<get-snapshotInterval>(){}[0]
+
+                    final fun component1(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.component1|component1(){}[0]
+                    final fun component2(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.component2|component2(){}[0]
+                    final fun component3(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.component3|component3(){}[0]
+                    final fun component4(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.component4|component4(){}[0]
+                    final fun component5(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.component5|component5(){}[0]
+                    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.equals|equals(kotlin.Any?){}[0]
+                    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.hashCode|hashCode(){}[0]
+                    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.toString|toString(){}[0]
+
+                    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.$serializer|null[0]
+                        final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.$serializer.descriptor|{}descriptor[0]
+                            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.$serializer.childSerializers|childSerializers(){}[0]
+                        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft){}[0]
+                    }
+
+                    final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.Companion|null[0]
+                        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Raft.Companion.serializer|serializer(){}[0]
+                    }
+                }
+
+                final class TaskDefaults { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults|null[0]
+                    final val logDriver // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.logDriver|{}logDriver[0]
+                        final fun <get-logDriver>(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.logDriver.<get-logDriver>|<get-logDriver>(){}[0]
+
+                    final fun component1(): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.component1|component1(){}[0]
+                    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.equals|equals(kotlin.Any?){}[0]
+                    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.hashCode|hashCode(){}[0]
+                    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.toString|toString(){}[0]
+
+                    final class LogDriver { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver|null[0]
+                        final val name // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.name|{}name[0]
+                            final fun <get-name>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.name.<get-name>|<get-name>(){}[0]
+                        final val options // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.options|{}options[0]
+                            final fun <get-options>(): kotlin.collections/Map<kotlin/String, kotlin/String> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.options.<get-options>|<get-options>(){}[0]
+
+                        final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.component1|component1(){}[0]
+                        final fun component2(): kotlin.collections/Map<kotlin/String, kotlin/String> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.component2|component2(){}[0]
+                        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.equals|equals(kotlin.Any?){}[0]
+                        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.hashCode|hashCode(){}[0]
+                        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.toString|toString(){}[0]
+
+                        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.$serializer|null[0]
+                            final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.$serializer.descriptor|{}descriptor[0]
+                                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.$serializer.childSerializers|childSerializers(){}[0]
+                            final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                            final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver){}[0]
+                        }
+
+                        final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.Companion|null[0]
+                            final val $childSerializers // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.Companion.$childSerializers|{}$childSerializers[0]
+
+                            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.LogDriver.Companion.serializer|serializer(){}[0]
+                        }
+                    }
+
+                    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.$serializer|null[0]
+                        final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.$serializer.descriptor|{}descriptor[0]
+                            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.$serializer.childSerializers|childSerializers(){}[0]
+                        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults){}[0]
+                    }
+
+                    final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.Companion|null[0]
+                        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.TaskDefaults.Companion.serializer|serializer(){}[0]
+                    }
+                }
+
+                final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.$serializer|null[0]
+                    final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.$serializer.descriptor|{}descriptor[0]
+                        final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                    final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.$serializer.childSerializers|childSerializers(){}[0]
+                    final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                    final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.ClusterInfo.ClusterSpec){}[0]
+                }
+
+                final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Companion|null[0]
+                    final val $childSerializers // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Companion.$childSerializers|{}$childSerializers[0]
+
+                    final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterSpec.Companion.serializer|serializer(){}[0]
+                }
+            }
+
+            final class ClusterVersion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion|null[0]
+                final val index // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.index|{}index[0]
+                    final fun <get-index>(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.index.<get-index>|<get-index>(){}[0]
+
+                final fun component1(): kotlin/Long // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.component1|component1(){}[0]
+                final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.equals|equals(kotlin.Any?){}[0]
+                final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.hashCode|hashCode(){}[0]
+                final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.toString|toString(){}[0]
+
+                final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.$serializer|null[0]
+                    final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.$serializer.descriptor|{}descriptor[0]
+                        final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                    final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.$serializer.childSerializers|childSerializers(){}[0]
+                    final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                    final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.ClusterInfo.ClusterVersion){}[0]
+                }
+
+                final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.Companion|null[0]
+                    final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.ClusterVersion.Companion.serializer|serializer(){}[0]
+                }
+            }
+
+            final class TLSInfo { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo|null[0]
+                final val certIssuerPublicKey // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.certIssuerPublicKey|{}certIssuerPublicKey[0]
+                    final fun <get-certIssuerPublicKey>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.certIssuerPublicKey.<get-certIssuerPublicKey>|<get-certIssuerPublicKey>(){}[0]
+                final val certIssuerSubject // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.certIssuerSubject|{}certIssuerSubject[0]
+                    final fun <get-certIssuerSubject>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.certIssuerSubject.<get-certIssuerSubject>|<get-certIssuerSubject>(){}[0]
+                final val trustRoot // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.trustRoot|{}trustRoot[0]
+                    final fun <get-trustRoot>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.trustRoot.<get-trustRoot>|<get-trustRoot>(){}[0]
+
+                final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.component1|component1(){}[0]
+                final fun component2(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.component2|component2(){}[0]
+                final fun component3(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.component3|component3(){}[0]
+                final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.equals|equals(kotlin.Any?){}[0]
+                final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.hashCode|hashCode(){}[0]
+                final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.toString|toString(){}[0]
+
+                final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.$serializer|null[0]
+                    final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.$serializer.descriptor|{}descriptor[0]
+                        final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                    final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.$serializer.childSerializers|childSerializers(){}[0]
+                    final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                    final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.ClusterInfo.TLSInfo){}[0]
+                }
+
+                final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.Companion|null[0]
+                    final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.TLSInfo.Companion.serializer|serializer(){}[0]
+                }
+            }
+
+            final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.$serializer|null[0]
+                final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.$serializer.descriptor|{}descriptor[0]
+                    final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.$serializer.childSerializers|childSerializers(){}[0]
+                final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.ClusterInfo){}[0]
+            }
+
+            final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.Companion|null[0]
+                final val $childSerializers // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.Companion.$childSerializers|{}$childSerializers[0]
+
+                final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.ClusterInfo.Companion.serializer|serializer(){}[0]
+            }
+        }
+
+        final class RemoteManager { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager|null[0]
+            final val addr // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.addr|{}addr[0]
+                final fun <get-addr>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.addr.<get-addr>|<get-addr>(){}[0]
+            final val nodeID // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.nodeID|{}nodeID[0]
+                final fun <get-nodeID>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.nodeID.<get-nodeID>|<get-nodeID>(){}[0]
+
+            final fun component1(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.component1|component1(){}[0]
+            final fun component2(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.component2|component2(){}[0]
+            final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.equals|equals(kotlin.Any?){}[0]
+            final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.hashCode|hashCode(){}[0]
+            final fun toString(): kotlin/String // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.toString|toString(){}[0]
+
+            final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.$serializer|null[0]
+                final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.$serializer.descriptor|{}descriptor[0]
+                    final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+                final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.$serializer.childSerializers|childSerializers(){}[0]
+                final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+                final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm.RemoteManager){}[0]
+            }
+
+            final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.Companion|null[0]
+                final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.RemoteManager.Companion.serializer|serializer(){}[0]
+            }
+        }
+
+        final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm> { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.$serializer|null[0]
+            final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.$serializer.descriptor|{}descriptor[0]
+                final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+            final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.$serializer.childSerializers|childSerializers(){}[0]
+            final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo.Swarm // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+            final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo.Swarm) // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo.Swarm){}[0]
+        }
+
+        final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.Companion|null[0]
+            final val $childSerializers // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.Companion.$childSerializers|{}$childSerializers[0]
+
+            final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo.Swarm> // me.devnatan.dockerkt.models.system/SystemInfo.Swarm.Companion.serializer|serializer(){}[0]
+        }
+    }
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.system/SystemInfo> { // me.devnatan.dockerkt.models.system/SystemInfo.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.system/SystemInfo.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.system/SystemInfo.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.system/SystemInfo.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.system/SystemInfo // me.devnatan.dockerkt.models.system/SystemInfo.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.system/SystemInfo) // me.devnatan.dockerkt.models.system/SystemInfo.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.system.SystemInfo){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.system/SystemInfo.Companion|null[0]
+        final val $childSerializers // me.devnatan.dockerkt.models.system/SystemInfo.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.system/SystemInfo> // me.devnatan.dockerkt.models.system/SystemInfo.Companion.serializer|serializer(){}[0]
+    }
+}
+
 final class me.devnatan.dockerkt.models.system/SystemPingData { // me.devnatan.dockerkt.models.system/SystemPingData|null[0]
     final val apiVersion // me.devnatan.dockerkt.models.system/SystemPingData.apiVersion|{}apiVersion[0]
         final fun <get-apiVersion>(): kotlin/String // me.devnatan.dockerkt.models.system/SystemPingData.apiVersion.<get-apiVersion>|<get-apiVersion>(){}[0]
@@ -4188,6 +5280,7 @@ final class me.devnatan.dockerkt.resource.swarm/NodeNotPartOfSwarmException : me
 
 final class me.devnatan.dockerkt.resource.system/SystemResource { // me.devnatan.dockerkt.resource.system/SystemResource|null[0]
     final fun events(me.devnatan.dockerkt.models.system/MonitorEventsOptions = ...): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models.system/Event> // me.devnatan.dockerkt.resource.system/SystemResource.events|events(me.devnatan.dockerkt.models.system.MonitorEventsOptions){}[0]
+    final suspend fun info(): me.devnatan.dockerkt.models.system/SystemInfo // me.devnatan.dockerkt.resource.system/SystemResource.info|info(){}[0]
     final suspend fun ping(kotlin/Boolean = ...): me.devnatan.dockerkt.models.system/SystemPingData // me.devnatan.dockerkt.resource.system/SystemResource.ping|ping(kotlin.Boolean){}[0]
     final suspend fun version(): me.devnatan.dockerkt.models.system/SystemVersion // me.devnatan.dockerkt.resource.system/SystemResource.version|version(){}[0]
 }

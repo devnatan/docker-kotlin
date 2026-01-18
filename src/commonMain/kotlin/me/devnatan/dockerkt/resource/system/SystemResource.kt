@@ -14,6 +14,7 @@ import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.io.requestCatching
 import me.devnatan.dockerkt.models.system.Event
 import me.devnatan.dockerkt.models.system.MonitorEventsOptions
+import me.devnatan.dockerkt.models.system.SystemInfo
 import me.devnatan.dockerkt.models.system.SystemPingData
 import me.devnatan.dockerkt.models.system.SystemVersion
 import kotlin.jvm.JvmOverloads
@@ -25,6 +26,21 @@ public class SystemResource internal constructor(
     private val httpClient: HttpClient,
     private val json: Json,
 ) {
+    /**
+     * Gets system-wide information about the Docker daemon.
+     *
+     * Corresponding CLI command:
+     * ```sh
+     * $ docker info
+     * ```
+     *
+     * @throws me.devnatan.dockerkt.DockerResourceException If an error occurs in the request.
+     */
+    public suspend fun info(): SystemInfo =
+        requestCatching {
+            httpClient.get("/info")
+        }.body()
+
     /**
      * Gets the version of Docker that is running and information about the system that Docker is running on.
      *

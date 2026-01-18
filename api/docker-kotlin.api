@@ -3588,6 +3588,978 @@ public final class me/devnatan/dockerkt/models/system/MonitorEventsOptionsKt {
 	public static final fun setUntil (Lme/devnatan/dockerkt/models/system/MonitorEventsOptions;Lkotlin/time/Instant;)V
 }
 
+public final class me/devnatan/dockerkt/models/system/SystemInfo {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Companion;
+	public synthetic fun <init> (Ljava/lang/String;IIIIILjava/lang/String;Ljava/util/List;Ljava/lang/String;Lme/devnatan/dockerkt/models/system/SystemInfo$Plugin;ZZZZZZZZZZIILjava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/system/SystemInfo$OSType;Ljava/lang/String;IJLjava/lang/String;Lme/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ZLjava/lang/String;Ljava/util/Map;Ljava/lang/String;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm;ZLme/devnatan/dockerkt/models/system/SystemInfo$Isolation;Ljava/lang/String;Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Lme/devnatan/dockerkt/models/system/SystemInfo$FirewallBackend;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo;IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Plugin;
+	public final fun component11 ()Z
+	public final fun component12 ()Z
+	public final fun component13 ()Z
+	public final fun component14 ()Z
+	public final fun component15 ()Z
+	public final fun component16 ()Z
+	public final fun component17 ()Z
+	public final fun component18 ()Z
+	public final fun component19 ()Z
+	public final fun component2 ()I
+	public final fun component20 ()Z
+	public final fun component21 ()I
+	public final fun component22 ()I
+	public final fun component23 ()Ljava/lang/String;
+	public final fun component24 ()Ljava/lang/String;
+	public final fun component25 ()Lme/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver;
+	public final fun component26 ()Ljava/lang/String;
+	public final fun component27 ()I
+	public final fun component28 ()Ljava/lang/String;
+	public final fun component29 ()Ljava/lang/String;
+	public final fun component3 ()I
+	public final fun component30 ()Ljava/lang/String;
+	public final fun component31 ()Lme/devnatan/dockerkt/models/system/SystemInfo$OSType;
+	public final fun component32 ()Ljava/lang/String;
+	public final fun component33 ()I
+	public final fun component34 ()J
+	public final fun component35 ()Ljava/lang/String;
+	public final fun component36 ()Lme/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig;
+	public final fun component37 ()Ljava/util/List;
+	public final fun component38 ()Ljava/lang/String;
+	public final fun component39 ()Ljava/lang/String;
+	public final fun component4 ()I
+	public final fun component40 ()Ljava/lang/String;
+	public final fun component41 ()Ljava/lang/String;
+	public final fun component42 ()Ljava/util/List;
+	public final fun component43 ()Z
+	public final fun component44 ()Ljava/lang/String;
+	public final fun component45 ()Ljava/util/Map;
+	public final fun component46 ()Ljava/lang/String;
+	public final fun component47 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm;
+	public final fun component48 ()Z
+	public final fun component49 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Isolation;
+	public final fun component5 ()I
+	public final fun component50 ()Ljava/lang/String;
+	public final fun component51 ()Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;
+	public final fun component52 ()Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;
+	public final fun component53 ()Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;
+	public final fun component54 ()Ljava/util/List;
+	public final fun component55 ()Ljava/lang/String;
+	public final fun component56 ()Ljava/util/List;
+	public final fun component57 ()Lme/devnatan/dockerkt/models/system/SystemInfo$FirewallBackend;
+	public final fun component58 ()Ljava/util/List;
+	public final fun component59 ()Ljava/util/List;
+	public final fun component6 ()I
+	public final fun component60 ()Ljava/util/List;
+	public final fun component61 ()Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo;
+	public final fun component7 ()Ljava/lang/String;
+	public final fun component8 ()Ljava/util/List;
+	public final fun component9 ()Ljava/lang/String;
+	public static synthetic fun copy$docker_kotlin$default (Lme/devnatan/dockerkt/models/system/SystemInfo;Ljava/lang/String;IIIIILjava/lang/String;Ljava/util/List;Ljava/lang/String;Lme/devnatan/dockerkt/models/system/SystemInfo$Plugin;ZZZZZZZZZZIILjava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver;Ljava/lang/String;ILjava/lang/String;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/system/SystemInfo$OSType;Ljava/lang/String;IJLjava/lang/String;Lme/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig;Ljava/util/List;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/util/List;ZLjava/lang/String;Ljava/util/Map;Ljava/lang/String;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm;ZLme/devnatan/dockerkt/models/system/SystemInfo$Isolation;Ljava/lang/String;Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;Ljava/util/List;Ljava/lang/String;Ljava/util/List;Lme/devnatan/dockerkt/models/system/SystemInfo$FirewallBackend;Ljava/util/List;Ljava/util/List;Ljava/util/List;Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo;IILjava/lang/Object;)Lme/devnatan/dockerkt/models/system/SystemInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getArchitecture ()Ljava/lang/String;
+	public final fun getCdiSpecDirs ()Ljava/util/List;
+	public final fun getCgroupDriver ()Lme/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver;
+	public final fun getCgroupVersion ()Ljava/lang/String;
+	public final fun getContainerd ()Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo;
+	public final fun getContainerdCommit ()Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;
+	public final fun getContainers ()I
+	public final fun getContainersPaused ()I
+	public final fun getContainersRunning ()I
+	public final fun getContainersStopped ()I
+	public final fun getCpuCfsPeriod ()Z
+	public final fun getCpuCfsQuota ()Z
+	public final fun getCpuSet ()Z
+	public final fun getCpuShares ()Z
+	public final fun getDebug ()Z
+	public final fun getDefaultAddressPools ()Ljava/util/List;
+	public final fun getDefaultRuntime ()Ljava/lang/String;
+	public final fun getDiscoveredDevices ()Ljava/util/List;
+	public final fun getDockerRootDir ()Ljava/lang/String;
+	public final fun getDriver ()Ljava/lang/String;
+	public final fun getDriverStatus ()Ljava/util/List;
+	public final fun getExperimentalBuild ()Z
+	public final fun getFirewallBackend ()Lme/devnatan/dockerkt/models/system/SystemInfo$FirewallBackend;
+	public final fun getGenericResources ()Ljava/util/List;
+	public final fun getHttpProxy ()Ljava/lang/String;
+	public final fun getHttpsProxy ()Ljava/lang/String;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getImages ()I
+	public final fun getIndexServerAddress ()Ljava/lang/String;
+	public final fun getInitBinary ()Ljava/lang/String;
+	public final fun getInitCommit ()Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;
+	public final fun getIpv4Forwarding ()Z
+	public final fun getIsolation ()Lme/devnatan/dockerkt/models/system/SystemInfo$Isolation;
+	public final fun getKernelVersion ()Ljava/lang/String;
+	public final fun getLabels ()Ljava/util/List;
+	public final fun getLiveRestoreEnabled ()Z
+	public final fun getLoggingDriver ()Ljava/lang/String;
+	public final fun getMemTotal ()J
+	public final fun getMemoryLimit ()Z
+	public final fun getNCPU ()I
+	public final fun getNEventsListener ()I
+	public final fun getNFd ()I
+	public final fun getNGoroutines ()I
+	public final fun getName ()Ljava/lang/String;
+	public final fun getNoProxy ()Ljava/lang/String;
+	public final fun getOomKillDisable ()Z
+	public final fun getOperatingSystem ()Ljava/lang/String;
+	public final fun getOsType ()Lme/devnatan/dockerkt/models/system/SystemInfo$OSType;
+	public final fun getOsVersion ()Ljava/lang/String;
+	public final fun getPidsLimit ()Z
+	public final fun getPlugins ()Lme/devnatan/dockerkt/models/system/SystemInfo$Plugin;
+	public final fun getProductLicense ()Ljava/lang/String;
+	public final fun getRegistryConfig ()Lme/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig;
+	public final fun getRuncCommit ()Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;
+	public final fun getRuntimes ()Ljava/util/Map;
+	public final fun getSecurityOptions ()Ljava/util/List;
+	public final fun getServerVersion ()Ljava/lang/String;
+	public final fun getSwapLimit ()Z
+	public final fun getSwarm ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm;
+	public final fun getSystemTimeRaw ()Ljava/lang/String;
+	public final fun getWarnings ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver : java/lang/Enum {
+	public static final field Cgroupfs Lme/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver;
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver$Companion;
+	public static final field None Lme/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver;
+	public static final field Systemd Lme/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver;
+	public static final field Unknown Lme/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lme/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver;
+	public static fun values ()[Lme/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$CgroupDriver$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$Namespaces;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAddress ()Ljava/lang/String;
+	public final fun getNamespace ()Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$Namespaces;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$Namespaces {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$Namespaces$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getContainers ()Ljava/lang/String;
+	public final fun getPlugins ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$Namespaces$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$Namespaces$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$Namespaces;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$Namespaces;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$ContainerdInfo$Namespaces$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$DefaultAddressPool {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$DefaultAddressPool$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()I
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBase ()Ljava/lang/String;
+	public final fun getSize ()I
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$DefaultAddressPool$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$DefaultAddressPool$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$DefaultAddressPool;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$DefaultAddressPool;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$DefaultAddressPool$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$DiscoveredDevice {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$DiscoveredDevice$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public final fun getSource ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$DiscoveredDevice$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$DiscoveredDevice$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$DiscoveredDevice;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$DiscoveredDevice;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$DiscoveredDevice$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$FirewallBackend {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$FirewallBackend$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDriver ()Ljava/lang/String;
+	public final fun getInfo ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$FirewallBackend$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$FirewallBackend$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$FirewallBackend;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$FirewallBackend;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$FirewallBackend$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$GenericResource {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$Companion;
+	public fun <init> ()V
+	public final fun component1 ()Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$NamedResourceSpec;
+	public final fun component2 ()Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$DiscreteResourceSpec;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDiscreteResourceSpec ()Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$DiscreteResourceSpec;
+	public final fun getNamedResourceSpec ()Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$NamedResourceSpec;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$GenericResource$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$GenericResource$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$GenericResource$DiscreteResourceSpec {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$DiscreteResourceSpec$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()J
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKind ()Ljava/lang/String;
+	public final fun getValue ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$GenericResource$DiscreteResourceSpec$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$DiscreteResourceSpec$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$DiscreteResourceSpec;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$DiscreteResourceSpec;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$GenericResource$DiscreteResourceSpec$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$GenericResource$NamedResourceSpec {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$NamedResourceSpec$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getKind ()Ljava/lang/String;
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$GenericResource$NamedResourceSpec$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$NamedResourceSpec$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$NamedResourceSpec;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$GenericResource$NamedResourceSpec;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$GenericResource$NamedResourceSpec$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getId ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$GitCommitInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Isolation : java/lang/Enum {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Isolation$Companion;
+	public static final field Default Lme/devnatan/dockerkt/models/system/SystemInfo$Isolation;
+	public static final field Hyperv Lme/devnatan/dockerkt/models/system/SystemInfo$Isolation;
+	public static final field Process Lme/devnatan/dockerkt/models/system/SystemInfo$Isolation;
+	public static final field Unknown Lme/devnatan/dockerkt/models/system/SystemInfo$Isolation;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lme/devnatan/dockerkt/models/system/SystemInfo$Isolation;
+	public static fun values ()[Lme/devnatan/dockerkt/models/system/SystemInfo$Isolation;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Isolation$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$OSType : java/lang/Enum {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$OSType$Companion;
+	public static final field Linux Lme/devnatan/dockerkt/models/system/SystemInfo$OSType;
+	public static final field Unknown Lme/devnatan/dockerkt/models/system/SystemInfo$OSType;
+	public static final field Windows Lme/devnatan/dockerkt/models/system/SystemInfo$OSType;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lme/devnatan/dockerkt/models/system/SystemInfo$OSType;
+	public static fun values ()[Lme/devnatan/dockerkt/models/system/SystemInfo$OSType;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$OSType$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Plugin {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Plugin$Companion;
+	public fun <init> ()V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAuthorization ()Ljava/util/List;
+	public final fun getLog ()Ljava/util/List;
+	public final fun getNetwork ()Ljava/util/List;
+	public final fun getVolume ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Plugin$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Plugin$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Plugin;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Plugin;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Plugin$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig$Companion;
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/Map;
+	public final fun component3 ()Ljava/util/List;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getIndexConfigs ()Ljava/util/Map;
+	public final fun getInsecureRegistryCIDRs ()Ljava/util/List;
+	public final fun getMirrors ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig$IndexConfig {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig$IndexConfig$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMirrors ()Ljava/util/List;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getOfficial ()Z
+	public final fun getSecure ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig$IndexConfig$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig$IndexConfig$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig$IndexConfig;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig$IndexConfig;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$RegistryConfig$IndexConfig$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Runtime {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Runtime$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/Map;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPath ()Ljava/lang/String;
+	public final fun getRuntimeArgs ()Ljava/util/List;
+	public final fun getStatus ()Ljava/util/Map;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Runtime$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Runtime$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Runtime;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Runtime;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Runtime$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState;
+	public final fun component4 ()Z
+	public final fun component5 ()Ljava/lang/String;
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()Ljava/lang/Integer;
+	public final fun component8 ()Ljava/lang/Integer;
+	public final fun component9 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCluster ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo;
+	public final fun getControlAvailable ()Z
+	public final fun getError ()Ljava/lang/String;
+	public final fun getLocalNodeState ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState;
+	public final fun getManagers ()Ljava/lang/Integer;
+	public final fun getNodeAddr ()Ljava/lang/String;
+	public final fun getNodeID ()Ljava/lang/String;
+	public final fun getNodes ()Ljava/lang/Integer;
+	public final fun getRemoteManagers ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()I
+	public final fun component2 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterVersion;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec;
+	public final fun component6 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$TLSInfo;
+	public final fun component7 ()Z
+	public final fun component8 ()I
+	public final fun component9 ()Ljava/util/List;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCreatedAtRaw ()Ljava/lang/String;
+	public final fun getDataPathPort ()I
+	public final fun getDefaultAddrPool ()Ljava/util/List;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getRootRotationInProgress ()Z
+	public final fun getSpec ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec;
+	public final fun getSubnetSize ()I
+	public final fun getTlsInfo ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$TLSInfo;
+	public final fun getUpdatedAtRaw ()Ljava/lang/String;
+	public final fun getVersion ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterVersion;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/Map;
+	public final fun component3 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Orquestration;
+	public final fun component4 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Raft;
+	public final fun component5 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Dispatcher;
+	public final fun component6 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig;
+	public final fun component7 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$EncryptionConfig;
+	public final fun component8 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCaConfig ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig;
+	public final fun getDispatcher ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Dispatcher;
+	public final fun getEncryptionConfig ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$EncryptionConfig;
+	public final fun getLabels ()Ljava/util/Map;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getOrchestration ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Orquestration;
+	public final fun getRaft ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Raft;
+	public final fun getTaskDefaults ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig$Companion;
+	public final fun component1 ()J
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5 ()J
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getExternalCAs ()Ljava/util/List;
+	public final fun getForceRotate ()J
+	public final fun getNodeCertExpiry ()J
+	public final fun getSigningCACert ()Ljava/lang/String;
+	public final fun getSigningCAKey ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig$ExternalCA {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig$ExternalCA$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/util/Map;
+	public final fun component4 ()Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCaCert ()Ljava/lang/String;
+	public final fun getOptions ()Ljava/util/Map;
+	public final fun getProtocol ()Ljava/lang/String;
+	public final fun getUrl ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig$ExternalCA$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig$ExternalCA$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig$ExternalCA;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig$ExternalCA;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$CAConfig$ExternalCA$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Dispatcher {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Dispatcher$Companion;
+	public final fun component1 ()J
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getHeartbeatPeriod ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Dispatcher$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Dispatcher$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Dispatcher;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Dispatcher;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Dispatcher$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$EncryptionConfig {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$EncryptionConfig$Companion;
+	public final fun component1 ()Z
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAutoLockManagers ()Z
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$EncryptionConfig$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$EncryptionConfig$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$EncryptionConfig;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$EncryptionConfig;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$EncryptionConfig$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Orquestration {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Orquestration$Companion;
+	public fun <init> ()V
+	public final fun component1 ()Ljava/lang/Long;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getTaskHistoryRetentionLimit ()Ljava/lang/Long;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Orquestration$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Orquestration$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Orquestration;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Orquestration;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Orquestration$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Raft {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Raft$Companion;
+	public final fun component1 ()J
+	public final fun component2 ()J
+	public final fun component3 ()J
+	public final fun component4 ()I
+	public final fun component5 ()I
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getElectionTick ()I
+	public final fun getHeartbeatTick ()I
+	public final fun getKeepOldSnapshots ()J
+	public final fun getLogEntriesForSlowFollowers ()J
+	public final fun getSnapshotInterval ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Raft$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Raft$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Raft;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Raft;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$Raft$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$Companion;
+	public final fun component1 ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$LogDriver;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getLogDriver ()Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$LogDriver;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$LogDriver {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$LogDriver$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/util/Map;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getName ()Ljava/lang/String;
+	public final fun getOptions ()Ljava/util/Map;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$LogDriver$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$LogDriver$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$LogDriver;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$LogDriver;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterSpec$TaskDefaults$LogDriver$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterVersion {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterVersion$Companion;
+	public final fun component1 ()J
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getIndex ()J
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterVersion$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterVersion$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterVersion;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterVersion;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$ClusterVersion$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$TLSInfo {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$TLSInfo$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCertIssuerPublicKey ()Ljava/lang/String;
+	public final fun getCertIssuerSubject ()Ljava/lang/String;
+	public final fun getTrustRoot ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$TLSInfo$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$TLSInfo$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$TLSInfo;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$TLSInfo;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$ClusterInfo$TLSInfo$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState : java/lang/Enum {
+	public static final field Active Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState;
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState$Companion;
+	public static final field Error Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState;
+	public static final field Inactive Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState;
+	public static final field Locked Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState;
+	public static final field Pending Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState;
+	public static final field Unknown Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
+	public static fun valueOf (Ljava/lang/String;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState;
+	public static fun values ()[Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$LocalNodeState$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$RemoteManager {
+	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$RemoteManager$Companion;
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getAddr ()Ljava/lang/String;
+	public final fun getNodeID ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$RemoteManager$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$RemoteManager$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$RemoteManager;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/system/SystemInfo$Swarm$RemoteManager;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/system/SystemInfo$Swarm$RemoteManager$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class me/devnatan/dockerkt/models/system/SystemPingData {
 	public static final field Companion Lme/devnatan/dockerkt/models/system/SystemPingData$Companion;
 	public final fun component1 ()Ljava/lang/String;
@@ -4204,6 +5176,7 @@ public class me/devnatan/dockerkt/resource/swarm/SwarmException : me/devnatan/do
 public final class me/devnatan/dockerkt/resource/system/SystemResource {
 	public final fun events (Lme/devnatan/dockerkt/models/system/MonitorEventsOptions;)Lkotlinx/coroutines/flow/Flow;
 	public static synthetic fun events$default (Lme/devnatan/dockerkt/resource/system/SystemResource;Lme/devnatan/dockerkt/models/system/MonitorEventsOptions;ILjava/lang/Object;)Lkotlinx/coroutines/flow/Flow;
+	public final fun info (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun ping (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun ping (ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun ping$default (Lme/devnatan/dockerkt/resource/system/SystemResource;ZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;

@@ -1,6 +1,6 @@
 # docker-kotlin supported Docker API endpoints
 
-Supports 47 of 106 endpoints
+Supports 48 of 106 endpoints
 
 ### Containers (15/25)
 * [x] List containers - GET **/containers/json**
@@ -126,7 +126,7 @@ Supports 47 of 106 endpoints
 
 ### System (3/7)
 * [ ] Check auth configuration - POST **/auth**
-* [ ] Get system information - GET **/info**
+* [x] Get system information - GET **/info**
 * [x] Get version - GET **/version**
 * [x] Ping - GET **/_ping**
 * [x] Ping - HEAD **/_ping**
