@@ -10,8 +10,10 @@ import io.ktor.client.request.prepareGet
 import io.ktor.client.request.preparePost
 import io.ktor.client.request.put
 import io.ktor.client.request.setBody
+import io.ktor.client.statement.bodyAsChannel
 import io.ktor.client.statement.readRawBytes
 import io.ktor.http.ContentType
+import io.ktor.http.Headers
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
 import io.ktor.util.cio.toByteReadChannel
@@ -26,15 +28,20 @@ import io.ktor.utils.io.readUTF8Line
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.channelFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.future.asCompletableFuture
 import kotlinx.io.files.Path
 import kotlinx.serialization.json.Json
+import me.devnatan.dockerkt.DockerResourceException
 import me.devnatan.dockerkt.DockerResponseException
 import me.devnatan.dockerkt.io.FileSystemUtils
 import me.devnatan.dockerkt.io.TarEntry
 import me.devnatan.dockerkt.io.TarOperations
 import me.devnatan.dockerkt.io.TarUtils
+import me.devnatan.dockerkt.io.collectStream
+import me.devnatan.dockerkt.io.collectStreamDemuxed
+import me.devnatan.dockerkt.io.readStream
 import me.devnatan.dockerkt.io.requestCatching
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
@@ -47,17 +54,21 @@ import me.devnatan.dockerkt.models.container.ContainerCreateOptions
 import me.devnatan.dockerkt.models.container.ContainerCreateResult
 import me.devnatan.dockerkt.models.container.ContainerListOptions
 import me.devnatan.dockerkt.models.container.ContainerLogsOptions
+import me.devnatan.dockerkt.models.container.ContainerLogsResult
 import me.devnatan.dockerkt.models.container.ContainerPruneFilters
 import me.devnatan.dockerkt.models.container.ContainerPruneResult
 import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
 import me.devnatan.dockerkt.models.container.ContainerSummary
 import me.devnatan.dockerkt.models.container.ContainerWaitResult
-import me.devnatan.dockerkt.resource.ResourcePaths.CONTAINERS
 import me.devnatan.dockerkt.resource.image.ImageNotFoundException
+import me.devnatan.dockerkt.resource.secret.SecretNameConflictException
+import me.devnatan.dockerkt.resource.swarm.NodeNotPartOfSwarmException
 import java.util.concurrent.CompletableFuture
 import kotlin.time.Duration
 import kotlin.time.DurationUnit
 import kotlin.time.toDuration
+
+public const val BasePath: String = "/containers"
 
 public actual class ContainerResource(
     private val coroutineScope: CoroutineScope,
@@ -72,7 +83,7 @@ public actual class ContainerResource(
     @JvmSynthetic
     public actual suspend fun list(options: ContainerListOptions): List<ContainerSummary> =
         requestCatching {
-            httpClient.get("$CONTAINERS/json") {
+            httpClient.get("$BasePath/json") {
                 parameter("all", options.all)
                 parameter("limit", options.limit)
                 parameter("size", options.size)
@@ -110,7 +121,7 @@ public actual class ContainerResource(
                     )
                 },
             ) {
-                httpClient.post("$CONTAINERS/create") {
+                httpClient.post("$BasePath/create") {
                     parameter("name", options.name)
                     setBody(options)
                 }
@@ -150,7 +161,7 @@ public actual class ContainerResource(
             HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
             HttpStatusCode.Conflict to { cause -> ContainerRemoveConflictException(cause, container) },
         ) {
-            httpClient.delete("$CONTAINERS/$container") {
+            httpClient.delete("$BasePath/$container") {
                 parameter("v", options.removeAnonymousVolumes)
                 parameter("force", options.force)
                 parameter("link", options.unlink)
@@ -185,7 +196,7 @@ public actual class ContainerResource(
         requestCatching(
             HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
         ) {
-            httpClient.get("$CONTAINERS/$container/json") {
+            httpClient.get("$BasePath/$container/json") {
                 parameter("size", size)
             }
         }.body()
@@ -219,7 +230,7 @@ public actual class ContainerResource(
             HttpStatusCode.NotModified to { cause -> ContainerAlreadyStartedException(cause, container) },
             HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
         ) {
-            httpClient.post("$CONTAINERS/$container/start") {
+            httpClient.post("$BasePath/$container/start") {
                 parameter("detachKeys", detachKeys)
             }
         }
@@ -257,7 +268,7 @@ public actual class ContainerResource(
             HttpStatusCode.NotModified to { cause -> ContainerAlreadyStoppedException(cause, container) },
             HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
         ) {
-            httpClient.post("$CONTAINERS/$container/stop") {
+            httpClient.post("$BasePath/$container/stop") {
                 parameter("t", timeout?.inWholeSeconds)
             }
         }
@@ -302,7 +313,7 @@ public actual class ContainerResource(
         requestCatching(
             HttpStatusCode.NotFound to { exception -> ContainerNotFoundException(exception, container) },
         ) {
-            httpClient.post("$CONTAINERS/$container/restart") {
+            httpClient.post("$BasePath/$container/restart") {
                 parameter("t", timeout)
             }
         }
@@ -348,7 +359,7 @@ public actual class ContainerResource(
             HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
             HttpStatusCode.Conflict to { cause -> ContainerNotRunningException(cause, container) },
         ) {
-            httpClient.post("$CONTAINERS/$container/kill") {
+            httpClient.post("$BasePath/$container/kill") {
                 parameter("signal", signal)
             }
         }
@@ -384,7 +395,7 @@ public actual class ContainerResource(
             HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
             HttpStatusCode.Conflict to { cause -> ContainerRenameConflictException(cause, container, newName) },
         ) {
-            httpClient.post("$CONTAINERS/$container/rename") {
+            httpClient.post("$BasePath/$container/rename") {
                 parameter("name", newName)
             }
         }
@@ -415,7 +426,7 @@ public actual class ContainerResource(
         requestCatching(
             HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
         ) {
-            httpClient.post("$CONTAINERS/$container/pause")
+            httpClient.post("$BasePath/$container/pause")
         }
 
     /**
@@ -437,7 +448,7 @@ public actual class ContainerResource(
         requestCatching(
             HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
         ) {
-            httpClient.post("$CONTAINERS/$container/unpause")
+            httpClient.post("$BasePath/$container/unpause")
         }
 
     /**
@@ -469,7 +480,7 @@ public actual class ContainerResource(
                 )
             },
         ) {
-            httpClient.post("$CONTAINERS/$container/resize") {
+            httpClient.post("$BasePath/$container/resize") {
                 setBody(options)
             }
         }
@@ -492,7 +503,7 @@ public actual class ContainerResource(
     public actual fun attach(container: String): Flow<Frame> =
         flow {
             httpClient
-                .preparePost("$CONTAINERS/$container/attach") {
+                .preparePost("$BasePath/$container/attach") {
                     parameter("stream", "true")
                     parameter("stdin", "true")
                     parameter("stdout", "true")
@@ -514,7 +525,7 @@ public actual class ContainerResource(
         condition: String?,
     ): ContainerWaitResult =
         httpClient
-            .post("$CONTAINERS/$container/wait") {
+            .post("$BasePath/$container/wait") {
                 parameter("condition", condition)
             }.body()
 
@@ -527,7 +538,7 @@ public actual class ContainerResource(
     @JvmSynthetic
     public actual suspend fun prune(filters: ContainerPruneFilters): ContainerPruneResult =
         httpClient
-            .post("$CONTAINERS/prune") {
+            .post("$BasePath/prune") {
                 parameter("filters", json.encodeToString(filters))
             }.body()
 
@@ -549,7 +560,7 @@ public actual class ContainerResource(
             },
         ) {
             val response =
-                httpClient.get("$CONTAINERS/$container/archive") {
+                httpClient.get("$BasePath/$container/archive") {
                     parameter("path", sourcePath)
                 }
 
@@ -577,7 +588,7 @@ public actual class ContainerResource(
                 IllegalArgumentException("Invalid destination path: $destinationPath", exception)
             },
         ) {
-            httpClient.put("$CONTAINERS/$container/archive") {
+            httpClient.put("$BasePath/$container/archive") {
                 parameter("path", destinationPath)
                 parameter("noOverwriteDirNonDir", options.noOverwriteDirNonDir.toString())
                 parameter("copyUIDGID", options.copyUIDGID.toString())
@@ -646,76 +657,96 @@ public actual class ContainerResource(
         return TarUtils.createTarArchive(entries)
     }
 
-    public actual fun logs(
+    public actual suspend fun logs(
         container: String,
         options: ContainerLogsOptions,
-    ): Flow<Frame> =
-        flow {
-            httpClient
-                .prepareGet("$CONTAINERS/$container/logs") {
-                    parameter("follow", options.follow)
+    ): ContainerLogsResult =
+        if (options.follow ?: false) {
+            logsStreaming(container, options)
+        } else {
+            logsComplete(container, options)
+        }
+
+    private suspend fun logsComplete(
+        container: String,
+        options: ContainerLogsOptions,
+    ): ContainerLogsResult =
+        requestCatching(
+            HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+        ) {
+            val response =
+                httpClient.get("$BasePath/$container/logs") {
                     parameter("stdout", options.stdout)
                     parameter("stderr", options.stderr)
+                    parameter("timestamps", options.showTimestamps)
                     parameter("since", options.since)
                     parameter("until", options.until)
-                    parameter("timestamps", options.showTimestamps)
                     parameter("tail", options.tail)
-                }.execute { response ->
-                    val channel = response.body<ByteReadChannel>()
-                    if (channel.isClosedForRead) {
-                        throw CancellationException("Container stopped? Logs are not available.")
-                    }
+                    parameter("follow", false)
+                }
 
-                    while (!channel.isClosedForRead) {
-                        val fb: Byte =
-                            runCatching {
-                                channel.readByte()
-                            }.getOrElse {
-                                break // container stopped while streaming logs?
+            val channel = response.bodyAsChannel()
+            val multiplexed = response.headers.get("Content-Type") == "application/vnd.docker.multiplexed-stream"
+
+            return if (options.demux) {
+                val (stdout, stderr) = collectStreamDemuxed(channel, multiplexed)
+                ContainerLogsResult.CompleteDemuxed(stdout, stderr)
+            } else {
+                val content = collectStream(channel, multiplexed)
+                ContainerLogsResult.Complete(content)
+            }
+        }
+
+    private fun logsStreaming(
+        container: String,
+        options: ContainerLogsOptions,
+    ): ContainerLogsResult {
+        val framesFlow =
+            channelFlow {
+                requestCatching(
+                    HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+                ) {
+                    httpClient
+                        .prepareGet("$BasePath/$container/logs") {
+                            parameter("stdout", options.stdout)
+                            parameter("stderr", options.stderr)
+                            parameter("timestamps", options.showTimestamps)
+                            parameter("since", options.since)
+                            parameter("until", options.until)
+                            parameter("tail", options.tail)
+                            parameter("follow", true)
+                        }.execute { httpResponse ->
+                            val channel = httpResponse.bodyAsChannel()
+                            val multiplxed =
+                                httpResponse.headers.get("Content-Type") == "application/vnd.docker.multiplexed-stream"
+
+                            readStream(channel, multiplxed) { frame ->
+                                send(frame)
                             }
-
-                        val stream = Stream.typeOfOrNull(fb)
-
-                        // Unknown stream = tty enabled
-                        if (stream == null) {
-                            val remaining = channel.availableForRead
-
-                            // Remaining +1 includes the previously read first byte. Reinsert the first byte since we read it
-                            // before but the type was not expected, so this byte is actually the first character of the line.
-                            val len = remaining + 1
-                            val payload =
-                                ByteReadChannel(
-                                    ByteArray(len) {
-                                        if (it == 0) fb else channel.readByte()
-                                    },
-                                )
-
-                            val line = payload.readUTF8Line() ?: error("Payload cannot be null")
-
-                            // Try to determine the "correct" stream since we cannot have this information.
-                            val stdoutEnabled = options.stdout ?: false
-                            val stdErrEnabled = options.stderr ?: false
-                            val expectedStream: Stream =
-                                stream ?: when {
-                                    stdoutEnabled && !stdErrEnabled -> Stream.StdOut
-                                    stdErrEnabled && !stdoutEnabled -> Stream.StdErr
-                                    else -> Stream.Unknown
-                                }
-
-                            emit(Frame(line, len, expectedStream))
-                            continue
                         }
+                }
+            }
 
-                        val header = channel.readPacket(7)
-
-                        // We discard the first three bytes because the payload size is in the last four bytes
-                        // and the total header size is 8.
-                        header.discard(3)
-
-                        val payloadLength = header.readInt()
-                        val payloadData = channel.readUTF8Line(payloadLength)!!
-                        emit(Frame(payloadData, payloadLength, stream))
+        return if (options.demux) {
+            val stdoutFlow =
+                flow {
+                    framesFlow.collect { frame ->
+                        if (frame.stream == Stream.StdOut) {
+                            emit(frame.value)
+                        }
                     }
                 }
+            val stderrFlow =
+                flow {
+                    framesFlow.collect { frame ->
+                        if (frame.stream == Stream.StdErr) {
+                            emit(frame.value)
+                        }
+                    }
+                }
+            ContainerLogsResult.StreamDemuxed(stdoutFlow, stderrFlow)
+        } else {
+            ContainerLogsResult.Stream(framesFlow)
         }
+    }
 }

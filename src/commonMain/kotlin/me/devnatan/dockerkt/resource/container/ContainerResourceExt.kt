@@ -9,6 +9,7 @@ import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
 import me.devnatan.dockerkt.models.container.ContainerListOptions
 import me.devnatan.dockerkt.models.container.ContainerLogsOptions
+import me.devnatan.dockerkt.models.container.ContainerLogsResult
 import me.devnatan.dockerkt.models.container.ContainerPruneFilters
 import me.devnatan.dockerkt.models.container.ContainerPruneResult
 import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
@@ -64,12 +65,53 @@ public suspend inline fun ContainerResource.resizeTTY(
     resizeTTY(container, ResizeTTYOptions().apply(options))
 }
 
-public inline fun ContainerResource.logs(
+/**
+ * Get logs from a container.
+ *
+ * Similar to the `docker logs` command, this retrieves stdout and/or stderr logs
+ * from a container. The logs can be returned as a complete string or streamed
+ * progressively as a Flow.
+ *
+ * The stream format (multiplexed vs raw TTY) is automatically detected from the
+ * content, so there's no need to specify whether the container uses TTY.
+ *
+ * @param container Container id or name.
+ * @param block Configuration options for log retrieval. See [ContainerLogsOptions].
+ * @return [ContainerLogsResult] containing logs based on the options:
+ *   - [ContainerLogsResult.Stream] for streaming mode
+ *   - [ContainerLogsResult.StreamDemuxed] for streaming with separated stdout/stderr
+ *   - [ContainerLogsResult.Complete] for non-streaming mode
+ *   - [ContainerLogsResult.CompleteDemuxed] for non-streaming with separated stdout/stderr
+ *
+ * @throws ContainerNotFoundException If the container is not found.
+ * @throws IllegalArgumentException If neither stdout nor stderr is enabled.
+ */
+public suspend inline fun ContainerResource.logs(
     container: String,
     block: ContainerLogsOptions.() -> Unit,
-): Flow<Frame> = logs(container, ContainerLogsOptions().apply(block))
+): ContainerLogsResult = logs(container, ContainerLogsOptions().apply(block))
 
-public fun ContainerResource.logs(container: String): Flow<Frame> =
+/**
+ * Get logs from a container with [ContainerLogsOptions.follow], [ContainerLogsOptions.stdout]
+ * and [ContainerLogsOptions.stderr] options already set.
+ *
+ * Similar to the `docker logs` command, this retrieves stdout and/or stderr logs
+ * from a container. The logs can be returned as a complete string or streamed
+ * progressively as a Flow.
+ *
+ * The stream format (multiplexed vs raw TTY) is automatically detected from the
+ * content, so there's no need to specify whether the container uses TTY.
+ *
+ * @param container Container id or name.
+ * @param block Configuration options for log retrieval. See [ContainerLogsOptions].
+ * @return [ContainerLogsResult] containing logs based on the already set options:
+ *   - [ContainerLogsResult.Stream] for streaming mode
+ *   - [ContainerLogsResult.StreamDemuxed] for streaming with separated stdout/stderr
+ *
+ * @throws ContainerNotFoundException If the container is not found.
+ * @throws IllegalArgumentException If neither stdout nor stderr is enabled.
+ */
+public suspend fun ContainerResource.logs(container: String): ContainerLogsResult =
     logs(
         container = container,
         options =

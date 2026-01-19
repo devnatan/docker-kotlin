@@ -22,7 +22,6 @@ import me.devnatan.dockerkt.models.exec.ExecCreateOptions
 import me.devnatan.dockerkt.models.exec.ExecInspectResponse
 import me.devnatan.dockerkt.models.exec.ExecStartOptions
 import me.devnatan.dockerkt.models.exec.ExecStartResult
-import me.devnatan.dockerkt.resource.ResourcePaths.CONTAINERS
 import me.devnatan.dockerkt.resource.container.ContainerNotFoundException
 import me.devnatan.dockerkt.resource.container.ContainerNotRunningException
 import kotlin.jvm.JvmSynthetic
@@ -67,7 +66,7 @@ public class ExecResource internal constructor(
                 )
             },
         ) {
-            httpClient.post("$CONTAINERS/$id/exec") {
+            httpClient.post("containers/$id/exec") {
                 setBody(options)
             }
         }.body<IdOnlyResponse>().id
