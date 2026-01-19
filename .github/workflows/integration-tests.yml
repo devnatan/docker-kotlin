@@ -13,6 +13,7 @@ jobs:
         docker_version:
           - "20.10"
     runs-on: ubuntu-latest
+    name: JVM (Docker v${{ matrix.docker_version }})
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -47,6 +48,7 @@ jobs:
           - name: macosX64
             runner: macos-15-intel
     runs-on: ${{ matrix.os.runner }}
+    name: Native ${{ matrix.name }} (Docker v${{ matrix.docker_version }})
     steps:
       - name: Checkout
         uses: actions/checkout@v6
