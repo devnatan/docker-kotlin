@@ -13,17 +13,10 @@ import io.ktor.client.request.setBody
 import io.ktor.client.statement.bodyAsChannel
 import io.ktor.client.statement.readRawBytes
 import io.ktor.http.ContentType
-import io.ktor.http.Headers
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
-import io.ktor.util.cio.toByteReadChannel
 import io.ktor.util.decodeBase64Bytes
 import io.ktor.utils.io.ByteReadChannel
-import io.ktor.utils.io.CancellationException
-import io.ktor.utils.io.availableForRead
-import io.ktor.utils.io.core.discard
-import io.ktor.utils.io.readByte
-import io.ktor.utils.io.readPacket
 import io.ktor.utils.io.readUTF8Line
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
@@ -33,7 +26,6 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.future.asCompletableFuture
 import kotlinx.io.files.Path
 import kotlinx.serialization.json.Json
-import me.devnatan.dockerkt.DockerResourceException
 import me.devnatan.dockerkt.DockerResponseException
 import me.devnatan.dockerkt.io.FileSystemUtils
 import me.devnatan.dockerkt.io.TarEntry
@@ -61,8 +53,6 @@ import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
 import me.devnatan.dockerkt.models.container.ContainerSummary
 import me.devnatan.dockerkt.models.container.ContainerWaitResult
 import me.devnatan.dockerkt.resource.image.ImageNotFoundException
-import me.devnatan.dockerkt.resource.secret.SecretNameConflictException
-import me.devnatan.dockerkt.resource.swarm.NodeNotPartOfSwarmException
 import java.util.concurrent.CompletableFuture
 import kotlin.time.Duration
 import kotlin.time.DurationUnit

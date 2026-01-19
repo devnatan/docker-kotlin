@@ -1,7 +1,6 @@
 package me.devnatan.dockerkt.io
 
 import kotlinx.io.Buffer
-import kotlinx.io.RawSource
 import kotlinx.io.files.Path
 import kotlinx.io.readByteArray
 import kotlinx.io.readTo
