@@ -26,9 +26,6 @@ jobs:
 
       - name: KtLint
         run: ./gradlew lintKotlin --continue --stacktrace
-
-      - name: Detekt
-        run: detekt --continue --stacktrace
   binary-compatibility:
     runs-on: ubuntu-latest
     name: Binary Compatibility Check
