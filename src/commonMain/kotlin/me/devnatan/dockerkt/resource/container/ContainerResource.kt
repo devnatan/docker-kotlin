@@ -177,7 +177,6 @@ public expect class ContainerResource {
      *   - [ContainerLogsResult.CompleteDemuxed] for non-streaming with separated stdout/stderr
      *
      * @throws ContainerNotFoundException If the container is not found.
-     * @throws IllegalArgumentException If neither stdout nor stderr is enabled.
      */
     public suspend fun logs(
         container: String,

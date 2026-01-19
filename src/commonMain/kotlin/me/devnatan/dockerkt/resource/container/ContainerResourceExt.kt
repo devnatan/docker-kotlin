@@ -1,3 +1,5 @@
+@file:OptIn(ExperimentalContracts::class)
+
 package me.devnatan.dockerkt.resource.container
 
 import me.devnatan.dockerkt.DockerResponseException
@@ -12,6 +14,7 @@ import me.devnatan.dockerkt.models.container.ContainerPruneResult
 import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
 import me.devnatan.dockerkt.models.container.ContainerSummary
 import me.devnatan.dockerkt.resource.image.ImageNotFoundException
+import kotlin.contracts.ExperimentalContracts
 
 /**
  * Returns a list of all containers.
@@ -100,15 +103,12 @@ public suspend inline fun ContainerResource.logs(
  * content, so there's no need to specify whether the container uses TTY.
  *
  * @param container Container id or name.
- * @param block Configuration options for log retrieval. See [ContainerLogsOptions].
- * @return [ContainerLogsResult] containing logs based on the already set options:
- *   - [ContainerLogsResult.Stream] for streaming mode
- *   - [ContainerLogsResult.StreamDemuxed] for streaming with separated stdout/stderr
+ * @return [ContainerLogsResult] containing logs with separated stdout/stderr
  *
  * @throws ContainerNotFoundException If the container is not found.
  * @throws IllegalArgumentException If neither stdout nor stderr is enabled.
  */
-public suspend fun ContainerResource.logs(container: String): ContainerLogsResult =
+public suspend fun ContainerResource.logs(container: String): ContainerLogsResult.StreamDemuxed =
     logs(
         container = container,
         options =
@@ -117,7 +117,7 @@ public suspend fun ContainerResource.logs(container: String): ContainerLogsResul
                 stderr = true,
                 stdout = true,
             ),
-    )
+    ) as ContainerLogsResult.StreamDemuxed
 
 /**
  * Copy files or folders from the local filesystem to a container.
