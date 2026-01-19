@@ -91,12 +91,9 @@ val containers: List<Container> = client.containers.list()
 val result = client.containers.logs(containerId) {
     stdout = true
     stderr = true
-}
+} as ContainerLogsResult.Complete
 
-when (result) {
-    is ContainerLogsResult.Complete -> println(result.output)
-    else -> error("Unexpected result")
-}
+println(result.output)
 ```
 
 ##### Stream logs in real-time
@@ -105,15 +102,10 @@ val result = client.containers.logs(containerId) {
     stdout = true
     stderr = true
     follow = true
-}
+} as ContainerLogsResult.Stream
 
-when (result) {
-    is ContainerLogsResult.Stream -> {
-        result.output.collect { frame ->
-            print(frame.content)
-        }
-    }
-    else -> error("Unexpected result")
+result.output.collect { frame ->
+    println(frame.value)
 }
 ```
 
@@ -122,15 +114,10 @@ when (result) {
 val result = client.containers.logs(containerId, demux = true) {
     stdout = true
     stderr = true
-}
+} as ContainerLogsResult.CompleteDemuxed
 
-when (result) {
-    is ContainerLogsResult.CompleteDemuxed -> {
-        println("STDOUT: ${result.stdout}")
-        println("STDERR: ${result.stderr}")
-    }
-    else -> error("Unexpected result")
-}
+println("STDOUT: ${result.stdout}")
+println("STDERR: ${result.stderr}")
 ```
 
 ##### Get last N lines of logs
