@@ -27,8 +27,6 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v5
-        with:
-          cache-disabled: true
 
       - name: Prune Docker System
         run: docker system prune -a -f
@@ -42,7 +40,7 @@ jobs:
         docker_version:
           - "20.10"
         os:
-          - name: linuX64
+          - name: linuxX64
             runner: ubuntu-22.04
 
           - name: macosX64
@@ -62,8 +60,10 @@ jobs:
 
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v5
-        with:
-          cache-disabled: true
+
+      - name: Setup Docker
+        uses: docker/setup-docker-action@v4.6.0
+        if: ${{ matrix.os.name == 'macosX64' }}
 
       - name: Prune Docker System
         run: docker system prune -a -f
