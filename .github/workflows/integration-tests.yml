@@ -34,6 +34,7 @@ jobs:
       - name: Run Tests
         run: ./gradlew jvmTest
   native:
+    if: ${{ vars.NATIVE_TESTS_ENABLED == 'true' }}
     strategy:
       fail-fast: false
       matrix:
