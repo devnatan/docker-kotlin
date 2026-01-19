@@ -29,7 +29,9 @@ jobs:
           distribution: 'temurin'
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          cache-disabled: true
 
       - name: Prune Docker System
         run: docker system prune -a -f
