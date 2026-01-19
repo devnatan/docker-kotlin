@@ -6,7 +6,6 @@ import kotlin.test.Test
 import kotlin.test.assertEquals
 
 class MultiplexedStreamParsingTest {
-
     @Test
     fun `parse stdout frame`() {
         val content = "Hello, World!"
@@ -92,36 +91,43 @@ class MultiplexedStreamParsingTest {
 
     // Helper functions for testing
     // See https://docs.docker.com/reference/api/engine/version/v1.52/#tag/Container/operation/ContainerAttach
-    private fun createMultiplexHeader(streamType: Int, size: Int): ByteArray {
-        return byteArrayOf(
+    private fun createMultiplexHeader(
+        streamType: Int,
+        size: Int,
+    ): ByteArray =
+        byteArrayOf(
             streamType.toByte(),
-            0, 0, 0, // Reserved bytes
+            0,
+            0,
+            0, // Reserved bytes
             ((size shr 24) and 0xFF).toByte(),
             ((size shr 16) and 0xFF).toByte(),
             ((size shr 8) and 0xFF).toByte(),
-            (size and 0xFF).toByte()
+            (size and 0xFF).toByte(),
         )
-    }
 
     private fun parseMultiplexedFrame(data: ByteArray): Frame {
         val streamTypeByte = data[0].toInt()
-        val streamType = when (streamTypeByte) {
-            0 -> Stream.StdIn
-            1 -> Stream.StdOut
-            2 -> Stream.StdErr
-            else -> Stream.StdOut
-        }
+        val streamType =
+            when (streamTypeByte) {
+                0 -> Stream.StdIn
+                1 -> Stream.StdOut
+                2 -> Stream.StdErr
+                else -> Stream.StdOut
+            }
 
-        val size = ((data[4].toInt() and 0xFF) shl 24) or
-            ((data[5].toInt() and 0xFF) shl 16) or
-            ((data[6].toInt() and 0xFF) shl 8) or
-            (data[7].toInt() and 0xFF)
+        val size =
+            ((data[4].toInt() and 0xFF) shl 24) or
+                ((data[5].toInt() and 0xFF) shl 16) or
+                ((data[6].toInt() and 0xFF) shl 8) or
+                (data[7].toInt() and 0xFF)
 
-        val content = if (size > 0 && data.size > 8) {
-            data.copyOfRange(8, 8 + size).decodeToString()
-        } else {
-            ""
-        }
+        val content =
+            if (size > 0 && data.size > 8) {
+                data.copyOfRange(8, 8 + size).decodeToString()
+            } else {
+                ""
+            }
 
         return Frame(content, size, streamType)
     }
