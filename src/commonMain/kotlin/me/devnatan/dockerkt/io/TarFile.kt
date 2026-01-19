@@ -47,17 +47,17 @@ public data class TarEntry(
 }
 
 internal object TarUtils {
-    private const val BLOCK_SIZE = 512
-    private const val NAME_SIZE = 100
-    private const val MODE_SIZE = 8
-    private const val UID_SIZE = 8
-    private const val GID_SIZE = 8
-    private const val SIZE_SIZE = 12
-    private const val MTIME_SIZE = 12
-    private const val CHECKSUM_SIZE = 8
+    private const val BlockSize = 512
+    private const val NameSize = 100
+    private const val ModeSize = 8
+    private const val UIDSize = 8
+    private const val GIDSize = 8
+    private const val SizeSize = 12
+    private const val MTimeSize = 12
+    private const val ChecksumSize = 8
 
-    private const val TYPE_REGULAR = '0'.code.toByte()
-    private const val TYPE_DIRECTORY = '5'.code.toByte()
+    private const val TypeRegular = '0'.code.toByte()
+    private const val TypeDirectory = '5'.code.toByte()
 
     fun createTarArchive(entries: List<TarEntry>): ByteArray {
         val buffer = Buffer()
@@ -67,7 +67,7 @@ internal object TarUtils {
         }
 
         // Write two empty blocks to mark end of archive
-        buffer.write(ByteArray(BLOCK_SIZE * 2))
+        buffer.write(ByteArray(BlockSize * 2))
 
         return buffer.readByteArray()
     }
@@ -76,25 +76,25 @@ internal object TarUtils {
         buffer: Buffer,
         entry: TarEntry,
     ) {
-        val header = ByteArray(BLOCK_SIZE)
+        val header = ByteArray(BlockSize)
 
-        writeString(header, 0, entry.name, NAME_SIZE) // Name (100 bytes)
-        writeOctal(header, 100, entry.mode, MODE_SIZE) // Mode (8 bytes) - octal
-        writeOctal(header, 108, 0, UID_SIZE) // UID (8 bytes) - octal
-        writeOctal(header, 116, 0, GID_SIZE) // GID (8 bytes) - octal
-        writeOctal(header, 124, entry.size, SIZE_SIZE) // Size (12 bytes) - octal
-        writeOctal(header, 136, entry.mtime, MTIME_SIZE) // Mtime (12 bytes) - octal
+        writeName(header, entry.name) // Name (100 bytes)
+        writeOctal(header, 100, entry.mode, ModeSize) // Mode (8 bytes) - octal
+        writeOctal(header, 108, 0, UIDSize) // UID (8 bytes) - octal
+        writeOctal(header, 116, 0, GIDSize) // GID (8 bytes) - octal
+        writeOctal(header, 124, entry.size, SizeSize) // Size (12 bytes) - octal
+        writeOctal(header, 136, entry.mtime, MTimeSize) // Mtime (12 bytes) - octal
 
         // Checksum (8 bytes) - initially fill with spaces
-        repeat(CHECKSUM_SIZE) { header[148 + it] = ' '.code.toByte() }
+        repeat(ChecksumSize) { header[148 + it] = ' '.code.toByte() }
 
         // Type flag (1 byte)
-        header[156] = if (entry.isDirectory) TYPE_DIRECTORY else TYPE_REGULAR
+        header[156] = if (entry.isDirectory) TypeDirectory else TypeRegular
 
         // Calculate and write checksum
         val checksum = header.sumOf { it.toInt() and 0xFF }
-        writeOctal(header, 148, checksum.toLong(), CHECKSUM_SIZE - 1)
-        header[148 + CHECKSUM_SIZE - 1] = 0 // Null terminator for checksum
+        writeOctal(header, 148, checksum.toLong(), ChecksumSize - 1)
+        header[148 + ChecksumSize - 1] = 0 // Null terminator for checksum
 
         // Write header
         buffer.write(header)
@@ -104,8 +104,8 @@ internal object TarUtils {
             buffer.write(entry.data)
 
             // Pad to block size
-            val padding = BLOCK_SIZE - (entry.data.size % BLOCK_SIZE)
-            if (padding < BLOCK_SIZE) {
+            val padding = BlockSize - (entry.data.size % BlockSize)
+            if (padding < BlockSize) {
                 buffer.write(ByteArray(padding))
             }
         }
@@ -117,8 +117,8 @@ internal object TarUtils {
 
         val entries = mutableListOf<TarEntry>()
 
-        while (buffer.size >= BLOCK_SIZE) {
-            val header = ByteArray(BLOCK_SIZE)
+        while (buffer.size >= BlockSize) {
+            val header = ByteArray(BlockSize)
             buffer.readTo(header)
 
             // Check if this is an empty block (end of archive)
@@ -138,14 +138,14 @@ internal object TarUtils {
         buffer: Buffer,
         header: ByteArray,
     ): TarEntry {
-        val name = readString(header, 0, NAME_SIZE)
-        val size = readOctal(header, 124, SIZE_SIZE)
+        val name = readString(header, 0, NameSize)
+        val size = readOctal(header, 124, SizeSize)
 
-        val mode = readOctal(header, 100, MODE_SIZE)
-        val mtime = readOctal(header, 136, MTIME_SIZE)
+        val mode = readOctal(header, 100, ModeSize)
+        val mtime = readOctal(header, 136, MTimeSize)
         val typeFlag = header[156]
 
-        val isDirectory = typeFlag == TYPE_DIRECTORY
+        val isDirectory = typeFlag == TypeDirectory
 
         if (size == 0L) {
             return TarEntry(
@@ -164,8 +164,8 @@ internal object TarUtils {
                 buffer.readTo(fileData)
 
                 // Skip padding
-                val padding = BLOCK_SIZE - (size % BLOCK_SIZE).toInt()
-                if (padding < BLOCK_SIZE) {
+                val padding = BlockSize - (size % BlockSize).toInt()
+                if (padding < BlockSize) {
                     buffer.skip(padding.toLong())
                 }
 
@@ -184,16 +184,19 @@ internal object TarUtils {
         )
     }
 
-    private fun writeString(
+    private fun writeName(
         dest: ByteArray,
-        offset: Int,
         value: String,
-        maxLength: Int,
     ) {
         val bytes = value.encodeToByteArray()
-        val length = min(bytes.size, maxLength - 1) // Leave room for null terminator
-        bytes.copyInto(dest, offset, 0, length)
-        dest[offset + length] = 0 // Null terminator
+        val length = min(bytes.size, NameSize - 1) // Leave room for null terminator
+        bytes.copyInto(
+            destination = dest,
+            destinationOffset = 0,
+            startIndex = 0,
+            endIndex = length,
+        )
+        dest[length] = 0 // Null terminator
     }
 
     /** Writes an octal number to a byte array at the given offset.*/
@@ -237,7 +240,6 @@ public object TarOperations {
      */
     public fun createTarFromFile(filePath: Path): ByteArray {
         val data = FileSystemUtils.readFile(filePath)
-        val metadata = FileSystemUtils.getMetadata(filePath)
         val fileName = filePath.name
 
         val entry =
@@ -361,7 +363,6 @@ public object TarOperations {
         val entries = TarUtils.extractTarArchive(tarData)
 
         entries.forEach { entry ->
-            destinationPath
             val entryPath = Path(destinationPath, entry.name)
 
             if (entry.isDirectory) {
