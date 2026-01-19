@@ -9,6 +9,7 @@ import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
 import me.devnatan.dockerkt.models.container.ContainerListOptions
 import me.devnatan.dockerkt.models.container.ContainerLogsOptions
+import me.devnatan.dockerkt.models.container.ContainerLogsResult
 import me.devnatan.dockerkt.models.container.ContainerPruneFilters
 import me.devnatan.dockerkt.models.container.ContainerPruneResult
 import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
@@ -182,10 +183,10 @@ public actual class ContainerResource {
         TODO("Not yet implemented")
     }
 
-    public actual fun logs(
+    public actual suspend fun logs(
         container: String,
         options: ContainerLogsOptions,
-    ): Flow<Frame> {
+    ): ContainerLogsResult {
         TODO("Not yet implemented")
     }
 

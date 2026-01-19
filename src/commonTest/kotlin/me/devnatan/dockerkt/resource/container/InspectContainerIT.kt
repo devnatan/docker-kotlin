@@ -10,7 +10,6 @@ import me.devnatan.dockerkt.resource.ResourceIT
 import me.devnatan.dockerkt.withContainer
 import kotlin.test.Test
 import kotlin.test.assertEquals
-import kotlin.test.assertNull
 
 class InspectContainerIT : ResourceIT() {
     @Test

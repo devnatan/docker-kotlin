@@ -1704,30 +1704,35 @@ public final class me/devnatan/dockerkt/models/container/ContainerLogsOptions {
 	public fun <init> (Ljava/lang/Boolean;)V
 	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;)V
 	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;)V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;)V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;)V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;)V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Z)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Z)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;ZZ)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getDemux ()Z
 	public final fun getFollow ()Ljava/lang/Boolean;
 	public final fun getShowTimestamps ()Ljava/lang/Boolean;
-	public final fun getSince ()Ljava/lang/Long;
+	public final fun getSince ()Ljava/lang/String;
 	public final fun getSplitLineBreaks ()Z
 	public final fun getStderr ()Ljava/lang/Boolean;
 	public final fun getStdout ()Ljava/lang/Boolean;
 	public final fun getTail ()Ljava/lang/String;
-	public final fun getUntil ()Ljava/lang/Long;
+	public final fun getUntil ()Ljava/lang/String;
+	public final fun setDemux (Z)V
 	public final fun setFollow (Ljava/lang/Boolean;)V
 	public final fun setShowTimestamps (Ljava/lang/Boolean;)V
-	public final fun setSince (Ljava/lang/Long;)V
+	public final fun setSince (Ljava/lang/String;)V
+	public final fun setSince (Lme/devnatan/dockerkt/models/container/ContainerLogsOptions;Lkotlin/time/Instant;)V
 	public final fun setSplitLineBreaks (Z)V
 	public final fun setStderr (Ljava/lang/Boolean;)V
 	public final fun setStdout (Ljava/lang/Boolean;)V
 	public final fun setTail (I)V
 	public final fun setTail (Ljava/lang/String;)V
 	public final fun setTailAll ()V
-	public final fun setUntil (Ljava/lang/Long;)V
+	public final fun setUntil (Ljava/lang/String;)V
+	public final fun setUntil (Lme/devnatan/dockerkt/models/container/ContainerLogsOptions;Lkotlin/time/Instant;)V
 }
 
 public final synthetic class me/devnatan/dockerkt/models/container/ContainerLogsOptions$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
@@ -1745,9 +1750,55 @@ public final class me/devnatan/dockerkt/models/container/ContainerLogsOptions$Co
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
-public final class me/devnatan/dockerkt/models/container/ContainerLogsOptionsKt {
-	public static final fun setSince (Lme/devnatan/dockerkt/models/container/ContainerLogsOptions;Lkotlin/time/Instant;)V
-	public static final fun setUntil (Lme/devnatan/dockerkt/models/container/ContainerLogsOptions;Lkotlin/time/Instant;)V
+public abstract class me/devnatan/dockerkt/models/container/ContainerLogsResult {
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerLogsResult$Complete : me/devnatan/dockerkt/models/container/ContainerLogsResult {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lme/devnatan/dockerkt/models/container/ContainerLogsResult$Complete;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerLogsResult$Complete;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerLogsResult$Complete;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOutput ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerLogsResult$CompleteDemuxed : me/devnatan/dockerkt/models/container/ContainerLogsResult {
+	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;Ljava/lang/String;)Lme/devnatan/dockerkt/models/container/ContainerLogsResult$CompleteDemuxed;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerLogsResult$CompleteDemuxed;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerLogsResult$CompleteDemuxed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStderr ()Ljava/lang/String;
+	public final fun getStdout ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerLogsResult$Stream : me/devnatan/dockerkt/models/container/ContainerLogsResult {
+	public fun <init> (Lkotlinx/coroutines/flow/Flow;)V
+	public final fun component1 ()Lkotlinx/coroutines/flow/Flow;
+	public final fun copy (Lkotlinx/coroutines/flow/Flow;)Lme/devnatan/dockerkt/models/container/ContainerLogsResult$Stream;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerLogsResult$Stream;Lkotlinx/coroutines/flow/Flow;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerLogsResult$Stream;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOutput ()Lkotlinx/coroutines/flow/Flow;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerLogsResult$StreamDemuxed : me/devnatan/dockerkt/models/container/ContainerLogsResult {
+	public fun <init> (Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;)V
+	public final fun component1 ()Lkotlinx/coroutines/flow/Flow;
+	public final fun component2 ()Lkotlinx/coroutines/flow/Flow;
+	public final fun copy (Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;)Lme/devnatan/dockerkt/models/container/ContainerLogsResult$StreamDemuxed;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerLogsResult$StreamDemuxed;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerLogsResult$StreamDemuxed;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getStderr ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getStdout ()Lkotlinx/coroutines/flow/Flow;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
 }
 
 public final class me/devnatan/dockerkt/models/container/ContainerPruneFilters {
@@ -4925,11 +4976,6 @@ public final class me/devnatan/dockerkt/models/volume/VolumeRemoveOptions {
 	public fun toString ()Ljava/lang/String;
 }
 
-public final class me/devnatan/dockerkt/resource/ResourcePaths {
-	public static final field CONTAINERS Ljava/lang/String;
-	public static final field INSTANCE Lme/devnatan/dockerkt/resource/ResourcePaths;
-}
-
 public final class me/devnatan/dockerkt/resource/container/ArchiveNotFoundException : me/devnatan/dockerkt/resource/container/ContainerException {
 	public final fun getContainerId ()Ljava/lang/String;
 	public final fun getSourcePath ()Ljava/lang/String;
@@ -4996,7 +5042,8 @@ public final class me/devnatan/dockerkt/resource/container/ContainerResource {
 	public final fun listAsync ()Ljava/util/concurrent/CompletableFuture;
 	public final fun listAsync (Lme/devnatan/dockerkt/models/container/ContainerListOptions;)Ljava/util/concurrent/CompletableFuture;
 	public static synthetic fun listAsync$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lme/devnatan/dockerkt/models/container/ContainerListOptions;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
-	public final fun logs (Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerLogsOptions;)Lkotlinx/coroutines/flow/Flow;
+	public final fun logs (Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerLogsOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun logs$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerLogsOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 	public final synthetic fun pause (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun pauseAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
 	public final synthetic fun prune (Lme/devnatan/dockerkt/models/container/ContainerPruneFilters;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -5044,11 +5091,16 @@ public final class me/devnatan/dockerkt/resource/container/ContainerResourceExtK
 	public static final fun copyTo (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;[BLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun create (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun list (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public static final fun logs (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
-	public static final fun logs (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lkotlinx/coroutines/flow/Flow;
+	public static final fun logs (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun logsAsFlow (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun logsDemuxed (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun prune (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun remove (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun resizeTTY (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+
+public final class me/devnatan/dockerkt/resource/container/ContainerResource_jvmKt {
+	public static final field BasePath Ljava/lang/String;
 }
 
 public class me/devnatan/dockerkt/resource/exec/ExecException : me/devnatan/dockerkt/DockerResourceException {
