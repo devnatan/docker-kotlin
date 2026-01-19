@@ -2,7 +2,9 @@
 
 package me.devnatan.dockerkt.resource.container
 
+import kotlinx.coroutines.flow.Flow
 import me.devnatan.dockerkt.DockerResponseException
+import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
 import me.devnatan.dockerkt.models.container.ContainerCopyOptions
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
@@ -92,23 +94,18 @@ public suspend inline fun ContainerResource.logs(
 ): ContainerLogsResult = logs(container, ContainerLogsOptions().apply(block))
 
 /**
- * Get logs from a container with [ContainerLogsOptions.follow], [ContainerLogsOptions.stdout]
+ * Get logs from a container with [ContainerLogsOptions.follow], [ContainerLogsOptions.demux], [ContainerLogsOptions.stdout]
  * and [ContainerLogsOptions.stderr] options already set.
- *
- * Similar to the `docker logs` command, this retrieves stdout and/or stderr logs
- * from a container. The logs can be returned as a complete string or streamed
- * progressively as a Flow.
  *
  * The stream format (multiplexed vs raw TTY) is automatically detected from the
  * content, so there's no need to specify whether the container uses TTY.
  *
  * @param container Container id or name.
- * @return [ContainerLogsResult] containing logs with separated stdout/stderr
+ * @return [ContainerLogsResult.StreamDemuxed] containing logs with separated stdout/stderr
  *
  * @throws ContainerNotFoundException If the container is not found.
- * @throws IllegalArgumentException If neither stdout nor stderr is enabled.
  */
-public suspend fun ContainerResource.logs(container: String): ContainerLogsResult.StreamDemuxed =
+public suspend fun ContainerResource.logsDemuxed(container: String): ContainerLogsResult.StreamDemuxed =
     logs(
         container = container,
         options =
@@ -116,8 +113,38 @@ public suspend fun ContainerResource.logs(container: String): ContainerLogsResul
                 follow = true,
                 stderr = true,
                 stdout = true,
+                demux = true,
             ),
     ) as ContainerLogsResult.StreamDemuxed
+
+/**
+ * Get logs from a container as a [Flow] with [ContainerLogsOptions.follow], [ContainerLogsOptions.stdout]
+ * and [ContainerLogsOptions.stderr] options already set.
+ *
+ * The stream format (multiplexed vs raw TTY) is automatically detected from the
+ * content, so there's no need to specify whether the container uses TTY.
+ *
+ * @param container Container id or name.
+ * @return [Flow] containing both stdout and stderr logs
+ *
+ * @throws ContainerNotFoundException If the container is not found.
+ */
+public suspend fun ContainerResource.logsAsFlow(container: String): Flow<Frame> {
+    val options =
+        ContainerLogsOptions(
+            follow = true,
+            stderr = true,
+            stdout = true,
+            demux = false,
+        )
+    val result =
+        logs(
+            container = container,
+            options = options,
+        ) as ContainerLogsResult.Stream
+
+    return result.output
+}
 
 /**
  * Copy files or folders from the local filesystem to a container.

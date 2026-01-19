@@ -62,7 +62,7 @@ client.containers.start(containerId)
 #### Create and start a Container with auto-assigned port bindings
 
 ```kotlin
-val containerId = client.containers.create("busybox:latest") {
+val createdContainerId = client.containers.create("busybox:latest") {
     // Only if your container doesn't already expose this port
     exposedPort(80u)
     
@@ -71,10 +71,10 @@ val containerId = client.containers.create("busybox:latest") {
     }
 }
 
-client.containers.start(containerId)
+client.containers.start(createdContainerId)
 
 // Inspect the container to retrieve the auto-assigned ports
-val container = testClient.containers.inspect(id)
+val container = testClient.containers.inspect(createdContainerId)
 val ports = container.networkSettings.ports
 ```
 
@@ -84,18 +84,90 @@ val ports = container.networkSettings.ports
 val containers: List<Container> = client.containers.list()
 ```
 
-#### Stream Container Logs
+#### Logs
 
+##### Get logs from a container
 ```kotlin
-val logs: Flow<Frame> = client.containers.logs("floral-fury") {
-    stderr = true
+val result = client.containers.logs(containerId) {
     stdout = true
+    stderr = true
 }
 
-logs.onStart { /* streaming started */ }
-    .onCompletion { /* streaming finished */ }
-    .catch { /* something went wrong */ }
-    .collect { log -> /* do something with each log */ }
+when (result) {
+    is ContainerLogsResult.Complete -> println(result.output)
+    else -> error("Unexpected result")
+}
+```
+
+##### Stream logs in real-time
+```kotlin
+val result = client.containers.logs(containerId) {
+    stdout = true
+    stderr = true
+    follow = true
+}
+
+when (result) {
+    is ContainerLogsResult.Stream -> {
+        result.output.collect { frame ->
+            print(frame.content)
+        }
+    }
+    else -> error("Unexpected result")
+}
+```
+
+##### Get logs with separated stdout/stderr
+```kotlin
+val result = client.containers.logs(containerId, demux = true) {
+    stdout = true
+    stderr = true
+}
+
+when (result) {
+    is ContainerLogsResult.CompleteDemuxed -> {
+        println("STDOUT: ${result.stdout}")
+        println("STDERR: ${result.stderr}")
+    }
+    else -> error("Unexpected result")
+}
+```
+
+##### Get last N lines of logs
+```kotlin
+val result = client.containers.logs(containerId) {
+    stdout = true
+    tail = "100"
+}
+```
+
+##### Get logs with timestamps
+```kotlin
+val result = client.containers.logs(containerId) {
+    stdout = true
+    timestamps = true
+}
+```
+
+##### Get logs since a specific time
+```kotlin
+val result = client.containers.logs(containerId) {
+    stdout = true
+    since = "10m"      // last 10 minutes
+    // or: since = "1609459200"  // Unix timestamp
+}
+```
+
+#### Stream logs using convenience method
+```kotlin
+client.containers.logsAsFlow(containerId) {
+    stdout = true
+    stderr = true
+    follow = true
+}.collect { frame ->
+    val prefix = if (frame.stream == Stream.StdErr) "[ERR]" else "[OUT]"
+    print("$prefix ${frame.value}")
+}
 ```
 
 ### Networks
@@ -128,8 +200,9 @@ val execId = client.exec.create(containerId) {
     attachStdout = true
 }
 
-val result = client.exec.start(execId, ExecStartOptions())
-when (result) {
+when (
+    val result = client.exec.start(execId, ExecStartOptions())
+) {
     is ExecStartResult.Complete -> println(result.output)
     else -> error("Unexpected result")
 }
@@ -161,8 +234,9 @@ val execId = client.exec.create(containerId) {
     attachStderr = true
 }
 
-val result = client.exec.start(execId) { demux = true }
-when (result) {
+when (
+    val result = client.exec.start(execId) { demux = true }
+) {
     is ExecStartResult.CompleteDemuxed -> {
         println("STDOUT: ${result.output.stdout}")
         println("STDERR: ${result.output.stderr}")
