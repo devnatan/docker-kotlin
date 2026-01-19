@@ -6,16 +6,13 @@ on:
   pull_request:
 
 jobs:
-  docker:
+  jvm:
     strategy:
       fail-fast: false
       matrix:
         docker_version:
           - "20.10"
-        os:
-          - ubuntu-22.04
-          - macos-15-intel
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -37,4 +34,39 @@ jobs:
         run: docker system prune -a -f
 
       - name: Run Tests
-        run: ./gradlew allTests
+        run: ./gradlew jvmTest
+  native:
+    strategy:
+      fail-fast: false
+      matrix:
+        docker_version:
+          - "20.10"
+        os:
+          - name: linuX64
+            runner: ubuntu-22.04
+
+          - name: macosX64
+            runner: macos-15-intel
+    runs-on: ${{ matrix.os.runner }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v5
+        with:
+          cache-disabled: true
+
+      - name: Prune Docker System
+        run: docker system prune -a -f
+
+      - name: Run Tests
+        run: ./gradlew ${{ matrix.os.name }}Test
