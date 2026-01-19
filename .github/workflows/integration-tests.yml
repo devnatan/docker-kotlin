@@ -30,9 +30,6 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v4
 
-      - name: Setup Docker
-        uses: docker/setup-docker-action@v4.6.0
-
       - name: Prune Docker System
         run: docker system prune -a -f
 
