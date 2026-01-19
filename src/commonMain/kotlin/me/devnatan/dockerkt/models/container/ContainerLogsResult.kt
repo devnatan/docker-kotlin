@@ -61,16 +61,4 @@ public sealed class ContainerLogsResult {
         val stdout: String,
         val stderr: String,
     ) : ContainerLogsResult()
-
-    /**
-     * Raw streaming result for TTY-enabled containers.
-     *
-     * When a container has TTY enabled, stdout and stderr are
-     * combined into a single raw stream without multiplexing headers.
-     *
-     * @property output Flow of raw string chunks.
-     */
-    public data class RawStream(
-        val output: Flow<String>,
-    ) : ContainerLogsResult()
 }

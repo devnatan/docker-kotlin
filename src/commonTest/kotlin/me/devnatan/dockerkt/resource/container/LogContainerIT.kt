@@ -153,13 +153,13 @@ class LogContainerIT : ResourceIT() {
                         stdout = true
                     }
 
-                // TTY mode returns Complete (not demuxed) or RawStream
+                // TTY mode returns Complete (not demuxed) or Stream
                 when (result) {
                     is ContainerLogsResult.Complete -> {
                         assertContains(result.output, "TTY output")
                     }
 
-                    is ContainerLogsResult.RawStream -> {
+                    is ContainerLogsResult.Stream -> {
                         val content = result.output.toList().joinToString("")
                         assertContains(content, "TTY output")
                     }
