@@ -6,7 +6,7 @@ on:
   pull_request:
 
 env:
-  DOCKER_API_VERSION: 1.52
+  DOCKER_API_VERSION: 1.48
 
 jobs:
   jvm:
