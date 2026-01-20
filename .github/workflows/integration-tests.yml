@@ -5,13 +5,16 @@ on:
     branches: [ main ]
   pull_request:
 
+env:
+  DOCKER_API_VERSION: 1.52
+
 jobs:
   jvm:
     strategy:
       fail-fast: false
       matrix:
         docker_version:
-          - "20.10"
+          - "29.0"
     runs-on: ubuntu-latest
     name: JVM (Docker v${{ matrix.docker_version }})
     steps:
@@ -40,7 +43,7 @@ jobs:
       fail-fast: false
       matrix:
         docker_version:
-          - "20.10"
+          - "29.0"
         os:
           - name: linuxX64
             runner: ubuntu-22.04
