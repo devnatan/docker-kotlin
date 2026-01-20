@@ -680,7 +680,7 @@ final class me.devnatan.dockerkt.models.container/ContainerListOptions { // me.d
 }
 
 final class me.devnatan.dockerkt.models.container/ContainerLogsOptions { // me.devnatan.dockerkt.models.container/ContainerLogsOptions|null[0]
-    constructor <init>(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin/String? = ..., kotlin/Boolean = ..., kotlin/Boolean = ...) // me.devnatan.dockerkt.models.container/ContainerLogsOptions.<init>|<init>(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.String?;kotlin.String?;kotlin.Boolean?;kotlin.String?;kotlin.Boolean;kotlin.Boolean){}[0]
+    constructor <init>(kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Long? = ..., kotlin/Long? = ..., kotlin/Boolean? = ..., kotlin/String? = ..., kotlin/Boolean = ..., kotlin/Boolean = ...) // me.devnatan.dockerkt.models.container/ContainerLogsOptions.<init>|<init>(kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Long?;kotlin.Long?;kotlin.Boolean?;kotlin.String?;kotlin.Boolean;kotlin.Boolean){}[0]
 
     final var demux // me.devnatan.dockerkt.models.container/ContainerLogsOptions.demux|{}demux[0]
         final fun <get-demux>(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerLogsOptions.demux.<get-demux>|<get-demux>(){}[0]
@@ -692,8 +692,8 @@ final class me.devnatan.dockerkt.models.container/ContainerLogsOptions { // me.d
         final fun <get-showTimestamps>(): kotlin/Boolean? // me.devnatan.dockerkt.models.container/ContainerLogsOptions.showTimestamps.<get-showTimestamps>|<get-showTimestamps>(){}[0]
         final fun <set-showTimestamps>(kotlin/Boolean?) // me.devnatan.dockerkt.models.container/ContainerLogsOptions.showTimestamps.<set-showTimestamps>|<set-showTimestamps>(kotlin.Boolean?){}[0]
     final var since // me.devnatan.dockerkt.models.container/ContainerLogsOptions.since|{}since[0]
-        final fun <get-since>(): kotlin/String? // me.devnatan.dockerkt.models.container/ContainerLogsOptions.since.<get-since>|<get-since>(){}[0]
-        final fun <set-since>(kotlin/String?) // me.devnatan.dockerkt.models.container/ContainerLogsOptions.since.<set-since>|<set-since>(kotlin.String?){}[0]
+        final fun <get-since>(): kotlin/Long? // me.devnatan.dockerkt.models.container/ContainerLogsOptions.since.<get-since>|<get-since>(){}[0]
+        final fun <set-since>(kotlin/Long?) // me.devnatan.dockerkt.models.container/ContainerLogsOptions.since.<set-since>|<set-since>(kotlin.Long?){}[0]
     final var splitLineBreaks // me.devnatan.dockerkt.models.container/ContainerLogsOptions.splitLineBreaks|{}splitLineBreaks[0]
         final fun <get-splitLineBreaks>(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerLogsOptions.splitLineBreaks.<get-splitLineBreaks>|<get-splitLineBreaks>(){}[0]
         final fun <set-splitLineBreaks>(kotlin/Boolean) // me.devnatan.dockerkt.models.container/ContainerLogsOptions.splitLineBreaks.<set-splitLineBreaks>|<set-splitLineBreaks>(kotlin.Boolean){}[0]
@@ -707,8 +707,8 @@ final class me.devnatan.dockerkt.models.container/ContainerLogsOptions { // me.d
         final fun <get-tail>(): kotlin/String? // me.devnatan.dockerkt.models.container/ContainerLogsOptions.tail.<get-tail>|<get-tail>(){}[0]
         final fun <set-tail>(kotlin/String?) // me.devnatan.dockerkt.models.container/ContainerLogsOptions.tail.<set-tail>|<set-tail>(kotlin.String?){}[0]
     final var until // me.devnatan.dockerkt.models.container/ContainerLogsOptions.until|{}until[0]
-        final fun <get-until>(): kotlin/String? // me.devnatan.dockerkt.models.container/ContainerLogsOptions.until.<get-until>|<get-until>(){}[0]
-        final fun <set-until>(kotlin/String?) // me.devnatan.dockerkt.models.container/ContainerLogsOptions.until.<set-until>|<set-until>(kotlin.String?){}[0]
+        final fun <get-until>(): kotlin/Long? // me.devnatan.dockerkt.models.container/ContainerLogsOptions.until.<get-until>|<get-until>(){}[0]
+        final fun <set-until>(kotlin/Long?) // me.devnatan.dockerkt.models.container/ContainerLogsOptions.until.<set-until>|<set-until>(kotlin.Long?){}[0]
 
     final fun (me.devnatan.dockerkt.models.container/ContainerLogsOptions).setSince(kotlin.time/Instant?) // me.devnatan.dockerkt.models.container/ContainerLogsOptions.setSince|setSince@me.devnatan.dockerkt.models.container.ContainerLogsOptions(kotlin.time.Instant?){}[0]
     final fun (me.devnatan.dockerkt.models.container/ContainerLogsOptions).setUntil(kotlin.time/Instant?) // me.devnatan.dockerkt.models.container/ContainerLogsOptions.setUntil|setUntil@me.devnatan.dockerkt.models.container.ContainerLogsOptions(kotlin.time.Instant?){}[0]

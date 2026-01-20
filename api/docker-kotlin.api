@@ -1704,26 +1704,26 @@ public final class me/devnatan/dockerkt/models/container/ContainerLogsOptions {
 	public fun <init> (Ljava/lang/Boolean;)V
 	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;)V
 	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;)V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;)V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;)V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;)V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;)V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;Z)V
-	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;ZZ)V
-	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/String;Ljava/lang/String;Ljava/lang/Boolean;Ljava/lang/String;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;Z)V
+	public fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;ZZ)V
+	public synthetic fun <init> (Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Boolean;Ljava/lang/Long;Ljava/lang/Long;Ljava/lang/Boolean;Ljava/lang/String;ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getDemux ()Z
 	public final fun getFollow ()Ljava/lang/Boolean;
 	public final fun getShowTimestamps ()Ljava/lang/Boolean;
-	public final fun getSince ()Ljava/lang/String;
+	public final fun getSince ()Ljava/lang/Long;
 	public final fun getSplitLineBreaks ()Z
 	public final fun getStderr ()Ljava/lang/Boolean;
 	public final fun getStdout ()Ljava/lang/Boolean;
 	public final fun getTail ()Ljava/lang/String;
-	public final fun getUntil ()Ljava/lang/String;
+	public final fun getUntil ()Ljava/lang/Long;
 	public final fun setDemux (Z)V
 	public final fun setFollow (Ljava/lang/Boolean;)V
 	public final fun setShowTimestamps (Ljava/lang/Boolean;)V
-	public final fun setSince (Ljava/lang/String;)V
+	public final fun setSince (Ljava/lang/Long;)V
 	public final fun setSince (Lme/devnatan/dockerkt/models/container/ContainerLogsOptions;Lkotlin/time/Instant;)V
 	public final fun setSplitLineBreaks (Z)V
 	public final fun setStderr (Ljava/lang/Boolean;)V
@@ -1731,7 +1731,7 @@ public final class me/devnatan/dockerkt/models/container/ContainerLogsOptions {
 	public final fun setTail (I)V
 	public final fun setTail (Ljava/lang/String;)V
 	public final fun setTailAll ()V
-	public final fun setUntil (Ljava/lang/String;)V
+	public final fun setUntil (Ljava/lang/Long;)V
 	public final fun setUntil (Lme/devnatan/dockerkt/models/container/ContainerLogsOptions;Lkotlin/time/Instant;)V
 }
 
