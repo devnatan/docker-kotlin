@@ -201,8 +201,9 @@ internal fun isMultiplexedStream(header: ByteArray): Boolean {
     if (header.size < HeaderSize) return false
 
     val streamType = Stream.typeOfOrNull(header[0]) ?: Stream.Unknown
-    if (streamType == Stream.Unknown)
+    if (streamType == Stream.Unknown) {
         return false
+    }
 
     if (header[1].toInt() != 0 || header[2].toInt() != 0 || header[3].toInt() != 0) {
         return false
