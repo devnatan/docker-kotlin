@@ -15,7 +15,6 @@ import kotlin.test.assertTrue
 import kotlin.time.Duration.Companion.seconds
 
 class AttachContainerWebSocketIT : ResourceIT() {
-
     @Test
     fun `attach and receive output`() =
         runTest {

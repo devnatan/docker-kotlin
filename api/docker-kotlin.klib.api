@@ -279,6 +279,53 @@ final class me.devnatan.dockerkt.models.container/ContainerArchiveInfo { // me.d
     }
 }
 
+final class me.devnatan.dockerkt.models.container/ContainerAttachOptions { // me.devnatan.dockerkt.models.container/ContainerAttachOptions|null[0]
+    constructor <init>(kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/String? = ...) // me.devnatan.dockerkt.models.container/ContainerAttachOptions.<init>|<init>(kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.String?){}[0]
+
+    final var detachKeys // me.devnatan.dockerkt.models.container/ContainerAttachOptions.detachKeys|{}detachKeys[0]
+        final fun <get-detachKeys>(): kotlin/String? // me.devnatan.dockerkt.models.container/ContainerAttachOptions.detachKeys.<get-detachKeys>|<get-detachKeys>(){}[0]
+        final fun <set-detachKeys>(kotlin/String?) // me.devnatan.dockerkt.models.container/ContainerAttachOptions.detachKeys.<set-detachKeys>|<set-detachKeys>(kotlin.String?){}[0]
+    final var logs // me.devnatan.dockerkt.models.container/ContainerAttachOptions.logs|{}logs[0]
+        final fun <get-logs>(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachOptions.logs.<get-logs>|<get-logs>(){}[0]
+        final fun <set-logs>(kotlin/Boolean) // me.devnatan.dockerkt.models.container/ContainerAttachOptions.logs.<set-logs>|<set-logs>(kotlin.Boolean){}[0]
+    final var stderr // me.devnatan.dockerkt.models.container/ContainerAttachOptions.stderr|{}stderr[0]
+        final fun <get-stderr>(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachOptions.stderr.<get-stderr>|<get-stderr>(){}[0]
+        final fun <set-stderr>(kotlin/Boolean) // me.devnatan.dockerkt.models.container/ContainerAttachOptions.stderr.<set-stderr>|<set-stderr>(kotlin.Boolean){}[0]
+    final var stdin // me.devnatan.dockerkt.models.container/ContainerAttachOptions.stdin|{}stdin[0]
+        final fun <get-stdin>(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachOptions.stdin.<get-stdin>|<get-stdin>(){}[0]
+        final fun <set-stdin>(kotlin/Boolean) // me.devnatan.dockerkt.models.container/ContainerAttachOptions.stdin.<set-stdin>|<set-stdin>(kotlin.Boolean){}[0]
+    final var stdout // me.devnatan.dockerkt.models.container/ContainerAttachOptions.stdout|{}stdout[0]
+        final fun <get-stdout>(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachOptions.stdout.<get-stdout>|<get-stdout>(){}[0]
+        final fun <set-stdout>(kotlin/Boolean) // me.devnatan.dockerkt.models.container/ContainerAttachOptions.stdout.<set-stdout>|<set-stdout>(kotlin.Boolean){}[0]
+    final var stream // me.devnatan.dockerkt.models.container/ContainerAttachOptions.stream|{}stream[0]
+        final fun <get-stream>(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachOptions.stream.<get-stream>|<get-stream>(){}[0]
+        final fun <set-stream>(kotlin/Boolean) // me.devnatan.dockerkt.models.container/ContainerAttachOptions.stream.<set-stream>|<set-stream>(kotlin.Boolean){}[0]
+
+    final fun component1(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachOptions.component1|component1(){}[0]
+    final fun component2(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachOptions.component2|component2(){}[0]
+    final fun component3(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachOptions.component3|component3(){}[0]
+    final fun component4(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachOptions.component4|component4(){}[0]
+    final fun component5(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachOptions.component5|component5(){}[0]
+    final fun component6(): kotlin/String? // me.devnatan.dockerkt.models.container/ContainerAttachOptions.component6|component6(){}[0]
+    final fun copy(kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/Boolean = ..., kotlin/String? = ...): me.devnatan.dockerkt.models.container/ContainerAttachOptions // me.devnatan.dockerkt.models.container/ContainerAttachOptions.copy|copy(kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.Boolean;kotlin.String?){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachOptions.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerAttachOptions.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerAttachOptions.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.container/ContainerAttachOptions> { // me.devnatan.dockerkt.models.container/ContainerAttachOptions.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.container/ContainerAttachOptions.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.container/ContainerAttachOptions.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.container/ContainerAttachOptions.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.container/ContainerAttachOptions // me.devnatan.dockerkt.models.container/ContainerAttachOptions.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.container/ContainerAttachOptions) // me.devnatan.dockerkt.models.container/ContainerAttachOptions.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.container.ContainerAttachOptions){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.container/ContainerAttachOptions.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/ContainerAttachOptions> // me.devnatan.dockerkt.models.container/ContainerAttachOptions.Companion.serializer|serializer(){}[0]
+    }
+}
+
 final class me.devnatan.dockerkt.models.container/ContainerConfig { // me.devnatan.dockerkt.models.container/ContainerConfig|null[0]
     constructor <init>(kotlin/String? = ..., kotlin/String? = ..., kotlin/String? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin.collections/List<me.devnatan.dockerkt.models/ExposedPort>? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin/Boolean? = ..., kotlin.collections/List<kotlin/String>? = ..., kotlin.collections/List<kotlin/String>? = ..., me.devnatan.dockerkt.models/HealthConfig? = ..., kotlin/Boolean? = ..., kotlin/String? = ..., kotlin.collections/List<kotlin/String>? = ..., kotlin/String? = ..., kotlin.collections/List<kotlin/String>? = ..., kotlin/Boolean? = ..., kotlin/String? = ..., kotlin.collections/List<kotlin/String>? = ..., kotlin.collections/Map<kotlin/String, kotlin/String> = ..., kotlin/String? = ..., kotlin/Int? = ..., kotlin.collections/List<kotlin/String> = ...) // me.devnatan.dockerkt.models.container/ContainerConfig.<init>|<init>(kotlin.String?;kotlin.String?;kotlin.String?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.collections.List<me.devnatan.dockerkt.models.ExposedPort>?;kotlin.Boolean?;kotlin.Boolean?;kotlin.Boolean?;kotlin.collections.List<kotlin.String>?;kotlin.collections.List<kotlin.String>?;me.devnatan.dockerkt.models.HealthConfig?;kotlin.Boolean?;kotlin.String?;kotlin.collections.List<kotlin.String>?;kotlin.String?;kotlin.collections.List<kotlin.String>?;kotlin.Boolean?;kotlin.String?;kotlin.collections.List<kotlin.String>?;kotlin.collections.Map<kotlin.String,kotlin.String>;kotlin.String?;kotlin.Int?;kotlin.collections.List<kotlin.String>){}[0]
 
@@ -5179,6 +5226,7 @@ final class me.devnatan.dockerkt.resource.container/ContainerResource { // me.de
     constructor <init>() // me.devnatan.dockerkt.resource.container/ContainerResource.<init>|<init>(){}[0]
 
     final fun attach(kotlin/String): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models/Frame> // me.devnatan.dockerkt.resource.container/ContainerResource.attach|attach(kotlin.String){}[0]
+    final suspend fun attachWebSocket(kotlin/String, me.devnatan.dockerkt.models.container/ContainerAttachOptions = ...): me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult // me.devnatan.dockerkt.resource.container/ContainerResource.attachWebSocket|attachWebSocket(kotlin.String;me.devnatan.dockerkt.models.container.ContainerAttachOptions){}[0]
     final suspend fun copyDirectoryFrom(kotlin/String, kotlin/String, kotlin/String) // me.devnatan.dockerkt.resource.container/ContainerResource.copyDirectoryFrom|copyDirectoryFrom(kotlin.String;kotlin.String;kotlin.String){}[0]
     final suspend fun copyDirectoryTo(kotlin/String, kotlin/String, kotlin/String, me.devnatan.dockerkt.models.container/ContainerCopyOptions = ...) // me.devnatan.dockerkt.resource.container/ContainerResource.copyDirectoryTo|copyDirectoryTo(kotlin.String;kotlin.String;kotlin.String;me.devnatan.dockerkt.models.container.ContainerCopyOptions){}[0]
     final suspend fun copyFileFrom(kotlin/String, kotlin/String, kotlin/String) // me.devnatan.dockerkt.resource.container/ContainerResource.copyFileFrom|copyFileFrom(kotlin.String;kotlin.String;kotlin.String){}[0]
@@ -5378,6 +5426,58 @@ open class me.devnatan.dockerkt/DockerException : kotlin/RuntimeException // me.
 open class me.devnatan.dockerkt/DockerResourceException : me.devnatan.dockerkt/DockerException { // me.devnatan.dockerkt/DockerResourceException|null[0]
     open val message // me.devnatan.dockerkt/DockerResourceException.message|{}message[0]
         open fun <get-message>(): kotlin/String? // me.devnatan.dockerkt/DockerResourceException.message.<get-message>|<get-message>(){}[0]
+}
+
+sealed class me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult { // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult|null[0]
+    abstract val close // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.close|{}close[0]
+        abstract fun <get-close>(): kotlin.coroutines/SuspendFunction0<kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.close.<get-close>|<get-close>(){}[0]
+
+    final class Connected : me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult { // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected|null[0]
+        constructor <init>(kotlin.coroutines/SuspendFunction0<kotlin/Unit>, kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models/Frame>, kotlin.coroutines/SuspendFunction1<kotlin/String, kotlin/Unit>, kotlin.coroutines/SuspendFunction1<kotlin/ByteArray, kotlin/Unit>) // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.<init>|<init>(kotlin.coroutines.SuspendFunction0<kotlin.Unit>;kotlinx.coroutines.flow.Flow<me.devnatan.dockerkt.models.Frame>;kotlin.coroutines.SuspendFunction1<kotlin.String,kotlin.Unit>;kotlin.coroutines.SuspendFunction1<kotlin.ByteArray,kotlin.Unit>){}[0]
+
+        final val close // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.close|{}close[0]
+            final fun <get-close>(): kotlin.coroutines/SuspendFunction0<kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.close.<get-close>|<get-close>(){}[0]
+        final val output // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.output|{}output[0]
+            final fun <get-output>(): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models/Frame> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.output.<get-output>|<get-output>(){}[0]
+        final val sendBinary // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.sendBinary|{}sendBinary[0]
+            final fun <get-sendBinary>(): kotlin.coroutines/SuspendFunction1<kotlin/ByteArray, kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.sendBinary.<get-sendBinary>|<get-sendBinary>(){}[0]
+        final val sendText // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.sendText|{}sendText[0]
+            final fun <get-sendText>(): kotlin.coroutines/SuspendFunction1<kotlin/String, kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.sendText.<get-sendText>|<get-sendText>(){}[0]
+
+        final fun component1(): kotlin.coroutines/SuspendFunction0<kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.component1|component1(){}[0]
+        final fun component2(): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models/Frame> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.component2|component2(){}[0]
+        final fun component3(): kotlin.coroutines/SuspendFunction1<kotlin/String, kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.component3|component3(){}[0]
+        final fun component4(): kotlin.coroutines/SuspendFunction1<kotlin/ByteArray, kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.component4|component4(){}[0]
+        final fun copy(kotlin.coroutines/SuspendFunction0<kotlin/Unit> = ..., kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models/Frame> = ..., kotlin.coroutines/SuspendFunction1<kotlin/String, kotlin/Unit> = ..., kotlin.coroutines/SuspendFunction1<kotlin/ByteArray, kotlin/Unit> = ...): me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.copy|copy(kotlin.coroutines.SuspendFunction0<kotlin.Unit>;kotlinx.coroutines.flow.Flow<me.devnatan.dockerkt.models.Frame>;kotlin.coroutines.SuspendFunction1<kotlin.String,kotlin.Unit>;kotlin.coroutines.SuspendFunction1<kotlin.ByteArray,kotlin.Unit>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.Connected.toString|toString(){}[0]
+    }
+
+    final class ConnectedDemuxed : me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult { // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed|null[0]
+        constructor <init>(kotlin.coroutines/SuspendFunction0<kotlin/Unit>, kotlinx.coroutines.flow/Flow<kotlin/String>, kotlinx.coroutines.flow/Flow<kotlin/String>, kotlin.coroutines/SuspendFunction1<kotlin/String, kotlin/Unit>, kotlin.coroutines/SuspendFunction1<kotlin/ByteArray, kotlin/Unit>) // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.<init>|<init>(kotlin.coroutines.SuspendFunction0<kotlin.Unit>;kotlinx.coroutines.flow.Flow<kotlin.String>;kotlinx.coroutines.flow.Flow<kotlin.String>;kotlin.coroutines.SuspendFunction1<kotlin.String,kotlin.Unit>;kotlin.coroutines.SuspendFunction1<kotlin.ByteArray,kotlin.Unit>){}[0]
+
+        final val close // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.close|{}close[0]
+            final fun <get-close>(): kotlin.coroutines/SuspendFunction0<kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.close.<get-close>|<get-close>(){}[0]
+        final val sendBinary // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.sendBinary|{}sendBinary[0]
+            final fun <get-sendBinary>(): kotlin.coroutines/SuspendFunction1<kotlin/ByteArray, kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.sendBinary.<get-sendBinary>|<get-sendBinary>(){}[0]
+        final val sendText // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.sendText|{}sendText[0]
+            final fun <get-sendText>(): kotlin.coroutines/SuspendFunction1<kotlin/String, kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.sendText.<get-sendText>|<get-sendText>(){}[0]
+        final val stderr // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.stderr|{}stderr[0]
+            final fun <get-stderr>(): kotlinx.coroutines.flow/Flow<kotlin/String> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.stderr.<get-stderr>|<get-stderr>(){}[0]
+        final val stdout // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.stdout|{}stdout[0]
+            final fun <get-stdout>(): kotlinx.coroutines.flow/Flow<kotlin/String> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.stdout.<get-stdout>|<get-stdout>(){}[0]
+
+        final fun component1(): kotlin.coroutines/SuspendFunction0<kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.component1|component1(){}[0]
+        final fun component2(): kotlinx.coroutines.flow/Flow<kotlin/String> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.component2|component2(){}[0]
+        final fun component3(): kotlinx.coroutines.flow/Flow<kotlin/String> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.component3|component3(){}[0]
+        final fun component4(): kotlin.coroutines/SuspendFunction1<kotlin/String, kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.component4|component4(){}[0]
+        final fun component5(): kotlin.coroutines/SuspendFunction1<kotlin/ByteArray, kotlin/Unit> // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.component5|component5(){}[0]
+        final fun copy(kotlin.coroutines/SuspendFunction0<kotlin/Unit> = ..., kotlinx.coroutines.flow/Flow<kotlin/String> = ..., kotlinx.coroutines.flow/Flow<kotlin/String> = ..., kotlin.coroutines/SuspendFunction1<kotlin/String, kotlin/Unit> = ..., kotlin.coroutines/SuspendFunction1<kotlin/ByteArray, kotlin/Unit> = ...): me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.copy|copy(kotlin.coroutines.SuspendFunction0<kotlin.Unit>;kotlinx.coroutines.flow.Flow<kotlin.String>;kotlinx.coroutines.flow.Flow<kotlin.String>;kotlin.coroutines.SuspendFunction1<kotlin.String,kotlin.Unit>;kotlin.coroutines.SuspendFunction1<kotlin.ByteArray,kotlin.Unit>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult.ConnectedDemuxed.toString|toString(){}[0]
+    }
 }
 
 sealed class me.devnatan.dockerkt.models.container/ContainerLogsResult { // me.devnatan.dockerkt.models.container/ContainerLogsResult|null[0]
@@ -5597,6 +5697,7 @@ final fun me.devnatan.dockerkt.util/toJsonEncodedString(kotlin/Any): kotlin/Stri
 final inline fun (me.devnatan.dockerkt.models.container/ContainerListOptions).me.devnatan.dockerkt.models.container/filters(kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerListOptions.Filters, kotlin/Unit>) // me.devnatan.dockerkt.models.container/filters|filters@me.devnatan.dockerkt.models.container.ContainerListOptions(kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerListOptions.Filters,kotlin.Unit>){}[0]
 final inline fun (me.devnatan.dockerkt.resource.system/SystemResource).me.devnatan.dockerkt.resource.system/events(kotlin/Function1<me.devnatan.dockerkt.models.system/MonitorEventsOptions, kotlin/Unit>): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models.system/Event> // me.devnatan.dockerkt.resource.system/events|events@me.devnatan.dockerkt.resource.system.SystemResource(kotlin.Function1<me.devnatan.dockerkt.models.system.MonitorEventsOptions,kotlin.Unit>){}[0]
 final inline fun me.devnatan.dockerkt/DockerClient(crossinline kotlin/Function1<me.devnatan.dockerkt/DockerClientConfigBuilder, kotlin/Unit>): me.devnatan.dockerkt/DockerClient // me.devnatan.dockerkt/DockerClient|DockerClient(kotlin.Function1<me.devnatan.dockerkt.DockerClientConfigBuilder,kotlin.Unit>){}[0]
+final suspend fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/attachWebSocket(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerAttachOptions, kotlin/Unit>): me.devnatan.dockerkt.models.container/ContainerAttachWebSocketResult // me.devnatan.dockerkt.resource.container/attachWebSocket|attachWebSocket@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerAttachOptions,kotlin.Unit>){}[0]
 final suspend fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/copyDirectoryTo(kotlin/String, kotlin/String, kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerCopyOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.container/copyDirectoryTo|copyDirectoryTo@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.String;kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerCopyOptions,kotlin.Unit>){}[0]
 final suspend fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/copyFileTo(kotlin/String, kotlin/String, kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerCopyOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.container/copyFileTo|copyFileTo@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.String;kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerCopyOptions,kotlin.Unit>){}[0]
 final suspend fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/copyTo(kotlin/String, kotlin/String, kotlin/ByteArray, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerCopyOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.container/copyTo|copyTo@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.String;kotlin.ByteArray;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerCopyOptions,kotlin.Unit>){}[0]
