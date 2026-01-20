@@ -4,6 +4,8 @@ import kotlinx.coroutines.flow.Flow
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
 import me.devnatan.dockerkt.models.container.Container
+import me.devnatan.dockerkt.models.container.ContainerAttachOptions
+import me.devnatan.dockerkt.models.container.ContainerAttachWebSocketResult
 import me.devnatan.dockerkt.models.container.ContainerCopyOptions
 import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
@@ -203,6 +205,7 @@ public actual class ContainerResource {
         tarArchive: ByteArray,
         options: ContainerCopyOptions,
     ) {
+        TODO("Not yet implemented")
     }
 
     public actual suspend fun copyFileTo(
@@ -211,6 +214,7 @@ public actual class ContainerResource {
         destinationPath: String,
         options: ContainerCopyOptions,
     ) {
+        TODO("Not yet implemented")
     }
 
     public actual suspend fun copyFileFrom(
@@ -218,6 +222,7 @@ public actual class ContainerResource {
         sourcePath: String,
         destinationPath: String,
     ) {
+        TODO("Not yet implemented")
     }
 
     public actual suspend fun copyDirectoryFrom(
@@ -225,6 +230,7 @@ public actual class ContainerResource {
         sourcePath: String,
         destinationPath: String,
     ) {
+        TODO("Not yet implemented")
     }
 
     public actual suspend fun copyDirectoryTo(
@@ -233,5 +239,13 @@ public actual class ContainerResource {
         destinationPath: String,
         options: ContainerCopyOptions,
     ) {
+        TODO("Not yet implemented")
+    }
+
+    public actual suspend fun attachWebSocket(
+        container: String,
+        options: ContainerAttachOptions,
+    ): ContainerAttachWebSocketResult {
+        TODO("Not yet implemented")
     }
 }
