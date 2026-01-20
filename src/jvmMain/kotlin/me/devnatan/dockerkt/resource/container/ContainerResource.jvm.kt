@@ -2,6 +2,8 @@ package me.devnatan.dockerkt.resource.container
 
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
+import io.ktor.client.plugins.websocket.DefaultClientWebSocketSession
+import io.ktor.client.plugins.websocket.webSocket
 import io.ktor.client.request.delete
 import io.ktor.client.request.get
 import io.ktor.client.request.parameter
@@ -15,15 +17,32 @@ import io.ktor.client.statement.readRawBytes
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.contentType
+import io.ktor.http.headers
 import io.ktor.util.decodeBase64Bytes
 import io.ktor.utils.io.ByteReadChannel
+import io.ktor.utils.io.CancellationException
 import io.ktor.utils.io.readUTF8Line
+import io.ktor.websocket.CloseReason
+import io.ktor.websocket.close
+import io.ktor.websocket.readBytes
+import io.ktor.websocket.readText
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.channels.ClosedReceiveChannelException
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.future.asCompletableFuture
+import kotlinx.coroutines.launch
 import kotlinx.io.files.Path
 import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.DockerResponseException
@@ -33,6 +52,8 @@ import me.devnatan.dockerkt.io.TarOperations
 import me.devnatan.dockerkt.io.TarUtils
 import me.devnatan.dockerkt.io.collectStream
 import me.devnatan.dockerkt.io.collectStreamDemuxed
+import me.devnatan.dockerkt.io.isMultiplexedStream
+import me.devnatan.dockerkt.io.readPayloadSize
 import me.devnatan.dockerkt.io.readStream
 import me.devnatan.dockerkt.io.requestCatching
 import me.devnatan.dockerkt.models.Frame
@@ -40,6 +61,8 @@ import me.devnatan.dockerkt.models.ResizeTTYOptions
 import me.devnatan.dockerkt.models.Stream
 import me.devnatan.dockerkt.models.container.Container
 import me.devnatan.dockerkt.models.container.ContainerArchiveInfo
+import me.devnatan.dockerkt.models.container.ContainerAttachOptions
+import me.devnatan.dockerkt.models.container.ContainerAttachWebSocketResult
 import me.devnatan.dockerkt.models.container.ContainerCopyOptions
 import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
@@ -737,6 +760,149 @@ public actual class ContainerResource(
             ContainerLogsResult.StreamDemuxed(stdoutFlow, stderrFlow)
         } else {
             ContainerLogsResult.Stream(framesFlow)
+        }
+    }
+
+    public actual suspend fun attachWebSocket(
+        container: String,
+        options: ContainerAttachOptions,
+    ): ContainerAttachWebSocketResult {
+        val outputChannel = Channel<Frame>(Channel.BUFFERED)
+        var session: DefaultClientWebSocketSession? = null
+        var sessionJob: Job? = null
+
+        try {
+            val queryParams =
+                buildString {
+                    append("stdout=${options.stdout}")
+                    append("&stderr=${options.stderr}")
+                    append("&stdin=${options.stdin}")
+                    append("&stream=${options.stream}")
+                    append("&logs=${options.logs}")
+                    options.detachKeys?.let { append("&detachKeys=$it") }
+                }
+
+            sessionJob =
+                CoroutineScope(Dispatchers.IO).launch {
+                    httpClient.webSocket(
+                        urlString = "$BasePath/$container/attach/ws?$queryParams",
+                    ) {
+                        session = this
+
+                        try {
+                            for (frame in incoming) {
+                                when (frame) {
+                                    is io.ktor.websocket.Frame.Text -> {
+                                        val content = frame.readText()
+                                        outputChannel.send(Frame(content, content.length, Stream.StdOut))
+                                    }
+
+                                    is io.ktor.websocket.Frame.Binary -> {
+                                        val bytes = frame.readBytes()
+                                        val header by lazy { bytes.copyOf(8) }
+                                        if (bytes.size >= 8 && isMultiplexedStream(header)) {
+                                            val streamType = Stream.typeOfOrNull(header[0]) ?: Stream.StdOut
+                                            val payloadSize = readPayloadSize(header)
+                                            if (bytes.size >= 8 + payloadSize) {
+                                                val content = bytes.copyOfRange(8, 8 + payloadSize).decodeToString()
+                                                outputChannel.send(Frame(content, payloadSize, streamType))
+                                            }
+                                        } else {
+                                            val raw = bytes.decodeToString()
+                                            outputChannel.send(Frame(raw, raw.length, Stream.StdOut))
+                                        }
+                                    }
+
+                                    is io.ktor.websocket.Frame.Close -> {
+                                        break
+                                    }
+
+                                    else -> { /* Ignore ping/pong */ }
+                                }
+                            }
+                        } catch (_: ClosedReceiveChannelException) {
+                            // Connection closed normally
+                        } catch (e: CancellationException) {
+                            throw e
+                        } finally {
+                            outputChannel.close()
+                        }
+                    }
+                }
+
+            var attempts = 0
+            while (session == null && attempts < 50) {
+                delay(10)
+                attempts++
+            }
+
+            if (session == null) {
+                throw IllegalStateException("Failed to establish WebSocket connection")
+            }
+
+            @Suppress("UNNECESSARY_NOT_NULL_ASSERTION")
+            val currentSession = session!!
+
+            val sendText: suspend (String) -> Unit = { text ->
+                currentSession.send(
+                    io.ktor.websocket.Frame
+                        .Text(text),
+                )
+            }
+
+            val sendBinary: suspend (ByteArray) -> Unit = { data ->
+                currentSession.send(
+                    io.ktor.websocket.Frame
+                        .Binary(true, data),
+                )
+            }
+
+            val closeSession: suspend () -> Unit = {
+                try {
+                    currentSession.close(CloseReason(CloseReason.Codes.NORMAL, "Detaching"))
+                } catch (_: Throwable) {
+                    // Ignore close errors
+                }
+
+                sessionJob.cancel()
+                outputChannel.close()
+            }
+
+            val outputFlow = outputChannel.receiveAsFlow()
+            val demux = options.stdout && options.stderr && !options.stdin
+
+            return if (demux) {
+                val sharedFlow =
+                    outputFlow.shareIn(
+                        scope = CoroutineScope(Dispatchers.Default),
+                        started = SharingStarted.Lazily,
+                    )
+
+                ContainerAttachWebSocketResult.ConnectedDemuxed(
+                    stdout =
+                        sharedFlow
+                            .filter { frame -> frame.stream == Stream.StdOut }
+                            .map { frame -> frame.value },
+                    stderr =
+                        sharedFlow
+                            .filter { frame -> frame.stream == Stream.StdErr }
+                            .map { frame -> frame.value },
+                    sendText = sendText,
+                    sendBinary = sendBinary,
+                    close = closeSession,
+                )
+            } else {
+                ContainerAttachWebSocketResult.Connected(
+                    output = outputFlow,
+                    sendText = sendText,
+                    sendBinary = sendBinary,
+                    close = closeSession,
+                )
+            }
+        } catch (e: Throwable) {
+            outputChannel.close()
+            sessionJob?.cancel()
+            throw e
         }
     }
 }

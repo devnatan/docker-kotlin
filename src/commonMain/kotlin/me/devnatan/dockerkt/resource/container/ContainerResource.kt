@@ -5,6 +5,8 @@ import me.devnatan.dockerkt.DockerResponseException
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
 import me.devnatan.dockerkt.models.container.Container
+import me.devnatan.dockerkt.models.container.ContainerAttachOptions
+import me.devnatan.dockerkt.models.container.ContainerAttachWebSocketResult
 import me.devnatan.dockerkt.models.container.ContainerCopyOptions
 import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
@@ -289,4 +291,22 @@ public expect class ContainerResource {
         destinationPath: String,
         options: ContainerCopyOptions = ContainerCopyOptions(path = destinationPath),
     )
+
+    /**
+     * Attach to a container via WebSocket for bidirectional communication.
+     *
+     * This method provides full stdin/stdout/stderr support through WebSocket protocol.
+     *
+     * @param container Container id or name.
+     * @param options Attach options.
+     * @return [ContainerAttachWebSocketResult] containing the WebSocket streams and send functions.
+     * @throws ContainerNotFoundException If the container is not found.
+     * @throws ContainerNotRunningException If the container is not running.
+     *
+     * @see <a href="https://docs.docker.com/engine/api/v1.47/#operation/ContainerAttachWebsocket">Docker API - Container Attach WebSocket</a>
+     */
+    public suspend fun attachWebSocket(
+        container: String,
+        options: ContainerAttachOptions = ContainerAttachOptions(),
+    ): ContainerAttachWebSocketResult
 }
