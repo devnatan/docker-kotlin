@@ -10,7 +10,7 @@ import kotlin.time.toDuration
 public data class HealthConfig(
     @SerialName("Test") public var test: List<String>? = null,
     @SerialName("Interval") public var interval: ULong? = null,
-    @SerialName("Timeout") public var timeout: Int? = null,
+    @SerialName("Timeout") public var timeout: ULong? = null,
     @SerialName("Retries") public var retries: Int? = null,
     @SerialName("StartPeriod") public var startPeriod: ULong? = null,
 )
@@ -24,9 +24,9 @@ public var HealthConfig.interval: Duration?
 
 @Suppress("EXTENSION_SHADOWED_BY_MEMBER")
 public var HealthConfig.timeout: Duration?
-    get() = timeout?.toDuration(DurationUnit.NANOSECONDS)
+    get() = timeout?.toLong()?.toDuration(DurationUnit.NANOSECONDS)
     set(value) {
-        timeout = value?.inWholeNanoseconds?.toInt()
+        timeout = value?.inWholeNanoseconds?.toULong()
     }
 
 @Suppress("EXTENSION_SHADOWED_BY_MEMBER")
