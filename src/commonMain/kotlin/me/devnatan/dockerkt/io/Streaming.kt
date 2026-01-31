@@ -6,8 +6,12 @@ import io.ktor.utils.io.readFully
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.Stream
 
+/***  Default buffer size for stream reading operations. */
 private const val DefaultBufferSize = 8192
 private const val HeaderSize = 8
+
+/** Maximum reasonable payload size for a single Docker frame. */
+internal const val MaxPayloadSize = 10 * 1024 * 1024 // 10 MB
 
 internal suspend fun readStream(
     channel: ByteReadChannel,
@@ -98,7 +102,7 @@ private suspend fun readMultiplexedFrames(
     }
 }
 
-private fun readPayloadSize(header: ByteArray): Int =
+internal fun readPayloadSize(header: ByteArray): Int =
     ((header[4].toInt() and 0xFF) shl 24) or
         ((header[5].toInt() and 0xFF) shl 16) or
         ((header[6].toInt() and 0xFF) shl 8) or
@@ -173,4 +177,39 @@ internal suspend fun collectStreamDemuxed(
     }
 
     return stdout.toString() to stderr.toString()
+}
+
+/**
+ * Detects if the stream is using Docker's multiplexed protocol or raw TTY output.
+ *
+ * Docker multiplexed stream format (non-TTY):
+ * - Byte 0: Stream type (0=stdin, 1=stdout, 2=stderr)
+ * - Bytes 1-3: Reserved, always 0x00
+ * - Bytes 4-7: Payload size (big-endian uint32)
+ *
+ * For TTY-enabled containers, output is raw without this header structure.
+ *
+ * Detection logic:
+ * 1. First byte must be 0, 1, or 2 (valid stream type)
+ * 2. Bytes 1-3 must be 0x00 (reserved bytes)
+ * 3. Payload size (bytes 4-7) must be reasonable (> 0 and < 10MB)
+ *
+ * @param header First 8 bytes of the stream
+ * @return true if multiplexed protocol detected, false if raw TTY stream
+ */
+internal fun isMultiplexedStream(header: ByteArray): Boolean {
+    if (header.size < HeaderSize) return false
+
+    val streamType = Stream.typeOfOrNull(header[0]) ?: Stream.Unknown
+    if (streamType == Stream.Unknown) {
+        return false
+    }
+
+    if (header[1].toInt() != 0 || header[2].toInt() != 0 || header[3].toInt() != 0) {
+        return false
+    }
+
+    val payloadSize = readPayloadSize(header)
+
+    return payloadSize in 1..MaxPayloadSize
 }

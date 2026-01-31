@@ -1345,6 +1345,91 @@ public final class me/devnatan/dockerkt/models/container/ContainerArchiveInfoKt 
 	public static final fun getModifiedAt (Lme/devnatan/dockerkt/models/container/ContainerArchiveInfo;)Lkotlin/time/Instant;
 }
 
+public final class me/devnatan/dockerkt/models/container/ContainerAttachOptions {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/ContainerAttachOptions$Companion;
+	public fun <init> ()V
+	public fun <init> (ZZZZZLjava/lang/String;)V
+	public synthetic fun <init> (ZZZZZLjava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Z
+	public final fun component3 ()Z
+	public final fun component4 ()Z
+	public final fun component5 ()Z
+	public final fun component6 ()Ljava/lang/String;
+	public final fun copy (ZZZZZLjava/lang/String;)Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;ZZZZZLjava/lang/String;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDetachKeys ()Ljava/lang/String;
+	public final fun getLogs ()Z
+	public final fun getStderr ()Z
+	public final fun getStdin ()Z
+	public final fun getStdout ()Z
+	public final fun getStream ()Z
+	public fun hashCode ()I
+	public final fun setDetachKeys (Ljava/lang/String;)V
+	public final fun setLogs (Z)V
+	public final fun setStderr (Z)V
+	public final fun setStdin (Z)V
+	public final fun setStdout (Z)V
+	public final fun setStream (Z)V
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/ContainerAttachOptions$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/ContainerAttachOptions$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerAttachOptions$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public abstract class me/devnatan/dockerkt/models/container/ContainerAttachWebSocketResult {
+	public abstract fun getClose ()Lkotlin/jvm/functions/Function1;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerAttachWebSocketResult$Connected : me/devnatan/dockerkt/models/container/ContainerAttachWebSocketResult {
+	public fun <init> (Lkotlin/jvm/functions/Function1;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)V
+	public final fun component1 ()Lkotlin/jvm/functions/Function1;
+	public final fun component2 ()Lkotlinx/coroutines/flow/Flow;
+	public final fun component3 ()Lkotlin/jvm/functions/Function2;
+	public final fun component4 ()Lkotlin/jvm/functions/Function2;
+	public final fun copy (Lkotlin/jvm/functions/Function1;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)Lme/devnatan/dockerkt/models/container/ContainerAttachWebSocketResult$Connected;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerAttachWebSocketResult$Connected;Lkotlin/jvm/functions/Function1;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerAttachWebSocketResult$Connected;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getClose ()Lkotlin/jvm/functions/Function1;
+	public final fun getOutput ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getSendBinary ()Lkotlin/jvm/functions/Function2;
+	public final fun getSendText ()Lkotlin/jvm/functions/Function2;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerAttachWebSocketResult$ConnectedDemuxed : me/devnatan/dockerkt/models/container/ContainerAttachWebSocketResult {
+	public fun <init> (Lkotlin/jvm/functions/Function1;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)V
+	public final fun component1 ()Lkotlin/jvm/functions/Function1;
+	public final fun component2 ()Lkotlinx/coroutines/flow/Flow;
+	public final fun component3 ()Lkotlinx/coroutines/flow/Flow;
+	public final fun component4 ()Lkotlin/jvm/functions/Function2;
+	public final fun component5 ()Lkotlin/jvm/functions/Function2;
+	public final fun copy (Lkotlin/jvm/functions/Function1;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;)Lme/devnatan/dockerkt/models/container/ContainerAttachWebSocketResult$ConnectedDemuxed;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerAttachWebSocketResult$ConnectedDemuxed;Lkotlin/jvm/functions/Function1;Lkotlinx/coroutines/flow/Flow;Lkotlinx/coroutines/flow/Flow;Lkotlin/jvm/functions/Function2;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerAttachWebSocketResult$ConnectedDemuxed;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getClose ()Lkotlin/jvm/functions/Function1;
+	public final fun getSendBinary ()Lkotlin/jvm/functions/Function2;
+	public final fun getSendText ()Lkotlin/jvm/functions/Function2;
+	public final fun getStderr ()Lkotlinx/coroutines/flow/Flow;
+	public final fun getStdout ()Lkotlinx/coroutines/flow/Flow;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class me/devnatan/dockerkt/models/container/ContainerConfig {
 	public static final field Companion Lme/devnatan/dockerkt/models/container/ContainerConfig$Companion;
 	public fun <init> ()V
@@ -5016,6 +5101,8 @@ public final class me/devnatan/dockerkt/resource/container/ContainerRenameConfli
 public final class me/devnatan/dockerkt/resource/container/ContainerResource {
 	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lkotlinx/serialization/json/Json;Lio/ktor/client/HttpClient;)V
 	public final synthetic fun attach (Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
+	public final fun attachWebSocket (Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun attachWebSocket$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerAttachOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 	public final fun copyDirectoryFrom (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun copyDirectoryTo (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun copyDirectoryTo$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
@@ -5086,6 +5173,7 @@ public final class me/devnatan/dockerkt/resource/container/ContainerResource {
 }
 
 public final class me/devnatan/dockerkt/resource/container/ContainerResourceExtKt {
+	public static final fun attachWebSocket (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun copyDirectoryTo (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun copyFileTo (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun copyTo (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;[BLkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
