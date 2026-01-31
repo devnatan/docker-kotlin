@@ -4206,7 +4206,7 @@ final class me.devnatan.dockerkt.models/GraphDriverData { // me.devnatan.dockerk
 }
 
 final class me.devnatan.dockerkt.models/HealthConfig { // me.devnatan.dockerkt.models/HealthConfig|null[0]
-    constructor <init>(kotlin.collections/List<kotlin/String>? = ..., kotlin/ULong? = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin/ULong? = ...) // me.devnatan.dockerkt.models/HealthConfig.<init>|<init>(kotlin.collections.List<kotlin.String>?;kotlin.ULong?;kotlin.Int?;kotlin.Int?;kotlin.ULong?){}[0]
+    constructor <init>(kotlin.collections/List<kotlin/String>? = ..., kotlin/ULong? = ..., kotlin/ULong? = ..., kotlin/Int? = ..., kotlin/ULong? = ...) // me.devnatan.dockerkt.models/HealthConfig.<init>|<init>(kotlin.collections.List<kotlin.String>?;kotlin.ULong?;kotlin.ULong?;kotlin.Int?;kotlin.ULong?){}[0]
 
     final var interval // me.devnatan.dockerkt.models/HealthConfig.interval|{}interval[0]
         final fun <get-interval>(): kotlin/ULong? // me.devnatan.dockerkt.models/HealthConfig.interval.<get-interval>|<get-interval>(){}[0]
@@ -4221,15 +4221,15 @@ final class me.devnatan.dockerkt.models/HealthConfig { // me.devnatan.dockerkt.m
         final fun <get-test>(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models/HealthConfig.test.<get-test>|<get-test>(){}[0]
         final fun <set-test>(kotlin.collections/List<kotlin/String>?) // me.devnatan.dockerkt.models/HealthConfig.test.<set-test>|<set-test>(kotlin.collections.List<kotlin.String>?){}[0]
     final var timeout // me.devnatan.dockerkt.models/HealthConfig.timeout|{}timeout[0]
-        final fun <get-timeout>(): kotlin/Int? // me.devnatan.dockerkt.models/HealthConfig.timeout.<get-timeout>|<get-timeout>(){}[0]
-        final fun <set-timeout>(kotlin/Int?) // me.devnatan.dockerkt.models/HealthConfig.timeout.<set-timeout>|<set-timeout>(kotlin.Int?){}[0]
+        final fun <get-timeout>(): kotlin/ULong? // me.devnatan.dockerkt.models/HealthConfig.timeout.<get-timeout>|<get-timeout>(){}[0]
+        final fun <set-timeout>(kotlin/ULong?) // me.devnatan.dockerkt.models/HealthConfig.timeout.<set-timeout>|<set-timeout>(kotlin.ULong?){}[0]
 
     final fun component1(): kotlin.collections/List<kotlin/String>? // me.devnatan.dockerkt.models/HealthConfig.component1|component1(){}[0]
     final fun component2(): kotlin/ULong? // me.devnatan.dockerkt.models/HealthConfig.component2|component2(){}[0]
-    final fun component3(): kotlin/Int? // me.devnatan.dockerkt.models/HealthConfig.component3|component3(){}[0]
+    final fun component3(): kotlin/ULong? // me.devnatan.dockerkt.models/HealthConfig.component3|component3(){}[0]
     final fun component4(): kotlin/Int? // me.devnatan.dockerkt.models/HealthConfig.component4|component4(){}[0]
     final fun component5(): kotlin/ULong? // me.devnatan.dockerkt.models/HealthConfig.component5|component5(){}[0]
-    final fun copy(kotlin.collections/List<kotlin/String>? = ..., kotlin/ULong? = ..., kotlin/Int? = ..., kotlin/Int? = ..., kotlin/ULong? = ...): me.devnatan.dockerkt.models/HealthConfig // me.devnatan.dockerkt.models/HealthConfig.copy|copy(kotlin.collections.List<kotlin.String>?;kotlin.ULong?;kotlin.Int?;kotlin.Int?;kotlin.ULong?){}[0]
+    final fun copy(kotlin.collections/List<kotlin/String>? = ..., kotlin/ULong? = ..., kotlin/ULong? = ..., kotlin/Int? = ..., kotlin/ULong? = ...): me.devnatan.dockerkt.models/HealthConfig // me.devnatan.dockerkt.models/HealthConfig.copy|copy(kotlin.collections.List<kotlin.String>?;kotlin.ULong?;kotlin.ULong?;kotlin.Int?;kotlin.ULong?){}[0]
     final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models/HealthConfig.equals|equals(kotlin.Any?){}[0]
     final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models/HealthConfig.hashCode|hashCode(){}[0]
     final fun toString(): kotlin/String // me.devnatan.dockerkt.models/HealthConfig.toString|toString(){}[0]
