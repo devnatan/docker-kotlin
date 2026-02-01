@@ -88,8 +88,7 @@ kotlin {
         val jvmMain by getting {
             dependsOn(commonMain)
             dependencies {
-                runtimeOnly(libs.junixsocket.native)
-                implementation(libs.junixsocket.common)
+                implementation(libs.junixsocket)
                 implementation(libs.ktor.client.engine.okhttp)
                 implementation(libs.slf4j.api)
                 api(libs.apache.compress)
