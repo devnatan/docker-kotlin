@@ -8,6 +8,7 @@ open class ResourceIT(
 ) {
     val testClient: DockerClient by lazy {
         createTestDockerClient {
+            apiVersion("1.48")
             debugHttpCalls(this@ResourceIT.debugHttpCalls)
         }
     }
