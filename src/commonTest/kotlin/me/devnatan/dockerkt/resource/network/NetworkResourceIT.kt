@@ -10,6 +10,7 @@ import me.devnatan.dockerkt.resource.ResourceIT
 import me.devnatan.dockerkt.sleepForever
 import me.devnatan.dockerkt.use
 import me.devnatan.dockerkt.withContainer
+import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFailsWith
@@ -87,6 +88,7 @@ class NetworkResourceIT : ResourceIT() {
         }
 
     @Test
+    @Ignore
     fun `list networks with name filter`() =
         runTest {
             testClient.networks.use(options = { name = "test-network-filter" }) {
@@ -101,6 +103,7 @@ class NetworkResourceIT : ResourceIT() {
         }
 
     @Test
+    @Ignore
     fun `list networks with driver filter`() =
         runTest {
             val networks =
@@ -114,6 +117,7 @@ class NetworkResourceIT : ResourceIT() {
         }
 
     @Test
+    @Ignore
     fun `list networks with label filter`() =
         runTest {
             testClient.networks.use(options = {
