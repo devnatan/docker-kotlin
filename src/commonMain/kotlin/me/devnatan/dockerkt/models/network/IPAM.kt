@@ -26,6 +26,6 @@ public data class IPAM(
 @Serializable
 public data class IPAMConfig(
     @SerialName("Subnet") public val subnet: String,
-    @SerialName("IPRange") public val ipRange: String?,
+    @SerialName("IPRange") public val ipRange: String? = null,
     @SerialName("Gateway") public val gateway: String,
 )
