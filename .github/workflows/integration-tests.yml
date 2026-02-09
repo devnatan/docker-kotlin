@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         docker_version:
-          - "29.0"
+          - "29.2.1"
     runs-on: ubuntu-latest
     name: JVM (Docker v${{ matrix.docker_version }})
     steps:
@@ -46,7 +46,7 @@ jobs:
       fail-fast: false
       matrix:
         docker_version:
-          - "29.0"
+          - "29.2.1"
         os:
           - name: Linux (x64)
             runner: ubuntu-22.04
