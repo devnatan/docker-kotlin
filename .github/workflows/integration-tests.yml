@@ -20,8 +20,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Setup Docker v${{ matrix.docker_version }}
+        uses: docker/setup-docker-action@v4.6.0
         with:
-          fetch-depth: 0
+          version: v${{ matrix.docker_version }}
 
       - name: Set up JDK 17
         uses: actions/setup-java@v5
@@ -66,12 +69,15 @@ jobs:
             sourceset: mingwX64
 
     runs-on: ${{ matrix.os.runner }}
-    name: Native ${{ matrix.os.name }} (Docker v${{ matrix.docker_version }})
+    name: Native ${{ matrix.os.name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+
+      - name: Setup Docker v${{ matrix.docker_version }}
+        uses: docker/setup-docker-action@v4.6.0
         with:
-          fetch-depth: 0
+          version: v${{ matrix.docker_version }}
 
       - name: Set up JDK 17
         uses: actions/setup-java@v5
@@ -82,12 +88,8 @@ jobs:
       - name: Set up Gradle
         uses: gradle/actions/setup-gradle@v5
 
-      - name: Setup Docker
-        uses: docker/setup-docker-action@v4.6.0
-        if: ${{ matrix.os.name == 'macosX64' }}
-
       - name: Prune Docker System
         run: docker system prune -a -f
 
       - name: Run Tests
-        run: ./gradlew ${{ matrix.os.name }}Test
+        run: ./gradlew ${{ matrix.os.sourceset }}Test
