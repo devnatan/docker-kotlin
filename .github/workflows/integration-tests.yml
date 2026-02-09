@@ -95,8 +95,6 @@ jobs:
         if: ${{ matrix.os.sourceset == 'macosArm64' }}
         run: |
           brew install colima docker
-          docker version
-          colima version
           colima start
 
       - name: Set up JDK 17
