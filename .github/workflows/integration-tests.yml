@@ -16,10 +16,12 @@ jobs:
         docker_version:
           - "29.2.1"
     runs-on: ubuntu-latest
-    name: JVM (Docker v${{ matrix.docker_version }})
+    name: JVM
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: '1'
 
       - name: Setup Docker v${{ matrix.docker_version }}
         uses: docker/setup-docker-action@v4.6.0
@@ -69,10 +71,12 @@ jobs:
             sourceset: mingwX64
 
     runs-on: ${{ matrix.os.runner }}
-    name: Native ${{ matrix.os.name }}
+    name: Native - ${{ matrix.os.name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: '1'
 
       - name: Setup Docker v${{ matrix.docker_version }}
         uses: docker/setup-docker-action@v4.6.0
