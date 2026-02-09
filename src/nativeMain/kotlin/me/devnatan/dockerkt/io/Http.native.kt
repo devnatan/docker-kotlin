@@ -7,10 +7,13 @@ import io.ktor.client.engine.cio.CIO
 import io.ktor.client.plugins.defaultRequest
 import me.devnatan.dockerkt.DockerClient
 
-internal actual val defaultHttpClientEngine: HttpClientEngineFactory<*>? = CIO
+internal actual val defaultHttpClientEngine: HttpClientEngineFactory<*>? get() = CIO
 
 internal actual fun <T : HttpClientEngineConfig> HttpClientConfig<out T>.configureHttpClient(client: DockerClient) {
     defaultRequest {
-        unixSocket(client.config.socketPath)
+        val socketPath = client.config.socketPath
+        if (isUnixSocket(socketPath)) {
+            unixSocket(socketPath)
+        }
     }
 }
