@@ -45,11 +45,26 @@ jobs:
         docker_version:
           - "29.0"
         os:
-          - name: linuxX64
+          - name: Linux (x64)
             runner: ubuntu-22.04
+            sourceset: linuxX64
 
-          - name: macosX64
+          - name: Linux (ARM)
+            runner: ubuntu-22.04-arm
+            sourceset: linuxArm64
+
+          - name: macOS (Intel)
             runner: macos-15-intel
+            sourceset: macosX64
+
+          - name: macOS (Apple Silicon)
+            runner: macos-15
+            sourceset: macosArm64
+
+          - name: Windows
+            runner: windows-2025
+            sourceset: mingwX64
+
     runs-on: ${{ matrix.os.runner }}
     name: Native ${{ matrix.os.name }} (Docker v${{ matrix.docker_version }})
     steps:
