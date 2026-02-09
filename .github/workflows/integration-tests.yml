@@ -8,6 +8,10 @@ on:
 env:
   DOCKER_API_VERSION: 1.48
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
 
@@ -53,13 +57,9 @@ jobs:
         docker_version:
           - "29.2.1"
         os:
-          - name: Linux (x64)
+          - name: Linux
             runner: ubuntu-22.04
             sourceset: linuxX64
-
-          - name: Linux (ARM)
-            runner: ubuntu-22.04-arm
-            sourceset: linuxArm64
 
           - name: macOS (Intel)
             runner: macos-15-intel
