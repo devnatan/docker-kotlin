@@ -83,16 +83,16 @@ jobs:
 
       - name: Setup Docker CE v${{ matrix.docker_version }}
         uses: docker/setup-docker-action@v4.6.0
-        if: ${{ matrix.os.runner != 'macosX64' && matrix.os.runner != 'macosArm64' }}
+        if: ${{ matrix.os.runner != 'macosArm64' }}
         with:
           version: v${{ matrix.docker_version }}
 
       - name: Setup Homebrew
         uses: Homebrew/actions/setup-homebrew@master
-        if: ${{ matrix.os.runner == 'macosX64' || matrix.os.runner == 'macosArm64' }}
+        if: ${{ matrix.os.runner == 'macosArm64' }}
 
       - name: Setup Docker
-        if: ${{ matrix.os.runner == 'macosX64' || matrix.os.runner == 'macosArm64' }}
+        if: ${{ matrix.os.runner == 'macosArm64' }}
         run: |
           brew install docker
           colima start
