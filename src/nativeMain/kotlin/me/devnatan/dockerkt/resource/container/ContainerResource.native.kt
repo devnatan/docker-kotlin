@@ -28,7 +28,6 @@ public actual class ContainerResource(
     public val httpClient: HttpClient,
     public val json: Json,
 ) {
-
     /**
      * Returns a list of all containers.
      *

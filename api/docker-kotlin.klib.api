@@ -1,5 +1,5 @@
 // Klib ABI Dump
-// Targets: [linuxX64, macosX64]
+// Targets: [linuxX64, macosX64, mingwX64]
 // Rendering settings:
 // - Signature version: 2
 // - Show manifest properties: true
@@ -1906,7 +1906,7 @@ final class me.devnatan.dockerkt.models.network/IPAM { // me.devnatan.dockerkt.m
 }
 
 final class me.devnatan.dockerkt.models.network/IPAMConfig { // me.devnatan.dockerkt.models.network/IPAMConfig|null[0]
-    constructor <init>(kotlin/String, kotlin/String?, kotlin/String) // me.devnatan.dockerkt.models.network/IPAMConfig.<init>|<init>(kotlin.String;kotlin.String?;kotlin.String){}[0]
+    constructor <init>(kotlin/String, kotlin/String? = ..., kotlin/String) // me.devnatan.dockerkt.models.network/IPAMConfig.<init>|<init>(kotlin.String;kotlin.String?;kotlin.String){}[0]
 
     final val gateway // me.devnatan.dockerkt.models.network/IPAMConfig.gateway|{}gateway[0]
         final fun <get-gateway>(): kotlin/String // me.devnatan.dockerkt.models.network/IPAMConfig.gateway.<get-gateway>|<get-gateway>(){}[0]
@@ -5176,7 +5176,12 @@ final class me.devnatan.dockerkt.resource.container/ContainerRenameConflictExcep
 }
 
 final class me.devnatan.dockerkt.resource.container/ContainerResource { // me.devnatan.dockerkt.resource.container/ContainerResource|null[0]
-    constructor <init>() // me.devnatan.dockerkt.resource.container/ContainerResource.<init>|<init>(){}[0]
+    constructor <init>(io.ktor.client/HttpClient, kotlinx.serialization.json/Json) // me.devnatan.dockerkt.resource.container/ContainerResource.<init>|<init>(io.ktor.client.HttpClient;kotlinx.serialization.json.Json){}[0]
+
+    final val httpClient // me.devnatan.dockerkt.resource.container/ContainerResource.httpClient|{}httpClient[0]
+        final fun <get-httpClient>(): io.ktor.client/HttpClient // me.devnatan.dockerkt.resource.container/ContainerResource.httpClient.<get-httpClient>|<get-httpClient>(){}[0]
+    final val json // me.devnatan.dockerkt.resource.container/ContainerResource.json|{}json[0]
+        final fun <get-json>(): kotlinx.serialization.json/Json // me.devnatan.dockerkt.resource.container/ContainerResource.json.<get-json>|<get-json>(){}[0]
 
     final fun attach(kotlin/String): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models/Frame> // me.devnatan.dockerkt.resource.container/ContainerResource.attach|attach(kotlin.String){}[0]
     final suspend fun copyDirectoryFrom(kotlin/String, kotlin/String, kotlin/String) // me.devnatan.dockerkt.resource.container/ContainerResource.copyDirectoryFrom|copyDirectoryFrom(kotlin.String;kotlin.String;kotlin.String){}[0]
