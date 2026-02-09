@@ -27,7 +27,7 @@ public actual class DockerClient public actual constructor(
 
     public actual val images: ImageResource = ImageResource(httpClient, json)
     public actual val exec: ExecResource = ExecResource(httpClient)
-    public actual val containers: ContainerResource = ContainerResource()
+    public actual val containers: ContainerResource = ContainerResource(httpClient, json)
     public actual val networks: NetworkResource = NetworkResource(httpClient, json)
     public actual val volumes: VolumeResource = VolumeResource(httpClient, json)
     public actual val secrets: SecretResource = SecretResource(httpClient, json)

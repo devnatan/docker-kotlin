@@ -3,10 +3,17 @@ package me.devnatan.dockerkt.io
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.engine.HttpClientEngineConfig
 import io.ktor.client.engine.HttpClientEngineFactory
+import io.ktor.client.engine.cio.CIO
+import io.ktor.client.plugins.defaultRequest
 import me.devnatan.dockerkt.DockerClient
 
-internal actual val defaultHttpClientEngine: HttpClientEngineFactory<*>? get() = null
+internal actual val defaultHttpClientEngine: HttpClientEngineFactory<*>? get() = CIO
 
 internal actual fun <T : HttpClientEngineConfig> HttpClientConfig<out T>.configureHttpClient(client: DockerClient) {
-    TODO("Native HTTP client is not supported for now")
+    defaultRequest {
+        val socketPath = client.config.socketPath
+        if (isUnixSocket(socketPath)) {
+            unixSocket(socketPath)
+        }
+    }
 }

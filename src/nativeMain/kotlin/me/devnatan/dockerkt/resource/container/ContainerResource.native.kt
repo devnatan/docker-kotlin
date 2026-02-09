@@ -1,6 +1,12 @@
 package me.devnatan.dockerkt.resource.container
 
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.request.get
+import io.ktor.client.request.parameter
 import kotlinx.coroutines.flow.Flow
+import kotlinx.serialization.json.Json
+import me.devnatan.dockerkt.io.requestCatching
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
 import me.devnatan.dockerkt.models.container.Container
@@ -15,17 +21,27 @@ import me.devnatan.dockerkt.models.container.ContainerPruneResult
 import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
 import me.devnatan.dockerkt.models.container.ContainerSummary
 import me.devnatan.dockerkt.models.container.ContainerWaitResult
+import kotlin.jvm.JvmSynthetic
 import kotlin.time.Duration
 
-public actual class ContainerResource {
+public actual class ContainerResource(
+    public val httpClient: HttpClient,
+    public val json: Json,
+) {
     /**
      * Returns a list of all containers.
      *
      * @param options Options to customize the listing result.
      */
-    public actual suspend fun list(options: ContainerListOptions): List<ContainerSummary> {
-        TODO("Not yet implemented")
-    }
+    public actual suspend fun list(options: ContainerListOptions): List<ContainerSummary> =
+        requestCatching {
+            httpClient.get("containers/json") {
+                parameter("all", options.all)
+                parameter("limit", options.limit)
+                parameter("size", options.size)
+                parameter("filters", options.filters?.let(json::encodeToString))
+            }
+        }.body()
 
     /**
      * Creates a new container.

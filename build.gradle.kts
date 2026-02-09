@@ -65,7 +65,10 @@ kotlin {
     }
 
     linuxX64()
+    linuxArm64()
     macosX64()
+    macosArm64()
+    mingwX64()
 
     sourceSets {
         val commonMain by getting {
@@ -115,8 +118,13 @@ kotlin {
 
         val linuxX64Main by getting { dependsOn(nativeMain) }
         val linuxX64Test by getting { dependsOn(nativeTest) }
+        val linuxArm64Main by getting { dependsOn(nativeMain) }
         val macosX64Main by getting { dependsOn(nativeMain) }
         val macosX64Test by getting { dependsOn(nativeTest) }
+        val macosArm64Main by getting { dependsOn(nativeMain) }
+        val macosArm64Test by getting { dependsOn(nativeTest) }
+        val mingwX64Main by getting { dependsOn(nativeMain) }
+        val mingwX64Test by getting { dependsOn(nativeTest) }
     }
 }
 
