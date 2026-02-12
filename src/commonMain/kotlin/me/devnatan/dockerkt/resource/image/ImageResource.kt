@@ -15,7 +15,7 @@ import io.ktor.http.contentType
 import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.readUTF8Line
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.channelFlow
 import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.io.requestCatching
 import me.devnatan.dockerkt.models.image.Image
@@ -36,7 +36,7 @@ public class ImageResource internal constructor(
     public suspend fun list(): List<ImageSummary> = httpClient.get("$BasePath/json").body()
 
     public fun pull(image: String): Flow<ImagePull> =
-        flow {
+        channelFlow {
             httpClient
                 .preparePost("$BasePath/create") {
                     parameter("fromImage", image)
@@ -44,7 +44,7 @@ public class ImageResource internal constructor(
                     val channel = response.body<ByteReadChannel>()
                     while (true) {
                         val line = channel.readUTF8Line() ?: break
-                        emit(json.decodeFromString(line))
+                        send(json.decodeFromString(line))
                     }
                 }
         }

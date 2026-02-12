@@ -491,7 +491,7 @@ public actual class ContainerResource(
 
     @JvmSynthetic
     public actual fun attach(container: String): Flow<Frame> =
-        flow {
+        channelFlow {
             httpClient
                 .preparePost("$BasePath/$container/attach") {
                     parameter("stream", "true")
@@ -504,7 +504,7 @@ public actual class ContainerResource(
                         val line = channel.readUTF8Line() ?: break
 
                         // TODO handle stream type
-                        emit(Frame(line, line.length, Stream.StdOut))
+                        send(Frame(line, line.length, Stream.StdOut))
                     }
                 }
         }

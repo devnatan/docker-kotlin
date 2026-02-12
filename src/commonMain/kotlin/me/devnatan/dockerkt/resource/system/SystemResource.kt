@@ -9,7 +9,7 @@ import io.ktor.client.request.prepareGet
 import io.ktor.utils.io.ByteReadChannel
 import io.ktor.utils.io.readUTF8Line
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.channelFlow
 import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.io.requestCatching
 import me.devnatan.dockerkt.models.system.Event
@@ -83,7 +83,7 @@ public class SystemResource internal constructor(
      * @param options Options to filter the received events.
      */
     public fun events(options: MonitorEventsOptions = MonitorEventsOptions()): Flow<Event> =
-        flow {
+        channelFlow {
             requestCatching {
                 httpClient
                     .prepareGet("/events") {
@@ -95,7 +95,7 @@ public class SystemResource internal constructor(
                         while (true) {
                             val raw = channel.readUTF8Line() ?: break
                             val decoded = json.decodeFromString<Event>(raw)
-                            emit(decoded)
+                            send(decoded)
                         }
                     }
             }
