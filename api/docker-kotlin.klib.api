@@ -1,5 +1,5 @@
 // Klib ABI Dump
-// Targets: [linuxX64, macosX64, mingwX64]
+// Targets: [linuxArm64, linuxX64, macosArm64, macosX64, mingwX64]
 // Rendering settings:
 // - Signature version: 2
 // - Show manifest properties: true
@@ -5222,6 +5222,13 @@ final class me.devnatan.dockerkt.resource.exec/ExecResource { // me.devnatan.doc
 final class me.devnatan.dockerkt.resource.image/ImageNotFoundException : me.devnatan.dockerkt.resource.image/ImageException { // me.devnatan.dockerkt.resource.image/ImageNotFoundException|null[0]
     final val image // me.devnatan.dockerkt.resource.image/ImageNotFoundException.image|{}image[0]
         final fun <get-image>(): kotlin/String // me.devnatan.dockerkt.resource.image/ImageNotFoundException.image.<get-image>|<get-image>(){}[0]
+}
+
+final class me.devnatan.dockerkt.resource.image/ImagePullDeniedException : me.devnatan.dockerkt.resource.image/ImageException { // me.devnatan.dockerkt.resource.image/ImagePullDeniedException|null[0]
+    final val image // me.devnatan.dockerkt.resource.image/ImagePullDeniedException.image|{}image[0]
+        final fun <get-image>(): kotlin/String // me.devnatan.dockerkt.resource.image/ImagePullDeniedException.image.<get-image>|<get-image>(){}[0]
+    final val message // me.devnatan.dockerkt.resource.image/ImagePullDeniedException.message|{}message[0]
+        final fun <get-message>(): kotlin/String // me.devnatan.dockerkt.resource.image/ImagePullDeniedException.message.<get-message>|<get-message>(){}[0]
 }
 
 final class me.devnatan.dockerkt.resource.image/ImageResource { // me.devnatan.dockerkt.resource.image/ImageResource|null[0]
