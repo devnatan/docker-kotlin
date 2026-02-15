@@ -37,16 +37,20 @@ public class ImageResource internal constructor(
 
     public fun pull(image: String): Flow<ImagePull> =
         channelFlow {
-            httpClient
-                .preparePost("$BasePath/create") {
-                    parameter("fromImage", image)
-                }.execute { response ->
-                    val channel = response.body<ByteReadChannel>()
-                    while (true) {
-                        val line = channel.readUTF8Line() ?: break
-                        send(json.decodeFromString(line))
+            requestCatching(
+                HttpStatusCode.NotFound to { exception -> ImageNotFoundException(exception, image) },
+            ) {
+                httpClient
+                    .preparePost("$BasePath/create") {
+                        parameter("fromImage", image)
+                    }.execute { response ->
+                        val channel = response.body<ByteReadChannel>()
+                        while (true) {
+                            val line = channel.readUTF8Line() ?: break
+                            send(json.decodeFromString(line))
+                        }
                     }
-                }
+            }
         }
 
     public suspend fun remove(
