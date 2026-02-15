@@ -5,6 +5,7 @@ import kotlinx.coroutines.test.runTest
 import me.devnatan.dockerkt.resource.ResourceIT
 import me.devnatan.dockerkt.withImage
 import kotlin.test.Test
+import kotlin.test.assertFailsWith
 import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 import kotlin.test.fail
@@ -24,6 +25,27 @@ class ImageIT : ResourceIT() {
                     actual = testClient.images.list().any { it.repositoryTags.any { repoTag -> repoTag == imageTag } },
                     message = "Pulled image must be in the images list",
                 )
+            }
+        }
+
+    @Test
+    fun `image pull access denied image`() =
+        runTest {
+            assertFailsWith<ImagePullDeniedException> {
+                testClient.images.pull("inexistent:image").collect()
+            }
+        }
+
+    @Test
+    fun `image pull unknown image`() =
+        runTest {
+            try {
+                testClient.images.remove("busybox:billiejean", force = true)
+            } catch (_: ImageNotFoundException) {
+            }
+
+            assertFailsWith<ImageNotFoundException> {
+                testClient.images.pull("busybox:billiejean").collect()
             }
         }
 

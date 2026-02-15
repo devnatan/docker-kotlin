@@ -5135,6 +5135,11 @@ public final class me/devnatan/dockerkt/resource/image/ImageNotFoundException : 
 	public final fun getImage ()Ljava/lang/String;
 }
 
+public final class me/devnatan/dockerkt/resource/image/ImagePullDeniedException : me/devnatan/dockerkt/resource/image/ImageException {
+	public final fun getImage ()Ljava/lang/String;
+	public fun getMessage ()Ljava/lang/String;
+}
+
 public final class me/devnatan/dockerkt/resource/image/ImageResource {
 	public static final field Companion Lme/devnatan/dockerkt/resource/image/ImageResource$Companion;
 	public final fun build (Ljava/lang/String;Lme/devnatan/dockerkt/models/image/ImageBuildOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;

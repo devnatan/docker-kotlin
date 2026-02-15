@@ -10,3 +10,9 @@ public class ImageNotFoundException internal constructor(
     cause: Throwable?,
     public val image: String,
 ) : ImageException(cause)
+
+public class ImagePullDeniedException internal constructor(
+    cause: Throwable?,
+    public val image: String,
+    public override val message: String,
+) : ImageException(cause)
