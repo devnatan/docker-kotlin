@@ -38,7 +38,14 @@ public class ImageResource internal constructor(
     public fun pull(image: String): Flow<ImagePull> =
         channelFlow {
             requestCatching(
-                HttpStatusCode.NotFound to { exception -> ImageNotFoundException(exception, image) },
+                HttpStatusCode.NotFound to { exception ->
+                    val errorMessage = exception.message.orEmpty().lowercase()
+                    if (errorMessage.contains("no such image") || errorMessage.contains("manifest unknown")) {
+                        ImageNotFoundException(exception, image)
+                    } else {
+                        ImagePullDeniedException(exception, image, exception.message.orEmpty())
+                    }
+                },
             ) {
                 httpClient
                     .preparePost("$BasePath/create") {
