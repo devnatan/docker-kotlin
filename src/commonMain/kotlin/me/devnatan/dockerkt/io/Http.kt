@@ -14,6 +14,7 @@ import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.logging.SIMPLE
+import io.ktor.client.plugins.websocket.WebSockets
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.URLBuilder
@@ -46,6 +47,8 @@ internal fun createHttpClient(client: DockerClient): HttpClient {
 private fun HttpClientConfig<*>.configure(client: DockerClient) {
     expectSuccess = true
 
+    install(WebSockets)
+
     install(ContentNegotiation) {
         json(
             Json {
@@ -62,7 +65,6 @@ private fun HttpClientConfig<*>.configure(client: DockerClient) {
     }
 
     install(UserAgent) { agent = "docker-kotlin" }
-    configureHttpClient(client)
 
     HttpResponseValidator {
         handleResponseExceptionWithRequest { exception, _ ->
@@ -94,6 +96,8 @@ private fun HttpClientConfig<*>.configure(client: DockerClient) {
             },
         )
     }
+
+    configureHttpClient(client)
 }
 
 @OptIn(ExperimentalStdlibApi::class)

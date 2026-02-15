@@ -6,6 +6,8 @@ import kotlinx.coroutines.flow.Flow
 import me.devnatan.dockerkt.DockerResponseException
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
+import me.devnatan.dockerkt.models.container.ContainerAttachOptions
+import me.devnatan.dockerkt.models.container.ContainerAttachWebSocketResult
 import me.devnatan.dockerkt.models.container.ContainerCopyOptions
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
 import me.devnatan.dockerkt.models.container.ContainerListOptions
@@ -220,3 +222,21 @@ public suspend fun ContainerResource.copyDirectoryTo(
         destinationPath = destinationPath,
         options = ContainerCopyOptions(path = destinationPath).apply(options),
     )
+
+/**
+ * Attach to a container via WebSocket for bidirectional communication.
+ *
+ * This method provides full stdin/stdout/stderr support through WebSocket protocol.
+ *
+ * @param container Container id or name.
+ * @param block Attach options.
+ * @return [ContainerAttachWebSocketResult] containing the WebSocket streams and send functions.
+ * @throws ContainerNotFoundException If the container is not found.
+ * @throws ContainerNotRunningException If the container is not running.
+ *
+ * @see <a href="https://docs.docker.com/engine/api/v1.47/#operation/ContainerAttachWebsocket">Docker API - Container Attach WebSocket</a>
+ */
+public suspend fun ContainerResource.attachWebSocket(
+    container: String,
+    block: ContainerAttachOptions.() -> Unit,
+): ContainerAttachWebSocketResult = attachWebSocket(container, ContainerAttachOptions().apply(block))
