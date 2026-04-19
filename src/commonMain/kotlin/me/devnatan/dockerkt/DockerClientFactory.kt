@@ -1,8 +1,4 @@
-@file:JvmSynthetic
-
 package me.devnatan.dockerkt
-
-import kotlin.jvm.JvmSynthetic
 
 /**
  * Creates a new Docker client instance with platform default socket path and [DefaultDockerApiVersion]
