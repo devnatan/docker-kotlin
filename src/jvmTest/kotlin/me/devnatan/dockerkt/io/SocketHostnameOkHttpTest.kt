@@ -30,9 +30,10 @@ class SocketHostnameOkHttpTest {
 
     @Test
     fun `OkHttp accepts encoded very long socket path`() {
-        val url = buildOkHttpUrl(
-            "/very/long/path/to/some/deeply/nested/docker/socket/directory/structure/docker.sock",
-        )
+        val url =
+            buildOkHttpUrl(
+                "/very/long/path/to/some/deeply/nested/docker/socket/directory/structure/docker.sock",
+            )
         assertNotNull(url)
         assertEquals(DockerSocketPort, url.port)
     }
@@ -67,7 +68,8 @@ class SocketHostnameOkHttpTest {
     fun `OkHttpClient can be configured with SocketDns and encoded hostname`() {
         val hostname = encodeSocketPathHostname("/Users/invoked/.docker/run/docker.sock")
         val client =
-            OkHttpClient.Builder()
+            OkHttpClient
+                .Builder()
                 .dns(SocketDns(isUnixSocket = true))
                 .build()
 
