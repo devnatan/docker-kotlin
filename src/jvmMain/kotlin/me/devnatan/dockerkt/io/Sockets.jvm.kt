@@ -28,6 +28,7 @@ internal class UnixSocketFactory : AFUNIXSocketFactory() {
     private fun decodeHostname(hostname: String): String =
         hostname
             .substring(0, hostname.indexOf(EncodedHostnameSuffix))
+            .replace(".", "")
             .hexToByteArray()
             .decodeToString()
 

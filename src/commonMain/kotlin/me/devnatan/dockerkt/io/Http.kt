@@ -106,7 +106,9 @@ private fun createUrlBuilder(socketPath: String): URLBuilder =
                 socketPath
                     .substringAfter(UnixSocketPrefix)
                     .encodeToByteArray()
-                    .toHexString() + EncodedHostnameSuffix,
+                    .toHexString()
+                    .chunked(MaxDnsLabelLength)
+                    .joinToString(".") + EncodedHostnameSuffix,
         )
     } else {
         val url = Url(socketPath)

@@ -5,6 +5,7 @@ package me.devnatan.dockerkt.io
 import kotlin.jvm.JvmName
 
 internal const val EncodedHostnameSuffix = ".socket"
+internal const val MaxDnsLabelLength = 63
 
 internal const val DockerSocketPort = 2375
 internal const val UnixSocketPrefix = "unix://"
