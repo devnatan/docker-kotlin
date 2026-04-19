@@ -7,6 +7,13 @@
 
 # VM crash logs
 hs_err_pid*
+.hprof
 
 # IntelliJ
 .idea/
+
+# Docker Kotlin
+/docs/
+
+# Kotlin
+.kotlin/
