@@ -1,18 +1,19 @@
-public final class me/devnatan/dockerkt/DockerClient : kotlinx/coroutines/CoroutineScope {
+public final class me/devnatan/dockerkt/DockerClient : java/io/Closeable, kotlinx/coroutines/CoroutineScope {
 	public fun <init> ()V
 	public fun <init> (Lme/devnatan/dockerkt/DockerClientConfig;)V
-	public final fun close ()V
-	public final fun containers ()Lme/devnatan/dockerkt/resource/container/ContainerResource;
-	public final fun exec ()Lme/devnatan/dockerkt/resource/exec/ExecResource;
+	public synthetic fun <init> (Lme/devnatan/dockerkt/DockerClientConfig;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun close ()V
 	public final fun getConfig ()Lme/devnatan/dockerkt/DockerClientConfig;
+	public final fun getContainers ()Lme/devnatan/dockerkt/resource/container/ContainerResource;
 	public fun getCoroutineContext ()Lkotlin/coroutines/CoroutineContext;
+	public final fun getExec ()Lme/devnatan/dockerkt/resource/exec/ExecResource;
 	public final fun getHttpClient ()Lio/ktor/client/HttpClient;
+	public final fun getImages ()Lme/devnatan/dockerkt/resource/image/ImageResource;
 	public final fun getJson ()Lkotlinx/serialization/json/Json;
-	public final fun images ()Lme/devnatan/dockerkt/resource/image/ImageResource;
-	public final fun networks ()Lme/devnatan/dockerkt/resource/network/NetworkResource;
-	public final fun secrets ()Lme/devnatan/dockerkt/resource/secret/SecretResource;
-	public final fun system ()Lme/devnatan/dockerkt/resource/system/SystemResource;
-	public final fun volumes ()Lme/devnatan/dockerkt/resource/volume/VolumeResource;
+	public final fun getNetworks ()Lme/devnatan/dockerkt/resource/network/NetworkResource;
+	public final fun getSecrets ()Lme/devnatan/dockerkt/resource/secret/SecretResource;
+	public final fun getSystem ()Lme/devnatan/dockerkt/resource/system/SystemResource;
+	public final fun getVolumes ()Lme/devnatan/dockerkt/resource/volume/VolumeResource;
 }
 
 public final class me/devnatan/dockerkt/DockerClientConfig {
@@ -44,7 +45,7 @@ public final class me/devnatan/dockerkt/DockerClientConfigKt {
 	public static final field DefaultDockerApiVersion Ljava/lang/String;
 }
 
-public final synthetic class me/devnatan/dockerkt/DockerClientFactoryKt {
+public final class me/devnatan/dockerkt/DockerClientFactoryKt {
 	public static final fun DockerClient (Lkotlin/jvm/functions/Function1;)Lme/devnatan/dockerkt/DockerClient;
 }
 
@@ -58,19 +59,6 @@ public class me/devnatan/dockerkt/DockerResourceException : me/devnatan/dockerkt
 public final class me/devnatan/dockerkt/DockerResponseException : me/devnatan/dockerkt/DockerResourceException {
 	public fun getMessage ()Ljava/lang/String;
 	public final fun getStatusCode ()Lio/ktor/http/HttpStatusCode;
-}
-
-public abstract interface class me/devnatan/dockerkt/io/DockerClientFrameListener {
-	public fun onComplete (Ljava/lang/Throwable;)V
-	public abstract fun onEach (Ljava/lang/Object;)V
-	public fun onError (Ljava/lang/Throwable;)V
-	public fun onStart ()V
-}
-
-public final class me/devnatan/dockerkt/io/DockerClientFrameListener$DefaultImpls {
-	public static fun onComplete (Lme/devnatan/dockerkt/io/DockerClientFrameListener;Ljava/lang/Throwable;)V
-	public static fun onError (Lme/devnatan/dockerkt/io/DockerClientFrameListener;Ljava/lang/Throwable;)V
-	public static fun onStart (Lme/devnatan/dockerkt/io/DockerClientFrameListener;)V
 }
 
 public final class me/devnatan/dockerkt/io/SocketUtils {
@@ -5015,8 +5003,7 @@ public final class me/devnatan/dockerkt/resource/container/ContainerRenameConfli
 }
 
 public final class me/devnatan/dockerkt/resource/container/ContainerResource {
-	public fun <init> (Lkotlinx/coroutines/CoroutineScope;Lkotlinx/serialization/json/Json;Lio/ktor/client/HttpClient;)V
-	public final synthetic fun attach (Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
+	public final fun attach (Ljava/lang/String;)Lkotlinx/coroutines/flow/Flow;
 	public final fun copyDirectoryFrom (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun copyDirectoryTo (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun copyDirectoryTo$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
@@ -5026,64 +5013,32 @@ public final class me/devnatan/dockerkt/resource/container/ContainerResource {
 	public final fun copyFrom (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public final fun copyTo (Ljava/lang/String;Ljava/lang/String;[BLme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun copyTo$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;[BLme/devnatan/dockerkt/models/container/ContainerCopyOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-	public final synthetic fun create (Lme/devnatan/dockerkt/models/container/ContainerCreateOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public final fun createAsync (Lme/devnatan/dockerkt/models/container/ContainerCreateOptions;)Ljava/util/concurrent/CompletableFuture;
-	public final synthetic fun inspect (Ljava/lang/String;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun create (Lme/devnatan/dockerkt/models/container/ContainerCreateOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun inspect (Ljava/lang/String;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun inspect$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;ZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-	public final fun inspectAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public final fun inspectAsync (Ljava/lang/String;Z)Ljava/util/concurrent/CompletableFuture;
-	public static synthetic fun inspectAsync$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;ZILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
-	public final synthetic fun kill (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun kill (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun kill$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-	public final fun killAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public final fun killAsync (Ljava/lang/String;Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public static synthetic fun killAsync$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
-	public final synthetic fun list (Lme/devnatan/dockerkt/models/container/ContainerListOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun list (Lme/devnatan/dockerkt/models/container/ContainerListOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun list$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lme/devnatan/dockerkt/models/container/ContainerListOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-	public final fun listAsync ()Ljava/util/concurrent/CompletableFuture;
-	public final fun listAsync (Lme/devnatan/dockerkt/models/container/ContainerListOptions;)Ljava/util/concurrent/CompletableFuture;
-	public static synthetic fun listAsync$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lme/devnatan/dockerkt/models/container/ContainerListOptions;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
 	public final fun logs (Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerLogsOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun logs$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerLogsOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-	public final synthetic fun pause (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public final fun pauseAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public final synthetic fun prune (Lme/devnatan/dockerkt/models/container/ContainerPruneFilters;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun pause (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun prune (Lme/devnatan/dockerkt/models/container/ContainerPruneFilters;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun prune$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lme/devnatan/dockerkt/models/container/ContainerPruneFilters;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-	public final fun pruneAsync ()Ljava/util/concurrent/CompletableFuture;
-	public final fun pruneAsync (Lme/devnatan/dockerkt/models/container/ContainerPruneFilters;)Ljava/util/concurrent/CompletableFuture;
-	public static synthetic fun pruneAsync$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lme/devnatan/dockerkt/models/container/ContainerPruneFilters;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
-	public final synthetic fun remove (Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerRemoveOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun remove (Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerRemoveOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun remove$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerRemoveOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-	public final fun removeAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public final fun removeAsync (Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerRemoveOptions;)Ljava/util/concurrent/CompletableFuture;
-	public static synthetic fun removeAsync$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerRemoveOptions;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
-	public final synthetic fun rename (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public final fun renameAsync (Ljava/lang/String;Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public final synthetic fun resizeTTY (Ljava/lang/String;Lme/devnatan/dockerkt/models/ResizeTTYOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun rename (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun resizeTTY (Ljava/lang/String;Lme/devnatan/dockerkt/models/ResizeTTYOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun resizeTTY$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lme/devnatan/dockerkt/models/ResizeTTYOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-	public final fun resizeTTYAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public final fun resizeTTYAsync (Ljava/lang/String;Lme/devnatan/dockerkt/models/ResizeTTYOptions;)Ljava/util/concurrent/CompletableFuture;
-	public static synthetic fun resizeTTYAsync$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lme/devnatan/dockerkt/models/ResizeTTYOptions;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
-	public final synthetic fun restart-Kx4hsE0 (Ljava/lang/String;Lkotlin/time/Duration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun restart-Kx4hsE0 (Ljava/lang/String;Lkotlin/time/Duration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun restart-Kx4hsE0$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/time/Duration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-	public final fun restartAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public final fun restartAsync (Ljava/lang/String;I)Ljava/util/concurrent/CompletableFuture;
-	public final synthetic fun start (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun start (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun start$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-	public final fun startAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public final fun startAsync (Ljava/lang/String;Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public static synthetic fun startAsync$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
-	public final synthetic fun stop-Kx4hsE0 (Ljava/lang/String;Lkotlin/time/Duration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun stop-Kx4hsE0 (Ljava/lang/String;Lkotlin/time/Duration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun stop-Kx4hsE0$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/time/Duration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-	public final fun stopAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public final fun stopAsync (Ljava/lang/String;I)Ljava/util/concurrent/CompletableFuture;
-	public final synthetic fun unpause (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-	public final fun unpauseAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public final synthetic fun wait (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun unpause (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public final fun wait (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun wait$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
-	public final fun waitAsync (Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public final fun waitAsync (Ljava/lang/String;Ljava/lang/String;)Ljava/util/concurrent/CompletableFuture;
-	public static synthetic fun waitAsync$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;ILjava/lang/Object;)Ljava/util/concurrent/CompletableFuture;
 }
 
 public final class me/devnatan/dockerkt/resource/container/ContainerResourceExtKt {
@@ -5098,10 +5053,6 @@ public final class me/devnatan/dockerkt/resource/container/ContainerResourceExtK
 	public static final fun prune (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun remove (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun resizeTTY (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
-}
-
-public final class me/devnatan/dockerkt/resource/container/ContainerResource_jvmKt {
-	public static final field BasePath Ljava/lang/String;
 }
 
 public class me/devnatan/dockerkt/resource/exec/ExecException : me/devnatan/dockerkt/DockerResourceException {
