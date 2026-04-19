@@ -94,7 +94,6 @@ kotlin {
                 implementation(libs.junixsocket)
                 implementation(libs.ktor.client.engine.okhttp)
                 implementation(libs.slf4j.api)
-                api(libs.apache.compress)
             }
         }
 
