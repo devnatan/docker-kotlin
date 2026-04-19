@@ -24,19 +24,11 @@ internal class SocketDns(
 }
 
 internal class UnixSocketFactory : AFUNIXSocketFactory() {
-    @OptIn(ExperimentalStdlibApi::class)
-    private fun decodeHostname(hostname: String): String =
-        hostname
-            .substring(0, hostname.indexOf(EncodedHostnameSuffix))
-            .replace(".", "")
-            .hexToByteArray()
-            .decodeToString()
-
     override fun addressFromHost(
         host: String,
         port: Int,
     ): AFUNIXSocketAddress {
-        val socketPath = decodeHostname(host)
+        val socketPath = decodeSocketPathHostname(host)
         val socketFile = Paths.get(socketPath) ?: error("Unable to connect to unix socket @ $socketPath")
 
         if (!Files.exists(socketFile) || !Files.isWritable(socketFile)) {

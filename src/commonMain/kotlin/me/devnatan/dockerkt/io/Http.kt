@@ -96,19 +96,12 @@ private fun HttpClientConfig<*>.configure(client: DockerClient) {
     }
 }
 
-@OptIn(ExperimentalStdlibApi::class)
 private fun createUrlBuilder(socketPath: String): URLBuilder =
     if (isUnixSocket(socketPath)) {
         URLBuilder(
             protocol = URLProtocol.HTTP,
             port = DockerSocketPort,
-            host =
-                socketPath
-                    .substringAfter(UnixSocketPrefix)
-                    .encodeToByteArray()
-                    .toHexString()
-                    .chunked(MaxDnsLabelLength)
-                    .joinToString(".") + EncodedHostnameSuffix,
+            host = encodeSocketPathHostname(socketPath.substringAfter(UnixSocketPrefix)),
         )
     } else {
         val url = Url(socketPath)
