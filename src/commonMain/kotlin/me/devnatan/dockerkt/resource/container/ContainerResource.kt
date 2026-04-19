@@ -1,13 +1,46 @@
 package me.devnatan.dockerkt.resource.container
 
+import io.ktor.client.HttpClient
+import io.ktor.client.call.body
+import io.ktor.client.request.delete
+import io.ktor.client.request.get
+import io.ktor.client.request.parameter
+import io.ktor.client.request.post
+import io.ktor.client.request.prepareGet
+import io.ktor.client.request.preparePost
+import io.ktor.client.request.put
+import io.ktor.client.request.setBody
+import io.ktor.client.statement.bodyAsChannel
+import io.ktor.client.statement.readRawBytes
+import io.ktor.http.ContentType
+import io.ktor.http.HttpStatusCode
+import io.ktor.http.contentType
+import io.ktor.util.decodeBase64Bytes
+import io.ktor.utils.io.ByteReadChannel
+import io.ktor.utils.io.readUTF8Line
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.flow
+import kotlinx.io.files.Path
+import kotlinx.serialization.json.Json
 import me.devnatan.dockerkt.DockerResponseException
+import me.devnatan.dockerkt.io.FileSystemUtils
+import me.devnatan.dockerkt.io.TarEntry
+import me.devnatan.dockerkt.io.TarOperations
+import me.devnatan.dockerkt.io.TarUtils
+import me.devnatan.dockerkt.io.collectStream
+import me.devnatan.dockerkt.io.collectStreamDemuxed
+import me.devnatan.dockerkt.io.readStream
+import me.devnatan.dockerkt.io.requestCatching
 import me.devnatan.dockerkt.models.Frame
 import me.devnatan.dockerkt.models.ResizeTTYOptions
+import me.devnatan.dockerkt.models.Stream
 import me.devnatan.dockerkt.models.container.Container
+import me.devnatan.dockerkt.models.container.ContainerArchiveInfo
 import me.devnatan.dockerkt.models.container.ContainerCopyOptions
 import me.devnatan.dockerkt.models.container.ContainerCopyResult
 import me.devnatan.dockerkt.models.container.ContainerCreateOptions
+import me.devnatan.dockerkt.models.container.ContainerCreateResult
 import me.devnatan.dockerkt.models.container.ContainerListOptions
 import me.devnatan.dockerkt.models.container.ContainerLogsOptions
 import me.devnatan.dockerkt.models.container.ContainerLogsResult
@@ -19,13 +52,26 @@ import me.devnatan.dockerkt.models.container.ContainerWaitResult
 import me.devnatan.dockerkt.resource.image.ImageNotFoundException
 import kotlin.time.Duration
 
-public expect class ContainerResource {
+private const val BasePath = "/containers"
+
+public class ContainerResource internal constructor(
+    private val httpClient: HttpClient,
+    private val json: Json,
+) {
     /**
      * Returns a list of all containers.
      *
      * @param options Options to customize the listing result.
      */
-    public suspend fun list(options: ContainerListOptions = ContainerListOptions(all = true)): List<ContainerSummary>
+    public suspend fun list(options: ContainerListOptions = ContainerListOptions(all = true)): List<ContainerSummary> =
+        requestCatching {
+            httpClient.get("$BasePath/json") {
+                parameter("all", options.all)
+                parameter("limit", options.limit)
+                parameter("size", options.size)
+                parameter("filters", options.filters?.let(json::encodeToString))
+            }
+        }.body()
 
     /**
      * Creates a new container.
@@ -34,7 +80,28 @@ public expect class ContainerResource {
      * @throws ImageNotFoundException If the image specified does not exist or isn't pulled.
      * @throws ContainerAlreadyExistsException If a container with the same name already exists.
      */
-    public suspend fun create(options: ContainerCreateOptions): String
+    public suspend fun create(options: ContainerCreateOptions): String {
+        requireNotNull(options.image) { "Container image is required" }
+
+        val result =
+            requestCatching(
+                HttpStatusCode.NotFound to { exception -> ImageNotFoundException(exception, options.image.orEmpty()) },
+                HttpStatusCode.Conflict to { exception ->
+                    ContainerAlreadyExistsException(
+                        exception,
+                        options.name.orEmpty(),
+                    )
+                },
+            ) {
+                httpClient.post("$BasePath/create") {
+                    parameter("name", options.name)
+                    setBody(options)
+                }
+            }.body<ContainerCreateResult>()
+
+        result.warnings.forEach { warn -> println("Warning from Docker API: $warn") }
+        return result.id
+    }
 
     /**
      * Removes a container.
@@ -47,7 +114,17 @@ public expect class ContainerResource {
     public suspend fun remove(
         container: String,
         options: ContainerRemoveOptions = ContainerRemoveOptions(),
-    )
+    ): Unit =
+        requestCatching(
+            HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+            HttpStatusCode.Conflict to { cause -> ContainerRemoveConflictException(cause, container) },
+        ) {
+            httpClient.delete("$BasePath/$container") {
+                parameter("v", options.removeAnonymousVolumes)
+                parameter("force", options.force)
+                parameter("link", options.unlink)
+            }
+        }
 
     /**
      * Returns low-level information about a container.
@@ -58,7 +135,14 @@ public expect class ContainerResource {
     public suspend fun inspect(
         container: String,
         size: Boolean = false,
-    ): Container
+    ): Container =
+        requestCatching(
+            HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+        ) {
+            httpClient.get("$BasePath/$container/json") {
+                parameter("size", size)
+            }
+        }.body()
 
     /**
      * Starts a container.
@@ -71,7 +155,15 @@ public expect class ContainerResource {
     public suspend fun start(
         container: String,
         detachKeys: String? = null,
-    )
+    ): Unit =
+        requestCatching(
+            HttpStatusCode.NotModified to { cause -> ContainerAlreadyStartedException(cause, container) },
+            HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+        ) {
+            httpClient.post("$BasePath/$container/start") {
+                parameter("detachKeys", detachKeys)
+            }
+        }
 
     /**
      * Stops a container.
@@ -82,7 +174,15 @@ public expect class ContainerResource {
     public suspend fun stop(
         container: String,
         timeout: Duration? = null,
-    )
+    ): Unit =
+        requestCatching(
+            HttpStatusCode.NotModified to { cause -> ContainerAlreadyStoppedException(cause, container) },
+            HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+        ) {
+            httpClient.post("$BasePath/$container/stop") {
+                parameter("t", timeout?.inWholeSeconds)
+            }
+        }
 
     /**
      * Restarts a container.
@@ -93,7 +193,14 @@ public expect class ContainerResource {
     public suspend fun restart(
         container: String,
         timeout: Duration? = null,
-    )
+    ): Unit =
+        requestCatching(
+            HttpStatusCode.NotFound to { exception -> ContainerNotFoundException(exception, container) },
+        ) {
+            httpClient.post("$BasePath/$container/restart") {
+                parameter("t", timeout)
+            }
+        }
 
     /**
      * Kills a container.
@@ -104,7 +211,15 @@ public expect class ContainerResource {
     public suspend fun kill(
         container: String,
         signal: String? = null,
-    )
+    ): Unit =
+        requestCatching(
+            HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+            HttpStatusCode.Conflict to { cause -> ContainerNotRunningException(cause, container) },
+        ) {
+            httpClient.post("$BasePath/$container/kill") {
+                parameter("signal", signal)
+            }
+        }
 
     /**
      * Renames a container.
@@ -115,7 +230,15 @@ public expect class ContainerResource {
     public suspend fun rename(
         container: String,
         newName: String,
-    )
+    ): Unit =
+        requestCatching(
+            HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+            HttpStatusCode.Conflict to { cause -> ContainerRenameConflictException(cause, container, newName) },
+        ) {
+            httpClient.post("$BasePath/$container/rename") {
+                parameter("name", newName)
+            }
+        }
 
     /**
      * Pauses a container.
@@ -123,7 +246,12 @@ public expect class ContainerResource {
      * @param container The container id to pause.
      * @see unpause
      */
-    public suspend fun pause(container: String)
+    public suspend fun pause(container: String): Unit =
+        requestCatching(
+            HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+        ) {
+            httpClient.post("$BasePath/$container/pause")
+        }
 
     /**
      * Resumes a container which has been paused.
@@ -131,7 +259,12 @@ public expect class ContainerResource {
      * @param container The container id to unpause.
      * @see pause
      */
-    public suspend fun unpause(container: String)
+    public suspend fun unpause(container: String): Unit =
+        requestCatching(
+            HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+        ) {
+            httpClient.post("$BasePath/$container/unpause")
+        }
 
     /**
      * Resizes the TTY for a container.
@@ -144,19 +277,56 @@ public expect class ContainerResource {
     public suspend fun resizeTTY(
         container: String,
         options: ResizeTTYOptions = ResizeTTYOptions(),
-    )
+    ): Unit =
+        requestCatching(
+            HttpStatusCode.NotFound to { cause ->
+                ContainerNotFoundException(
+                    cause,
+                    container,
+                )
+            },
+        ) {
+            httpClient.post("$BasePath/$container/resize") {
+                setBody(options)
+            }
+        }
 
     // TODO documentation
-    public fun attach(container: String): Flow<Frame>
+    public fun attach(container: String): Flow<Frame> =
+        channelFlow {
+            httpClient
+                .preparePost("$BasePath/$container/attach") {
+                    parameter("stream", "true")
+                    parameter("stdin", "true")
+                    parameter("stdout", "true")
+                    parameter("stderr", "true")
+                }.execute { response ->
+                    val channel = response.body<ByteReadChannel>()
+                    while (!channel.isClosedForRead) {
+                        val line = channel.readUTF8Line() ?: break
+
+                        // TODO handle stream type
+                        send(Frame(line, line.length, Stream.StdOut))
+                    }
+                }
+        }
 
     // TODO documentation
     public suspend fun wait(
         container: String,
         condition: String? = null,
-    ): ContainerWaitResult
+    ): ContainerWaitResult =
+        httpClient
+            .post("$BasePath/$container/wait") {
+                parameter("condition", condition)
+            }.body()
 
     // TODO documentation
-    public suspend fun prune(filters: ContainerPruneFilters = ContainerPruneFilters()): ContainerPruneResult
+    public suspend fun prune(filters: ContainerPruneFilters = ContainerPruneFilters()): ContainerPruneResult =
+        httpClient
+            .post("$BasePath/prune") {
+                parameter("filters", json.encodeToString(filters))
+            }.body()
 
     /**
      * Get logs from a container.
@@ -181,7 +351,95 @@ public expect class ContainerResource {
     public suspend fun logs(
         container: String,
         options: ContainerLogsOptions = ContainerLogsOptions(),
-    ): ContainerLogsResult
+    ): ContainerLogsResult =
+        if (options.follow ?: false) {
+            logsStreaming(container, options)
+        } else {
+            logsComplete(container, options)
+        }
+
+    private suspend fun logsComplete(
+        container: String,
+        options: ContainerLogsOptions,
+    ): ContainerLogsResult =
+        requestCatching(
+            HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+        ) {
+            val response =
+                httpClient.get("$BasePath/$container/logs") {
+                    parameter("stdout", options.stdout)
+                    parameter("stderr", options.stderr)
+                    parameter("timestamps", options.showTimestamps)
+                    parameter("since", options.since)
+                    parameter("until", options.until)
+                    parameter("tail", options.tail)
+                    parameter("follow", false)
+                }
+
+            val channel = response.bodyAsChannel()
+            val multiplexed = response.headers["Content-Type"] == "application/vnd.docker.multiplexed-stream"
+
+            return if (options.demux) {
+                val (stdout, stderr) = collectStreamDemuxed(channel, multiplexed)
+                ContainerLogsResult.CompleteDemuxed(stdout, stderr)
+            } else {
+                val content = collectStream(channel, multiplexed)
+                ContainerLogsResult.Complete(content)
+            }
+        }
+
+    private fun logsStreaming(
+        container: String,
+        options: ContainerLogsOptions,
+    ): ContainerLogsResult {
+        val framesFlow =
+            channelFlow {
+                requestCatching(
+                    HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+                ) {
+                    httpClient
+                        .prepareGet("$BasePath/$container/logs") {
+                            parameter("stdout", options.stdout)
+                            parameter("stderr", options.stderr)
+                            parameter("timestamps", options.showTimestamps)
+                            parameter("since", options.since)
+                            parameter("until", options.until)
+                            parameter("tail", options.tail)
+                            parameter("follow", true)
+                        }.execute { httpResponse ->
+                            val channel = httpResponse.bodyAsChannel()
+                            val multiplexed =
+                                httpResponse.headers["Content-Type"] == "application/vnd.docker.multiplexed-stream"
+
+                            readStream(channel, multiplexed) { frame ->
+                                send(frame)
+                            }
+                        }
+                }
+            }
+
+        return if (options.demux) {
+            val stdoutFlow =
+                flow {
+                    framesFlow.collect { frame ->
+                        if (frame.stream == Stream.StdOut) {
+                            emit(frame.value)
+                        }
+                    }
+                }
+            val stderrFlow =
+                flow {
+                    framesFlow.collect { frame ->
+                        if (frame.stream == Stream.StdErr) {
+                            emit(frame.value)
+                        }
+                    }
+                }
+            ContainerLogsResult.StreamDemuxed(stdoutFlow, stderrFlow)
+        } else {
+            ContainerLogsResult.Stream(framesFlow)
+        }
+    }
 
     /**
      * Copy files or folders from a container to the local filesystem.
@@ -198,7 +456,32 @@ public expect class ContainerResource {
     public suspend fun copyFrom(
         container: String,
         sourcePath: String,
-    ): ContainerCopyResult
+    ): ContainerCopyResult =
+        requestCatching(
+            HttpStatusCode.NotFound to { exception ->
+                if (exception.message?.contains("file") == true) {
+                    ArchiveNotFoundException(exception, container, sourcePath)
+                } else {
+                    ContainerNotFoundException(exception, container)
+                }
+            },
+        ) {
+            val response =
+                httpClient.get("$BasePath/$container/archive") {
+                    parameter("path", sourcePath)
+                }
+
+            val archiveData = response.readRawBytes()
+
+            val statHeader = response.headers["X-Docker-Container-Path-Stat"]
+            val stat =
+                statHeader?.let { header ->
+                    val decoded = header.decodeBase64Bytes()
+                    json.decodeFromString<ContainerArchiveInfo>(decoded.decodeToString())
+                }
+
+            ContainerCopyResult(archiveData, stat)
+        }
 
     /**
      * Copy files or folders from the local filesystem to a container.
@@ -218,7 +501,22 @@ public expect class ContainerResource {
         destinationPath: String,
         tarArchive: ByteArray,
         options: ContainerCopyOptions = ContainerCopyOptions(path = destinationPath),
-    )
+    ): Unit =
+        requestCatching(
+            HttpStatusCode.NotFound to { exception -> ContainerNotFoundException(exception, container) },
+            HttpStatusCode.BadRequest to { exception ->
+                IllegalArgumentException("Invalid destination path: $destinationPath", exception)
+            },
+        ) {
+            httpClient.put("$BasePath/$container/archive") {
+                parameter("path", destinationPath)
+                parameter("noOverwriteDirNonDir", options.noOverwriteDirNonDir.toString())
+                parameter("copyUIDGID", options.copyUIDGID.toString())
+
+                setBody(tarArchive)
+                contentType(ContentType.Application.OctetStream)
+            }
+        }
 
     /**
      * Copy a single file from the local filesystem to a container.
@@ -238,7 +536,19 @@ public expect class ContainerResource {
         sourcePath: String,
         destinationPath: String,
         options: ContainerCopyOptions = ContainerCopyOptions(path = destinationPath),
-    )
+    ) {
+        val path = Path(sourcePath)
+        if (!FileSystemUtils.exists(path)) {
+            throw IllegalArgumentException("Source file not found: $sourcePath")
+        }
+
+        if (FileSystemUtils.isDirectory(path)) {
+            throw IllegalArgumentException("Source is a directory, use copyDirectoryTo instead: $sourcePath")
+        }
+
+        val tarArchive = TarOperations.createTarFromFile(path)
+        copyTo(container, destinationPath, tarArchive, options)
+    }
 
     /**
      * Copy a file from a container to the local filesystem.
@@ -256,7 +566,10 @@ public expect class ContainerResource {
         container: String,
         sourcePath: String,
         destinationPath: String,
-    )
+    ) {
+        val result = copyFrom(container, sourcePath)
+        TarOperations.extractTar(result.archiveData, Path(destinationPath))
+    }
 
     /**
      * Copy a directory from a container to the local filesystem.
@@ -271,7 +584,10 @@ public expect class ContainerResource {
         container: String,
         sourcePath: String,
         destinationPath: String,
-    )
+    ) {
+        val result = copyFrom(container, sourcePath)
+        TarOperations.extractTar(result.archiveData, Path(destinationPath))
+    }
 
     /**
      * Copy a directory from the local filesystem to a container.
@@ -288,5 +604,15 @@ public expect class ContainerResource {
         sourcePath: String,
         destinationPath: String,
         options: ContainerCopyOptions = ContainerCopyOptions(path = destinationPath),
-    )
+    ) {
+        val path = Path(sourcePath)
+        if (!FileSystemUtils.exists(path) || !FileSystemUtils.isDirectory(path)) {
+            throw IllegalArgumentException("Source directory not found: $sourcePath")
+        }
+
+        val entries = mutableListOf<TarEntry>()
+        TarOperations.collectDirectoryContents(path, "", entries)
+        val tarArchive = TarUtils.createTarArchive(entries)
+        copyTo(container, destinationPath, tarArchive, options)
+    }
 }
