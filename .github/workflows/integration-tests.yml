@@ -21,7 +21,7 @@ jobs:
       fail-fast: false
       matrix:
         docker_version:
-          - "29.2.1"
+          - "28.3.3"
     runs-on: ubuntu-24.04
     name: JVM
     steps:
@@ -29,11 +29,6 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-
-      - name: Switch to iptables-legacy
-        run: |
-          sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
-          sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 
       - name: Setup Docker CE v${{ matrix.docker_version }}
         uses: docker/setup-docker-action@v4.6.0
@@ -67,7 +62,7 @@ jobs:
       fail-fast: false
       matrix:
         docker_version:
-          - "29.2.1"
+          - "28.3.3"
         os:
           - name: Linux
             runner: ubuntu-24.04
@@ -92,12 +87,6 @@ jobs:
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-
-      - name: Switch to iptables-legacy
-        if: ${{ matrix.os.sourceset == 'linuxX64' }}
-        run: |
-          sudo update-alternatives --set iptables /usr/sbin/iptables-legacy
-          sudo update-alternatives --set ip6tables /usr/sbin/ip6tables-legacy
 
       - name: Setup Docker CE v${{ matrix.docker_version }}
         uses: docker/setup-docker-action@v4.6.0
