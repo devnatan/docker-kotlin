@@ -21,7 +21,7 @@ jobs:
       fail-fast: false
       matrix:
         docker_version:
-          - "29.2.1"
+          - "27.5.1"
     runs-on: ubuntu-24.04
     name: JVM
     steps:
@@ -62,7 +62,7 @@ jobs:
       fail-fast: false
       matrix:
         docker_version:
-          - "29.2.1"
+          - "27.5.1"
         os:
           - name: Linux
             runner: ubuntu-24.04
