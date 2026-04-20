@@ -14,6 +14,7 @@ import io.ktor.client.statement.bodyAsChannel
 import io.ktor.client.statement.readRawBytes
 import io.ktor.http.ContentType
 import io.ktor.http.HttpStatusCode
+import io.ktor.http.content.ByteArrayContent
 import io.ktor.http.contentType
 import io.ktor.util.decodeBase64Bytes
 import io.ktor.utils.io.ByteReadChannel
@@ -513,8 +514,10 @@ public class ContainerResource internal constructor(
                 parameter("noOverwriteDirNonDir", options.noOverwriteDirNonDir.toString())
                 parameter("copyUIDGID", options.copyUIDGID.toString())
 
-                setBody(tarArchive)
-                contentType(ContentType.Application.OctetStream)
+                // ByteArrayContent guarantees Content-Length is set; plain setBody(ByteArray) can fall
+                // back to chunked transfer on Ktor CIO native, which Docker's archive endpoint rejects
+                // with "request body length should be specified".
+                setBody(ByteArrayContent(tarArchive, ContentType.Application.OctetStream))
             }
         }
 
