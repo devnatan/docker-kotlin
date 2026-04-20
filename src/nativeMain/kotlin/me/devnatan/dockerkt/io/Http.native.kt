@@ -18,7 +18,7 @@ internal actual fun <T : HttpClientEngineConfig> HttpClientConfig<out T>.configu
     defaultRequest {
         val socketPath = client.config.socketPath
         if (isUnixSocket(socketPath)) {
-            unixSocket(socketPath)
+            unixSocket(socketPath.removePrefix(UnixSocketPrefix))
         }
     }
 }
