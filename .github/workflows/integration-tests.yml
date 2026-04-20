@@ -49,6 +49,13 @@ jobs:
 
       - name: Run Tests
         run: ./gradlew jvmTest
+
+      - name: Upload test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report-jvm
+          path: build/reports/tests/
   native:
     if: ${{ vars.NATIVE_TESTS_ENABLED == 'true' }}
     strategy:
@@ -111,3 +118,10 @@ jobs:
 
       - name: Run Tests
         run: ./gradlew ${{ matrix.os.sourceset }}Test
+
+      - name: Upload test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report-${{ matrix.os.sourceset }}
+          path: build/reports/tests/
