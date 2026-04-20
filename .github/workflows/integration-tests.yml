@@ -22,7 +22,7 @@ jobs:
       matrix:
         docker_version:
           - "29.2.1"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: JVM
     steps:
       - name: Checkout
@@ -65,7 +65,7 @@ jobs:
           - "29.2.1"
         os:
           - name: Linux
-            runner: ubuntu-22.04
+            runner: ubuntu-24.04
             sourceset: linuxX64
 
           - name: macOS (Intel)
