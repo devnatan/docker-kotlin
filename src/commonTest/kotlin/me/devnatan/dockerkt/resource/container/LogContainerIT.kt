@@ -257,8 +257,7 @@ class LogContainerIT : ResourceIT() {
                 },
             ) { container ->
                 testClient.containers.start(container)
-
-                delay(3000)
+                testClient.containers.wait(container)
 
                 val result =
                     testClient.containers.logs(container) {

@@ -7,6 +7,7 @@ on:
 
 env:
   DOCKER_API_VERSION: 1.48
+  DOCKER_CE_VERSION: 28.3.3
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -17,23 +18,13 @@ permissions:
 
 jobs:
   jvm:
-    strategy:
-      fail-fast: false
-      matrix:
-        docker_version:
-          - "29.2.1"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     name: JVM
     steps:
       - name: Checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-
-      - name: Setup Docker CE v${{ matrix.docker_version }}
-        uses: docker/setup-docker-action@v4.6.0
-        with:
-          version: v${{ matrix.docker_version }}
 
       - name: Set up JDK 17
         uses: actions/setup-java@v5
@@ -49,53 +40,44 @@ jobs:
 
       - name: Run Tests
         run: ./gradlew jvmTest
+
+      - name: Upload test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report-jvm
+          path: build/reports/tests/
   native:
     if: ${{ vars.NATIVE_TESTS_ENABLED == 'true' }}
     strategy:
       fail-fast: false
       matrix:
-        docker_version:
-          - "29.2.1"
         os:
           - name: Linux
-            runner: ubuntu-22.04
+            runner: ubuntu-24.04
             sourceset: linuxX64
 
-          - name: macOS (Intel)
+          - name: macOS
             runner: macos-15-intel
             sourceset: macosX64
-
-          - name: macOS (Apple Silicon)
-            runner: macos-15
-            sourceset: macosArm64
 
           - name: Windows
             runner: windows-2025
             sourceset: mingwX64
 
     runs-on: ${{ matrix.os.runner }}
-    name: Native - ${{ matrix.os.name }}
+    name: ${{ matrix.os.name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
-      - name: Setup Docker CE v${{ matrix.docker_version }}
+      - name: Setup Docker CE
         uses: docker/setup-docker-action@v4.6.0
-        if: ${{ matrix.os.sourceset != 'macosArm64' }}
+        if: ${{ matrix.os.sourceset == 'macosX64' }}
         with:
-          version: v${{ matrix.docker_version }}
-
-      - name: Setup Homebrew
-        uses: Homebrew/actions/setup-homebrew@master
-        if: ${{ matrix.os.sourceset == 'macosArm64' }}
-
-      - name: Setup Docker
-        if: ${{ matrix.os.sourceset == 'macosArm64' }}
-        run: |
-          brew install colima docker
-          colima start
+          version: v${{ env.DOCKER_CE_VERSION }}
 
       - name: Set up JDK 17
         uses: actions/setup-java@v5
@@ -111,3 +93,10 @@ jobs:
 
       - name: Run Tests
         run: ./gradlew ${{ matrix.os.sourceset }}Test
+
+      - name: Upload test reports
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-report-${{ matrix.os.sourceset }}
+          path: build/reports/tests/
