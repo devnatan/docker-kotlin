@@ -171,14 +171,10 @@ class CopyContainerArchivesIT : ResourceIT() {
 
                     val verifyDir = FileSystemUtils.createTempDirectory()
                     try {
-                        val srcName = tempDir.name
-                        testClient.containers.copyDirectoryFrom(
-                            id,
-                            "/tmp/$srcName",
-                            verifyDir.toString(),
-                        )
-                        val copiedFile1 = Path(verifyDir, "$srcName/file1.txt")
-                        val copiedFile2 = Path(verifyDir, "$srcName/file2.txt")
+                        testClient.containers.copyFileFrom(id, "/tmp/file1.txt", verifyDir.toString())
+                        testClient.containers.copyFileFrom(id, "/tmp/file2.txt", verifyDir.toString())
+                        val copiedFile1 = Path(verifyDir, "file1.txt")
+                        val copiedFile2 = Path(verifyDir, "file2.txt")
                         assertTrue(FileSystemUtils.exists(copiedFile1))
                         assertTrue(FileSystemUtils.exists(copiedFile2))
                         assertEquals("content1", FileSystemUtils.readFile(copiedFile1).decodeToString())
