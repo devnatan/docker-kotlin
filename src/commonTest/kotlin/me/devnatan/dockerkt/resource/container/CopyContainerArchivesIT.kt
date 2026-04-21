@@ -1,6 +1,5 @@
 package me.devnatan.dockerkt.resource.container
 
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.test.runTest
 import kotlinx.io.files.Path
 import me.devnatan.dockerkt.io.FileSystemUtils
@@ -21,13 +20,11 @@ class CopyContainerArchivesIT : ResourceIT() {
             testClient.withContainer(
                 testImage,
                 {
-                    command = listOf("sh", "-c", "echo 'test content' > /tmp/test.txt && sleep infinity")
+                    command = listOf("sh", "-c", "echo 'test content' > /tmp/test.txt")
                 },
             ) { id ->
                 testClient.containers.start(id)
-
-                // Wait for file to be created
-                delay(500)
+                testClient.containers.wait(id)
 
                 val tempDir = FileSystemUtils.createTempDirectory()
                 try {
@@ -47,7 +44,6 @@ class CopyContainerArchivesIT : ResourceIT() {
                     )
                 } finally {
                     FileSystemUtils.deleteRecursively(tempDir)
-                    testClient.containers.stop(id)
                 }
             }
         }
@@ -106,13 +102,12 @@ class CopyContainerArchivesIT : ResourceIT() {
                         listOf(
                             "sh",
                             "-c",
-                            "mkdir -p /tmp/testdir && echo 'file1' > /tmp/testdir/file1.txt && echo 'file2' > /tmp/testdir/file2.txt && sleep infinity",
+                            "mkdir -p /tmp/testdir && echo 'file1' > /tmp/testdir/file1.txt && echo 'file2' > /tmp/testdir/file2.txt",
                         )
                 },
             ) { id ->
                 testClient.containers.start(id)
-
-                delay(500)
+                testClient.containers.wait(id)
 
                 val tempDir = FileSystemUtils.createTempDirectory()
                 try {
@@ -138,7 +133,6 @@ class CopyContainerArchivesIT : ResourceIT() {
                     )
                 } finally {
                     FileSystemUtils.deleteRecursively(tempDir)
-                    testClient.containers.stop(id)
                 }
             }
         }
