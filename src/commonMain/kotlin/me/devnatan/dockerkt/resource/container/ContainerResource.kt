@@ -48,6 +48,9 @@ import me.devnatan.dockerkt.models.container.ContainerLogsResult
 import me.devnatan.dockerkt.models.container.ContainerPruneFilters
 import me.devnatan.dockerkt.models.container.ContainerPruneResult
 import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
+import me.devnatan.dockerkt.models.container.ContainerStats
+import me.devnatan.dockerkt.models.container.ContainerStatsOptions
+import me.devnatan.dockerkt.models.container.ContainerStatsResult
 import me.devnatan.dockerkt.models.container.ContainerSummary
 import me.devnatan.dockerkt.models.container.ContainerWaitResult
 import me.devnatan.dockerkt.resource.image.ImageNotFoundException
@@ -310,6 +313,69 @@ public class ContainerResource internal constructor(
                         send(Frame(line, line.length, Stream.StdOut))
                     }
                 }
+        }
+
+    /**
+     * Get resource usage statistics for a container.
+     *
+     * Similar to the `docker stats` command, this retrieves CPU, memory, network,
+     * block I/O and PID statistics for a container. Results can be returned as a
+     * continuous stream of updates or as a single snapshot.
+     *
+     * @param container Container id or name.
+     * @param options Configuration options for stats retrieval. See [ContainerStatsOptions].
+     * @return [ContainerStatsResult] whose concrete type depends on the options:
+     *   - [ContainerStatsResult.Stream] when [ContainerStatsOptions.stream] is `true`.
+     *   - [ContainerStatsResult.Single] when [ContainerStatsOptions.stream] is `false`.
+     *
+     * @throws ContainerNotFoundException If the container is not found.
+     */
+    public suspend fun stats(
+        container: String,
+        options: ContainerStatsOptions = ContainerStatsOptions(),
+    ): ContainerStatsResult =
+        if (options.stream) {
+            ContainerStatsResult.Stream(statsStreaming(container))
+        } else {
+            ContainerStatsResult.Single(statsSingle(container, options.oneShot))
+        }
+
+    private suspend fun statsSingle(
+        container: String,
+        oneShot: Boolean,
+    ): ContainerStats =
+        requestCatching(
+            HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+        ) {
+            httpClient.get("$BasePath/$container/stats") {
+                parameter("stream", false)
+                parameter("one-shot", oneShot)
+            }
+        }.let { response ->
+            val channel = response.bodyAsChannel()
+            val line =
+                channel.readUTF8Line()
+                    ?: error("Empty response from stats endpoint for container $container")
+            json.decodeFromString<ContainerStats>(line)
+        }
+
+    private fun statsStreaming(container: String): Flow<ContainerStats> =
+        channelFlow {
+            requestCatching(
+                HttpStatusCode.NotFound to { cause -> ContainerNotFoundException(cause, container) },
+            ) {
+                httpClient
+                    .prepareGet("$BasePath/$container/stats") {
+                        parameter("stream", true)
+                    }.execute { response ->
+                        val channel = response.bodyAsChannel()
+                        while (!channel.isClosedForRead) {
+                            val line = channel.readUTF8Line() ?: break
+                            if (line.isBlank()) continue
+                            send(json.decodeFromString<ContainerStats>(line))
+                        }
+                    }
+            }
         }
 
     // TODO documentation

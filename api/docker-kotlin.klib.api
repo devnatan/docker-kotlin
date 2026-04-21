@@ -150,6 +150,84 @@ final class me.devnatan.dockerkt.io/TarEntry { // me.devnatan.dockerkt.io/TarEnt
     final fun toString(): kotlin/String // me.devnatan.dockerkt.io/TarEntry.toString|toString(){}[0]
 }
 
+final class me.devnatan.dockerkt.models.container/BlkioStats { // me.devnatan.dockerkt.models.container/BlkioStats|null[0]
+    final val ioMergedRecursive // me.devnatan.dockerkt.models.container/BlkioStats.ioMergedRecursive|{}ioMergedRecursive[0]
+        final fun <get-ioMergedRecursive>(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.ioMergedRecursive.<get-ioMergedRecursive>|<get-ioMergedRecursive>(){}[0]
+    final val ioQueueRecursive // me.devnatan.dockerkt.models.container/BlkioStats.ioQueueRecursive|{}ioQueueRecursive[0]
+        final fun <get-ioQueueRecursive>(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.ioQueueRecursive.<get-ioQueueRecursive>|<get-ioQueueRecursive>(){}[0]
+    final val ioServiceBytesRecursive // me.devnatan.dockerkt.models.container/BlkioStats.ioServiceBytesRecursive|{}ioServiceBytesRecursive[0]
+        final fun <get-ioServiceBytesRecursive>(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.ioServiceBytesRecursive.<get-ioServiceBytesRecursive>|<get-ioServiceBytesRecursive>(){}[0]
+    final val ioServiceTimeRecursive // me.devnatan.dockerkt.models.container/BlkioStats.ioServiceTimeRecursive|{}ioServiceTimeRecursive[0]
+        final fun <get-ioServiceTimeRecursive>(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.ioServiceTimeRecursive.<get-ioServiceTimeRecursive>|<get-ioServiceTimeRecursive>(){}[0]
+    final val ioServicedRecursive // me.devnatan.dockerkt.models.container/BlkioStats.ioServicedRecursive|{}ioServicedRecursive[0]
+        final fun <get-ioServicedRecursive>(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.ioServicedRecursive.<get-ioServicedRecursive>|<get-ioServicedRecursive>(){}[0]
+    final val ioTimeRecursive // me.devnatan.dockerkt.models.container/BlkioStats.ioTimeRecursive|{}ioTimeRecursive[0]
+        final fun <get-ioTimeRecursive>(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.ioTimeRecursive.<get-ioTimeRecursive>|<get-ioTimeRecursive>(){}[0]
+    final val ioWaitTimeRecursive // me.devnatan.dockerkt.models.container/BlkioStats.ioWaitTimeRecursive|{}ioWaitTimeRecursive[0]
+        final fun <get-ioWaitTimeRecursive>(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.ioWaitTimeRecursive.<get-ioWaitTimeRecursive>|<get-ioWaitTimeRecursive>(){}[0]
+    final val sectorsRecursive // me.devnatan.dockerkt.models.container/BlkioStats.sectorsRecursive|{}sectorsRecursive[0]
+        final fun <get-sectorsRecursive>(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.sectorsRecursive.<get-sectorsRecursive>|<get-sectorsRecursive>(){}[0]
+
+    final fun component1(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.component1|component1(){}[0]
+    final fun component2(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.component2|component2(){}[0]
+    final fun component3(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.component3|component3(){}[0]
+    final fun component4(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.component4|component4(){}[0]
+    final fun component5(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.component5|component5(){}[0]
+    final fun component6(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.component6|component6(){}[0]
+    final fun component7(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.component7|component7(){}[0]
+    final fun component8(): kotlin.collections/List<me.devnatan.dockerkt.models.container/BlkioStatsEntry>? // me.devnatan.dockerkt.models.container/BlkioStats.component8|component8(){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/BlkioStats.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/BlkioStats.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/BlkioStats.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.container/BlkioStats> { // me.devnatan.dockerkt.models.container/BlkioStats.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.container/BlkioStats.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.container/BlkioStats.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.container/BlkioStats.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.container/BlkioStats // me.devnatan.dockerkt.models.container/BlkioStats.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.container/BlkioStats) // me.devnatan.dockerkt.models.container/BlkioStats.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.container.BlkioStats){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.container/BlkioStats.Companion|null[0]
+        final val $childSerializers // me.devnatan.dockerkt.models.container/BlkioStats.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/BlkioStats> // me.devnatan.dockerkt.models.container/BlkioStats.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class me.devnatan.dockerkt.models.container/BlkioStatsEntry { // me.devnatan.dockerkt.models.container/BlkioStatsEntry|null[0]
+    final val major // me.devnatan.dockerkt.models.container/BlkioStatsEntry.major|{}major[0]
+        final fun <get-major>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/BlkioStatsEntry.major.<get-major>|<get-major>(){}[0]
+    final val minor // me.devnatan.dockerkt.models.container/BlkioStatsEntry.minor|{}minor[0]
+        final fun <get-minor>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/BlkioStatsEntry.minor.<get-minor>|<get-minor>(){}[0]
+    final val op // me.devnatan.dockerkt.models.container/BlkioStatsEntry.op|{}op[0]
+        final fun <get-op>(): kotlin/String? // me.devnatan.dockerkt.models.container/BlkioStatsEntry.op.<get-op>|<get-op>(){}[0]
+    final val value // me.devnatan.dockerkt.models.container/BlkioStatsEntry.value|{}value[0]
+        final fun <get-value>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/BlkioStatsEntry.value.<get-value>|<get-value>(){}[0]
+
+    final fun component1(): kotlin/ULong? // me.devnatan.dockerkt.models.container/BlkioStatsEntry.component1|component1(){}[0]
+    final fun component2(): kotlin/ULong? // me.devnatan.dockerkt.models.container/BlkioStatsEntry.component2|component2(){}[0]
+    final fun component3(): kotlin/String? // me.devnatan.dockerkt.models.container/BlkioStatsEntry.component3|component3(){}[0]
+    final fun component4(): kotlin/ULong? // me.devnatan.dockerkt.models.container/BlkioStatsEntry.component4|component4(){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/BlkioStatsEntry.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/BlkioStatsEntry.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/BlkioStatsEntry.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.container/BlkioStatsEntry> { // me.devnatan.dockerkt.models.container/BlkioStatsEntry.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.container/BlkioStatsEntry.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.container/BlkioStatsEntry.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.container/BlkioStatsEntry.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.container/BlkioStatsEntry // me.devnatan.dockerkt.models.container/BlkioStatsEntry.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.container/BlkioStatsEntry) // me.devnatan.dockerkt.models.container/BlkioStatsEntry.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.container.BlkioStatsEntry){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.container/BlkioStatsEntry.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/BlkioStatsEntry> // me.devnatan.dockerkt.models.container/BlkioStatsEntry.Companion.serializer|serializer(){}[0]
+    }
+}
+
 final class me.devnatan.dockerkt.models.container/Container { // me.devnatan.dockerkt.models.container/Container|null[0]
     final val appArmorProfile // me.devnatan.dockerkt.models.container/Container.appArmorProfile|{}appArmorProfile[0]
         final fun <get-appArmorProfile>(): kotlin/String? // me.devnatan.dockerkt.models.container/Container.appArmorProfile.<get-appArmorProfile>|<get-appArmorProfile>(){}[0]
@@ -931,6 +1009,75 @@ final class me.devnatan.dockerkt.models.container/ContainerState { // me.devnata
     }
 }
 
+final class me.devnatan.dockerkt.models.container/ContainerStats { // me.devnatan.dockerkt.models.container/ContainerStats|null[0]
+    final val blkioStats // me.devnatan.dockerkt.models.container/ContainerStats.blkioStats|{}blkioStats[0]
+        final fun <get-blkioStats>(): me.devnatan.dockerkt.models.container/BlkioStats? // me.devnatan.dockerkt.models.container/ContainerStats.blkioStats.<get-blkioStats>|<get-blkioStats>(){}[0]
+    final val cpuStats // me.devnatan.dockerkt.models.container/ContainerStats.cpuStats|{}cpuStats[0]
+        final fun <get-cpuStats>(): me.devnatan.dockerkt.models.container/CpuStats? // me.devnatan.dockerkt.models.container/ContainerStats.cpuStats.<get-cpuStats>|<get-cpuStats>(){}[0]
+    final val id // me.devnatan.dockerkt.models.container/ContainerStats.id|{}id[0]
+        final fun <get-id>(): kotlin/String? // me.devnatan.dockerkt.models.container/ContainerStats.id.<get-id>|<get-id>(){}[0]
+    final val memoryStats // me.devnatan.dockerkt.models.container/ContainerStats.memoryStats|{}memoryStats[0]
+        final fun <get-memoryStats>(): me.devnatan.dockerkt.models.container/MemoryStats? // me.devnatan.dockerkt.models.container/ContainerStats.memoryStats.<get-memoryStats>|<get-memoryStats>(){}[0]
+    final val name // me.devnatan.dockerkt.models.container/ContainerStats.name|{}name[0]
+        final fun <get-name>(): kotlin/String? // me.devnatan.dockerkt.models.container/ContainerStats.name.<get-name>|<get-name>(){}[0]
+    final val networks // me.devnatan.dockerkt.models.container/ContainerStats.networks|{}networks[0]
+        final fun <get-networks>(): kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.container/NetworkStats>? // me.devnatan.dockerkt.models.container/ContainerStats.networks.<get-networks>|<get-networks>(){}[0]
+    final val numProcs // me.devnatan.dockerkt.models.container/ContainerStats.numProcs|{}numProcs[0]
+        final fun <get-numProcs>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/ContainerStats.numProcs.<get-numProcs>|<get-numProcs>(){}[0]
+    final val pidsStats // me.devnatan.dockerkt.models.container/ContainerStats.pidsStats|{}pidsStats[0]
+        final fun <get-pidsStats>(): me.devnatan.dockerkt.models.container/PidsStats? // me.devnatan.dockerkt.models.container/ContainerStats.pidsStats.<get-pidsStats>|<get-pidsStats>(){}[0]
+    final val precpuStats // me.devnatan.dockerkt.models.container/ContainerStats.precpuStats|{}precpuStats[0]
+        final fun <get-precpuStats>(): me.devnatan.dockerkt.models.container/CpuStats? // me.devnatan.dockerkt.models.container/ContainerStats.precpuStats.<get-precpuStats>|<get-precpuStats>(){}[0]
+    final val preread // me.devnatan.dockerkt.models.container/ContainerStats.preread|{}preread[0]
+        final fun <get-preread>(): kotlin/String? // me.devnatan.dockerkt.models.container/ContainerStats.preread.<get-preread>|<get-preread>(){}[0]
+    final val read // me.devnatan.dockerkt.models.container/ContainerStats.read|{}read[0]
+        final fun <get-read>(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerStats.read.<get-read>|<get-read>(){}[0]
+    final val storageStats // me.devnatan.dockerkt.models.container/ContainerStats.storageStats|{}storageStats[0]
+        final fun <get-storageStats>(): me.devnatan.dockerkt.models.container/StorageStats? // me.devnatan.dockerkt.models.container/ContainerStats.storageStats.<get-storageStats>|<get-storageStats>(){}[0]
+
+    final fun component1(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerStats.component1|component1(){}[0]
+    final fun component10(): me.devnatan.dockerkt.models.container/BlkioStats? // me.devnatan.dockerkt.models.container/ContainerStats.component10|component10(){}[0]
+    final fun component11(): kotlin.collections/Map<kotlin/String, me.devnatan.dockerkt.models.container/NetworkStats>? // me.devnatan.dockerkt.models.container/ContainerStats.component11|component11(){}[0]
+    final fun component12(): me.devnatan.dockerkt.models.container/StorageStats? // me.devnatan.dockerkt.models.container/ContainerStats.component12|component12(){}[0]
+    final fun component2(): kotlin/String? // me.devnatan.dockerkt.models.container/ContainerStats.component2|component2(){}[0]
+    final fun component3(): kotlin/String? // me.devnatan.dockerkt.models.container/ContainerStats.component3|component3(){}[0]
+    final fun component4(): kotlin/String? // me.devnatan.dockerkt.models.container/ContainerStats.component4|component4(){}[0]
+    final fun component5(): kotlin/ULong? // me.devnatan.dockerkt.models.container/ContainerStats.component5|component5(){}[0]
+    final fun component6(): me.devnatan.dockerkt.models.container/PidsStats? // me.devnatan.dockerkt.models.container/ContainerStats.component6|component6(){}[0]
+    final fun component7(): me.devnatan.dockerkt.models.container/CpuStats? // me.devnatan.dockerkt.models.container/ContainerStats.component7|component7(){}[0]
+    final fun component8(): me.devnatan.dockerkt.models.container/CpuStats? // me.devnatan.dockerkt.models.container/ContainerStats.component8|component8(){}[0]
+    final fun component9(): me.devnatan.dockerkt.models.container/MemoryStats? // me.devnatan.dockerkt.models.container/ContainerStats.component9|component9(){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerStats.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerStats.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerStats.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.container/ContainerStats> { // me.devnatan.dockerkt.models.container/ContainerStats.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.container/ContainerStats.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.container/ContainerStats.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.container/ContainerStats.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.container/ContainerStats // me.devnatan.dockerkt.models.container/ContainerStats.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.container/ContainerStats) // me.devnatan.dockerkt.models.container/ContainerStats.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.container.ContainerStats){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.container/ContainerStats.Companion|null[0]
+        final val $childSerializers // me.devnatan.dockerkt.models.container/ContainerStats.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/ContainerStats> // me.devnatan.dockerkt.models.container/ContainerStats.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class me.devnatan.dockerkt.models.container/ContainerStatsOptions { // me.devnatan.dockerkt.models.container/ContainerStatsOptions|null[0]
+    constructor <init>(kotlin/Boolean = ..., kotlin/Boolean = ...) // me.devnatan.dockerkt.models.container/ContainerStatsOptions.<init>|<init>(kotlin.Boolean;kotlin.Boolean){}[0]
+
+    final var oneShot // me.devnatan.dockerkt.models.container/ContainerStatsOptions.oneShot|{}oneShot[0]
+        final fun <get-oneShot>(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerStatsOptions.oneShot.<get-oneShot>|<get-oneShot>(){}[0]
+        final fun <set-oneShot>(kotlin/Boolean) // me.devnatan.dockerkt.models.container/ContainerStatsOptions.oneShot.<set-oneShot>|<set-oneShot>(kotlin.Boolean){}[0]
+    final var stream // me.devnatan.dockerkt.models.container/ContainerStatsOptions.stream|{}stream[0]
+        final fun <get-stream>(): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerStatsOptions.stream.<get-stream>|<get-stream>(){}[0]
+        final fun <set-stream>(kotlin/Boolean) // me.devnatan.dockerkt.models.container/ContainerStatsOptions.stream.<set-stream>|<set-stream>(kotlin.Boolean){}[0]
+}
+
 final class me.devnatan.dockerkt.models.container/ContainerSummary { // me.devnatan.dockerkt.models.container/ContainerSummary|null[0]
     final val command // me.devnatan.dockerkt.models.container/ContainerSummary.command|{}command[0]
         final fun <get-command>(): kotlin/String? // me.devnatan.dockerkt.models.container/ContainerSummary.command.<get-command>|<get-command>(){}[0]
@@ -1066,6 +1213,118 @@ final class me.devnatan.dockerkt.models.container/ContainerWaitResult { // me.de
     }
 }
 
+final class me.devnatan.dockerkt.models.container/CpuStats { // me.devnatan.dockerkt.models.container/CpuStats|null[0]
+    final val cpuUsage // me.devnatan.dockerkt.models.container/CpuStats.cpuUsage|{}cpuUsage[0]
+        final fun <get-cpuUsage>(): me.devnatan.dockerkt.models.container/CpuUsage? // me.devnatan.dockerkt.models.container/CpuStats.cpuUsage.<get-cpuUsage>|<get-cpuUsage>(){}[0]
+    final val onlineCpus // me.devnatan.dockerkt.models.container/CpuStats.onlineCpus|{}onlineCpus[0]
+        final fun <get-onlineCpus>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/CpuStats.onlineCpus.<get-onlineCpus>|<get-onlineCpus>(){}[0]
+    final val systemCpuUsage // me.devnatan.dockerkt.models.container/CpuStats.systemCpuUsage|{}systemCpuUsage[0]
+        final fun <get-systemCpuUsage>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/CpuStats.systemCpuUsage.<get-systemCpuUsage>|<get-systemCpuUsage>(){}[0]
+    final val throttlingData // me.devnatan.dockerkt.models.container/CpuStats.throttlingData|{}throttlingData[0]
+        final fun <get-throttlingData>(): me.devnatan.dockerkt.models.container/ThrottlingData? // me.devnatan.dockerkt.models.container/CpuStats.throttlingData.<get-throttlingData>|<get-throttlingData>(){}[0]
+
+    final fun component1(): me.devnatan.dockerkt.models.container/CpuUsage? // me.devnatan.dockerkt.models.container/CpuStats.component1|component1(){}[0]
+    final fun component2(): kotlin/ULong? // me.devnatan.dockerkt.models.container/CpuStats.component2|component2(){}[0]
+    final fun component3(): kotlin/ULong? // me.devnatan.dockerkt.models.container/CpuStats.component3|component3(){}[0]
+    final fun component4(): me.devnatan.dockerkt.models.container/ThrottlingData? // me.devnatan.dockerkt.models.container/CpuStats.component4|component4(){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/CpuStats.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/CpuStats.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/CpuStats.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.container/CpuStats> { // me.devnatan.dockerkt.models.container/CpuStats.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.container/CpuStats.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.container/CpuStats.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.container/CpuStats.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.container/CpuStats // me.devnatan.dockerkt.models.container/CpuStats.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.container/CpuStats) // me.devnatan.dockerkt.models.container/CpuStats.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.container.CpuStats){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.container/CpuStats.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/CpuStats> // me.devnatan.dockerkt.models.container/CpuStats.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class me.devnatan.dockerkt.models.container/CpuUsage { // me.devnatan.dockerkt.models.container/CpuUsage|null[0]
+    final val percpuUsage // me.devnatan.dockerkt.models.container/CpuUsage.percpuUsage|{}percpuUsage[0]
+        final fun <get-percpuUsage>(): kotlin.collections/List<kotlin/ULong>? // me.devnatan.dockerkt.models.container/CpuUsage.percpuUsage.<get-percpuUsage>|<get-percpuUsage>(){}[0]
+    final val totalUsage // me.devnatan.dockerkt.models.container/CpuUsage.totalUsage|{}totalUsage[0]
+        final fun <get-totalUsage>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/CpuUsage.totalUsage.<get-totalUsage>|<get-totalUsage>(){}[0]
+    final val usageInKernelmode // me.devnatan.dockerkt.models.container/CpuUsage.usageInKernelmode|{}usageInKernelmode[0]
+        final fun <get-usageInKernelmode>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/CpuUsage.usageInKernelmode.<get-usageInKernelmode>|<get-usageInKernelmode>(){}[0]
+    final val usageInUsermode // me.devnatan.dockerkt.models.container/CpuUsage.usageInUsermode|{}usageInUsermode[0]
+        final fun <get-usageInUsermode>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/CpuUsage.usageInUsermode.<get-usageInUsermode>|<get-usageInUsermode>(){}[0]
+
+    final fun component1(): kotlin/ULong? // me.devnatan.dockerkt.models.container/CpuUsage.component1|component1(){}[0]
+    final fun component2(): kotlin/ULong? // me.devnatan.dockerkt.models.container/CpuUsage.component2|component2(){}[0]
+    final fun component3(): kotlin/ULong? // me.devnatan.dockerkt.models.container/CpuUsage.component3|component3(){}[0]
+    final fun component4(): kotlin.collections/List<kotlin/ULong>? // me.devnatan.dockerkt.models.container/CpuUsage.component4|component4(){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/CpuUsage.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/CpuUsage.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/CpuUsage.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.container/CpuUsage> { // me.devnatan.dockerkt.models.container/CpuUsage.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.container/CpuUsage.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.container/CpuUsage.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.container/CpuUsage.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.container/CpuUsage // me.devnatan.dockerkt.models.container/CpuUsage.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.container/CpuUsage) // me.devnatan.dockerkt.models.container/CpuUsage.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.container.CpuUsage){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.container/CpuUsage.Companion|null[0]
+        final val $childSerializers // me.devnatan.dockerkt.models.container/CpuUsage.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/CpuUsage> // me.devnatan.dockerkt.models.container/CpuUsage.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class me.devnatan.dockerkt.models.container/MemoryStats { // me.devnatan.dockerkt.models.container/MemoryStats|null[0]
+    final val commitBytes // me.devnatan.dockerkt.models.container/MemoryStats.commitBytes|{}commitBytes[0]
+        final fun <get-commitBytes>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.commitBytes.<get-commitBytes>|<get-commitBytes>(){}[0]
+    final val commitPeakBytes // me.devnatan.dockerkt.models.container/MemoryStats.commitPeakBytes|{}commitPeakBytes[0]
+        final fun <get-commitPeakBytes>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.commitPeakBytes.<get-commitPeakBytes>|<get-commitPeakBytes>(){}[0]
+    final val failcnt // me.devnatan.dockerkt.models.container/MemoryStats.failcnt|{}failcnt[0]
+        final fun <get-failcnt>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.failcnt.<get-failcnt>|<get-failcnt>(){}[0]
+    final val limit // me.devnatan.dockerkt.models.container/MemoryStats.limit|{}limit[0]
+        final fun <get-limit>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.limit.<get-limit>|<get-limit>(){}[0]
+    final val maxUsage // me.devnatan.dockerkt.models.container/MemoryStats.maxUsage|{}maxUsage[0]
+        final fun <get-maxUsage>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.maxUsage.<get-maxUsage>|<get-maxUsage>(){}[0]
+    final val privateWorkingSet // me.devnatan.dockerkt.models.container/MemoryStats.privateWorkingSet|{}privateWorkingSet[0]
+        final fun <get-privateWorkingSet>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.privateWorkingSet.<get-privateWorkingSet>|<get-privateWorkingSet>(){}[0]
+    final val stats // me.devnatan.dockerkt.models.container/MemoryStats.stats|{}stats[0]
+        final fun <get-stats>(): kotlin.collections/Map<kotlin/String, kotlin/ULong>? // me.devnatan.dockerkt.models.container/MemoryStats.stats.<get-stats>|<get-stats>(){}[0]
+    final val usage // me.devnatan.dockerkt.models.container/MemoryStats.usage|{}usage[0]
+        final fun <get-usage>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.usage.<get-usage>|<get-usage>(){}[0]
+
+    final fun component1(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.component1|component1(){}[0]
+    final fun component2(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.component2|component2(){}[0]
+    final fun component3(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.component3|component3(){}[0]
+    final fun component4(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.component4|component4(){}[0]
+    final fun component5(): kotlin.collections/Map<kotlin/String, kotlin/ULong>? // me.devnatan.dockerkt.models.container/MemoryStats.component5|component5(){}[0]
+    final fun component6(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.component6|component6(){}[0]
+    final fun component7(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.component7|component7(){}[0]
+    final fun component8(): kotlin/ULong? // me.devnatan.dockerkt.models.container/MemoryStats.component8|component8(){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/MemoryStats.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/MemoryStats.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/MemoryStats.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.container/MemoryStats> { // me.devnatan.dockerkt.models.container/MemoryStats.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.container/MemoryStats.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.container/MemoryStats.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.container/MemoryStats.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.container/MemoryStats // me.devnatan.dockerkt.models.container/MemoryStats.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.container/MemoryStats) // me.devnatan.dockerkt.models.container/MemoryStats.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.container.MemoryStats){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.container/MemoryStats.Companion|null[0]
+        final val $childSerializers // me.devnatan.dockerkt.models.container/MemoryStats.Companion.$childSerializers|{}$childSerializers[0]
+
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/MemoryStats> // me.devnatan.dockerkt.models.container/MemoryStats.Companion.serializer|serializer(){}[0]
+    }
+}
+
 final class me.devnatan.dockerkt.models.container/MountPoint { // me.devnatan.dockerkt.models.container/MountPoint|null[0]
     final val dest // me.devnatan.dockerkt.models.container/MountPoint.dest|{}dest[0]
         final fun <get-dest>(): kotlin/String // me.devnatan.dockerkt.models.container/MountPoint.dest.<get-dest>|<get-dest>(){}[0]
@@ -1158,6 +1417,137 @@ final class me.devnatan.dockerkt.models.container/NetworkSettings { // me.devnat
         final val $childSerializers // me.devnatan.dockerkt.models.container/NetworkSettings.Companion.$childSerializers|{}$childSerializers[0]
 
         final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/NetworkSettings> // me.devnatan.dockerkt.models.container/NetworkSettings.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class me.devnatan.dockerkt.models.container/NetworkStats { // me.devnatan.dockerkt.models.container/NetworkStats|null[0]
+    final val rxBytes // me.devnatan.dockerkt.models.container/NetworkStats.rxBytes|{}rxBytes[0]
+        final fun <get-rxBytes>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.rxBytes.<get-rxBytes>|<get-rxBytes>(){}[0]
+    final val rxDropped // me.devnatan.dockerkt.models.container/NetworkStats.rxDropped|{}rxDropped[0]
+        final fun <get-rxDropped>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.rxDropped.<get-rxDropped>|<get-rxDropped>(){}[0]
+    final val rxErrors // me.devnatan.dockerkt.models.container/NetworkStats.rxErrors|{}rxErrors[0]
+        final fun <get-rxErrors>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.rxErrors.<get-rxErrors>|<get-rxErrors>(){}[0]
+    final val rxPackets // me.devnatan.dockerkt.models.container/NetworkStats.rxPackets|{}rxPackets[0]
+        final fun <get-rxPackets>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.rxPackets.<get-rxPackets>|<get-rxPackets>(){}[0]
+    final val txBytes // me.devnatan.dockerkt.models.container/NetworkStats.txBytes|{}txBytes[0]
+        final fun <get-txBytes>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.txBytes.<get-txBytes>|<get-txBytes>(){}[0]
+    final val txDropped // me.devnatan.dockerkt.models.container/NetworkStats.txDropped|{}txDropped[0]
+        final fun <get-txDropped>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.txDropped.<get-txDropped>|<get-txDropped>(){}[0]
+    final val txErrors // me.devnatan.dockerkt.models.container/NetworkStats.txErrors|{}txErrors[0]
+        final fun <get-txErrors>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.txErrors.<get-txErrors>|<get-txErrors>(){}[0]
+    final val txPackets // me.devnatan.dockerkt.models.container/NetworkStats.txPackets|{}txPackets[0]
+        final fun <get-txPackets>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.txPackets.<get-txPackets>|<get-txPackets>(){}[0]
+
+    final fun component1(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.component1|component1(){}[0]
+    final fun component2(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.component2|component2(){}[0]
+    final fun component3(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.component3|component3(){}[0]
+    final fun component4(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.component4|component4(){}[0]
+    final fun component5(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.component5|component5(){}[0]
+    final fun component6(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.component6|component6(){}[0]
+    final fun component7(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.component7|component7(){}[0]
+    final fun component8(): kotlin/ULong? // me.devnatan.dockerkt.models.container/NetworkStats.component8|component8(){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/NetworkStats.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/NetworkStats.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/NetworkStats.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.container/NetworkStats> { // me.devnatan.dockerkt.models.container/NetworkStats.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.container/NetworkStats.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.container/NetworkStats.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.container/NetworkStats.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.container/NetworkStats // me.devnatan.dockerkt.models.container/NetworkStats.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.container/NetworkStats) // me.devnatan.dockerkt.models.container/NetworkStats.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.container.NetworkStats){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.container/NetworkStats.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/NetworkStats> // me.devnatan.dockerkt.models.container/NetworkStats.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class me.devnatan.dockerkt.models.container/PidsStats { // me.devnatan.dockerkt.models.container/PidsStats|null[0]
+    final val current // me.devnatan.dockerkt.models.container/PidsStats.current|{}current[0]
+        final fun <get-current>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/PidsStats.current.<get-current>|<get-current>(){}[0]
+    final val limit // me.devnatan.dockerkt.models.container/PidsStats.limit|{}limit[0]
+        final fun <get-limit>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/PidsStats.limit.<get-limit>|<get-limit>(){}[0]
+
+    final fun component1(): kotlin/ULong? // me.devnatan.dockerkt.models.container/PidsStats.component1|component1(){}[0]
+    final fun component2(): kotlin/ULong? // me.devnatan.dockerkt.models.container/PidsStats.component2|component2(){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/PidsStats.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/PidsStats.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/PidsStats.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.container/PidsStats> { // me.devnatan.dockerkt.models.container/PidsStats.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.container/PidsStats.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.container/PidsStats.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.container/PidsStats.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.container/PidsStats // me.devnatan.dockerkt.models.container/PidsStats.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.container/PidsStats) // me.devnatan.dockerkt.models.container/PidsStats.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.container.PidsStats){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.container/PidsStats.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/PidsStats> // me.devnatan.dockerkt.models.container/PidsStats.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class me.devnatan.dockerkt.models.container/StorageStats { // me.devnatan.dockerkt.models.container/StorageStats|null[0]
+    final val readCountNormalized // me.devnatan.dockerkt.models.container/StorageStats.readCountNormalized|{}readCountNormalized[0]
+        final fun <get-readCountNormalized>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/StorageStats.readCountNormalized.<get-readCountNormalized>|<get-readCountNormalized>(){}[0]
+    final val readSizeBytes // me.devnatan.dockerkt.models.container/StorageStats.readSizeBytes|{}readSizeBytes[0]
+        final fun <get-readSizeBytes>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/StorageStats.readSizeBytes.<get-readSizeBytes>|<get-readSizeBytes>(){}[0]
+    final val writeCountNormalized // me.devnatan.dockerkt.models.container/StorageStats.writeCountNormalized|{}writeCountNormalized[0]
+        final fun <get-writeCountNormalized>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/StorageStats.writeCountNormalized.<get-writeCountNormalized>|<get-writeCountNormalized>(){}[0]
+    final val writeSizeBytes // me.devnatan.dockerkt.models.container/StorageStats.writeSizeBytes|{}writeSizeBytes[0]
+        final fun <get-writeSizeBytes>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/StorageStats.writeSizeBytes.<get-writeSizeBytes>|<get-writeSizeBytes>(){}[0]
+
+    final fun component1(): kotlin/ULong? // me.devnatan.dockerkt.models.container/StorageStats.component1|component1(){}[0]
+    final fun component2(): kotlin/ULong? // me.devnatan.dockerkt.models.container/StorageStats.component2|component2(){}[0]
+    final fun component3(): kotlin/ULong? // me.devnatan.dockerkt.models.container/StorageStats.component3|component3(){}[0]
+    final fun component4(): kotlin/ULong? // me.devnatan.dockerkt.models.container/StorageStats.component4|component4(){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/StorageStats.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/StorageStats.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/StorageStats.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.container/StorageStats> { // me.devnatan.dockerkt.models.container/StorageStats.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.container/StorageStats.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.container/StorageStats.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.container/StorageStats.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.container/StorageStats // me.devnatan.dockerkt.models.container/StorageStats.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.container/StorageStats) // me.devnatan.dockerkt.models.container/StorageStats.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.container.StorageStats){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.container/StorageStats.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/StorageStats> // me.devnatan.dockerkt.models.container/StorageStats.Companion.serializer|serializer(){}[0]
+    }
+}
+
+final class me.devnatan.dockerkt.models.container/ThrottlingData { // me.devnatan.dockerkt.models.container/ThrottlingData|null[0]
+    final val periods // me.devnatan.dockerkt.models.container/ThrottlingData.periods|{}periods[0]
+        final fun <get-periods>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/ThrottlingData.periods.<get-periods>|<get-periods>(){}[0]
+    final val throttledPeriods // me.devnatan.dockerkt.models.container/ThrottlingData.throttledPeriods|{}throttledPeriods[0]
+        final fun <get-throttledPeriods>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/ThrottlingData.throttledPeriods.<get-throttledPeriods>|<get-throttledPeriods>(){}[0]
+    final val throttledTime // me.devnatan.dockerkt.models.container/ThrottlingData.throttledTime|{}throttledTime[0]
+        final fun <get-throttledTime>(): kotlin/ULong? // me.devnatan.dockerkt.models.container/ThrottlingData.throttledTime.<get-throttledTime>|<get-throttledTime>(){}[0]
+
+    final fun component1(): kotlin/ULong? // me.devnatan.dockerkt.models.container/ThrottlingData.component1|component1(){}[0]
+    final fun component2(): kotlin/ULong? // me.devnatan.dockerkt.models.container/ThrottlingData.component2|component2(){}[0]
+    final fun component3(): kotlin/ULong? // me.devnatan.dockerkt.models.container/ThrottlingData.component3|component3(){}[0]
+    final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ThrottlingData.equals|equals(kotlin.Any?){}[0]
+    final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ThrottlingData.hashCode|hashCode(){}[0]
+    final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ThrottlingData.toString|toString(){}[0]
+
+    final object $serializer : kotlinx.serialization.internal/GeneratedSerializer<me.devnatan.dockerkt.models.container/ThrottlingData> { // me.devnatan.dockerkt.models.container/ThrottlingData.$serializer|null[0]
+        final val descriptor // me.devnatan.dockerkt.models.container/ThrottlingData.$serializer.descriptor|{}descriptor[0]
+            final fun <get-descriptor>(): kotlinx.serialization.descriptors/SerialDescriptor // me.devnatan.dockerkt.models.container/ThrottlingData.$serializer.descriptor.<get-descriptor>|<get-descriptor>(){}[0]
+
+        final fun childSerializers(): kotlin/Array<kotlinx.serialization/KSerializer<*>> // me.devnatan.dockerkt.models.container/ThrottlingData.$serializer.childSerializers|childSerializers(){}[0]
+        final fun deserialize(kotlinx.serialization.encoding/Decoder): me.devnatan.dockerkt.models.container/ThrottlingData // me.devnatan.dockerkt.models.container/ThrottlingData.$serializer.deserialize|deserialize(kotlinx.serialization.encoding.Decoder){}[0]
+        final fun serialize(kotlinx.serialization.encoding/Encoder, me.devnatan.dockerkt.models.container/ThrottlingData) // me.devnatan.dockerkt.models.container/ThrottlingData.$serializer.serialize|serialize(kotlinx.serialization.encoding.Encoder;me.devnatan.dockerkt.models.container.ThrottlingData){}[0]
+    }
+
+    final object Companion { // me.devnatan.dockerkt.models.container/ThrottlingData.Companion|null[0]
+        final fun serializer(): kotlinx.serialization/KSerializer<me.devnatan.dockerkt.models.container/ThrottlingData> // me.devnatan.dockerkt.models.container/ThrottlingData.Companion.serializer|serializer(){}[0]
     }
 }
 
@@ -5195,6 +5585,7 @@ final class me.devnatan.dockerkt.resource.container/ContainerResource { // me.de
     final suspend fun resizeTTY(kotlin/String, me.devnatan.dockerkt.models/ResizeTTYOptions = ...) // me.devnatan.dockerkt.resource.container/ContainerResource.resizeTTY|resizeTTY(kotlin.String;me.devnatan.dockerkt.models.ResizeTTYOptions){}[0]
     final suspend fun restart(kotlin/String, kotlin.time/Duration? = ...) // me.devnatan.dockerkt.resource.container/ContainerResource.restart|restart(kotlin.String;kotlin.time.Duration?){}[0]
     final suspend fun start(kotlin/String, kotlin/String? = ...) // me.devnatan.dockerkt.resource.container/ContainerResource.start|start(kotlin.String;kotlin.String?){}[0]
+    final suspend fun stats(kotlin/String, me.devnatan.dockerkt.models.container/ContainerStatsOptions = ...): me.devnatan.dockerkt.models.container/ContainerStatsResult // me.devnatan.dockerkt.resource.container/ContainerResource.stats|stats(kotlin.String;me.devnatan.dockerkt.models.container.ContainerStatsOptions){}[0]
     final suspend fun stop(kotlin/String, kotlin.time/Duration? = ...) // me.devnatan.dockerkt.resource.container/ContainerResource.stop|stop(kotlin.String;kotlin.time.Duration?){}[0]
     final suspend fun unpause(kotlin/String) // me.devnatan.dockerkt.resource.container/ContainerResource.unpause|unpause(kotlin.String){}[0]
     final suspend fun wait(kotlin/String, kotlin/String? = ...): me.devnatan.dockerkt.models.container/ContainerWaitResult // me.devnatan.dockerkt.resource.container/ContainerResource.wait|wait(kotlin.String;kotlin.String?){}[0]
@@ -5445,6 +5836,34 @@ sealed class me.devnatan.dockerkt.models.container/ContainerLogsResult { // me.d
     }
 }
 
+sealed class me.devnatan.dockerkt.models.container/ContainerStatsResult { // me.devnatan.dockerkt.models.container/ContainerStatsResult|null[0]
+    final class Single : me.devnatan.dockerkt.models.container/ContainerStatsResult { // me.devnatan.dockerkt.models.container/ContainerStatsResult.Single|null[0]
+        constructor <init>(me.devnatan.dockerkt.models.container/ContainerStats) // me.devnatan.dockerkt.models.container/ContainerStatsResult.Single.<init>|<init>(me.devnatan.dockerkt.models.container.ContainerStats){}[0]
+
+        final val output // me.devnatan.dockerkt.models.container/ContainerStatsResult.Single.output|{}output[0]
+            final fun <get-output>(): me.devnatan.dockerkt.models.container/ContainerStats // me.devnatan.dockerkt.models.container/ContainerStatsResult.Single.output.<get-output>|<get-output>(){}[0]
+
+        final fun component1(): me.devnatan.dockerkt.models.container/ContainerStats // me.devnatan.dockerkt.models.container/ContainerStatsResult.Single.component1|component1(){}[0]
+        final fun copy(me.devnatan.dockerkt.models.container/ContainerStats = ...): me.devnatan.dockerkt.models.container/ContainerStatsResult.Single // me.devnatan.dockerkt.models.container/ContainerStatsResult.Single.copy|copy(me.devnatan.dockerkt.models.container.ContainerStats){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerStatsResult.Single.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerStatsResult.Single.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerStatsResult.Single.toString|toString(){}[0]
+    }
+
+    final class Stream : me.devnatan.dockerkt.models.container/ContainerStatsResult { // me.devnatan.dockerkt.models.container/ContainerStatsResult.Stream|null[0]
+        constructor <init>(kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models.container/ContainerStats>) // me.devnatan.dockerkt.models.container/ContainerStatsResult.Stream.<init>|<init>(kotlinx.coroutines.flow.Flow<me.devnatan.dockerkt.models.container.ContainerStats>){}[0]
+
+        final val output // me.devnatan.dockerkt.models.container/ContainerStatsResult.Stream.output|{}output[0]
+            final fun <get-output>(): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models.container/ContainerStats> // me.devnatan.dockerkt.models.container/ContainerStatsResult.Stream.output.<get-output>|<get-output>(){}[0]
+
+        final fun component1(): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models.container/ContainerStats> // me.devnatan.dockerkt.models.container/ContainerStatsResult.Stream.component1|component1(){}[0]
+        final fun copy(kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models.container/ContainerStats> = ...): me.devnatan.dockerkt.models.container/ContainerStatsResult.Stream // me.devnatan.dockerkt.models.container/ContainerStatsResult.Stream.copy|copy(kotlinx.coroutines.flow.Flow<me.devnatan.dockerkt.models.container.ContainerStats>){}[0]
+        final fun equals(kotlin/Any?): kotlin/Boolean // me.devnatan.dockerkt.models.container/ContainerStatsResult.Stream.equals|equals(kotlin.Any?){}[0]
+        final fun hashCode(): kotlin/Int // me.devnatan.dockerkt.models.container/ContainerStatsResult.Stream.hashCode|hashCode(){}[0]
+        final fun toString(): kotlin/String // me.devnatan.dockerkt.models.container/ContainerStatsResult.Stream.toString|toString(){}[0]
+    }
+}
+
 sealed class me.devnatan.dockerkt.models.exec/ExecStartResult { // me.devnatan.dockerkt.models.exec/ExecStartResult|null[0]
     final class Complete : me.devnatan.dockerkt.models.exec/ExecStartResult { // me.devnatan.dockerkt.models.exec/ExecStartResult.Complete|null[0]
         constructor <init>(kotlin/String) // me.devnatan.dockerkt.models.exec/ExecStartResult.Complete.<init>|<init>(kotlin.String){}[0]
@@ -5607,12 +6026,14 @@ final suspend fun (me.devnatan.dockerkt.resource.container/ContainerResource).me
 final suspend fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/copyTo(kotlin/String, kotlin/String, kotlin/ByteArray, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerCopyOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.container/copyTo|copyTo@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.String;kotlin.ByteArray;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerCopyOptions,kotlin.Unit>){}[0]
 final suspend fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/logsAsFlow(kotlin/String): kotlinx.coroutines.flow/Flow<me.devnatan.dockerkt.models/Frame> // me.devnatan.dockerkt.resource.container/logsAsFlow|logsAsFlow@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String){}[0]
 final suspend fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/logsDemuxed(kotlin/String): me.devnatan.dockerkt.models.container/ContainerLogsResult.StreamDemuxed // me.devnatan.dockerkt.resource.container/logsDemuxed|logsDemuxed@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String){}[0]
+final suspend fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/statsSnapshot(kotlin/String, kotlin/Boolean = ...): me.devnatan.dockerkt.models.container/ContainerStats // me.devnatan.dockerkt.resource.container/statsSnapshot|statsSnapshot@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.Boolean){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/create(kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerCreateOptions, kotlin/Unit>): kotlin/String // me.devnatan.dockerkt.resource.container/create|create@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerCreateOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/list(kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerListOptions, kotlin/Unit>): kotlin.collections/List<me.devnatan.dockerkt.models.container/ContainerSummary> // me.devnatan.dockerkt.resource.container/list|list@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerListOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/logs(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerLogsOptions, kotlin/Unit>): me.devnatan.dockerkt.models.container/ContainerLogsResult // me.devnatan.dockerkt.resource.container/logs|logs@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerLogsOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/prune(kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerPruneFilters, kotlin/Unit>): me.devnatan.dockerkt.models.container/ContainerPruneResult // me.devnatan.dockerkt.resource.container/prune|prune@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerPruneFilters,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/remove(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerRemoveOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.container/remove|remove@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerRemoveOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/resizeTTY(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models/ResizeTTYOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.container/resizeTTY|resizeTTY@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.ResizeTTYOptions,kotlin.Unit>){}[0]
+final suspend inline fun (me.devnatan.dockerkt.resource.container/ContainerResource).me.devnatan.dockerkt.resource.container/stats(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.container/ContainerStatsOptions, kotlin/Unit>): me.devnatan.dockerkt.models.container/ContainerStatsResult // me.devnatan.dockerkt.resource.container/stats|stats@me.devnatan.dockerkt.resource.container.ContainerResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.container.ContainerStatsOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.exec/ExecResource).me.devnatan.dockerkt.resource.exec/create(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.exec/ExecCreateOptions, kotlin/Unit>): kotlin/String // me.devnatan.dockerkt.resource.exec/create|create@me.devnatan.dockerkt.resource.exec.ExecResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.exec.ExecCreateOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.exec/ExecResource).me.devnatan.dockerkt.resource.exec/start(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.exec/ExecStartOptions, kotlin/Unit> = ...): me.devnatan.dockerkt.models.exec/ExecStartResult // me.devnatan.dockerkt.resource.exec/start|start@me.devnatan.dockerkt.resource.exec.ExecResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.exec.ExecStartOptions,kotlin.Unit>){}[0]
 final suspend inline fun (me.devnatan.dockerkt.resource.image/ImageResource).me.devnatan.dockerkt.resource.image/build(kotlin/String, kotlin/Function1<me.devnatan.dockerkt.models.image/ImageBuildOptions, kotlin/Unit>) // me.devnatan.dockerkt.resource.image/build|build@me.devnatan.dockerkt.resource.image.ImageResource(kotlin.String;kotlin.Function1<me.devnatan.dockerkt.models.image.ImageBuildOptions,kotlin.Unit>){}[0]

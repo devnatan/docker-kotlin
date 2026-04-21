@@ -10,7 +10,7 @@ Supports 48 of 106 endpoints
 * [x] Get container logs - **GET /containers/:id/logs**
 * [ ] Get changes on container's filesystem - **GET /containers/:id/changes**
 * [ ] Export a container - **GET /containers/:id/export**
-* [ ] Get container stats based on resource usage - **GET /containers/:id/stats**
+* [x] Get container stats based on resource usage - **GET /containers/:id/stats**
 * [x] Resize a container TTY - **POST /containers/:id/resize**
 * [x] Start a container - **POST /containers/:id/start**
 * [x] Stop a container - **POST /containers/:id/stop**
