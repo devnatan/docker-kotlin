@@ -71,7 +71,7 @@ jobs:
             sourceset: mingwX64
 
     runs-on: ${{ matrix.os.runner }}
-    name: Native - ${{ matrix.os.name }}
+    name: ${{ matrix.os.name }}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
