@@ -1225,6 +1225,76 @@ public final class me/devnatan/dockerkt/models/ThrottleDevice$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class me/devnatan/dockerkt/models/container/BlkioStats {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/BlkioStats$Companion;
+	public fun <init> ()V
+	public final fun component1 ()Ljava/util/List;
+	public final fun component2 ()Ljava/util/List;
+	public final fun component3 ()Ljava/util/List;
+	public final fun component4 ()Ljava/util/List;
+	public final fun component5 ()Ljava/util/List;
+	public final fun component6 ()Ljava/util/List;
+	public final fun component7 ()Ljava/util/List;
+	public final fun component8 ()Ljava/util/List;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getIoMergedRecursive ()Ljava/util/List;
+	public final fun getIoQueueRecursive ()Ljava/util/List;
+	public final fun getIoServiceBytesRecursive ()Ljava/util/List;
+	public final fun getIoServiceTimeRecursive ()Ljava/util/List;
+	public final fun getIoServicedRecursive ()Ljava/util/List;
+	public final fun getIoTimeRecursive ()Ljava/util/List;
+	public final fun getIoWaitTimeRecursive ()Ljava/util/List;
+	public final fun getSectorsRecursive ()Ljava/util/List;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/BlkioStats$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/BlkioStats$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/BlkioStats;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/BlkioStats;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/BlkioStats$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/BlkioStatsEntry {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/BlkioStatsEntry$Companion;
+	public synthetic fun <init> (Lkotlin/ULong;Lkotlin/ULong;Ljava/lang/String;Lkotlin/ULong;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-6VbMDqA ()Lkotlin/ULong;
+	public final fun component2-6VbMDqA ()Lkotlin/ULong;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4-6VbMDqA ()Lkotlin/ULong;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getMajor-6VbMDqA ()Lkotlin/ULong;
+	public final fun getMinor-6VbMDqA ()Lkotlin/ULong;
+	public final fun getOp ()Ljava/lang/String;
+	public final fun getValue-6VbMDqA ()Lkotlin/ULong;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/BlkioStatsEntry$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/BlkioStatsEntry$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/BlkioStatsEntry;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/BlkioStatsEntry;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/BlkioStatsEntry$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class me/devnatan/dockerkt/models/container/Container {
 	public static final field Companion Lme/devnatan/dockerkt/models/container/Container$Companion;
 	public final fun component1 ()Ljava/lang/String;
@@ -1994,6 +2064,89 @@ public final class me/devnatan/dockerkt/models/container/ContainerState$Status$R
 	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/ContainerState$Status$Running;
 }
 
+public final class me/devnatan/dockerkt/models/container/ContainerStats {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/ContainerStats$Companion;
+	public synthetic fun <init> (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lkotlin/ULong;Lme/devnatan/dockerkt/models/container/PidsStats;Lme/devnatan/dockerkt/models/container/CpuStats;Lme/devnatan/dockerkt/models/container/CpuStats;Lme/devnatan/dockerkt/models/container/MemoryStats;Lme/devnatan/dockerkt/models/container/BlkioStats;Ljava/util/Map;Lme/devnatan/dockerkt/models/container/StorageStats;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun component10 ()Lme/devnatan/dockerkt/models/container/BlkioStats;
+	public final fun component11 ()Ljava/util/Map;
+	public final fun component12 ()Lme/devnatan/dockerkt/models/container/StorageStats;
+	public final fun component2 ()Ljava/lang/String;
+	public final fun component3 ()Ljava/lang/String;
+	public final fun component4 ()Ljava/lang/String;
+	public final fun component5-6VbMDqA ()Lkotlin/ULong;
+	public final fun component6 ()Lme/devnatan/dockerkt/models/container/PidsStats;
+	public final fun component7 ()Lme/devnatan/dockerkt/models/container/CpuStats;
+	public final fun component8 ()Lme/devnatan/dockerkt/models/container/CpuStats;
+	public final fun component9 ()Lme/devnatan/dockerkt/models/container/MemoryStats;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getBlkioStats ()Lme/devnatan/dockerkt/models/container/BlkioStats;
+	public final fun getCpuStats ()Lme/devnatan/dockerkt/models/container/CpuStats;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getMemoryStats ()Lme/devnatan/dockerkt/models/container/MemoryStats;
+	public final fun getName ()Ljava/lang/String;
+	public final fun getNetworks ()Ljava/util/Map;
+	public final fun getNumProcs-6VbMDqA ()Lkotlin/ULong;
+	public final fun getPidsStats ()Lme/devnatan/dockerkt/models/container/PidsStats;
+	public final fun getPrecpuStats ()Lme/devnatan/dockerkt/models/container/CpuStats;
+	public final fun getPreread ()Ljava/lang/String;
+	public final fun getRead ()Ljava/lang/String;
+	public final fun getStorageStats ()Lme/devnatan/dockerkt/models/container/StorageStats;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/ContainerStats$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/ContainerStats$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/ContainerStats;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/ContainerStats;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerStats$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerStatsOptions {
+	public fun <init> ()V
+	public fun <init> (Z)V
+	public fun <init> (ZZ)V
+	public synthetic fun <init> (ZZILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun getOneShot ()Z
+	public final fun getStream ()Z
+	public final fun setOneShot (Z)V
+	public final fun setStream (Z)V
+}
+
+public abstract class me/devnatan/dockerkt/models/container/ContainerStatsResult {
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerStatsResult$Single : me/devnatan/dockerkt/models/container/ContainerStatsResult {
+	public fun <init> (Lme/devnatan/dockerkt/models/container/ContainerStats;)V
+	public final fun component1 ()Lme/devnatan/dockerkt/models/container/ContainerStats;
+	public final fun copy (Lme/devnatan/dockerkt/models/container/ContainerStats;)Lme/devnatan/dockerkt/models/container/ContainerStatsResult$Single;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerStatsResult$Single;Lme/devnatan/dockerkt/models/container/ContainerStats;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerStatsResult$Single;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOutput ()Lme/devnatan/dockerkt/models/container/ContainerStats;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class me/devnatan/dockerkt/models/container/ContainerStatsResult$Stream : me/devnatan/dockerkt/models/container/ContainerStatsResult {
+	public fun <init> (Lkotlinx/coroutines/flow/Flow;)V
+	public final fun component1 ()Lkotlinx/coroutines/flow/Flow;
+	public final fun copy (Lkotlinx/coroutines/flow/Flow;)Lme/devnatan/dockerkt/models/container/ContainerStatsResult$Stream;
+	public static synthetic fun copy$default (Lme/devnatan/dockerkt/models/container/ContainerStatsResult$Stream;Lkotlinx/coroutines/flow/Flow;ILjava/lang/Object;)Lme/devnatan/dockerkt/models/container/ContainerStatsResult$Stream;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getOutput ()Lkotlinx/coroutines/flow/Flow;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
 public final class me/devnatan/dockerkt/models/container/ContainerSummary {
 	public static final field Companion Lme/devnatan/dockerkt/models/container/ContainerSummary$Companion;
 	public final fun component1 ()Ljava/lang/String;
@@ -2122,6 +2275,107 @@ public final class me/devnatan/dockerkt/models/container/ContainerWaitResult$Err
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
+public final class me/devnatan/dockerkt/models/container/CpuStats {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/CpuStats$Companion;
+	public synthetic fun <init> (Lme/devnatan/dockerkt/models/container/CpuUsage;Lkotlin/ULong;Lkotlin/ULong;Lme/devnatan/dockerkt/models/container/ThrottlingData;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1 ()Lme/devnatan/dockerkt/models/container/CpuUsage;
+	public final fun component2-6VbMDqA ()Lkotlin/ULong;
+	public final fun component3-6VbMDqA ()Lkotlin/ULong;
+	public final fun component4 ()Lme/devnatan/dockerkt/models/container/ThrottlingData;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCpuUsage ()Lme/devnatan/dockerkt/models/container/CpuUsage;
+	public final fun getOnlineCpus-6VbMDqA ()Lkotlin/ULong;
+	public final fun getSystemCpuUsage-6VbMDqA ()Lkotlin/ULong;
+	public final fun getThrottlingData ()Lme/devnatan/dockerkt/models/container/ThrottlingData;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/CpuStats$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/CpuStats$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/CpuStats;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/CpuStats;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/CpuStats$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/CpuUsage {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/CpuUsage$Companion;
+	public synthetic fun <init> (Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;Ljava/util/List;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-6VbMDqA ()Lkotlin/ULong;
+	public final fun component2-6VbMDqA ()Lkotlin/ULong;
+	public final fun component3-6VbMDqA ()Lkotlin/ULong;
+	public final fun component4 ()Ljava/util/List;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPercpuUsage ()Ljava/util/List;
+	public final fun getTotalUsage-6VbMDqA ()Lkotlin/ULong;
+	public final fun getUsageInKernelmode-6VbMDqA ()Lkotlin/ULong;
+	public final fun getUsageInUsermode-6VbMDqA ()Lkotlin/ULong;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/CpuUsage$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/CpuUsage$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/CpuUsage;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/CpuUsage;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/CpuUsage$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/MemoryStats {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/MemoryStats$Companion;
+	public synthetic fun <init> (Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;Ljava/util/Map;Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-6VbMDqA ()Lkotlin/ULong;
+	public final fun component2-6VbMDqA ()Lkotlin/ULong;
+	public final fun component3-6VbMDqA ()Lkotlin/ULong;
+	public final fun component4-6VbMDqA ()Lkotlin/ULong;
+	public final fun component5 ()Ljava/util/Map;
+	public final fun component6-6VbMDqA ()Lkotlin/ULong;
+	public final fun component7-6VbMDqA ()Lkotlin/ULong;
+	public final fun component8-6VbMDqA ()Lkotlin/ULong;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCommitBytes-6VbMDqA ()Lkotlin/ULong;
+	public final fun getCommitPeakBytes-6VbMDqA ()Lkotlin/ULong;
+	public final fun getFailcnt-6VbMDqA ()Lkotlin/ULong;
+	public final fun getLimit-6VbMDqA ()Lkotlin/ULong;
+	public final fun getMaxUsage-6VbMDqA ()Lkotlin/ULong;
+	public final fun getPrivateWorkingSet-6VbMDqA ()Lkotlin/ULong;
+	public final fun getStats ()Ljava/util/Map;
+	public final fun getUsage-6VbMDqA ()Lkotlin/ULong;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/MemoryStats$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/MemoryStats$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/MemoryStats;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/MemoryStats;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/MemoryStats$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
 public final class me/devnatan/dockerkt/models/container/MountPoint {
 	public static final field Companion Lme/devnatan/dockerkt/models/container/MountPoint$Companion;
 	public final fun component1 ()Ljava/lang/String;
@@ -2197,6 +2451,132 @@ public final synthetic class me/devnatan/dockerkt/models/container/NetworkSettin
 }
 
 public final class me/devnatan/dockerkt/models/container/NetworkSettings$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/NetworkStats {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/NetworkStats$Companion;
+	public synthetic fun <init> (Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-6VbMDqA ()Lkotlin/ULong;
+	public final fun component2-6VbMDqA ()Lkotlin/ULong;
+	public final fun component3-6VbMDqA ()Lkotlin/ULong;
+	public final fun component4-6VbMDqA ()Lkotlin/ULong;
+	public final fun component5-6VbMDqA ()Lkotlin/ULong;
+	public final fun component6-6VbMDqA ()Lkotlin/ULong;
+	public final fun component7-6VbMDqA ()Lkotlin/ULong;
+	public final fun component8-6VbMDqA ()Lkotlin/ULong;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getRxBytes-6VbMDqA ()Lkotlin/ULong;
+	public final fun getRxDropped-6VbMDqA ()Lkotlin/ULong;
+	public final fun getRxErrors-6VbMDqA ()Lkotlin/ULong;
+	public final fun getRxPackets-6VbMDqA ()Lkotlin/ULong;
+	public final fun getTxBytes-6VbMDqA ()Lkotlin/ULong;
+	public final fun getTxDropped-6VbMDqA ()Lkotlin/ULong;
+	public final fun getTxErrors-6VbMDqA ()Lkotlin/ULong;
+	public final fun getTxPackets-6VbMDqA ()Lkotlin/ULong;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/NetworkStats$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/NetworkStats$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/NetworkStats;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/NetworkStats;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/NetworkStats$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/PidsStats {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/PidsStats$Companion;
+	public synthetic fun <init> (Lkotlin/ULong;Lkotlin/ULong;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-6VbMDqA ()Lkotlin/ULong;
+	public final fun component2-6VbMDqA ()Lkotlin/ULong;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getCurrent-6VbMDqA ()Lkotlin/ULong;
+	public final fun getLimit-6VbMDqA ()Lkotlin/ULong;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/PidsStats$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/PidsStats$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/PidsStats;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/PidsStats;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/PidsStats$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/StorageStats {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/StorageStats$Companion;
+	public synthetic fun <init> (Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-6VbMDqA ()Lkotlin/ULong;
+	public final fun component2-6VbMDqA ()Lkotlin/ULong;
+	public final fun component3-6VbMDqA ()Lkotlin/ULong;
+	public final fun component4-6VbMDqA ()Lkotlin/ULong;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getReadCountNormalized-6VbMDqA ()Lkotlin/ULong;
+	public final fun getReadSizeBytes-6VbMDqA ()Lkotlin/ULong;
+	public final fun getWriteCountNormalized-6VbMDqA ()Lkotlin/ULong;
+	public final fun getWriteSizeBytes-6VbMDqA ()Lkotlin/ULong;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/StorageStats$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/StorageStats$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/StorageStats;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/StorageStats;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/StorageStats$Companion {
+	public final fun serializer ()Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/ThrottlingData {
+	public static final field Companion Lme/devnatan/dockerkt/models/container/ThrottlingData$Companion;
+	public synthetic fun <init> (Lkotlin/ULong;Lkotlin/ULong;Lkotlin/ULong;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public final fun component1-6VbMDqA ()Lkotlin/ULong;
+	public final fun component2-6VbMDqA ()Lkotlin/ULong;
+	public final fun component3-6VbMDqA ()Lkotlin/ULong;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getPeriods-6VbMDqA ()Lkotlin/ULong;
+	public final fun getThrottledPeriods-6VbMDqA ()Lkotlin/ULong;
+	public final fun getThrottledTime-6VbMDqA ()Lkotlin/ULong;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final synthetic class me/devnatan/dockerkt/models/container/ThrottlingData$$serializer : kotlinx/serialization/internal/GeneratedSerializer {
+	public static final field INSTANCE Lme/devnatan/dockerkt/models/container/ThrottlingData$$serializer;
+	public final fun childSerializers ()[Lkotlinx/serialization/KSerializer;
+	public synthetic fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Ljava/lang/Object;
+	public final fun deserialize (Lkotlinx/serialization/encoding/Decoder;)Lme/devnatan/dockerkt/models/container/ThrottlingData;
+	public final fun getDescriptor ()Lkotlinx/serialization/descriptors/SerialDescriptor;
+	public synthetic fun serialize (Lkotlinx/serialization/encoding/Encoder;Ljava/lang/Object;)V
+	public final fun serialize (Lkotlinx/serialization/encoding/Encoder;Lme/devnatan/dockerkt/models/container/ThrottlingData;)V
+	public fun typeParametersSerializers ()[Lkotlinx/serialization/KSerializer;
+}
+
+public final class me/devnatan/dockerkt/models/container/ThrottlingData$Companion {
 	public final fun serializer ()Lkotlinx/serialization/KSerializer;
 }
 
@@ -5034,6 +5414,8 @@ public final class me/devnatan/dockerkt/resource/container/ContainerResource {
 	public static synthetic fun restart-Kx4hsE0$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/time/Duration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 	public final fun start (Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun start$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Ljava/lang/String;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
+	public final fun stats (Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerStatsOptions;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun stats$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lme/devnatan/dockerkt/models/container/ContainerStatsOptions;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 	public final fun stop-Kx4hsE0 (Ljava/lang/String;Lkotlin/time/Duration;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static synthetic fun stop-Kx4hsE0$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/time/Duration;Lkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 	public final fun unpause (Ljava/lang/String;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
@@ -5053,6 +5435,9 @@ public final class me/devnatan/dockerkt/resource/container/ContainerResourceExtK
 	public static final fun prune (Lme/devnatan/dockerkt/resource/container/ContainerResource;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun remove (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public static final fun resizeTTY (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun stats (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static final fun statsSnapshot (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public static synthetic fun statsSnapshot$default (Lme/devnatan/dockerkt/resource/container/ContainerResource;Ljava/lang/String;ZLkotlin/coroutines/Continuation;ILjava/lang/Object;)Ljava/lang/Object;
 }
 
 public class me/devnatan/dockerkt/resource/exec/ExecException : me/devnatan/dockerkt/DockerResourceException {
