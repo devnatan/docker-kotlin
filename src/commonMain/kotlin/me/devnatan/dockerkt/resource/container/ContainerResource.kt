@@ -353,8 +353,9 @@ public class ContainerResource internal constructor(
             }
         }.let { response ->
             val channel = response.bodyAsChannel()
-            val line = channel.readUTF8Line()
-                ?: error("Empty response from stats endpoint for container $container")
+            val line =
+                channel.readUTF8Line()
+                    ?: error("Empty response from stats endpoint for container $container")
             json.decodeFromString<ContainerStats>(line)
         }
 
