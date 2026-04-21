@@ -14,6 +14,9 @@ import me.devnatan.dockerkt.models.container.ContainerLogsResult
 import me.devnatan.dockerkt.models.container.ContainerPruneFilters
 import me.devnatan.dockerkt.models.container.ContainerPruneResult
 import me.devnatan.dockerkt.models.container.ContainerRemoveOptions
+import me.devnatan.dockerkt.models.container.ContainerStats
+import me.devnatan.dockerkt.models.container.ContainerStatsOptions
+import me.devnatan.dockerkt.models.container.ContainerStatsResult
 import me.devnatan.dockerkt.models.container.ContainerSummary
 import me.devnatan.dockerkt.resource.image.ImageNotFoundException
 import kotlin.contracts.ExperimentalContracts
@@ -92,6 +95,42 @@ public suspend inline fun ContainerResource.logs(
     container: String,
     block: ContainerLogsOptions.() -> Unit,
 ): ContainerLogsResult = logs(container, ContainerLogsOptions().apply(block))
+
+/**
+ * Get resource usage statistics for a container.
+ *
+ * @param container Container id or name.
+ * @param block Configuration for stats retrieval. See [ContainerStatsOptions].
+ * @return [ContainerStatsResult] whose concrete type depends on the options:
+ *   - [ContainerStatsResult.Stream] when [ContainerStatsOptions.stream] is `true`.
+ *   - [ContainerStatsResult.Single] when [ContainerStatsOptions.stream] is `false`.
+ *
+ * @throws ContainerNotFoundException If the container is not found.
+ */
+public suspend inline fun ContainerResource.stats(
+    container: String,
+    block: ContainerStatsOptions.() -> Unit,
+): ContainerStatsResult = stats(container, ContainerStatsOptions().apply(block))
+
+/**
+ * Get a single snapshot of resource usage statistics for a container.
+ *
+ * @param container Container id or name.
+ * @param oneShot When `true`, Docker skips its default 1-second pre-read used to
+ *                compute CPU deltas and returns stats immediately.
+ *
+ * @throws ContainerNotFoundException If the container is not found.
+ */
+public suspend fun ContainerResource.statsSnapshot(
+    container: String,
+    oneShot: Boolean = false,
+): ContainerStats =
+    (
+        stats(
+            container = container,
+            options = ContainerStatsOptions(stream = false, oneShot = oneShot),
+        ) as ContainerStatsResult.Single
+    ).output
 
 /**
  * Get logs from a container with [ContainerLogsOptions.follow], [ContainerLogsOptions.demux], [ContainerLogsOptions.stdout]
