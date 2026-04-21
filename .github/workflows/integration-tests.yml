@@ -68,13 +68,9 @@ jobs:
             runner: ubuntu-24.04
             sourceset: linuxX64
 
-          - name: macOS (Intel)
+          - name: macOS
             runner: macos-15-intel
             sourceset: macosX64
-
-          - name: macOS (Apple Silicon)
-            runner: macos-15
-            sourceset: macosArm64
 
           - name: Windows
             runner: windows-2025
