@@ -73,6 +73,12 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Setup Docker CE
+        uses: docker/setup-docker-action@v4.6.0
+        if: ${{ matrix.os.sourceset == 'macosX64' }}
+        with:
+          version: v${{ env.DOCKER_CE_VERSION }}
+
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:
