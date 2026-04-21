@@ -4,10 +4,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.test.runTest
 import kotlinx.io.files.Path
 import me.devnatan.dockerkt.io.FileSystemUtils
-import me.devnatan.dockerkt.models.exec.ExecStartOptions
-import me.devnatan.dockerkt.models.exec.ExecStartResult
 import me.devnatan.dockerkt.resource.ResourceIT
-import me.devnatan.dockerkt.resource.exec.create
 import me.devnatan.dockerkt.sleepForever
 import me.devnatan.dockerkt.withContainer
 import kotlin.test.Test
@@ -76,15 +73,22 @@ class CopyContainerArchivesIT : ResourceIT() {
                         "/tmp/",
                     )
 
-                    val execId =
-                        testClient.exec.create(id) {
-                            command = listOf("cat", "/tmp/${tempFile.name}")
-                            attachStdout = true
-                        }
-
-                    val result = testClient.exec.start(execId, ExecStartOptions())
-                    assertTrue(result is ExecStartResult.Complete)
-                    assertTrue(result.output.contains("hello from host"))
+                    val verifyDir = FileSystemUtils.createTempDirectory()
+                    try {
+                        testClient.containers.copyFileFrom(
+                            id,
+                            "/tmp/${tempFile.name}",
+                            verifyDir.toString(),
+                        )
+                        val copiedBack = Path(verifyDir, tempFile.name)
+                        assertTrue(FileSystemUtils.exists(copiedBack))
+                        assertEquals(
+                            expected = "hello from host",
+                            actual = FileSystemUtils.readFile(copiedBack).decodeToString(),
+                        )
+                    } finally {
+                        FileSystemUtils.deleteRecursively(verifyDir)
+                    }
                 } finally {
                     FileSystemUtils.delete(tempFile)
                     testClient.containers.stop(id)
@@ -165,24 +169,23 @@ class CopyContainerArchivesIT : ResourceIT() {
                         "/tmp/",
                     )
 
-                    val execId =
-                        testClient.exec.create(id) {
-                            command = listOf("sh", "-c", "cat /tmp/file1.txt && cat /tmp/file2.txt")
-                            attachStdout = true
-                        }
-
-                    val result = testClient.exec.start(execId, ExecStartOptions())
-                    assertTrue(result is ExecStartResult.Complete)
-
-                    val output = result.output
-                    assertTrue(
-                        actual = output.contains("content1"),
-                        message = "Expected 'content1' in output, but got: $output",
-                    )
-                    assertTrue(
-                        actual = output.contains("content2"),
-                        message = "Expected 'content2' in output, but got: $output",
-                    )
+                    val verifyDir = FileSystemUtils.createTempDirectory()
+                    try {
+                        val srcName = tempDir.name
+                        testClient.containers.copyDirectoryFrom(
+                            id,
+                            "/tmp/$srcName",
+                            verifyDir.toString(),
+                        )
+                        val copiedFile1 = Path(verifyDir, "$srcName/file1.txt")
+                        val copiedFile2 = Path(verifyDir, "$srcName/file2.txt")
+                        assertTrue(FileSystemUtils.exists(copiedFile1))
+                        assertTrue(FileSystemUtils.exists(copiedFile2))
+                        assertEquals("content1", FileSystemUtils.readFile(copiedFile1).decodeToString())
+                        assertEquals("content2", FileSystemUtils.readFile(copiedFile2).decodeToString())
+                    } finally {
+                        FileSystemUtils.deleteRecursively(verifyDir)
+                    }
                 } finally {
                     FileSystemUtils.deleteRecursively(tempDir)
                     testClient.containers.stop(id)
